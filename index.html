@@ -1,0 +1,1064 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>PackTuning Software — каталог программ для упаковки, логистики и SQL</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="PackTuning Software: каталог программ для паллетизации, расчета стоимости гофроупаковки, расчета нагрузки на гофроящик по ГОСТ 9142-90, учета лицензий и поиска по базам данных SQL Server.">
+<meta name="keywords" content="PackTuning Software, программы для упаковки, паллетизация, расчет стоимости гофроящика, ГОСТ 9142-90, расчет нагрузки на гофроящик, учет лицензий, поиск по базе данных, SQL Server, Box Palletizer, Box Price Calculator, LicMan, DBSearch">
+<meta name="author" content="Viktor Guberniev">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://governorv.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PackTuning Software">
+<meta property="og:title" content="PackTuning Software — каталог программ для упаковки и логистики">
+<meta property="og:description" content="Программы для паллетизации, расчета стоимости гофроупаковки, расчета нагрузки на гофроящик по ГОСТ 9142-90, учета лицензий и поиска по базам данных SQL Server.">
+<meta property="og:url" content="https://governorv.github.io/">
+<meta property="og:image" content="https://governorv.github.io/palletizer_banner.png">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PackTuning Software — Product Catalog">
+<meta name="twitter:description" content="Software tools for packaging, palletizing, corrugated box costing, GOST 9142-90 box load calculation, license tracking and database search.">
+<meta name="twitter:image" content="https://governorv.github.io/palletizer_banner_en.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "PackTuning Software Product Catalog",
+  "description": "Catalog of desktop software tools for packaging, palletizing, corrugated packaging costing, GOST 9142-90 box load calculation, license management and database search.",
+  "url": "https://governorv.github.io/",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "url": "https://governorv.github.io/DBSearch/",
+      "name": "DBSearch"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "url": "https://governorv.github.io/Licman/",
+      "name": "LicMan"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "url": "https://governorv.github.io/BoxPalletizer/",
+      "name": "Box Palletizer"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "url": "https://governorv.github.io/BoxPriceCalculator/",
+      "name": "Box Price Calculator"
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "url": "https://governorv.github.io/OptCutting/",
+      "name": "OptCutting"
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
+      "url": "https://governorv.github.io/gost/",
+      "name": "GOST 9142-90 Box Load Calculator"
+    }
+  ]
+}
+</script>
+
+<style>
+:root{
+  color-scheme: light dark;
+  --bg:#f4f7fb;
+  --card:#ffffff;
+  --cardSoft:#f8fbff;
+  --line:rgba(16,30,55,.14);
+  --text:#152033;
+  --muted:#52627a;
+  --topbar:rgba(244,247,251,.86);
+  --soft:rgba(16,30,55,.04);
+  --coverBg:#e8eef7;
+  --accent:#6aa9ff;
+  --accent2:#2fd0a1;
+  --warn:#ffd36a;
+  --shadow:0 20px 70px rgba(26,52,92,.09);
+  --radius:18px;
+}
+[data-theme="night"]{
+  color-scheme: dark;
+  --bg:#0b1220;
+  --card:#111a30;
+  --cardSoft:#16213b;
+  --line:rgba(255,255,255,.12);
+  --text:#e8eefc;
+  --muted:#b6c2e2;
+  --topbar:rgba(11,18,32,.78);
+  --soft:rgba(255,255,255,.04);
+  --coverBg:#000;
+  --accent:#6aa9ff;
+  --accent2:#79ffd2;
+  --shadow:0 18px 60px rgba(0,0,0,.18);
+}
+[data-theme="day"]{
+  color-scheme: light;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.55;
+}
+a{color:inherit}
+.container{max-width:1200px;margin:auto;padding:0 20px}
+section{padding:44px 0}
+h1,h2,h3{margin:0 0 12px}
+p{margin:0 0 12px;color:var(--muted)}
+.small{font-size:13px;color:var(--muted)}
+.badge{
+  display:inline-block;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  margin:6px 6px 0 0;
+  font-size:12px;
+  color:var(--muted);
+}
+.btn{
+  display:inline-block;
+  padding:12px 16px;
+  border-radius:14px;
+  text-decoration:none;
+  font-weight:800;
+  margin:6px 6px 0 0;
+  border:1px solid transparent;
+}
+.btn.primary{
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#071021;
+}
+.btn.secondary{
+  border:1px solid var(--line);
+  color:var(--text);
+  background:rgba(255,255,255,.03);
+}
+.btn.ghost{
+  border:1px dashed var(--line);
+  color:var(--muted);
+  background:transparent;
+}
+hr.sep{
+  border:none;
+  border-top:1px solid var(--line);
+  margin:18px 0;
+}
+
+/* Top bar + language switcher */
+.topbar{
+  position:sticky; top:0; z-index:999;
+  background:var(--topbar);
+  backdrop-filter: blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.topbar .inner{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:14px; padding:12px 0;
+}
+.brand{
+  display:flex; align-items:center; gap:12px;
+  text-decoration:none;
+}
+.logoMark{
+  width:36px; height:36px;
+  border-radius:14px;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  box-shadow: 0 18px 50px rgba(106,169,255,.14);
+}
+.brand .name{display:flex; flex-direction:column; line-height:1.1}
+.brand .name strong{font-size:14px}
+.brand .name span{font-size:12px; color:var(--muted)}
+
+.toolbar{display:flex; gap:10px; align-items:center; flex-wrap:wrap; justify-content:flex-end}
+.lang,.themeSwitch{display:flex; gap:8px; align-items:center}
+.lang button,.themeSwitch button{
+  border:1px solid var(--line);
+  background:var(--soft);
+  color:var(--text);
+  border-radius:12px;
+  padding:8px 10px;
+  font-weight:800;
+  cursor:pointer;
+}
+.lang button.active,.themeSwitch button.active{
+  border-color:transparent;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#071021;
+}
+
+/* Hero */
+.hero{
+  padding:38px 0 20px;
+}
+.heroGrid{
+  display:grid;
+  grid-template-columns: 1.3fr .7fr;
+  gap:18px;
+}
+@media(max-width:900px){
+  .heroGrid{grid-template-columns:1fr}
+}
+.card{
+  background:linear-gradient(180deg,var(--card),var(--cardSoft));
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:26px;
+  box-shadow:var(--shadow);
+}
+
+/* Product cards */
+.cardsGrid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:24px;
+}
+@media(max-width:1100px){
+  .cardsGrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:700px){
+  .cardsGrid{grid-template-columns:1fr}
+}
+.productCard{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+.productCover {
+  width:100%;
+  border-radius:16px;
+  overflow:hidden;
+  border:1px solid var(--line);
+  background:var(--coverBg);
+}
+
+.productCover img{
+  width:100%;
+  aspect-ratio:3/2;
+  height:auto;
+  object-fit:contain;
+  background:var(--coverBg);
+  display:block;
+}
+.productHead{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+}
+.productIcon{
+  width:54px; height:54px;
+  border-radius:18px;
+  border:1px solid var(--line);
+  background:var(--soft);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex:0 0 auto;
+  overflow:hidden;
+}
+.productIcon img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+}
+.productIcon .glyph{
+  width:100%;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:900;
+  letter-spacing:.4px;
+  color:#071021;
+}
+.productTitleWrap{min-width:0}
+.productTitle{
+  font-size:18px;
+  margin:0 0 4px;
+}
+.productSub{
+  margin:0;
+  color:var(--muted);
+  font-size:13px;
+}
+.pills{margin-top:6px}
+.priceBlock{
+  padding:14px 16px;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:var(--soft);
+}
+.priceLine{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px 14px;
+  align-items:baseline;
+  margin:0 0 6px;
+}
+.priceMain{
+  font-weight:900;
+  font-size:18px;
+  color:var(--text);
+}
+.priceNote{
+  font-size:13px;
+  color:var(--muted);
+}
+.priceList{
+  margin:0;
+  padding-left:16px;
+  color:var(--muted);
+  font-size:13px;
+}
+.actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:2px;
+}
+
+footer{
+  border-top:1px solid var(--line);
+  padding:30px 0;
+  color:var(--muted);
+  font-size:13px;
+}
+.kpi{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin-top:10px;
+}
+@media(max-width:900px){
+  .kpi{grid-template-columns:1fr}
+}
+.kpi .mini{
+  border:1px solid var(--line);
+  background:var(--soft);
+  border-radius:16px;
+  padding:14px 16px;
+}
+.kpi .mini b{color:var(--text)}
+</style>
+</head>
+
+<body>
+
+<header class="topbar">
+  <div class="container">
+    <div class="inner">
+      <a class="brand" href="#top" aria-label="PackTuning Software">
+        <div class="logoMark" aria-hidden="true"></div>
+        <div class="name">
+          <strong>PackTuning Software</strong>
+          <span id="tagline">Каталог программ</span>
+        </div>
+      </a>
+
+      <div class="toolbar">
+        <div class="themeSwitch" aria-label="Theme switcher">
+          <button id="btn-day" type="button" title="Day theme">Day</button>
+          <button id="btn-night" type="button" title="Night theme">Night</button>
+        </div>
+
+        <div class="lang" aria-label="Language switcher">
+          <button id="btn-ru" type="button">RU</button>
+          <button id="btn-en" type="button">EN</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container heroGrid">
+      <div class="card">
+        <h1 id="heroTitle">Программы для упаковки и логистики</h1>
+        <p id="heroText">
+          Набор инструментов для производителей и складов: паллетизация, расчёт себестоимости гофроизделий,
+          и другие модули, которые мы будем добавлять дальше.
+        </p>
+
+        <a class="btn secondary" href="#products" id="btnToProducts">Перейти к программам</a>
+        <a class="btn secondary" href="mailto:vguberniev@gmail.com" id="btnContactTop">Написать: vguberniev@gmail.com</a>
+
+        <div class="kpi">
+          <div class="mini"><b id="kpi1a">Быстро внедряется</b><div class="small" id="kpi1b">без серверов и сложной установки</div></div>
+          <div class="mini"><b id="kpi2a">Понятно складу</b><div class="small" id="kpi2b">схемы, отчёты, визуализация</div></div>
+          <div class="mini"><b id="kpi3a">Окупаемость</b><div class="small" id="kpi3b">меньше брака, ошибок и ручного труда</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 id="heroSideTitle">Как выбрать</h3>
+        <p id="heroSideText">
+          Открой карточку → скачай демо → оцени интерфейс → напиши мне, если нужно внедрение или лицензирование.
+        </p>
+        <div>
+          <span class="badge" id="badgeWin">Windows</span>
+          <span class="badge" id="badgeSMB">SMB / manufacturing</span>
+          <span class="badge" id="badgeB2B">B2B</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+   <!-- PRODUCTS -->
+  <section id="products">
+    <div class="container">
+      <h2 id="productsTitle">Программы</h2>
+      <p id="productsLead">Нажми “Страница” для подробностей и скриншотов, “Демо” — для скачивания пробной версии.</p>
+
+      <div class="cardsGrid" id="cards"></div>
+
+      <div class="card" style="margin-top:18px">
+        <h3 id="addMoreTitle">Другие программы</h3>
+        <p id="addMoreText">
+
+        </p>
+        <a class="btn secondary" href="mailto:vguberniev@gmail.com" id="btnContactBottom">vguberniev@gmail.com</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    © PackTuning Software — Viktor Guberniev<br>
+    Contact: <a href="mailto:vguberniev@gmail.com">vguberniev@gmail.com</a>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const RU = "ru";
+  const EN = "en";
+  const DAY = "day";
+  const NIGHT = "night";
+
+  // ---- EDIT HERE to add more programs later ----
+  const PRODUCTS = [
+    {
+      id: "optcutting",
+      glyph: "OC",
+      icon: "https://governorv.github.io/OptCutting/assets/app-icon.png",
+      cover: {
+        ru: "optcutting_banner.png",
+        en: "optcutting_banner_en.png"
+      },
+      gradient: ["#28c6ff", "#d0a15d"],
+      titles: {
+        ru: "Раскройщик",
+        en: "OptCutting"
+      },
+      subtitles: {
+        ru: "Оптимизация раскроя полотна гофрокартона",
+        en: "Corrugated board cutting optimizer"
+      },
+      descriptions: {
+        ru: "Строит план раскроя заготовок на гофроагрегате: сроки, ППР, подкрой, совместимость марок, карты раскроя, сетевой график и ведомость потребности в картоне.",
+        en: "Builds corrugator cutting plans: due dates, maintenance windows, nested cuts, board grade compatibility, cutting maps, Gantt schedule and material demand reports."
+      },
+      pricing: {
+        ru: {
+          main: "99 000 ₽ (покупка)",
+          lines: [
+            "Аренда 1 месяц: 2 490 ₽",
+            "Аренда 1 год: 24 900 ₽",
+            "Доработки и спецотчеты отдельно"
+          ]
+        },
+        en: {
+          main: "99,000 RUB (purchase)",
+          lines: [
+            "Monthly rental: 2,490 RUB",
+            "Annual rental: 24,900 RUB",
+            "Custom reports and integrations separately"
+          ]
+        }
+      },
+      links: {
+        demo: "https://disk.yandex.ru/d/QvA8G1ypPv7D9Q",
+        page: "https://governorv.github.io/OptCutting/"
+      }
+    },
+    {
+  id: "dbsearch",
+  glyph: "DB",
+  icon: "icon_dbsearch.ico",
+  cover: {
+    ru: "dbsearch_banner.png",
+    en: "dbsearch_banner_en.png"
+  },
+  gradient: ["#79ffd2", "#6aa9ff"],
+  titles: {
+    ru: "Поисковик по базам данных",
+    en: "Database Search Tool"
+  },
+  subtitles: {
+    ru: "Поиск по всем базам данных и связанным серверам",
+    en: "Search across all databases and linked servers"
+  },
+  descriptions: {
+    ru: "Поиск объектов и данных в MS SQL Server, включая связанные серверы MySQL и PostgreSQL. Находит таблицы, поля, процедуры, триггеры и код. Позволяет сравнивать объекты и анализировать структуру БД.",
+    en: "Search objects and data in MS SQL Server, including linked MySQL and PostgreSQL servers. Finds tables, columns, procedures, triggers and code. Supports comparison and structure analysis."
+  },
+  pricing: {
+    ru: {
+      main: "29 990 ₽ (покупка)",
+      lines: [
+        "Однократная лицензия",
+        "B2B использование",
+        "Поддержка по запросу"
+      ]
+    },
+    en: {
+      main: "$99 (one-time purchase)",
+      lines: [
+        "Single license",
+        "B2B usage",
+        "Support on request"
+      ]
+    }
+  },
+  links: {
+    demo: "https://governorv.github.io/DBSearch/#en",
+    page: "https://governorv.github.io/DBSearch/#en"
+  }
+},
+    {
+      id: "licman",
+      glyph: "LM",
+      icon: "icon_licman.ico",
+      cover: {
+        ru: "licman_banner.png",
+        en: "licman_banner_en.png"
+      },
+      gradient: ["#6aa9ff", "#d9e8ff"],
+      titles: {
+        ru: "Менеджер лицензий",
+        en: "License Manager"
+      },
+      subtitles: {
+        ru: "Учёт, контроль и управление лицензиями на программное обеспечение",
+        en: "Software license tracking and renewal management"
+      },
+      descriptions: {
+        ru: "Ведёт централизованный реестр лицензий, отслеживает сроки действия, назначает ответственных, фильтрует записи и помогает заранее получать уведомления о продлении.",
+        en: "Keeps a centralized license register, tracks expiration dates, assigns responsible users, filters records and helps receive renewal notifications in advance."
+      },
+      pricing: {
+        ru: {
+          main: "29 990 ₽ (покупка)",
+          lines: [
+            "Аренда 1 месяц: 1 000 ₽",
+            "Аренда 1 год: 10 000 ₽",
+            "+3 000 ₽ за дополнительное рабочее место"
+          ]
+        },
+        en: {
+          main: "€299 (one-time purchase)",
+          lines: [
+            "Monthly rental: €10",
+            "Annual rental: €100",
+            "+€30 per additional workstation"
+          ]
+        }
+      },
+      links: {
+        demo: "https://disk.yandex.ru/d/4qYe74wipzErXQ",
+        page: "https://governorv.github.io/Licman/"
+      }
+    },
+    {
+      id: "boxpalletizer",
+      glyph: "BP",
+      icon: "icon_boxpalletizer.ico",
+      cover: {
+        ru: "palletizer_banner.png",
+        en: "palletizer_banner_en.png"
+      },
+      gradient: ["#6aa9ff", "#79ffd2"],
+      titles: {
+        ru: "Паллетировщик",
+        en: "Box Palletizer"
+      },
+      subtitles: {
+        ru: "Оптимальная и устойчивая укладка ящиков на поддон (ручная паллетизация)",
+        en: "Optimal and stable box stacking on pallets (manual palletizing)"
+      },
+      descriptions: {
+        ru: "Считает стандартную и спиральную укладку, учитывает кантование, нагрузку на нижние слои и прочность по ГОСТ. 3D-схема и отчёты.",
+        en: "Calculates standard and spiral stacking, supports box orientation, load/strength (GOST), 3D visualization and reports."
+      },
+      pricing: {
+        ru: {
+          main: "49 990 ₽ (покупка, налоги включены)",
+          lines: [
+            "Аренда 1 месяц: 1 500 ₽",
+            "Аренда 1 год: 15 000 ₽",
+            "+10% за каждое дополнительное рабочее место"
+          ]
+        },
+        en: {
+          main: "€500 (one-time purchase)",
+          lines: [
+            "1-month rental: €10",
+            "1-year rental: €100",
+            "+10% per additional workstation"
+          ]
+        }
+      },
+      links: {
+        demo: "https://disk.yandex.ru/d/d5Z1fkMeHXIGaA",
+        page: "https://governorv.github.io/BoxPalletizer/"
+      }
+    },
+    {
+      id: "boxpricecalculator",
+      glyph: "BC",
+      icon: "icon_boxpricecalculator.ico",
+      cover: {
+        ru: "boxprice_banner.png",
+        en: "boxprice_banner_en.png"
+      },
+      gradient: ["#ffd36a", "#79ffd2"],
+      titles: {
+        ru: "Калькулятор гофроящиков",
+        en: "Box Price Calculator"
+      },
+      subtitles: {
+        ru: "Калькулятор себестоимости гофроящиков/листов/рулонов + паллетировщик пачек",
+        en: "Cost estimator for corrugated boxes/sheets/rolls + bundle palletizer"
+      },
+      descriptions: {
+        ru: "Считает стоимость с детализацией (материалы, печать, упаковка, доставка), формирует PDF-документы. Встроенный паллетировщик пачек.",
+        en: "Detailed cost calculation (materials, printing, packaging, delivery) with PDF documents. Includes a built-in bundle palletizer."
+      },
+      pricing: {
+        ru: {
+          main: "49 990 ₽ (покупка, налоги включены)",
+          lines: [
+            "Аренда 1 месяц: 1500 ₽",
+            "Аренда 1 год: 15 000 ₽",
+            "+10% за каждое дополнительное рабочее место"
+          ]
+        },
+        en: {
+          main: "€500 (one-time purchase)",
+          lines: [
+            "Monthly rental: €10",
+            "Annual rental: €100",
+            "+10% per additional workstation"
+          ]
+        }
+      },
+      links: {
+        demo: "https://disk.yandex.ru/d/ywhr1urjcLI7Lw",
+        page: "https://governorv.github.io/BoxPriceCalculator/"
+      }
+    },
+    {
+      id: "gost914290",
+      glyph: "G",
+      icon: "gost914290_icon.ico",
+      cover: {
+        ru: "gost914290_banner.png",
+        en: "gost914290_banner.png"
+      },
+      gradient: ["#0d56c7", "#33b7ff"],
+      titles: {
+        ru: "Расчет нагрузки по ГОСТ 9142-90",
+        en: "GOST 9142-90 Load Calculator"
+      },
+      subtitles: {
+        ru: "Расчет характеристик гофроящика и марки гофрокартона",
+        en: "Corrugated box load and board grade calculation"
+      },
+      descriptions: {
+        ru: "Рассчитывает предельную нагрузку на гофроящик, сопротивление сжатию, продавливанию и разрыву по линии рилевки, подбирает марку гофрокартона и формирует PDF-отчет.",
+        en: "Calculates corrugated box load limits, compression resistance, bursting resistance, crease-line tear resistance, recommended board grade and generates a PDF report."
+      },
+      pricing: {
+        ru: {
+          main: "10 000 ₽ (покупка)",
+          lines: [
+            "Аренда на 1 год: 2 000 ₽",
+            "Расчет по ГОСТ 9142-90",
+            "PDF-отчет с исходными данными и результатами"
+          ]
+        },
+        en: {
+          main: "10,000 RUB (purchase)",
+          lines: [
+            "Annual rental: 2,000 RUB",
+            "GOST 9142-90 calculation",
+            "PDF report with inputs and calculated results"
+          ]
+        }
+      },
+      links: {
+        demo: "https://disk.yandex.ru/d/tXD_qns5EMt-0A",
+        page: "https://governorv.github.io/gost/"
+      }
+    }
+  ];
+  // -------------------------------------------------------
+
+  const ui = {
+    tagline: document.getElementById("tagline"),
+    heroTitle: document.getElementById("heroTitle"),
+    heroText: document.getElementById("heroText"),
+    btnToProducts: document.getElementById("btnToProducts"),
+    btnContactTop: document.getElementById("btnContactTop"),
+    heroSideTitle: document.getElementById("heroSideTitle"),
+    heroSideText: document.getElementById("heroSideText"),
+    badgeWin: document.getElementById("badgeWin"),
+    badgeSMB: document.getElementById("badgeSMB"),
+    badgeB2B: document.getElementById("badgeB2B"),
+    productsTitle: document.getElementById("productsTitle"),
+    productsLead: document.getElementById("productsLead"),
+    addMoreTitle: document.getElementById("addMoreTitle"),
+    addMoreText: document.getElementById("addMoreText"),
+    btnContactBottom: document.getElementById("btnContactBottom"),
+    kpi1a: document.getElementById("kpi1a"),
+    kpi1b: document.getElementById("kpi1b"),
+    kpi2a: document.getElementById("kpi2a"),
+    kpi2b: document.getElementById("kpi2b"),
+    kpi3a: document.getElementById("kpi3a"),
+    kpi3b: document.getElementById("kpi3b"),
+    cards: document.getElementById("cards"),
+    btnRu: document.getElementById("btn-ru"),
+    btnEn: document.getElementById("btn-en"),
+    btnDay: document.getElementById("btn-day"),
+    btnNight: document.getElementById("btn-night")
+  };
+
+  const TEXT = {
+    ru: {
+      tagline: "Каталог программ",
+      heroTitle: "Программы для упаковки и логистики",
+      heroText: "Набор инструментов для производителей и складов: паллетизация, расчёт себестоимости гофроизделий, и другие модули, которые мы будем добавлять дальше.",
+      btnToProducts: "Перейти к программам",
+      btnContactTop: "Написать: vguberniev@gmail.com",
+      heroSideTitle: "Как выбрать",
+      heroSideText: "Открой карточку → скачай демо → оцени интерфейс → напиши мне, если нужно внедрение или лицензирование.",
+      badgeWin: "Windows",
+      badgeSMB: "SMB / производство",
+      badgeB2B: "B2B",
+      productsTitle: "Программы",
+      productsLead: "Нажми “Страница” для подробностей и скриншотов, “Демо” — для скачивания пробной версии.",
+      addMoreTitle: "Другие программы",
+      addMoreText: "Также имеются и другие программы для решения задач упаковочной индустрии.",
+      btnContactBottom: "vguberniev@gmail.com",
+      kpi1a: "Быстро внедряется",
+      kpi1b: "без серверов и сложной установки",
+      kpi2a: "Понятно складу",
+      kpi2b: "схемы, отчёты, визуализация",
+      kpi3a: "Окупаемость",
+      kpi3b: "меньше брака, ошибок и ручного труда",
+      themeDay: "День",
+      themeDayTitle: "Дневная тема",
+      themeNight: "Ночь",
+      themeNightTitle: "Ночная тема",
+      priceTitle: "Цена",
+      demoBtn: "Демо",
+      pageBtn: "Страница",
+      detailsBtn: "Подробнее",
+      osBadge: "Windows",
+      contactBtn: "Написать"
+    },
+    en: {
+      tagline: "Product catalog",
+      heroTitle: "Software for packaging and logistics",
+      heroText: "A set of tools for manufacturers and warehouses: pallet stacking, corrugated cost estimation, and more modules we will add later.",
+      btnToProducts: "View products",
+      btnContactTop: "Email: vguberniev@gmail.com",
+      heroSideTitle: "How to choose",
+      heroSideText: "Open a card → download the demo → check the workflow → email me for licensing or implementation details.",
+      badgeWin: "Windows",
+      badgeSMB: "SMB / manufacturing",
+      badgeB2B: "B2B",
+      productsTitle: "Products",
+      productsLead: "Click “Page” for full details and screenshots, “Demo” to download an evaluation version.",
+      addMoreTitle: "We can add more products",
+      addMoreText: "When you release another tool, we will add one more card here: name, short description, pricing, demo link, and product page link.",
+      btnContactBottom: "vguberniev@gmail.com",
+      kpi1a: "Quick to adopt",
+      kpi1b: "no servers or complex setup",
+      kpi2a: "Warehouse-friendly",
+      kpi2b: "visuals, reports, clear instructions",
+      kpi3a: "ROI-driven",
+      kpi3b: "less damage, fewer errors, less manual work",
+      themeDay: "Day",
+      themeDayTitle: "Day theme",
+      themeNight: "Night",
+      themeNightTitle: "Night theme",
+      priceTitle: "Pricing",
+      demoBtn: "Demo",
+      pageBtn: "Page",
+      detailsBtn: "Details",
+      osBadge: "Windows",
+      contactBtn: "Contact"
+    }
+  };
+
+  function setMetaForLang(lang){
+    document.documentElement.lang = lang;
+    ui.tagline.textContent = TEXT[lang].tagline;
+    ui.heroTitle.textContent = TEXT[lang].heroTitle;
+    ui.heroText.textContent = TEXT[lang].heroText;
+    ui.btnToProducts.textContent = TEXT[lang].btnToProducts;
+    ui.btnContactTop.textContent = TEXT[lang].btnContactTop;
+    ui.heroSideTitle.textContent = TEXT[lang].heroSideTitle;
+    ui.heroSideText.textContent = TEXT[lang].heroSideText;
+    ui.badgeWin.textContent = TEXT[lang].badgeWin;
+    ui.badgeSMB.textContent = TEXT[lang].badgeSMB;
+    ui.badgeB2B.textContent = TEXT[lang].badgeB2B;
+    ui.productsTitle.textContent = TEXT[lang].productsTitle;
+    ui.productsLead.textContent = TEXT[lang].productsLead;
+    ui.addMoreTitle.textContent = TEXT[lang].addMoreTitle;
+    ui.addMoreText.textContent = TEXT[lang].addMoreText;
+    ui.btnContactBottom.textContent = TEXT[lang].btnContactBottom;
+
+    ui.kpi1a.textContent = TEXT[lang].kpi1a;
+    ui.kpi1b.textContent = TEXT[lang].kpi1b;
+    ui.kpi2a.textContent = TEXT[lang].kpi2a;
+    ui.kpi2b.textContent = TEXT[lang].kpi2b;
+    ui.kpi3a.textContent = TEXT[lang].kpi3a;
+    ui.kpi3b.textContent = TEXT[lang].kpi3b;
+    ui.btnDay.textContent = TEXT[lang].themeDay;
+    ui.btnDay.title = TEXT[lang].themeDayTitle;
+    ui.btnNight.textContent = TEXT[lang].themeNight;
+    ui.btnNight.title = TEXT[lang].themeNightTitle;
+
+    ui.btnRu.classList.toggle("active", lang === RU);
+    ui.btnEn.classList.toggle("active", lang === EN);
+  }
+
+  function renderCards(lang){
+    ui.cards.innerHTML = "";
+
+    for (const p of PRODUCTS){
+      const card = document.createElement("div");
+      card.className = "card productCard";
+
+      const head = document.createElement("div");
+      head.className = "productHead";
+
+      const icon = document.createElement("div");
+      icon.className = "productIcon";
+
+      if (p.icon) {
+        const iconImg = document.createElement("img");
+        iconImg.src = p.icon;
+        iconImg.alt = "";
+        iconImg.loading = "lazy";
+        icon.appendChild(iconImg);
+      } else {
+        const glyph = document.createElement("div");
+        glyph.className = "glyph";
+        const g1 = p.gradient[0];
+        const g2 = p.gradient[1];
+        glyph.style.background = `linear-gradient(135deg, ${g1}, ${g2})`;
+        glyph.textContent = p.glyph;
+
+        icon.appendChild(glyph);
+      }
+
+      const titleWrap = document.createElement("div");
+      titleWrap.className = "productTitleWrap";
+
+      const title = document.createElement("h3");
+      title.className = "productTitle";
+      title.textContent = p.titles[lang];
+
+      const sub = document.createElement("p");
+      sub.className = "productSub";
+      sub.textContent = p.subtitles[lang];
+
+      const desc = document.createElement("p");
+      desc.textContent = p.descriptions[lang];
+
+      const pills = document.createElement("div");
+      pills.className = "pills";
+      const pill1 = document.createElement("span");
+      pill1.className = "badge";
+      pill1.textContent = TEXT[lang].osBadge;
+      const pill2 = document.createElement("span");
+      pill2.className = "badge";
+      pill2.textContent = "B2B";
+      pills.appendChild(pill1);
+      pills.appendChild(pill2);
+
+      titleWrap.appendChild(title);
+      titleWrap.appendChild(sub);
+      titleWrap.appendChild(pills);
+
+// --- cover image ---
+if (p.cover) {
+  const coverLink = document.createElement("a");
+  coverLink.href = p.links.page;
+  coverLink.target = "_blank";
+  coverLink.rel = "noopener";
+  coverLink.className = "productCover";
+
+  const img = document.createElement("img");
+  img.src = typeof p.cover === "string" ? p.cover : (p.cover[lang] || p.cover.ru);
+  img.alt = p.titles[lang] + " — software overview";
+
+  coverLink.appendChild(img);
+  card.appendChild(coverLink);
+}
+
+      head.appendChild(icon);
+      head.appendChild(titleWrap);
+
+      const price = document.createElement("div");
+      price.className = "priceBlock";
+
+      const priceTitle = document.createElement("div");
+      priceTitle.className = "priceLine";
+
+      const priceLabel = document.createElement("div");
+      priceLabel.className = "priceNote";
+      priceLabel.textContent = TEXT[lang].priceTitle;
+
+      const priceMain = document.createElement("div");
+      priceMain.className = "priceMain";
+      priceMain.textContent = p.pricing[lang].main;
+
+      priceTitle.appendChild(priceLabel);
+      priceTitle.appendChild(priceMain);
+
+      const list = document.createElement("ul");
+      list.className = "priceList";
+      for (const line of p.pricing[lang].lines){
+        const li = document.createElement("li");
+        li.textContent = line;
+        list.appendChild(li);
+      }
+
+      price.appendChild(priceTitle);
+      price.appendChild(list);
+
+      const actions = document.createElement("div");
+      actions.className = "actions";
+
+      const aDemo = document.createElement("a");
+      aDemo.className = "btn primary";
+      aDemo.href = p.links.demo;
+      aDemo.target = "_blank";
+      aDemo.rel = "noopener";
+      aDemo.textContent = TEXT[lang].demoBtn;
+
+      const aPage = document.createElement("a");
+      aPage.className = "btn secondary";
+      aPage.href = p.links.page;
+      aPage.target = "_blank";
+      aPage.rel = "noopener";
+      aPage.textContent = TEXT[lang].pageBtn;
+
+      const aMail = document.createElement("a");
+      aMail.className = "btn ghost";
+      aMail.href = "mailto:vguberniev@gmail.com";
+      aMail.textContent = TEXT[lang].contactBtn;
+
+      actions.appendChild(aDemo);
+      actions.appendChild(aPage);
+      actions.appendChild(aMail);
+
+      card.appendChild(head);
+      card.appendChild(desc);
+      card.appendChild(price);
+      card.appendChild(actions);
+
+      ui.cards.appendChild(card);
+    }
+  }
+
+  function showLang(lang){
+    setMetaForLang(lang);
+    renderCards(lang);
+
+    try { localStorage.setItem("lang", lang); } catch(e) {}
+
+    const h = (window.location.hash || "").toLowerCase();
+    if (h === "#ru" || h === "#en" || h === "") {
+      history.replaceState(null, "", "#" + lang);
+    }
+  }
+
+  function applyTheme(theme){
+    const nextTheme = theme === NIGHT ? NIGHT : DAY;
+    document.documentElement.dataset.theme = nextTheme;
+    ui.btnDay.classList.toggle("active", nextTheme === DAY);
+    ui.btnNight.classList.toggle("active", nextTheme === NIGHT);
+
+    try { localStorage.setItem("theme", nextTheme); } catch(e) {}
+  }
+
+  function detectInitialLang(){
+    const h = (window.location.hash || "").toLowerCase();
+    if (h === "#en") return EN;
+    if (h === "#ru") return RU;
+
+    try {
+      const saved = localStorage.getItem("lang");
+      if (saved === EN || saved === RU) return saved;
+    } catch(e) {}
+
+    const nav = (navigator.language || "").toLowerCase();
+    return nav.startsWith("ru") ? RU : EN;
+  }
+
+  function detectInitialTheme(){
+    try {
+      const saved = localStorage.getItem("theme");
+      if (saved === DAY || saved === NIGHT) return saved;
+    } catch(e) {}
+
+    if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      return NIGHT;
+    }
+    return DAY;
+  }
+
+  ui.btnRu.addEventListener("click", () => showLang(RU));
+  ui.btnEn.addEventListener("click", () => showLang(EN));
+  ui.btnDay.addEventListener("click", () => applyTheme(DAY));
+  ui.btnNight.addEventListener("click", () => applyTheme(NIGHT));
+  window.addEventListener("hashchange", () => {
+    const h = (window.location.hash || "").toLowerCase();
+    if (h === "#en") showLang(EN);
+    if (h === "#ru") showLang(RU);
+  });
+
+  applyTheme(detectInitialTheme());
+  showLang(detectInitialLang());
+})();
+</script>
+
+</body>
+</html>
+
+
+
