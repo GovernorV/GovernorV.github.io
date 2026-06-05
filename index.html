@@ -540,8 +540,14 @@ footer{
     }
   },
   links: {
-    demo: "https://governorv.github.io/DBSearch/#en",
-    page: "https://governorv.github.io/DBSearch/#en"
+    demo: {
+      ru: "https://governorv.github.io/DBSearch/#ru",
+      en: "https://governorv.github.io/DBSearch/#en"
+    },
+    page: {
+      ru: "https://governorv.github.io/DBSearch/#ru",
+      en: "https://governorv.github.io/DBSearch/#en"
+    }
   }
 },
     {
@@ -898,6 +904,11 @@ footer{
     ui.btnEn.classList.toggle("active", lang === EN);
   }
 
+  function localizedLink(value, lang){
+    if (!value || typeof value === "string") return value || "#";
+    return value[lang] || value.ru || value.en || "#";
+  }
+
   function renderCards(lang){
     ui.cards.innerHTML = "";
 
@@ -960,7 +971,7 @@ footer{
 // --- cover image ---
 if (p.cover) {
   const coverLink = document.createElement("a");
-  coverLink.href = p.links.page;
+  coverLink.href = localizedLink(p.links.page, lang);
   coverLink.target = "_blank";
   coverLink.rel = "noopener";
   coverLink.className = "productCover";
@@ -1009,14 +1020,14 @@ if (p.cover) {
 
       const aDemo = document.createElement("a");
       aDemo.className = "btn primary";
-      aDemo.href = p.links.demo;
+      aDemo.href = localizedLink(p.links.demo, lang);
       aDemo.target = "_blank";
       aDemo.rel = "noopener";
       aDemo.textContent = TEXT[lang].demoBtn;
 
       const aPage = document.createElement("a");
       aPage.className = "btn secondary";
-      aPage.href = p.links.page;
+      aPage.href = localizedLink(p.links.page, lang);
       aPage.target = "_blank";
       aPage.rel = "noopener";
       aPage.textContent = TEXT[lang].pageBtn;
