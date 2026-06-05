@@ -14,6 +14,22 @@
   --shadow: 0 0 42px rgba(30, 163, 255, 0.22);
 }
 
+html.day-theme {
+  color-scheme: light;
+  --bg: #f4f7fb;
+  --panel: #ffffff;
+  --panel-2: #eef4fb;
+  --line: #2b7fc4;
+  --line-bright: #0876bd;
+  --text: #10223a;
+  --muted: #4f6682;
+  --steel: #071a35;
+  --amber: #c98716;
+  --green: #087f5b;
+  --danger: #b42335;
+  --shadow: 0 18px 58px rgba(24, 70, 120, 0.12);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -31,6 +47,13 @@ body {
     linear-gradient(180deg, #05070c 0%, #08101a 48%, #05070c 100%);
   color: var(--text);
   font-family: "Segoe UI", Arial, sans-serif;
+}
+
+html.day-theme body {
+  background:
+    radial-gradient(circle at 12% 8%, rgba(8, 118, 189, 0.12), transparent 28rem),
+    radial-gradient(circle at 88% 18%, rgba(255, 196, 106, 0.16), transparent 24rem),
+    linear-gradient(180deg, #f6f9fd 0%, #edf4fb 48%, #f8fbff 100%);
 }
 
 a {
@@ -55,6 +78,11 @@ img {
   background: rgba(5, 7, 12, 0.86);
   border-bottom: 1px solid rgba(54, 215, 255, 0.28);
   backdrop-filter: blur(18px);
+}
+
+html.day-theme .site-header {
+  background: rgba(246, 249, 253, 0.88);
+  border-bottom-color: rgba(8, 118, 189, 0.18);
 }
 
 .brand {
@@ -85,6 +113,37 @@ img {
 .top-nav a:hover {
   color: var(--text);
   border-color: var(--line-bright);
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.toolbar button {
+  min-width: 44px;
+  padding: 8px 10px;
+  border: 1px solid rgba(54, 215, 255, 0.38);
+  border-radius: 8px;
+  background: rgba(12, 32, 51, 0.7);
+  color: var(--muted);
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+html.day-theme .toolbar button {
+  background: #fff;
+  border-color: rgba(8, 118, 189, 0.22);
+}
+
+.toolbar button.active {
+  border-color: transparent;
+  background: linear-gradient(135deg, var(--line-bright), var(--green));
+  color: #04111d;
 }
 
 .hero {
@@ -328,6 +387,38 @@ h3 {
   margin-top: 14px;
 }
 
+.other-programs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.other-program-card {
+  overflow: hidden;
+}
+
+.other-program-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid rgba(54, 215, 255, 0.22);
+}
+
+.other-program-body {
+  padding: 22px;
+}
+
+.other-program-body p {
+  min-height: 78px;
+}
+
+.other-program-body .button {
+  width: 100%;
+  margin-top: 10px;
+}
+
 .contact {
   width: min(1180px, calc(100% - 36px));
   margin: 96px auto 0;
@@ -365,7 +456,8 @@ h3 {
   .screenshot-section,
   .steps,
   .feature-grid,
-  .pricing-grid {
+  .pricing-grid,
+  .other-programs-grid {
     grid-template-columns: 1fr;
   }
 
@@ -373,6 +465,11 @@ h3 {
     width: 100%;
     overflow-x: auto;
     padding-bottom: 4px;
+  }
+
+  .toolbar {
+    width: 100%;
+    justify-content: flex-start;
   }
 }
 
