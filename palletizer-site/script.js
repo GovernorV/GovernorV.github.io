@@ -8,10 +8,6 @@ const langButtons = {
   ru: document.getElementById("lang-ru"),
   en: document.getElementById("lang-en")
 };
-const themeButtons = {
-  day: document.getElementById("theme-day"),
-  night: document.getElementById("theme-night")
-};
 
 const text = {
   ru: {
@@ -19,16 +15,14 @@ const text = {
     description: "Программа для паллетировки фиброцементных плит и других листовых материалов: импорт заявок из Excel, расчет поддонов, контроль веса, высоты и цвета, печать раскладок.",
     nav: ["Работа", "Возможности", "Цены", "Другие программы", "Контакты"],
     brand: "Паллетировщик плит",
-    themeDay: "День",
-    themeNight: "Ночь",
     heroEyebrow: "Автоматизация раскладки листовых материалов",
     heroTitle: "Паллетировщик плит",
     heroLead: "Программа помогает быстро распределить позиции заявки по поддонам, учесть габариты, цвет, вес и ограничения по высоте, а затем подготовить понятные раскладки для печати.",
     heroPrimary: "Выбрать лицензию",
     heroSecondary: "Посмотреть возможности",
     metrics: [["Excel", "импорт заявок"], ["Вес", "контроль поддона"], ["Цвет", "разделение партий"]],
-    visualTitle: "Расчет виден, результат готов к работе",
-    visualText: "Заявки загружаются из Excel, расчет выполняется по этапам, а оператор видит прогресс, время выполнения и может прервать расчет без порчи данных.",
+    visualTitle: "Готовый отчет для производства",
+    visualText: "После расчета программа формирует отчет в табличном виде: служебная записка, параметры поддона, цвет, размеры листов, количество и комментарии для производства.",
     workflowEyebrow: "Процесс",
     workflowTitle: "От заявки до готовой раскладки",
     steps: [
@@ -79,16 +73,14 @@ const text = {
     description: "Software for palletizing fiber cement boards and other sheet materials: Excel order import, pallet calculation, weight, height and color control, printable layouts.",
     nav: ["Workflow", "Features", "Pricing", "Other software", "Contact"],
     brand: "Plate Palletizer",
-    themeDay: "Day",
-    themeNight: "Night",
     heroEyebrow: "Sheet material layout automation",
     heroTitle: "Plate Palletizer",
     heroLead: "The program helps distribute order lines across pallets, account for dimensions, color, weight and height limits, and prepare clear printable layouts.",
     heroPrimary: "Choose license",
     heroSecondary: "View features",
     metrics: [["Excel", "order import"], ["Weight", "pallet control"], ["Color", "batch separation"]],
-    visualTitle: "Calculation is visible, results are ready to use",
-    visualText: "Orders are loaded from Excel, calculation runs step by step, and the operator sees progress, elapsed time and can cancel safely.",
+    visualTitle: "Production-ready report",
+    visualText: "After calculation, the program generates a spreadsheet-style report: memo fields, pallet parameters, color, sheet dimensions, quantities and production comments.",
     workflowEyebrow: "Workflow",
     workflowTitle: "From order to finished layout",
     steps: [
@@ -168,8 +160,6 @@ function applyLanguage(lang) {
   all(".top-nav a").forEach((link, index) => {
     if (t.nav[index]) link.textContent = t.nav[index];
   });
-  themeButtons.day.textContent = t.themeDay;
-  themeButtons.night.textContent = t.themeNight;
 
   setText(".hero-copy .eyebrow", t.heroEyebrow);
   setText(".hero-copy h1", t.heroTitle);
@@ -211,6 +201,9 @@ function applyLanguage(lang) {
     const button = card.querySelector(".button");
     if (button) button.textContent = t.otherButton;
   });
+  all("[data-ru-href][data-en-href]").forEach((link) => {
+    link.href = lang === EN ? link.dataset.enHref : link.dataset.ruHref;
+  });
   setText(".contact .eyebrow", t.contactEyebrow);
   setText(".contact h2", t.contactTitle);
   setText(".contact p:not(.eyebrow)", t.contactText);
@@ -234,15 +227,10 @@ function automaticTheme() {
   return hour >= 6 && hour < 18 ? DAY : NIGHT;
 }
 
-function applyTheme(theme, persist = false) {
+function applyTheme(theme) {
   const next = theme === NIGHT ? NIGHT : DAY;
   document.documentElement.classList.toggle("day-theme", next === DAY);
   document.documentElement.classList.toggle("night-theme", next === NIGHT);
-  themeButtons.day.classList.toggle("active", next === DAY);
-  themeButtons.night.classList.toggle("active", next === NIGHT);
-  if (persist) {
-    try { localStorage.setItem("palletizer-theme", next); } catch (e) {}
-  }
 }
 
 function initialLanguage() {
@@ -257,10 +245,6 @@ function initialLanguage() {
 }
 
 function initialTheme() {
-  try {
-    const saved = localStorage.getItem("palletizer-theme");
-    if (saved === DAY || saved === NIGHT) return saved;
-  } catch (e) {}
   return automaticTheme();
 }
 
@@ -270,8 +254,6 @@ window.addEventListener("scroll", () => {
 
 langButtons.ru.addEventListener("click", () => applyLanguage(RU));
 langButtons.en.addEventListener("click", () => applyLanguage(EN));
-themeButtons.day.addEventListener("click", () => applyTheme(DAY, true));
-themeButtons.night.addEventListener("click", () => applyTheme(NIGHT, true));
 
 window.addEventListener("hashchange", () => {
   const hash = (window.location.hash || "").toLowerCase();
@@ -282,7 +264,5 @@ window.addEventListener("hashchange", () => {
 applyLanguage(initialLanguage());
 applyTheme(initialTheme());
 setInterval(() => {
-  let saved = null;
-  try { saved = localStorage.getItem("palletizer-theme"); } catch (e) {}
-  if (!saved) applyTheme(automaticTheme());
+  applyTheme(automaticTheme());
 }, 60 * 1000);

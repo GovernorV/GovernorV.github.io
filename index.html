@@ -9,6 +9,8 @@
 <meta name="author" content="Viktor Guberniev">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://governorv.github.io/">
+<link rel="icon" type="image/png" href="catalog-icon.png">
+<link rel="apple-touch-icon" href="catalog-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="PackTuning Software">
 <meta property="og:title" content="PackTuning Software — каталог программ для упаковки и логистики">
@@ -176,7 +178,7 @@ hr.sep{
 .logoMark{
   width:36px; height:36px;
   border-radius:14px;
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  object-fit:cover;
   box-shadow: 0 18px 50px rgba(106,169,255,.14);
 }
 .brand .name{display:flex; flex-direction:column; line-height:1.1}
@@ -184,18 +186,26 @@ hr.sep{
 .brand .name span{font-size:12px; color:var(--muted)}
 
 .toolbar{display:flex; gap:10px; align-items:center; flex-wrap:wrap; justify-content:flex-end}
-.lang,.themeSwitch{display:flex; gap:8px; align-items:center}
-.lang button,.themeSwitch button{
+.lang{
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+  padding:4px;
   border:1px solid var(--line);
-  background:var(--soft);
+  border-radius:999px;
+  background:rgba(255,255,255,.06);
+}
+html[data-theme="day"] .lang{background:#fff}
+.lang button{
+  border:0;
+  background:transparent;
   color:var(--text);
-  border-radius:12px;
-  padding:8px 10px;
+  border-radius:999px;
+  padding:10px 18px;
   font-weight:800;
   cursor:pointer;
 }
-.lang button.active,.themeSwitch button.active{
-  border-color:transparent;
+.lang button.active{
   background:linear-gradient(135deg,var(--accent),var(--accent2));
   color:#071021;
 }
@@ -362,7 +372,7 @@ footer{
   <div class="container">
     <div class="inner">
       <a class="brand" href="#top" aria-label="PackTuning Software">
-        <div class="logoMark" aria-hidden="true"></div>
+        <img class="logoMark" src="catalog-icon.png" alt="">
         <div class="name">
           <strong>PackTuning Software</strong>
           <span id="tagline">Каталог программ</span>
@@ -370,14 +380,9 @@ footer{
       </a>
 
       <div class="toolbar">
-        <div class="themeSwitch" aria-label="Theme switcher">
-          <button id="btn-day" type="button" title="Day theme">Day</button>
-          <button id="btn-night" type="button" title="Night theme">Night</button>
-        </div>
-
         <div class="lang" aria-label="Language switcher">
-          <button id="btn-ru" type="button">RU</button>
-          <button id="btn-en" type="button">EN</button>
+          <button id="btn-ru" type="button">Русский</button>
+          <button id="btn-en" type="button">English</button>
         </div>
       </div>
     </div>
@@ -497,7 +502,10 @@ footer{
       },
       links: {
         demo: "https://disk.yandex.ru/d/QvA8G1ypPv7D9Q",
-        page: "https://governorv.github.io/OptCutting/"
+        page: {
+          ru: "https://governorv.github.io/OptCutting/#ru",
+          en: "https://governorv.github.io/OptCutting/?lang=en"
+        }
       }
     },
     {
@@ -591,7 +599,10 @@ footer{
       },
       links: {
         demo: "https://disk.yandex.ru/d/4qYe74wipzErXQ",
-        page: "https://governorv.github.io/Licman/"
+        page: {
+          ru: "https://governorv.github.io/Licman/#ru",
+          en: "https://governorv.github.io/Licman/#en"
+        }
       }
     },
     {
@@ -635,7 +646,10 @@ footer{
       },
       links: {
         demo: "https://disk.yandex.ru/d/d5Z1fkMeHXIGaA",
-        page: "https://governorv.github.io/BoxPalletizer/"
+        page: {
+          ru: "https://governorv.github.io/BoxPalletizer/#ru",
+          en: "https://governorv.github.io/BoxPalletizer/#en"
+        }
       }
     },
     {
@@ -678,8 +692,14 @@ footer{
         }
       },
       links: {
-        demo: "https://governorv.github.io/palletizer-site/",
-        page: "https://governorv.github.io/palletizer-site/"
+        demo: {
+          ru: "https://governorv.github.io/palletizer-site/#ru",
+          en: "https://governorv.github.io/palletizer-site/#en"
+        },
+        page: {
+          ru: "https://governorv.github.io/palletizer-site/#ru",
+          en: "https://governorv.github.io/palletizer-site/#en"
+        }
       }
     },
     {
@@ -723,7 +743,10 @@ footer{
       },
       links: {
         demo: "https://disk.yandex.ru/d/ywhr1urjcLI7Lw",
-        page: "https://governorv.github.io/BoxPriceCalculator/"
+        page: {
+          ru: "https://governorv.github.io/BoxPriceCalculator/#ru",
+          en: "https://governorv.github.io/BoxPriceCalculator/#en"
+        }
       }
     },
     {
@@ -767,7 +790,10 @@ footer{
       },
       links: {
         demo: "https://disk.yandex.ru/d/tXD_qns5EMt-0A",
-        page: "https://governorv.github.io/gost/"
+        page: {
+          ru: "https://governorv.github.io/gost/",
+          en: "https://governorv.github.io/gost/?lang=en"
+        }
       }
     }
   ];
@@ -798,8 +824,7 @@ footer{
     cards: document.getElementById("cards"),
     btnRu: document.getElementById("btn-ru"),
     btnEn: document.getElementById("btn-en"),
-    btnDay: document.getElementById("btn-day"),
-    btnNight: document.getElementById("btn-night")
+    theme: document.documentElement
   };
 
   const TEXT = {
@@ -825,10 +850,6 @@ footer{
       kpi2b: "схемы, отчёты, визуализация",
       kpi3a: "Окупаемость",
       kpi3b: "меньше брака, ошибок и ручного труда",
-      themeDay: "День",
-      themeDayTitle: "Дневная тема",
-      themeNight: "Ночь",
-      themeNightTitle: "Ночная тема",
       priceTitle: "Цена",
       demoBtn: "Демо",
       pageBtn: "Страница",
@@ -858,10 +879,6 @@ footer{
       kpi2b: "visuals, reports, clear instructions",
       kpi3a: "ROI-driven",
       kpi3b: "less damage, fewer errors, less manual work",
-      themeDay: "Day",
-      themeDayTitle: "Day theme",
-      themeNight: "Night",
-      themeNightTitle: "Night theme",
       priceTitle: "Pricing",
       demoBtn: "Demo",
       pageBtn: "Page",
@@ -895,10 +912,6 @@ footer{
     ui.kpi2b.textContent = TEXT[lang].kpi2b;
     ui.kpi3a.textContent = TEXT[lang].kpi3a;
     ui.kpi3b.textContent = TEXT[lang].kpi3b;
-    ui.btnDay.textContent = TEXT[lang].themeDay;
-    ui.btnDay.title = TEXT[lang].themeDayTitle;
-    ui.btnNight.textContent = TEXT[lang].themeNight;
-    ui.btnNight.title = TEXT[lang].themeNightTitle;
 
     ui.btnRu.classList.toggle("active", lang === RU);
     ui.btnEn.classList.toggle("active", lang === EN);
@@ -1065,12 +1078,6 @@ if (p.cover) {
   function applyTheme(theme, persist = false){
     const nextTheme = theme === NIGHT ? NIGHT : DAY;
     document.documentElement.dataset.theme = nextTheme;
-    ui.btnDay.classList.toggle("active", nextTheme === DAY);
-    ui.btnNight.classList.toggle("active", nextTheme === NIGHT);
-
-    if (persist) {
-      try { localStorage.setItem("theme", nextTheme); } catch(e) {}
-    }
   }
 
   function automaticTheme(){
@@ -1093,18 +1100,11 @@ if (p.cover) {
   }
 
   function detectInitialTheme(){
-    try {
-      const saved = localStorage.getItem("theme");
-      if (saved === DAY || saved === NIGHT) return saved;
-    } catch(e) {}
-
     return automaticTheme();
   }
 
   ui.btnRu.addEventListener("click", () => showLang(RU));
   ui.btnEn.addEventListener("click", () => showLang(EN));
-  ui.btnDay.addEventListener("click", () => applyTheme(DAY, true));
-  ui.btnNight.addEventListener("click", () => applyTheme(NIGHT, true));
   window.addEventListener("hashchange", () => {
     const h = (window.location.hash || "").toLowerCase();
     if (h === "#en") showLang(EN);
@@ -1114,9 +1114,7 @@ if (p.cover) {
   applyTheme(detectInitialTheme());
   showLang(detectInitialLang());
   setInterval(() => {
-    try {
-      if (!localStorage.getItem("theme")) applyTheme(automaticTheme());
-    } catch(e) {}
+    applyTheme(automaticTheme());
   }, 60 * 1000);
 })();
 </script>
