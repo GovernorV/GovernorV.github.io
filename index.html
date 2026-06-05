@@ -211,6 +211,17 @@ html[data-theme="day"] .lang{background:#fff}
 }
 
 /* Hero */
+.catalogBanner{
+  border-bottom:1px solid var(--line);
+  background:#020912;
+  overflow:hidden;
+}
+.catalogBanner img{
+  display:block;
+  width:100%;
+  height:clamp(150px, 21vw, 330px);
+  object-fit:cover;
+}
 .hero{
   padding:38px 0 20px;
 }
@@ -388,6 +399,10 @@ footer{
     </div>
   </div>
 </header>
+
+<div class="catalogBanner" aria-label="PackTuning Software catalog banner">
+  <img id="catalogBanner" src="catalog-ru.jpg" alt="Каталог программ PackTuning Software">
+</div>
 
 <main id="top">
 
@@ -801,6 +816,7 @@ footer{
 
   const ui = {
     tagline: document.getElementById("tagline"),
+    catalogBanner: document.getElementById("catalogBanner"),
     heroTitle: document.getElementById("heroTitle"),
     heroText: document.getElementById("heroText"),
     btnToProducts: document.getElementById("btnToProducts"),
@@ -900,6 +916,8 @@ footer{
     ui.badgeWin.textContent = TEXT[lang].badgeWin;
     ui.badgeSMB.textContent = TEXT[lang].badgeSMB;
     ui.badgeB2B.textContent = TEXT[lang].badgeB2B;
+    ui.catalogBanner.src = lang === EN ? "catalog-en.jpg" : "catalog-ru.jpg";
+    ui.catalogBanner.alt = lang === EN ? "PackTuning Software catalog banner" : "Каталог программ PackTuning Software";
     ui.productsTitle.textContent = TEXT[lang].productsTitle;
     ui.productsLead.textContent = TEXT[lang].productsLead;
     ui.addMoreTitle.textContent = TEXT[lang].addMoreTitle;
