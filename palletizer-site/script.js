@@ -20,6 +20,7 @@ const text = {
     heroLead: "Программа помогает быстро распределить позиции заявки по поддонам, учесть габариты, цвет, вес и ограничения по высоте, а затем подготовить понятные раскладки для печати.",
     heroPrimary: "Выбрать лицензию",
     heroSecondary: "Посмотреть возможности",
+    heroDemo: "Скачать демоверсию",
     metrics: [["Excel", "импорт заявок"], ["Вес", "контроль поддона"], ["Цвет", "разделение партий"]],
     visualTitle: "Готовый отчет для производства",
     visualText: "После расчета программа формирует отчет в табличном виде: служебная записка, параметры поддона, цвет, размеры листов, количество и комментарии для производства.",
@@ -78,6 +79,7 @@ const text = {
     heroLead: "The program helps distribute order lines across pallets, account for dimensions, color, weight and height limits, and prepare clear printable layouts.",
     heroPrimary: "Choose license",
     heroSecondary: "View features",
+    heroDemo: "Download demo",
     metrics: [["Excel", "order import"], ["Weight", "pallet control"], ["Color", "batch separation"]],
     visualTitle: "Production-ready report",
     visualText: "After calculation, the program generates a spreadsheet-style report: memo fields, pallet parameters, color, sheet dimensions, quantities and production comments.",
@@ -166,6 +168,7 @@ function applyLanguage(lang) {
   setText(".hero-copy .lead", t.heroLead);
   setText(".hero-actions .primary", t.heroPrimary);
   setText(".hero-actions .secondary", t.heroSecondary);
+  setText(".hero-actions .demo-download", t.heroDemo);
   all(".hero-metrics div").forEach((item, index) => {
     const values = t.metrics[index];
     if (!values) return;
