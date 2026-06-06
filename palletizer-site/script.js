@@ -11,8 +11,10 @@ const langButtons = {
 
 const text = {
   ru: {
-    title: "Паллетировщик плит",
-    description: "Программа для паллетировки фиброцементных плит и других листовых материалов: импорт заявок из Excel, расчет поддонов, контроль веса, высоты и цвета, печать раскладок.",
+    title: "Паллетировщик плит — программа для расчета поддонов листовых материалов",
+    description: "Паллетировщик плит: программа для оптимальной раскладки фиброцементных, металлических и других листовых материалов по поддонам. Импорт заявок из Excel, расчет поддонов, контроль веса и высоты, печать раскладок.",
+    ogTitle: "Паллетировщик плит — расчет поддонов листовых материалов",
+    ogDescription: "Программа для паллетизации листовых материалов: импорт заявок из Excel, автоматический расчет поддонов, контроль веса, высоты и цвета, печать производственных раскладок.",
     nav: ["Работа", "Возможности", "Цены", "Другие программы", "Контакты"],
     brand: "Паллетировщик плит",
     heroEyebrow: "Автоматизация раскладки листовых материалов",
@@ -21,6 +23,7 @@ const text = {
     heroPrimary: "Выбрать лицензию",
     heroSecondary: "Посмотреть возможности",
     heroDemo: "Скачать демоверсию",
+    heroPresentation: "Презентация",
     metrics: [["Excel", "импорт заявок"], ["Вес", "контроль поддона"], ["Цвет", "разделение партий"]],
     visualTitle: "Готовый отчет для производства",
     visualText: "После расчета программа формирует отчет в табличном виде: служебная записка, параметры поддона, цвет, размеры листов, количество и комментарии для производства.",
@@ -70,8 +73,10 @@ const text = {
     footer: "Оптимальное распределение листовых материалов по поддонам"
   },
   en: {
-    title: "Plate Palletizer",
-    description: "Software for palletizing fiber cement boards and other sheet materials: Excel order import, pallet calculation, weight, height and color control, printable layouts.",
+    title: "Sheet Palletizer — pallet calculation software for sheet materials",
+    description: "Sheet Palletizer is Windows software for optimal distribution of fiber cement, metal and other sheet materials onto pallets. Excel order import, pallet calculation, weight and height control, printable layouts.",
+    ogTitle: "Sheet Palletizer — pallet calculation for sheet materials",
+    ogDescription: "Software for palletizing sheet materials: Excel order import, automatic pallet calculation, weight, height and color control, printable production layouts.",
     nav: ["Workflow", "Features", "Pricing", "Other software", "Contact"],
     brand: "Plate Palletizer",
     heroEyebrow: "Sheet material layout automation",
@@ -80,6 +85,7 @@ const text = {
     heroPrimary: "Choose license",
     heroSecondary: "View features",
     heroDemo: "Download demo",
+    heroPresentation: "Presentation",
     metrics: [["Excel", "order import"], ["Weight", "pallet control"], ["Color", "batch separation"]],
     visualTitle: "Production-ready report",
     visualText: "After calculation, the program generates a spreadsheet-style report: memo fields, pallet parameters, color, sheet dimensions, quantities and production comments.",
@@ -143,6 +149,11 @@ function setText(selector, value) {
   if (element) element.textContent = value;
 }
 
+function setMetaContent(selector, value) {
+  const element = by(selector);
+  if (element) element.content = value;
+}
+
 function setPair(article, values) {
   if (!article || !values) return;
   const title = article.querySelector("h3");
@@ -157,6 +168,11 @@ function applyLanguage(lang) {
   document.title = t.title;
   const description = by('meta[name="description"]');
   if (description) description.content = t.description;
+  setMetaContent('meta[property="og:title"]', t.ogTitle);
+  setMetaContent('meta[property="og:description"]', t.ogDescription);
+  setMetaContent('meta[property="og:locale"]', lang === EN ? "en_US" : "ru_RU");
+  setMetaContent('meta[name="twitter:title"]', t.ogTitle);
+  setMetaContent('meta[name="twitter:description"]', t.ogDescription);
 
   setText(".brand span", t.brand);
   all(".top-nav a").forEach((link, index) => {
@@ -169,6 +185,7 @@ function applyLanguage(lang) {
   setText(".hero-actions .primary", t.heroPrimary);
   setText(".hero-actions .secondary", t.heroSecondary);
   setText(".hero-actions .demo-download", t.heroDemo);
+  setText(".hero-actions .presentation-link", t.heroPresentation);
   all(".hero-metrics div").forEach((item, index) => {
     const values = t.metrics[index];
     if (!values) return;
