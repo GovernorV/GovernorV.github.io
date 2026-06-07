@@ -458,6 +458,22 @@ footer{
     </div>
   </section>
 
+  <section id="buyGuide">
+    <div class="container">
+      <div class="card">
+        <h2>Как купить</h2>
+        <ol>
+          <li>Скачайте программу: <a href="https://disk.yandex.ru/d/rmziVsloasOaug" target="_blank" rel="noopener">pc-settings.exe</a>.</li>
+          <li>Распакуйте её и запустите на своём компьютере. При возникновении экрана "Windows защитила ваш компьютер" нажмите "Подробнее" и затем "выполнить в любом случае".</li>
+          <li>Сохраните код, который она выдаст.</li>
+          <li>Оплатите стоимость выбранного вами варианта лицензии на карту <b>5536914068135833</b> с пометкой "Оплата программы название программы", укажите также свой ИНН для получения чека.</li>
+          <li>Вышлите название программы "название программы", код и дату транзакции, а также код программы pc-settings по адресу <a href="mailto:vguberniev@gmail.com">vguberniev@gmail.com</a>.</li>
+          <li>После проверки платежа в ответном письме вам придет ссылка на ваш дистрибутив (для того компьютера, код которого вы выслали).</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <footer>
@@ -831,6 +847,7 @@ footer{
     addMoreTitle: document.getElementById("addMoreTitle"),
     addMoreText: document.getElementById("addMoreText"),
     btnContactBottom: document.getElementById("btnContactBottom"),
+    buyGuide: document.getElementById("buyGuide"),
     kpi1a: document.getElementById("kpi1a"),
     kpi1b: document.getElementById("kpi1b"),
     kpi2a: document.getElementById("kpi2a"),
@@ -933,6 +950,7 @@ footer{
 
     ui.btnRu.classList.toggle("active", lang === RU);
     ui.btnEn.classList.toggle("active", lang === EN);
+    ui.buyGuide.hidden = lang !== RU;
   }
 
   function localizedLink(value, lang){

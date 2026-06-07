@@ -227,6 +227,9 @@ function applyLanguage(lang) {
   all("[data-ru-src][data-en-src]").forEach((image) => {
     image.src = lang === EN ? image.dataset.enSrc : image.dataset.ruSrc;
   });
+  all("[data-ru-only]").forEach((node) => {
+    node.hidden = lang !== RU;
+  });
   setText(".contact .eyebrow", t.contactEyebrow);
   setText(".contact h2", t.contactTitle);
   setText(".contact p:not(.eyebrow)", t.contactText);
