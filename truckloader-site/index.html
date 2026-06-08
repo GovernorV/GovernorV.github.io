@@ -5,8 +5,48 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TruckLoader - расчет загрузки поддонов в автофургоны</title>
   <meta name="description" content="TruckLoader рассчитывает оптимальную укладку поддонов в автофургоны и контейнеры, показывает 2D и 3D схемы загрузки и помогает определить количество машин.">
+  <meta name="keywords" content="TruckLoader, расчет загрузки фуры, загрузка поддонов в автофургон, укладка поддонов, 2D схема загрузки, 3D схема загрузки, расчет паллетомест, логистика, контейнерная загрузка">
+  <meta name="author" content="Viktor Guberniev">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://governorv.github.io/truckloader-site/">
+  <link rel="alternate" hreflang="ru" href="https://governorv.github.io/truckloader-site/">
+  <link rel="alternate" hreflang="en" href="https://governorv.github.io/truckloader-site/?lang=en">
+  <link rel="alternate" hreflang="x-default" href="https://governorv.github.io/truckloader-site/">
   <link rel="icon" href="assets/truckloader.ico" type="image/x-icon">
   <link rel="shortcut icon" href="assets/truckloader.ico" type="image/x-icon">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PackTuning Software">
+  <meta property="og:title" content="TruckLoader - расчет загрузки поддонов в автофургоны">
+  <meta property="og:description" content="Программа для расчета загрузки поддонов в автофургоны и контейнеры с 2D и 3D схемами укладки.">
+  <meta property="og:url" content="https://governorv.github.io/truckloader-site/">
+  <meta property="og:image" content="https://governorv.github.io/truckloader-site/assets/link-banner.png">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="TruckLoader - pallet loading calculation for trucks">
+  <meta name="twitter:description" content="TruckLoader calculates pallet loading for trucks and containers and provides clear 2D/3D loading layouts.">
+  <meta name="twitter:image" content="https://governorv.github.io/truckloader-site/assets/link-banner.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "TruckLoader",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Windows",
+    "url": "https://governorv.github.io/truckloader-site/",
+    "image": "https://governorv.github.io/truckloader-site/assets/link-banner.png",
+    "description": "TruckLoader calculates optimal pallet loading for trucks and containers and shows 2D and 3D loading layouts.",
+    "author": {
+      "@type": "Person",
+      "name": "Viktor Guberniev"
+    },
+    "offers": [
+      {"@type": "Offer", "name": "Perpetual license", "price": "69900", "priceCurrency": "RUB"},
+      {"@type": "Offer", "name": "Annual license", "price": "15000", "priceCurrency": "RUB"},
+      {"@type": "Offer", "name": "Monthly license", "price": "1500", "priceCurrency": "RUB"}
+    ]
+  }
+  </script>
   <style>
     :root{
       color-scheme:light;
@@ -219,24 +259,28 @@
       margin-top:18px;
     }
     .program-card{
-      display:block;
+      display:flex;
+      flex-direction:column;
       overflow:hidden;
       border:1px solid var(--line);
       border-radius:var(--radius);
       background:var(--panel);
       box-shadow:0 10px 30px rgba(15,23,42,.08);
       transition:transform .15s ease, box-shadow .15s ease;
+      min-height:390px;
     }
     .program-card:hover{transform:translateY(-2px);box-shadow:0 18px 44px rgba(15,23,42,.12)}
     .program-card img{
       width:100%;
-      height:clamp(180px, 16vw, 260px);
+      height:220px;
+      flex:0 0 220px;
       object-fit:contain;
       display:block;
       background:var(--soft);
     }
     .program-card div{
       padding:14px 16px 16px;
+      flex:1;
     }
     .program-card h3{
       font-size:18px;
