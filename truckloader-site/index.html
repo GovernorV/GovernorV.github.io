@@ -7,23 +7,38 @@
   <meta name="description" content="TruckLoader рассчитывает оптимальную укладку поддонов в автофургоны и контейнеры, показывает 2D и 3D схемы загрузки и помогает определить количество машин.">
   <style>
     :root{
+      color-scheme:light;
       --ink:#0b173d;
       --text:#172554;
       --muted:#52607f;
       --line:#dbe6fb;
       --panel:#ffffff;
       --soft:#f5f9ff;
+      --page:#ffffff;
       --accent:#0ea5e9;
       --accent2:#155eef;
       --shadow:0 18px 50px rgba(15,23,42,.12);
       --radius:8px;
+    }
+    html[data-theme="night"]{
+      color-scheme:dark;
+      --ink:#eaf3ff;
+      --text:#dbeafe;
+      --muted:#a8b7d6;
+      --line:rgba(148,163,184,.25);
+      --panel:#111827;
+      --soft:#0b1220;
+      --page:#07111f;
+      --accent:#22d3ee;
+      --accent2:#60a5fa;
+      --shadow:0 18px 50px rgba(0,0,0,.28);
     }
     *{box-sizing:border-box}
     body{
       margin:0;
       font-family:Arial,Helvetica,sans-serif;
       color:var(--text);
-      background:#fff;
+      background:var(--page);
       line-height:1.55;
     }
     a{color:inherit;text-decoration:none}
@@ -49,15 +64,31 @@
       color:var(--ink);
     }
     .nav{display:flex;gap:16px;flex-wrap:wrap;font-size:14px;font-weight:700;color:#1d4ed8}
+    html[data-theme="night"] .top{background:rgba(7,17,31,.88)}
+    html[data-theme="night"] .nav{color:#7dd3fc}
+    .controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+    .toggle{
+      border:1px solid var(--line);
+      background:var(--panel);
+      color:var(--text);
+      border-radius:999px;
+      padding:8px 12px;
+      font-weight:800;
+      cursor:pointer;
+    }
+    .toggle.active{
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      color:#06101f;
+      border-color:transparent;
+    }
     .banner{
       background:#06101f;
       overflow:hidden;
     }
     .banner img{
       width:100%;
-      min-height:210px;
-      max-height:360px;
-      object-fit:cover;
+      height:auto;
+      object-fit:contain;
       object-position:center;
       display:block;
     }
@@ -65,7 +96,7 @@
     .hero{
       background:
         radial-gradient(circle at 78% 5%, rgba(14,165,233,.12), transparent 32%),
-        linear-gradient(180deg,#ffffff 0%,#f6faff 100%);
+        linear-gradient(180deg,var(--page) 0%,var(--soft) 100%);
       padding:46px 0 34px;
     }
     .hero-grid{
@@ -104,13 +135,13 @@
     .btn.secondary{
       color:#0f2f8f;
       border-color:#bfd2ff;
-      background:#fff;
+      background:var(--panel);
     }
     .product-shot{
       border:1px solid var(--line);
       box-shadow:var(--shadow);
       border-radius:var(--radius);
-      background:#fff;
+      background:var(--panel);
       padding:8px;
     }
     .product-shot img,.link-banner img{width:100%;display:block;border-radius:6px}
@@ -125,7 +156,7 @@
       gap:14px;
       align-items:start;
       padding:16px;
-      background:#fff;
+      background:var(--panel);
       border:1px solid var(--line);
       border-radius:var(--radius);
     }
@@ -135,7 +166,7 @@
       place-items:center;
       border-radius:8px;
       border:1px solid #c8dcff;
-      background:#f4f8ff;
+      background:var(--soft);
       color:#143a9a;
       font-size:24px;
       font-weight:900;
@@ -173,7 +204,7 @@
       border:1px solid var(--line);
       border-radius:var(--radius);
       padding:18px;
-      background:#fff;
+      background:var(--panel);
       min-height:150px;
       transition:transform .15s ease, box-shadow .15s ease;
     }
@@ -190,7 +221,7 @@
       overflow:hidden;
       border:1px solid var(--line);
       border-radius:var(--radius);
-      background:#fff;
+      background:var(--panel);
       box-shadow:0 10px 30px rgba(15,23,42,.08);
       transition:transform .15s ease, box-shadow .15s ease;
     }
@@ -200,7 +231,7 @@
       aspect-ratio:16/9;
       object-fit:cover;
       display:block;
-      background:#edf4ff;
+      background:var(--soft);
     }
     .program-card div{
       padding:14px 16px 16px;
@@ -233,13 +264,18 @@
   <header class="top">
     <div class="wrap top-inner">
       <a class="brand" href="#">TruckLoader</a>
-      <nav class="nav" aria-label="Навигация">
-        <a href="#download">Демоверсия</a>
-        <a href="#features">Возможности</a>
-        <a href="#prices">Цены</a>
-        <a href="#sites">Другие программы</a>
-        <a href="../">Каталог</a>
-      </nav>
+      <div class="controls">
+        <nav class="nav" aria-label="Навигация">
+          <a href="#download" data-i18n="navDemo">Демоверсия</a>
+          <a href="#features" data-i18n="navFeatures">Возможности</a>
+          <a href="#prices" data-i18n="navPrices">Цены</a>
+          <a href="#buy" data-i18n="navBuy">Как купить</a>
+          <a href="#sites" data-i18n="navOther">Другие программы</a>
+          <a href="../" data-i18n="navCatalog">Каталог</a>
+        </nav>
+        <button class="toggle active" type="button" id="langRu">RU</button>
+        <button class="toggle" type="button" id="langEn">EN</button>
+      </div>
     </div>
   </header>
 
@@ -251,18 +287,18 @@
     <section class="hero" id="download">
       <div class="wrap hero-grid">
         <div>
-          <h1>Расчет загрузки поддонов в автофургоны</h1>
-          <p class="lead">TruckLoader помогает определить, сколько груза поместится в фургон или контейнер, сколько машин потребуется и как лучше разместить поддоны.</p>
-          <p>Программа учитывает размеры грузовых единиц, кузова, отступы и зазоры, подбирает ориентацию и строит наглядные 2D и 3D схемы загрузки.</p>
+          <h1 data-i18n="heroTitle">Расчет загрузки поддонов в автофургоны</h1>
+          <p class="lead" data-i18n="heroLead">TruckLoader помогает определить, сколько груза поместится в фургон или контейнер, сколько машин потребуется и как лучше разместить поддоны.</p>
+          <p data-i18n="heroText">Программа учитывает размеры грузовых единиц, кузова, отступы и зазоры, подбирает ориентацию и строит наглядные 2D и 3D схемы загрузки.</p>
           <div class="actions">
-            <a class="btn primary" href="https://disk.yandex.ru/d/BbZJdcnofz_v6A" target="_blank" rel="noopener">Скачать демоверсию</a>
-            <a class="btn secondary" href="https://disk.yandex.ru/d/MkHybluDEP-SRA" target="_blank" rel="noopener">Открыть презентацию</a>
+            <a class="btn primary" href="https://disk.yandex.ru/d/BbZJdcnofz_v6A" target="_blank" rel="noopener" data-i18n="demoBtn">Скачать демоверсию</a>
+            <a class="btn secondary" href="https://disk.yandex.ru/d/MkHybluDEP-SRA" target="_blank" rel="noopener" data-i18n="presentationBtn">Открыть презентацию</a>
           </div>
           <div class="chips">
-            <span class="chip">Автофургоны и контейнеры</span>
-            <span class="chip">2D и 3D схемы</span>
+            <span class="chip" data-i18n="chip1">Автофургоны и контейнеры</span>
+            <span class="chip" data-i18n="chip2">2D и 3D схемы</span>
             <span class="chip">Windows</span>
-            <span class="chip">Демоверсия</span>
+            <span class="chip" data-i18n="chip4">Демоверсия</span>
           </div>
         </div>
         <div class="product-shot">
@@ -273,23 +309,43 @@
 
     <section class="soft" id="prices">
       <div class="wrap">
-        <h2>Стоимость</h2>
-        <p>Выберите удобный срок использования программы TruckLoader.</p>
+        <h2 data-i18n="pricesTitle">Стоимость</h2>
+        <p data-i18n="pricesLead">Выберите удобный срок использования программы TruckLoader.</p>
         <div class="cards">
           <div class="card">
-            <h3>Бессрочная лицензия</h3>
-            <p><b style="font-size:28px;color:var(--ink)">69 900 руб.</b></p>
-            <p>Постоянное использование программы без ограничения по сроку.</p>
+            <h3 data-i18n="price1Title">Бессрочная лицензия</h3>
+            <p><b style="font-size:28px;color:var(--ink)" data-i18n="price1Value">69 900 руб.</b></p>
+            <p data-i18n="price1Text">Постоянное использование программы без ограничения по сроку.</p>
           </div>
           <div class="card">
-            <h3>Лицензия на год</h3>
-            <p><b style="font-size:28px;color:var(--ink)">15 000 руб.</b></p>
-            <p>Оптимально для регулярной работы и тестирования на реальных отгрузках.</p>
+            <h3 data-i18n="price2Title">Лицензия на год</h3>
+            <p><b style="font-size:28px;color:var(--ink)" data-i18n="price2Value">15 000 руб.</b></p>
+            <p data-i18n="price2Text">Оптимально для регулярной работы и тестирования на реальных отгрузках.</p>
           </div>
           <div class="card">
-            <h3>Лицензия на месяц</h3>
-            <p><b style="font-size:28px;color:var(--ink)">1 500 руб.</b></p>
-            <p>Подходит для разовой задачи, пилота или знакомства с программой.</p>
+            <h3 data-i18n="price3Title">Лицензия на месяц</h3>
+            <p><b style="font-size:28px;color:var(--ink)" data-i18n="price3Value">1 500 руб.</b></p>
+            <p data-i18n="price3Text">Подходит для разовой задачи, пилота или знакомства с программой.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="buy">
+      <div class="wrap">
+        <div class="panel">
+          <h2 data-i18n="buyTitle">Как купить</h2>
+          <p data-i18n="buyLead">Для оформления лицензии нужен код компьютера, на котором будет установлена программа.</p>
+          <ol>
+            <li data-i18n="buy1">Скачайте программу pc-settings.exe и запустите ее на своем компьютере.</li>
+            <li data-i18n="buy2">Сохраните код, который она выдаст.</li>
+            <li data-i18n="buy3">Оплатите выбранный вариант лицензии на карту 5536914068135833 с пометкой "Оплата программы TruckLoader", укажите также свой ИНН для получения чека.</li>
+            <li data-i18n="buy4">Вышлите название программы "TruckLoader", код, дату транзакции и код программы pc-settings по адресу vguberniev@gmail.com.</li>
+            <li data-i18n="buy5">После проверки платежа в ответном письме придет ссылка на дистрибутив для указанного компьютера.</li>
+          </ol>
+          <div class="actions">
+            <a class="btn primary" href="https://disk.yandex.ru/d/rmziVsloasOaug" target="_blank" rel="noopener" data-i18n="pcBtn">Скачать pc-settings.exe</a>
+            <a class="btn secondary" href="mailto:vguberniev@gmail.com?subject=TruckLoader" data-i18n="mailBtn">Написать на почту</a>
           </div>
         </div>
       </div>
@@ -298,20 +354,20 @@
     <section id="features">
       <div class="wrap split">
         <div class="panel">
-          <h2>Для каких задач</h2>
-          <p>TruckLoader полезен при планировании перевозок, подготовке отгрузки, сравнении вариантов размещения и оценке потребного количества машин.</p>
+          <h2 data-i18n="tasksTitle">Для каких задач</h2>
+          <p data-i18n="tasksLead">TruckLoader полезен при планировании перевозок, подготовке отгрузки, сравнении вариантов размещения и оценке потребного количества машин.</p>
           <div class="feature-list">
-            <div class="feature"><div class="icon">1</div><p>Расчет укладки поддонов в автофургоны и контейнеры.</p></div>
-            <div class="feature"><div class="icon">2</div><p>Учет размеров груза, кузова, отступов и зазоров.</p></div>
-            <div class="feature"><div class="icon">3</div><p>Подбор ориентации: вдоль, поперек, по рядам и по высоте.</p></div>
-            <div class="feature"><div class="icon">4</div><p>Режимы расчета: сколько влезет в машину и сколько машин нужно.</p></div>
-            <div class="feature"><div class="icon">5</div><p>Наглядные 2D и 3D схемы для проверки загрузки.</p></div>
-            <div class="feature"><div class="icon">6</div><p>Режим дежурства с обработкой файлов через папки IN/OUT.</p></div>
+            <div class="feature"><div class="icon">1</div><p data-i18n="feature1">Расчет укладки поддонов в автофургоны и контейнеры.</p></div>
+            <div class="feature"><div class="icon">2</div><p data-i18n="feature2">Учет размеров груза, кузова, отступов и зазоров.</p></div>
+            <div class="feature"><div class="icon">3</div><p data-i18n="feature3">Подбор ориентации: вдоль, поперек, по рядам и по высоте.</p></div>
+            <div class="feature"><div class="icon">4</div><p data-i18n="feature4">Режимы расчета: сколько влезет в машину и сколько машин нужно.</p></div>
+            <div class="feature"><div class="icon">5</div><p data-i18n="feature5">Наглядные 2D и 3D схемы для проверки загрузки.</p></div>
+            <div class="feature"><div class="icon">6</div><p data-i18n="feature6">Режим дежурства с обработкой файлов через папки IN/OUT.</p></div>
           </div>
         </div>
         <div>
-          <h2>Что получает пользователь</h2>
-          <p>После расчета видна текстовая сводка по заказам, количество размещенных поддонов, свободное место по длине и схемы укладки. Это помогает быстрее принимать решение и согласовывать загрузку с логистикой или складом.</p>
+          <h2 data-i18n="resultTitle">Что получает пользователь</h2>
+          <p data-i18n="resultText">После расчета видна текстовая сводка по заказам, количество размещенных поддонов, свободное место по длине и схемы укладки. Это помогает быстрее принимать решение и согласовывать загрузку с логистикой или складом.</p>
           <div class="link-banner">
             <img src="assets/link-banner.png" alt="Баннер TruckLoader">
           </div>
@@ -321,48 +377,176 @@
 
     <section class="soft" id="sites">
       <div class="wrap">
-        <h2>Другие программы</h2>
-        <p>Остальные опубликованные продукты PackTuning Software.</p>
+        <h2 data-i18n="otherTitle">Другие программы</h2>
+        <p data-i18n="otherLead">Остальные опубликованные продукты PackTuning Software.</p>
         <div class="program-grid">
           <a class="program-card" href="https://governorv.github.io/BoxPalletizer/#ru">
             <img src="../palletizer_banner.png" alt="Box Palletizer">
-            <div><h3>Box Palletizer</h3><p>Устойчивая ручная укладка коробов на поддон.</p></div>
+            <div><h3>Box Palletizer</h3><p data-i18n="otherBoxPal">Устойчивая ручная укладка коробов на поддон.</p></div>
           </a>
           <a class="program-card" href="https://governorv.github.io/palletizer-site/#ru">
             <img src="../platepalletizer_banner.png" alt="Паллетировщик плит">
-            <div><h3>Паллетировщик плит</h3><p>Распределение листовых материалов по поддонам.</p></div>
+            <div><h3 data-i18n="otherSheetTitle">Паллетировщик плит</h3><p data-i18n="otherSheet">Распределение листовых материалов по поддонам.</p></div>
           </a>
           <a class="program-card" href="https://governorv.github.io/BoxPriceCalculator/#ru">
             <img src="../boxprice_banner.png" alt="Box Price Calculator">
-            <div><h3>Box Price Calculator</h3><p>Себестоимость гофроящиков, листов и рулонов.</p></div>
+            <div><h3>Box Price Calculator</h3><p data-i18n="otherBoxPrice">Себестоимость гофроящиков, листов и рулонов.</p></div>
           </a>
           <a class="program-card" href="https://governorv.github.io/OptCutting/#ru">
             <img src="../optcutting_banner.png" alt="OptCutting">
-            <div><h3>OptCutting</h3><p>Оптимизация раскроя полотна гофрокартона.</p></div>
+            <div><h3>OptCutting</h3><p data-i18n="otherOpt">Оптимизация раскроя полотна гофрокартона.</p></div>
           </a>
           <a class="program-card" href="https://governorv.github.io/DBSearch/#ru">
             <img src="../dbsearch_banner.png" alt="DBSearch">
-            <div><h3>DBSearch</h3><p>Поиск по базам данных и связанным серверам.</p></div>
+            <div><h3>DBSearch</h3><p data-i18n="otherDb">Поиск по базам данных и связанным серверам.</p></div>
           </a>
           <a class="program-card" href="https://governorv.github.io/Licman/#ru">
             <img src="../licman_banner.png" alt="LicMan">
-            <div><h3>LicMan</h3><p>Учет и контроль лицензий на программное обеспечение.</p></div>
+            <div><h3>LicMan</h3><p data-i18n="otherLic">Учет и контроль лицензий на программное обеспечение.</p></div>
           </a>
           <a class="program-card" href="https://governorv.github.io/gost/">
-            <img src="../gost914290_banner.png" alt="ГОСТ 9142-90">
-            <div><h3>ГОСТ 9142-90</h3><p>Расчет нагрузки на гофроящик и подбор марки картона.</p></div>
+            <img src="../gost914290_banner.png" alt="ГОСТ 9142-2014">
+            <div><h3 data-i18n="otherGostTitle">ГОСТ 9142-2014</h3><p data-i18n="otherGost">Расчет нагрузки на гофроящик и подбор марки картона.</p></div>
           </a>
         </div>
         <div class="actions">
-          <a class="btn secondary" href="../">Открыть полный каталог</a>
+          <a class="btn secondary" href="../" data-i18n="catalogBtn">Открыть полный каталог</a>
         </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="wrap">TruckLoader - расчет загрузки поддонов в автофургоны и контейнеры.</div>
+    <div class="wrap" data-i18n="footer">TruckLoader - расчет загрузки поддонов в автофургоны и контейнеры.</div>
   </footer>
+  <script>
+    (() => {
+      const RU = "ru";
+      const EN = "en";
+      const text = {
+        ru: {
+          title: "TruckLoader - расчет загрузки поддонов в автофургоны",
+          navDemo: "Демоверсия", navFeatures: "Возможности", navPrices: "Цены", navBuy: "Как купить", navOther: "Другие программы", navCatalog: "Каталог",
+          heroTitle: "Расчет загрузки поддонов в автофургоны",
+          heroLead: "TruckLoader помогает определить, сколько груза поместится в фургон или контейнер, сколько машин потребуется и как лучше разместить поддоны.",
+          heroText: "Программа учитывает размеры грузовых единиц, кузова, отступы и зазоры, подбирает ориентацию и строит наглядные 2D и 3D схемы загрузки.",
+          demoBtn: "Скачать демоверсию", presentationBtn: "Открыть презентацию",
+          chip1: "Автофургоны и контейнеры", chip2: "2D и 3D схемы", chip4: "Демоверсия",
+          pricesTitle: "Стоимость", pricesLead: "Выберите удобный срок использования программы TruckLoader.",
+          price1Title: "Бессрочная лицензия", price1Value: "69 900 руб.", price1Text: "Постоянное использование программы без ограничения по сроку.",
+          price2Title: "Лицензия на год", price2Value: "15 000 руб.", price2Text: "Оптимально для регулярной работы и тестирования на реальных отгрузках.",
+          price3Title: "Лицензия на месяц", price3Value: "1 500 руб.", price3Text: "Подходит для разовой задачи, пилота или знакомства с программой.",
+          buyTitle: "Как купить",
+          buyLead: "Для оформления лицензии нужен код компьютера, на котором будет установлена программа.",
+          buy1: "Скачайте программу pc-settings.exe и запустите ее на своем компьютере.",
+          buy2: "Сохраните код, который она выдаст.",
+          buy3: "Оплатите выбранный вариант лицензии на карту 5536914068135833 с пометкой \"Оплата программы TruckLoader\", укажите также свой ИНН для получения чека.",
+          buy4: "Вышлите название программы \"TruckLoader\", код, дату транзакции и код программы pc-settings по адресу vguberniev@gmail.com.",
+          buy5: "После проверки платежа в ответном письме придет ссылка на дистрибутив для указанного компьютера.",
+          pcBtn: "Скачать pc-settings.exe",
+          mailBtn: "Написать на почту",
+          tasksTitle: "Для каких задач", tasksLead: "TruckLoader полезен при планировании перевозок, подготовке отгрузки, сравнении вариантов размещения и оценке потребного количества машин.",
+          feature1: "Расчет укладки поддонов в автофургоны и контейнеры.",
+          feature2: "Учет размеров груза, кузова, отступов и зазоров.",
+          feature3: "Подбор ориентации: вдоль, поперек, по рядам и по высоте.",
+          feature4: "Режимы расчета: сколько влезет в машину и сколько машин нужно.",
+          feature5: "Наглядные 2D и 3D схемы для проверки загрузки.",
+          feature6: "Режим дежурства с обработкой файлов через папки IN/OUT.",
+          resultTitle: "Что получает пользователь",
+          resultText: "После расчета видна текстовая сводка по заказам, количество размещенных поддонов, свободное место по длине и схемы укладки. Это помогает быстрее принимать решение и согласовывать загрузку с логистикой или складом.",
+          otherTitle: "Другие программы", otherLead: "Остальные опубликованные продукты PackTuning Software.",
+          otherBoxPal: "Устойчивая ручная укладка коробов на поддон.",
+          otherSheetTitle: "Паллетировщик плит", otherSheet: "Распределение листовых материалов по поддонам.",
+          otherBoxPrice: "Себестоимость гофроящиков, листов и рулонов.",
+          otherOpt: "Оптимизация раскроя полотна гофрокартона.",
+          otherDb: "Поиск по базам данных и связанным серверам.",
+          otherLic: "Учет и контроль лицензий на программное обеспечение.",
+          otherGostTitle: "ГОСТ 9142-2014", otherGost: "Расчет нагрузки на гофроящик и подбор марки картона.",
+          catalogBtn: "Открыть полный каталог",
+          footer: "TruckLoader - расчет загрузки поддонов в автофургоны и контейнеры."
+        },
+        en: {
+          title: "TruckLoader - pallet loading calculation for trucks",
+          navDemo: "Demo", navFeatures: "Features", navPrices: "Pricing", navBuy: "How to buy", navOther: "Other software", navCatalog: "Catalog",
+          heroTitle: "Pallet loading calculation for trucks",
+          heroLead: "TruckLoader helps estimate how much cargo fits into a truck or container, how many vehicles are required, and how to arrange pallets efficiently.",
+          heroText: "The program accounts for pallet dimensions, body dimensions, offsets and gaps, selects orientation and builds clear 2D and 3D loading layouts.",
+          demoBtn: "Download demo", presentationBtn: "Open presentation",
+          chip1: "Trucks and containers", chip2: "2D and 3D layouts", chip4: "Demo version",
+          pricesTitle: "Pricing", pricesLead: "Choose the TruckLoader license period that fits your workflow.",
+          price1Title: "Perpetual license", price1Value: "69,900 RUB", price1Text: "Permanent use of the software with no time limit.",
+          price2Title: "Annual license", price2Value: "15,000 RUB", price2Text: "Best for regular work and testing on real shipments.",
+          price3Title: "Monthly license", price3Value: "1,500 RUB", price3Text: "Good for a one-time task, pilot project or first evaluation.",
+          buyTitle: "How to buy",
+          buyLead: "A license is issued for the computer where the software will be installed.",
+          buy1: "Download pc-settings.exe and run it on your computer.",
+          buy2: "Save the code shown by the utility.",
+          buy3: "Pay for the selected license option to card 5536914068135833 with the note \"TruckLoader payment\".",
+          buy4: "Send the program name \"TruckLoader\", the code, transaction date and pc-settings code to vguberniev@gmail.com.",
+          buy5: "After payment verification, you will receive a reply with a distribution link for the specified computer.",
+          pcBtn: "Download pc-settings.exe",
+          mailBtn: "Send email",
+          tasksTitle: "Use cases", tasksLead: "TruckLoader is useful for transport planning, shipment preparation, layout comparison and estimating the number of vehicles required.",
+          feature1: "Calculate pallet loading in trucks and containers.",
+          feature2: "Account for cargo, body, offset and gap dimensions.",
+          feature3: "Select orientation along, across, by rows and by height.",
+          feature4: "Calculation modes: how much fits and how many vehicles are needed.",
+          feature5: "Clear 2D and 3D layouts for checking the load plan.",
+          feature6: "Watch mode for processing files through IN/OUT folders.",
+          resultTitle: "What the user gets",
+          resultText: "After calculation, the user sees an order summary, the number of placed pallets, remaining length and loading diagrams. This helps make decisions faster and coordinate loading with logistics or warehouse teams.",
+          otherTitle: "Other software", otherLead: "Other published PackTuning Software products.",
+          otherBoxPal: "Stable manual box stacking on pallets.",
+          otherSheetTitle: "Sheet Palletizer", otherSheet: "Distribution of sheet materials across pallets.",
+          otherBoxPrice: "Cost calculation for corrugated boxes, sheets and rolls.",
+          otherOpt: "Corrugated board cutting optimization.",
+          otherDb: "Search across databases and linked servers.",
+          otherLic: "Software license tracking and control.",
+          otherGostTitle: "GOST 9142-2014", otherGost: "Box load calculation and board grade selection.",
+          catalogBtn: "Open full catalog",
+          footer: "TruckLoader - pallet loading calculation for trucks and containers."
+        }
+      };
+
+      function applyAutoTheme(){
+        const hour = new Date().getHours();
+        document.documentElement.dataset.theme = hour >= 18 ? "night" : "day";
+      }
+
+      function setLang(lang){
+        const current = text[lang] ? lang : RU;
+        document.documentElement.lang = current;
+        document.title = text[current].title;
+        document.querySelectorAll("[data-i18n]").forEach((node) => {
+          const key = node.getAttribute("data-i18n");
+          if (text[current][key]) node.textContent = text[current][key];
+        });
+        document.getElementById("langRu").classList.toggle("active", current === RU);
+        document.getElementById("langEn").classList.toggle("active", current === EN);
+        try { localStorage.setItem("truckloader-lang", current); } catch(e) {}
+        const url = new URL(window.location.href);
+        if (current === EN) url.searchParams.set("lang", EN); else url.searchParams.delete("lang");
+        history.replaceState(null, "", url.pathname + url.search + url.hash);
+      }
+
+      function initialLang(){
+        const query = new URLSearchParams(window.location.search).get("lang");
+        if (query === EN) return EN;
+        if ((window.location.hash || "").toLowerCase() === "#en") return EN;
+        try {
+          const saved = localStorage.getItem("truckloader-lang");
+          if (saved === EN || saved === RU) return saved;
+        } catch(e) {}
+        return RU;
+      }
+
+      document.getElementById("langRu").addEventListener("click", () => setLang(RU));
+      document.getElementById("langEn").addEventListener("click", () => setLang(EN));
+      applyAutoTheme();
+      setLang(initialLang());
+    })();
+  </script>
 </body>
 </html>
+
 

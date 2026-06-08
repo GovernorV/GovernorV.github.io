@@ -64,7 +64,8 @@ const text = {
       ["Поисковик по базам данных", "Поиск объектов и данных в SQL Server, просмотр кода, фильтры и экспорт результатов."],
       ["Менеджер лицензий", "Учет лицензий, контроль сроков действия, ответственные, уведомления и экспорт в Excel."],
       ["Раскройщик", "Оптимизация раскроя полотна гофрокартона, карты раскроя, сетевой график и отчеты Excel."],
-      ["Расчет нагрузки по ГОСТ 9142-2014", "Расчет характеристик гофроящика, подбор марки гофрокартона и PDF-отчет."]
+      ["Расчет нагрузки по ГОСТ 9142-2014", "Расчет характеристик гофроящика, подбор марки гофрокартона и PDF-отчет."],
+      ["TruckLoader", "Расчет загрузки поддонов в автофургоны и контейнеры, 2D и 3D схемы."]
     ],
     contactEyebrow: "Заказ и внедрение",
     contactTitle: "Подберите вариант лицензии под вашу загрузку",
@@ -126,7 +127,8 @@ const text = {
       ["Database Search", "Search SQL Server objects and data, view code, filter results and export reports."],
       ["License Manager", "Track licenses, expiration dates, owners, notifications and Excel exports."],
       ["OptCutting", "Corrugated board cutting optimization with cutting maps, Gantt schedule and Excel reports."],
-      ["GOST 9142-2014 Load Calculator", "Corrugated box load, board grade calculation and PDF report export."]
+      ["GOST 9142-2014 Load Calculator", "Corrugated box load, board grade calculation and PDF report export."],
+      ["TruckLoader", "Pallet loading calculation for trucks and containers with 2D and 3D layouts."]
     ],
     contactEyebrow: "Order and implementation",
     contactTitle: "Choose a license for your workload",
