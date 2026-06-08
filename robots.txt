@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://governorv.github.io/sitemap-main.xml
+Sitemap: https://governorv.github.io/sitemap.txt
