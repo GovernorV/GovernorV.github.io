@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <title>PackTuning Software — каталог программ для упаковки, логистики и SQL</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="PackTuning Software: каталог программ для паллетизации, расчета стоимости гофроупаковки, расчета нагрузки на гофроящик по ГОСТ 9142-90, учета лицензий и поиска по базам данных SQL Server.">
-<meta name="keywords" content="PackTuning Software, программы для упаковки, паллетизация, расчет стоимости гофроящика, ГОСТ 9142-90, расчет нагрузки на гофроящик, учет лицензий, поиск по базе данных, SQL Server, Box Palletizer, Box Price Calculator, LicMan, DBSearch">
+<meta name="description" content="PackTuning Software: каталог программ для паллетизации, загрузки поддонов в автофургоны, расчета стоимости гофроупаковки, расчета нагрузки на гофроящик по ГОСТ 9142-90, учета лицензий и поиска по базам данных SQL Server.">
+<meta name="keywords" content="PackTuning Software, программы для упаковки, паллетизация, загрузка поддонов в автофургоны, расчет загрузки фуры, TruckLoader, расчет стоимости гофроящика, ГОСТ 9142-90, расчет нагрузки на гофроящик, учет лицензий, поиск по базе данных, SQL Server, Box Palletizer, Box Price Calculator, LicMan, DBSearch">
 <meta name="author" content="Viktor Guberniev">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://governorv.github.io/">
@@ -14,7 +14,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="PackTuning Software">
 <meta property="og:title" content="PackTuning Software — каталог программ для упаковки и логистики">
-<meta property="og:description" content="Программы для паллетизации, расчета стоимости гофроупаковки, расчета нагрузки на гофроящик по ГОСТ 9142-90, учета лицензий и поиска по базам данных SQL Server.">
+<meta property="og:description" content="Программы для паллетизации, загрузки поддонов в автофургоны, расчета стоимости гофроупаковки, расчета нагрузки на гофроящик по ГОСТ 9142-90, учета лицензий и поиска по базам данных SQL Server.">
 <meta property="og:url" content="https://governorv.github.io/">
 <meta property="og:image" content="https://governorv.github.io/palletizer_banner.png">
 <meta property="og:locale" content="ru_RU">
@@ -29,7 +29,7 @@
   "@context": "https://schema.org",
   "@type": "ItemList",
   "name": "PackTuning Software Product Catalog",
-  "description": "Catalog of desktop software tools for packaging, palletizing, corrugated packaging costing, GOST 9142-90 box load calculation, license management and database search.",
+  "description": "Catalog of desktop software tools for packaging, palletizing, truck loading, corrugated packaging costing, GOST 9142-90 box load calculation, license management and database search.",
   "url": "https://governorv.github.io/",
   "itemListElement": [
     {
@@ -67,6 +67,12 @@
       "position": 6,
       "url": "https://governorv.github.io/gost/",
       "name": "GOST 9142-90 Box Load Calculator"
+    },
+    {
+      "@type": "ListItem",
+      "position": 7,
+      "url": "https://governorv.github.io/truckloader-site/",
+      "name": "TruckLoader"
     }
   ]
 }
@@ -680,6 +686,53 @@ footer{
         page: {
           ru: "https://governorv.github.io/BoxPalletizer/#ru",
           en: "https://governorv.github.io/BoxPalletizer/#en"
+        }
+      }
+    },
+    {
+      id: "truckloader",
+      glyph: "TL",
+      icon: "",
+      cover: {
+        ru: "truckloader_banner.png",
+        en: "truckloader_banner.png"
+      },
+      gradient: ["#19c8ff", "#123a7a"],
+      titles: {
+        ru: "TruckLoader",
+        en: "TruckLoader"
+      },
+      subtitles: {
+        ru: "Расчет загрузки поддонов в автофургоны и контейнеры",
+        en: "Pallet loading calculation for trucks and containers"
+      },
+      descriptions: {
+        ru: "Подбирает ориентацию поддонов, считает вместимость фургона или контейнера, определяет количество машин и показывает наглядные 2D и 3D схемы загрузки.",
+        en: "Selects pallet orientation, calculates truck or container capacity, estimates the number of vehicles required and shows clear 2D/3D loading layouts."
+      },
+      pricing: {
+        ru: {
+          main: "69 900 ₽ (покупка)",
+          lines: [
+            "Аренда 1 месяц: 1 500 ₽",
+            "Аренда 1 год: 15 000 ₽",
+            "Бессрочная лицензия: 69 900 ₽"
+          ]
+        },
+        en: {
+          main: "69,900 RUB (purchase)",
+          lines: [
+            "Monthly rental: 1,500 RUB",
+            "Annual rental: 15,000 RUB",
+            "Perpetual license: 69,900 RUB"
+          ]
+        }
+      },
+      links: {
+        demo: "https://disk.yandex.ru/d/BbZJdcnofz_v6A",
+        page: {
+          ru: "https://governorv.github.io/truckloader-site/",
+          en: "https://governorv.github.io/truckloader-site/"
         }
       }
     },
