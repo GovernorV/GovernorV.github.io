@@ -179,12 +179,41 @@
     }
     .card:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(15,23,42,.10)}
     .card p{font-size:14px;margin:0}
-    .banner-card{
-      padding:0;
-      overflow:hidden;
-      grid-column:span 2;
+    .program-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:18px;
+      margin-top:18px;
     }
-    .banner-card .caption{padding:16px 18px}
+    .program-card{
+      display:block;
+      overflow:hidden;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:#fff;
+      box-shadow:0 10px 30px rgba(15,23,42,.08);
+      transition:transform .15s ease, box-shadow .15s ease;
+    }
+    .program-card:hover{transform:translateY(-2px);box-shadow:0 18px 44px rgba(15,23,42,.12)}
+    .program-card img{
+      width:100%;
+      aspect-ratio:16/9;
+      object-fit:cover;
+      display:block;
+      background:#edf4ff;
+    }
+    .program-card div{
+      padding:14px 16px 16px;
+    }
+    .program-card h3{
+      font-size:18px;
+      margin:0 0 6px;
+    }
+    .program-card p{
+      font-size:14px;
+      margin:0;
+      color:var(--muted);
+    }
     .soft{background:var(--soft)}
     footer{
       padding:28px 0;
@@ -195,7 +224,7 @@
     @media(max-width:900px){
       .hero-grid,.split{grid-template-columns:1fr}
       .cards{grid-template-columns:1fr}
-      .banner-card{grid-column:auto}
+      .program-grid{grid-template-columns:1fr}
       .top-inner{align-items:flex-start;flex-direction:column;padding:14px 0}
     }
   </style>
@@ -293,22 +322,39 @@
     <section class="soft" id="sites">
       <div class="wrap">
         <h2>Другие программы</h2>
-        <p>Страницы остальных опубликованных программ и общий каталог.</p>
-        <div class="cards">
-          <a class="card banner-card" href="../">
-            <img src="assets/link-banner.png" alt="TruckLoader">
-            <div class="caption">
-              <h3>Каталог программ</h3>
-              <p>Общая витрина программ для упаковочной отрасли.</p>
-            </div>
+        <p>Остальные опубликованные продукты PackTuning Software.</p>
+        <div class="program-grid">
+          <a class="program-card" href="https://governorv.github.io/BoxPalletizer/#ru">
+            <img src="../palletizer_banner.png" alt="Box Palletizer">
+            <div><h3>Box Palletizer</h3><p>Устойчивая ручная укладка коробов на поддон.</p></div>
           </a>
-          <a class="card" href="https://governorv.github.io/BoxPalletizer/#ru"><h3>Box Palletizer</h3><p>Расчет устойчивой ручной укладки коробов на поддон.</p></a>
-          <a class="card" href="https://governorv.github.io/DBSearch/#ru"><h3>Database Search</h3><p>Поиск по базе данных, фильтрация и быстрый доступ к записям.</p></a>
-          <a class="card" href="https://governorv.github.io/BoxPriceCalculator/#ru"><h3>Box Price Calculator</h3><p>Расчет себестоимости гофроящиков, листов и рулонов.</p></a>
-          <a class="card" href="https://governorv.github.io/OptCutting/#ru"><h3>OptCutting</h3><p>Оптимизация раскроя полотна гофрокартона.</p></a>
-          <a class="card" href="https://governorv.github.io/Licman/#ru"><h3>LicMan</h3><p>Учет, контроль и управление лицензиями на программное обеспечение.</p></a>
-          <a class="card" href="https://governorv.github.io/gost/"><h3>ГОСТ 9142-90</h3><p>Расчет нагрузки на гофроящик и подбор марки гофрокартона.</p></a>
-          <a class="card" href="https://governorv.github.io/palletizer-site/#ru"><h3>Паллетировщик плит</h3><p>Оптимальное распределение листовых материалов по поддонам.</p></a>
+          <a class="program-card" href="https://governorv.github.io/palletizer-site/#ru">
+            <img src="../platepalletizer_banner.png" alt="Паллетировщик плит">
+            <div><h3>Паллетировщик плит</h3><p>Распределение листовых материалов по поддонам.</p></div>
+          </a>
+          <a class="program-card" href="https://governorv.github.io/BoxPriceCalculator/#ru">
+            <img src="../boxprice_banner.png" alt="Box Price Calculator">
+            <div><h3>Box Price Calculator</h3><p>Себестоимость гофроящиков, листов и рулонов.</p></div>
+          </a>
+          <a class="program-card" href="https://governorv.github.io/OptCutting/#ru">
+            <img src="../optcutting_banner.png" alt="OptCutting">
+            <div><h3>OptCutting</h3><p>Оптимизация раскроя полотна гофрокартона.</p></div>
+          </a>
+          <a class="program-card" href="https://governorv.github.io/DBSearch/#ru">
+            <img src="../dbsearch_banner.png" alt="DBSearch">
+            <div><h3>DBSearch</h3><p>Поиск по базам данных и связанным серверам.</p></div>
+          </a>
+          <a class="program-card" href="https://governorv.github.io/Licman/#ru">
+            <img src="../licman_banner.png" alt="LicMan">
+            <div><h3>LicMan</h3><p>Учет и контроль лицензий на программное обеспечение.</p></div>
+          </a>
+          <a class="program-card" href="https://governorv.github.io/gost/">
+            <img src="../gost914290_banner.png" alt="ГОСТ 9142-90">
+            <div><h3>ГОСТ 9142-90</h3><p>Расчет нагрузки на гофроящик и подбор марки картона.</p></div>
+          </a>
+        </div>
+        <div class="actions">
+          <a class="btn secondary" href="../">Открыть полный каталог</a>
         </div>
       </div>
     </section>
