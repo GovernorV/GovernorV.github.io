@@ -415,7 +415,7 @@
           <h2 data-i18n="resultTitle">Что получает пользователь</h2>
           <p data-i18n="resultText">После расчета видна текстовая сводка по заказам, количество размещенных поддонов, свободное место по длине и схемы укладки. Это помогает быстрее принимать решение и согласовывать загрузку с логистикой или складом.</p>
           <div class="link-banner">
-            <img src="assets/link-banner.png" alt="Баннер TruckLoader">
+            <img src="assets/link-banner.png" data-ru-src="assets/link-banner.png" data-en-src="assets/link-banner-en.png" alt="Баннер TruckLoader">
           </div>
         </div>
       </div>
@@ -427,31 +427,31 @@
         <p data-i18n="otherLead">Остальные опубликованные продукты PackTuning Software.</p>
         <div class="program-grid">
           <a class="program-card" href="https://governorv.github.io/BoxPalletizer/#ru">
-            <img src="../palletizer_banner.png" alt="Box Palletizer">
+            <img src="../palletizer_banner.png" data-ru-src="../palletizer_banner.png" data-en-src="../palletizer_banner_en.png" alt="Box Palletizer">
             <div><h3>Box Palletizer</h3><p data-i18n="otherBoxPal">Устойчивая ручная укладка коробов на поддон.</p></div>
           </a>
           <a class="program-card" href="https://governorv.github.io/palletizer-site/#ru">
-            <img src="../platepalletizer_banner.png" alt="Паллетировщик плит">
+            <img src="../platepalletizer_banner.png" data-ru-src="../platepalletizer_banner.png" data-en-src="../platepalletizer_banner_en.png" alt="Паллетировщик плит">
             <div><h3 data-i18n="otherSheetTitle">Паллетировщик плит</h3><p data-i18n="otherSheet">Распределение листовых материалов по поддонам.</p></div>
           </a>
           <a class="program-card" href="https://governorv.github.io/BoxPriceCalculator/#ru">
-            <img src="../boxprice_banner.png" alt="Box Price Calculator">
+            <img src="../boxprice_banner.png" data-ru-src="../boxprice_banner.png" data-en-src="../boxprice_banner_en.png" alt="Box Price Calculator">
             <div><h3>Box Price Calculator</h3><p data-i18n="otherBoxPrice">Себестоимость гофроящиков, листов и рулонов.</p></div>
           </a>
           <a class="program-card" href="https://governorv.github.io/OptCutting/#ru">
-            <img src="../optcutting_banner.png" alt="OptCutting">
+            <img src="../optcutting_banner.png" data-ru-src="../optcutting_banner.png" data-en-src="../optcutting_banner_en.png" alt="OptCutting">
             <div><h3>OptCutting</h3><p data-i18n="otherOpt">Оптимизация раскроя полотна гофрокартона.</p></div>
           </a>
           <a class="program-card" href="https://governorv.github.io/DBSearch/#ru">
-            <img src="../dbsearch_banner.png" alt="DBSearch">
+            <img src="../dbsearch_banner.png" data-ru-src="../dbsearch_banner.png" data-en-src="../dbsearch_banner_en.png" alt="DBSearch">
             <div><h3>DBSearch</h3><p data-i18n="otherDb">Поиск по базам данных и связанным серверам.</p></div>
           </a>
           <a class="program-card" href="https://governorv.github.io/Licman/#ru">
-            <img src="../licman_banner.png" alt="LicMan">
+            <img src="../licman_banner.png" data-ru-src="../licman_banner.png" data-en-src="../licman_banner_en.png" alt="LicMan">
             <div><h3>LicMan</h3><p data-i18n="otherLic">Учет и контроль лицензий на программное обеспечение.</p></div>
           </a>
           <a class="program-card" href="https://governorv.github.io/gost/">
-            <img src="../gost914290_banner.png" alt="ГОСТ 9142-2014">
+            <img src="../gost914290_banner.png" data-ru-src="../gost914290_banner.png" data-en-src="../gost914290_banner_en.png" alt="ГОСТ 9142-2014">
             <div><h3 data-i18n="otherGostTitle">ГОСТ 9142-2014</h3><p data-i18n="otherGost">Расчет нагрузки на гофроящик и подбор марки картона.</p></div>
           </a>
         </div>
@@ -566,6 +566,9 @@
         document.querySelectorAll("[data-i18n]").forEach((node) => {
           const key = node.getAttribute("data-i18n");
           if (text[current][key]) node.textContent = text[current][key];
+        });
+        document.querySelectorAll("[data-ru-src][data-en-src]").forEach((image) => {
+          image.src = current === EN ? image.dataset.enSrc : image.dataset.ruSrc;
         });
         document.getElementById("langRu").classList.toggle("active", current === RU);
         document.getElementById("langEn").classList.toggle("active", current === EN);
