@@ -29,6 +29,33 @@
       --accent2: #72ffcf;
       --gold: #ffd36a;
       --darkText: #0b1b35;
+      --headerBg: rgba(3, 12, 26, .78);
+      --footerBg: rgba(0,0,0,.18);
+      --pageBg:
+        radial-gradient(circle at 20% 0%, rgba(55,216,255,.22), transparent 32rem),
+        radial-gradient(circle at 80% 10%, rgba(114,255,207,.16), transparent 34rem),
+        linear-gradient(135deg, var(--bg), #020814 70%);
+      --bannerShadow: 0 24px 90px rgba(0,0,0,.45);
+    }
+    html[data-theme="day"] {
+      --bg: #f4f8ff;
+      --bg2: #eaf2ff;
+      --card: rgba(255,255,255,.86);
+      --card2: rgba(255,255,255,.94);
+      --text: #10213d;
+      --muted: #52627a;
+      --line: rgba(18, 93, 170, .18);
+      --accent: #1679e8;
+      --accent2: #0aa879;
+      --gold: #b37a00;
+      --darkText: #0b1b35;
+      --headerBg: rgba(244,248,255,.86);
+      --footerBg: rgba(255,255,255,.62);
+      --pageBg:
+        radial-gradient(circle at 20% 0%, rgba(22,121,232,.13), transparent 32rem),
+        radial-gradient(circle at 80% 10%, rgba(10,168,121,.10), transparent 34rem),
+        linear-gradient(135deg, #f7fbff, #edf4ff 70%);
+      --bannerShadow: 0 24px 70px rgba(26,52,92,.16);
     }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -36,10 +63,7 @@
       margin: 0;
       font-family: "Segoe UI", Arial, sans-serif;
       color: var(--text);
-      background:
-        radial-gradient(circle at 20% 0%, rgba(55,216,255,.22), transparent 32rem),
-        radial-gradient(circle at 80% 10%, rgba(114,255,207,.16), transparent 34rem),
-        linear-gradient(135deg, var(--bg), #020814 70%);
+      background: var(--pageBg);
       line-height: 1.55;
     }
     a { color: inherit; }
@@ -49,7 +73,7 @@
       top: 0;
       z-index: 10;
       backdrop-filter: blur(18px);
-      background: rgba(3, 12, 26, .78);
+      background: var(--headerBg);
       border-bottom: 1px solid var(--line);
     }
     nav { display: flex; align-items: center; justify-content: space-between; min-height: 68px; gap: 18px; }
@@ -71,13 +95,13 @@
       width: 100%;
       border-radius: 24px;
       border: 1px solid var(--line);
-      box-shadow: 0 24px 90px rgba(0,0,0,.45);
+      box-shadow: var(--bannerShadow);
       display: block;
       overflow: hidden;
     }
     .hero-grid { display: grid; grid-template-columns: 1.3fr .7fr; gap: 24px; align-items: stretch; margin-top: 24px; }
     .hero-card, section.card {
-      background: linear-gradient(180deg, rgba(255,255,255,.1), rgba(255,255,255,.055));
+      background: linear-gradient(180deg, var(--card2), var(--card));
       border: 1px solid var(--line);
       border-radius: 24px;
       padding: 26px;
@@ -141,7 +165,7 @@
       font-weight: 900;
     }
     .note { color: var(--muted); font-size: 14px; }
-    footer { border-top: 1px solid var(--line); padding: 28px 0; color: var(--muted); background: rgba(0,0,0,.18); }
+    footer { border-top: 1px solid var(--line); padding: 28px 0; color: var(--muted); background: var(--footerBg); }
     [data-lang] { display: none; }
     html[lang="ru"] [data-lang="ru"], html[lang="en"] [data-lang="en"] { display: revert; }
     html[lang="ru"] img[data-lang="ru"], html[lang="en"] img[data-lang="en"] { display: block; }
@@ -266,6 +290,10 @@
   <script>
     const RU = "ru";
     const EN = "en";
+    function applyAutoTheme() {
+      const hour = new Date().getHours();
+      document.documentElement.dataset.theme = hour >= 6 && hour < 18 ? "day" : "night";
+    }
     function setLang(lang) {
       const selected = lang === EN ? EN : RU;
       document.documentElement.lang = selected;
@@ -278,6 +306,8 @@
       history.replaceState(null, "", url);
     }
     document.querySelectorAll("[data-set-lang]").forEach(btn => btn.addEventListener("click", () => setLang(btn.dataset.setLang)));
+    applyAutoTheme();
+    setInterval(applyAutoTheme, 60 * 1000);
     setLang(new URLSearchParams(location.search).get("lang") === "en" || location.hash === "#en" ? EN : RU);
   </script>
 </body>
