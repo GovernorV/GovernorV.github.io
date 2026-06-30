@@ -136,22 +136,27 @@
     .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
     .feature { padding: 18px; border-radius: 18px; background: rgba(255,255,255,.07); border: 1px solid rgba(116,204,255,.22); }
     .feature span { font-size: 28px; }
-    .screenshots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    #screenshots {
+      width: min(1760px, calc(100vw - 24px));
+      margin-left: 50%;
+      transform: translateX(-50%);
+    }
+    .screenshots { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; }
     .screenshot {
       overflow: hidden;
-      border-radius: 18px;
+      border-radius: 12px;
       border: 1px solid rgba(116,204,255,.22);
       background: rgba(255,255,255,.07);
     }
     .screenshot img {
       width: 100%;
-      aspect-ratio: 16 / 10;
-      object-fit: cover;
-      object-position: top left;
+      aspect-ratio: 16 / 9;
+      object-fit: contain;
+      object-position: top center;
       display: block;
       background: rgba(255,255,255,.9);
     }
-    .screenshot figcaption { padding: 16px; }
+    .screenshot figcaption { padding: 14px; }
     .screenshot figcaption p { color: var(--muted); margin-bottom: 0; }
     .pricing { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
     .price {
