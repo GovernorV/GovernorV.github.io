@@ -136,6 +136,23 @@
     .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
     .feature { padding: 18px; border-radius: 18px; background: rgba(255,255,255,.07); border: 1px solid rgba(116,204,255,.22); }
     .feature span { font-size: 28px; }
+    .screenshots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .screenshot {
+      overflow: hidden;
+      border-radius: 18px;
+      border: 1px solid rgba(116,204,255,.22);
+      background: rgba(255,255,255,.07);
+    }
+    .screenshot img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      object-position: top left;
+      display: block;
+      background: rgba(255,255,255,.9);
+    }
+    .screenshot figcaption { padding: 16px; }
+    .screenshot figcaption p { color: var(--muted); margin-bottom: 0; }
     .pricing { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
     .price {
       background: white;
@@ -186,7 +203,7 @@
     html[lang="ru"] [data-lang="ru"], html[lang="en"] [data-lang="en"] { display: revert; }
     html[lang="ru"] img[data-lang="ru"], html[lang="en"] img[data-lang="en"] { display: block; }
     @media (max-width: 900px) {
-      .hero-grid, .grid, .pricing, .other-grid { grid-template-columns: 1fr; }
+      .hero-grid, .grid, .screenshots, .pricing, .other-grid { grid-template-columns: 1fr; }
       nav { align-items: flex-start; flex-direction: column; padding: 12px 0; }
       .hero-card, section.card { padding: 20px; }
     }
@@ -201,6 +218,7 @@
     "operatingSystem": "Windows",
     "url": "https://governorv.github.io/OptPacker/",
     "downloadUrl": "https://disk.yandex.ru/d/WK17ADX26VGjhA",
+    "sameAs": ["https://disk.yandex.ru/d/sWVKqbbJb92kSw"],
     "offers": [
       { "@type": "Offer", "name": "Бессрочная лицензия", "price": "50000", "priceCurrency": "RUB" },
       { "@type": "Offer", "name": "Аренда на год", "price": "10000", "priceCurrency": "RUB" },
@@ -215,6 +233,7 @@
       <a class="brand" href="#top"><img src="assets/app.ico" alt=""><span data-lang="ru">Фасовщик</span><span data-lang="en">Box Packing Optimizer</span></a>
       <div class="nav-links">
         <a href="#features" data-lang="ru">Возможности</a><a href="#features" data-lang="en">Features</a>
+        <a href="#screenshots" data-lang="ru">Скриншоты</a><a href="#screenshots" data-lang="en">Screenshots</a>
         <a href="#pricing" data-lang="ru">Цены</a><a href="#pricing" data-lang="en">Pricing</a>
         <a href="#buy" data-lang="ru">Как купить</a><a href="#buy" data-lang="en">How to buy</a>
         <a href="#other-programs" data-lang="ru">Другие программы</a><a href="#other-programs" data-lang="en">Other software</a>
@@ -242,6 +261,8 @@
         <div class="actions">
           <a class="btn primary" href="https://disk.yandex.ru/d/WK17ADX26VGjhA" target="_blank" rel="noopener" data-lang="ru">Скачать демоверсию</a>
           <a class="btn primary" href="https://disk.yandex.ru/d/WK17ADX26VGjhA" target="_blank" rel="noopener" data-lang="en">Download demo</a>
+          <a class="btn secondary" href="https://disk.yandex.ru/d/sWVKqbbJb92kSw" target="_blank" rel="noopener" data-lang="ru">Скачать презентацию</a>
+          <a class="btn secondary" href="https://disk.yandex.ru/d/sWVKqbbJb92kSw" target="_blank" rel="noopener" data-lang="en">Download presentation</a>
           <a class="btn secondary" href="mailto:vguberniev@gmail.com?subject=Фасовщик" data-lang="ru">Написать автору</a>
           <a class="btn secondary" href="mailto:vguberniev@gmail.com?subject=Box Packing Optimizer" data-lang="en">Contact author</a>
         </div>
@@ -265,6 +286,46 @@
         <div class="feature"><span>▦</span><h3 data-lang="ru">Решетки и перегородки</h3><h3 data-lang="en">Grid and partitions</h3><p data-lang="ru">Расчет равномерных ячеек и центрирование изделий в ячейках.</p><p data-lang="en">Uniform cells and centered products inside each cell.</p></div>
         <div class="feature"><span>⇄</span><h3 data-lang="ru">Составная укладка</h3><h3 data-lang="en">Composite packing</h3><p data-lang="ru">Деление ящика на две части и независимый подбор схемы для каждой части.</p><p data-lang="en">Splits the box into two zones and optimizes each zone independently.</p></div>
         <div class="feature"><span>📄</span><h3 data-lang="ru">Отчет и сохранение</h3><h3 data-lang="en">Reports and saving</h3><p data-lang="ru">PDF-отчет со схемой, сохранение расчетов и удобная проверка результата.</p><p data-lang="en">PDF report with layout, saved calculations and clear result checking.</p></div>
+      </div>
+    </section>
+
+    <section class="card" id="screenshots">
+      <h2 data-lang="ru">Скриншоты</h2>
+      <h2 data-lang="en">Screenshots</h2>
+      <p data-lang="ru">Три рабочих окна: расчет укладки, готовый PDF-отчет и встроенное руководство пользователя.</p>
+      <p data-lang="en">Three practical views: packing calculation, generated PDF report and built-in user manual.</p>
+      <div class="screenshots">
+        <figure class="screenshot">
+          <img src="assets/screenshot-layout.jpg" alt="Расчет косоугольной укладки эллипсов">
+          <figcaption>
+            <h3 data-lang="ru">Расчет схемы укладки</h3>
+            <h3 data-lang="en">Packing layout calculation</h3>
+            <p data-lang="ru">Пример косоугольной укладки эллиптических изделий: программа подбирает количество, угол размещения, коэффициенты площади и объема, а также размер заготовки FEFCO 0201.</p>
+            <p data-lang="en">An example of angled packing for elliptical products: the program selects the item count, placement angle, area and volume efficiency, and FEFCO 0201 blank size.</p>
+          </figcaption>
+        </figure>
+        <figure class="screenshot">
+          <img src="assets/screenshot-report.jpg" alt="PDF-отчет по укладке">
+          <figcaption>
+            <h3 data-lang="ru">PDF-отчет</h3>
+            <h3 data-lang="en">PDF report</h3>
+            <p data-lang="ru">Отчет сохраняет исходные размеры, параметры изделия, результат расчета и наглядную схему укладки — удобно передавать технологу, производству или клиенту.</p>
+            <p data-lang="en">The report keeps input dimensions, product parameters, calculated result and a clear packing diagram — convenient for technologists, production teams or customers.</p>
+          </figcaption>
+        </figure>
+        <figure class="screenshot">
+          <img src="assets/screenshot-manual.jpg" alt="Руководство пользователя Фасовщик">
+          <figcaption>
+            <h3 data-lang="ru">Руководство пользователя</h3>
+            <h3 data-lang="en">User manual</h3>
+            <p data-lang="ru">Встроенная справка описывает быстрый порядок работы, типы изделий, варианты укладки, составную укладку, деформацию и формирование отчета.</p>
+            <p data-lang="en">The built-in help explains the quick workflow, product types, packing modes, composite packing, deformation support and report generation.</p>
+          </figcaption>
+        </figure>
+      </div>
+      <div class="actions">
+        <a class="btn primary" href="https://disk.yandex.ru/d/sWVKqbbJb92kSw" target="_blank" rel="noopener" data-lang="ru">Скачать презентацию</a>
+        <a class="btn primary" href="https://disk.yandex.ru/d/sWVKqbbJb92kSw" target="_blank" rel="noopener" data-lang="en">Download presentation</a>
       </div>
     </section>
 
