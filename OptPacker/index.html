@@ -165,12 +165,28 @@
       font-weight: 900;
     }
     .note { color: var(--muted); font-size: 14px; }
+    .other-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .other-card {
+      overflow: hidden;
+      border-radius: 18px;
+      border: 1px solid rgba(116,204,255,.22);
+      background: rgba(255,255,255,.07);
+    }
+    .other-card img {
+      width: 100%;
+      aspect-ratio: 3 / 2;
+      object-fit: contain;
+      display: block;
+      background: rgba(255,255,255,.82);
+    }
+    .other-body { padding: 18px; }
+    .other-body p { color: var(--muted); }
     footer { border-top: 1px solid var(--line); padding: 28px 0; color: var(--muted); background: var(--footerBg); }
     [data-lang] { display: none; }
     html[lang="ru"] [data-lang="ru"], html[lang="en"] [data-lang="en"] { display: revert; }
     html[lang="ru"] img[data-lang="ru"], html[lang="en"] img[data-lang="en"] { display: block; }
     @media (max-width: 900px) {
-      .hero-grid, .grid, .pricing { grid-template-columns: 1fr; }
+      .hero-grid, .grid, .pricing, .other-grid { grid-template-columns: 1fr; }
       nav { align-items: flex-start; flex-direction: column; padding: 12px 0; }
       .hero-card, section.card { padding: 20px; }
     }
@@ -201,6 +217,7 @@
         <a href="#features" data-lang="ru">Возможности</a><a href="#features" data-lang="en">Features</a>
         <a href="#pricing" data-lang="ru">Цены</a><a href="#pricing" data-lang="en">Pricing</a>
         <a href="#buy" data-lang="ru">Как купить</a><a href="#buy" data-lang="en">How to buy</a>
+        <a href="#other-programs" data-lang="ru">Другие программы</a><a href="#other-programs" data-lang="en">Other software</a>
         <a href="../" data-lang="ru">Каталог</a><a href="../" data-lang="en">Catalog</a>
         <span class="lang"><button type="button" data-set-lang="ru">RU</button><button type="button" data-set-lang="en">EN</button></span>
       </div>
@@ -280,6 +297,81 @@
       </div>
       <p class="note" data-lang="ru">В демоверсию включен пример JSON-файла. Автоматический режим «Дежурство» доступен в рабочей версии программы.</p>
       <p class="note" data-lang="en">The demo includes a sample JSON file. Automatic watch mode is available in the full version.</p>
+    </section>
+
+    <section class="card" id="other-programs">
+      <h2 data-lang="ru">Посмотрите другие мои программы</h2>
+      <h2 data-lang="en">Explore my other software</h2>
+      <p data-lang="ru">Инструменты для упаковочного производства, логистики, учета лицензий и поиска по базам данных.</p>
+      <p data-lang="en">Tools for packaging production, logistics, license tracking and database search.</p>
+      <div class="other-grid">
+        <article class="other-card">
+          <a href="https://governorv.github.io/OptCutting/" data-lang="ru"><img src="../optcutting_banner.png" alt="Раскройщик"></a>
+          <a href="https://governorv.github.io/OptCutting/?lang=en" data-lang="en"><img src="../optcutting_banner_en.png" alt="OptCutting"></a>
+          <div class="other-body">
+            <h3 data-lang="ru">Раскройщик</h3><h3 data-lang="en">OptCutting</h3>
+            <p data-lang="ru">Оптимизация раскроя полотна гофрокартона, карты раскроя, сетевой график и отчеты Excel.</p>
+            <p data-lang="en">Corrugated board cutting optimization with cutting maps, Gantt schedule and Excel reports.</p>
+            <a class="btn secondary" href="https://governorv.github.io/OptCutting/" data-lang="ru">Страница</a>
+            <a class="btn secondary" href="https://governorv.github.io/OptCutting/?lang=en" data-lang="en">Page</a>
+          </div>
+        </article>
+        <article class="other-card">
+          <a href="https://governorv.github.io/BoxPriceCalculator/#ru" data-lang="ru"><img src="../boxprice_banner.png" alt="Калькулятор гофроящиков"></a>
+          <a href="https://governorv.github.io/BoxPriceCalculator/#en" data-lang="en"><img src="../boxprice_banner_en.png" alt="Box Price Calculator"></a>
+          <div class="other-body">
+            <h3 data-lang="ru">Калькулятор гофроящиков</h3><h3 data-lang="en">Box Price Calculator</h3>
+            <p data-lang="ru">Расчет себестоимости гофроупаковки с учетом материалов, печати и дополнительных расходов.</p>
+            <p data-lang="en">Estimate corrugated packaging costs with materials, printing and additional expenses.</p>
+            <a class="btn secondary" href="https://governorv.github.io/BoxPriceCalculator/#ru" data-lang="ru">Страница</a>
+            <a class="btn secondary" href="https://governorv.github.io/BoxPriceCalculator/#en" data-lang="en">Page</a>
+          </div>
+        </article>
+        <article class="other-card">
+          <a href="https://governorv.github.io/BoxPalletizer/#ru" data-lang="ru"><img src="../palletizer_banner.png" alt="Паллетировщик"></a>
+          <a href="https://governorv.github.io/BoxPalletizer/#en" data-lang="en"><img src="../palletizer_banner_en.png" alt="Palletizer"></a>
+          <div class="other-body">
+            <h3 data-lang="ru">Паллетировщик</h3><h3 data-lang="en">Palletizer</h3>
+            <p data-lang="ru">Расчет укладки коробов на поддон, 3D-визуализация, ограничения и отчеты.</p>
+            <p data-lang="en">Plan pallet stacking with 3D visualization, constraints and exportable reports.</p>
+            <a class="btn secondary" href="https://governorv.github.io/BoxPalletizer/#ru" data-lang="ru">Страница</a>
+            <a class="btn secondary" href="https://governorv.github.io/BoxPalletizer/#en" data-lang="en">Page</a>
+          </div>
+        </article>
+        <article class="other-card">
+          <a href="https://governorv.github.io/truckloader-site/" data-lang="ru"><img src="../truckloader_banner.png" alt="TruckLoader"></a>
+          <a href="https://governorv.github.io/truckloader-site/?lang=en" data-lang="en"><img src="../truckloader_banner_en.png" alt="TruckLoader"></a>
+          <div class="other-body">
+            <h3>TruckLoader</h3>
+            <p data-lang="ru">Расчет загрузки поддонов в автофургоны и контейнеры, 2D и 3D схемы.</p>
+            <p data-lang="en">Pallet loading calculation for trucks and containers with 2D and 3D layouts.</p>
+            <a class="btn secondary" href="https://governorv.github.io/truckloader-site/" data-lang="ru">Страница</a>
+            <a class="btn secondary" href="https://governorv.github.io/truckloader-site/?lang=en" data-lang="en">Page</a>
+          </div>
+        </article>
+        <article class="other-card">
+          <a href="https://governorv.github.io/DBSearch/#ru" data-lang="ru"><img src="../dbsearch_banner.png" alt="Поисковик по базам данных"></a>
+          <a href="https://governorv.github.io/DBSearch/#en" data-lang="en"><img src="../dbsearch_banner_en.png" alt="Database Search"></a>
+          <div class="other-body">
+            <h3 data-lang="ru">Поисковик по базам данных</h3><h3 data-lang="en">Database Search</h3>
+            <p data-lang="ru">Поиск объектов и данных в SQL Server, просмотр кода, фильтры и экспорт результатов.</p>
+            <p data-lang="en">Search SQL Server objects and data, view code, filter results and export reports.</p>
+            <a class="btn secondary" href="https://governorv.github.io/DBSearch/#ru" data-lang="ru">Страница</a>
+            <a class="btn secondary" href="https://governorv.github.io/DBSearch/#en" data-lang="en">Page</a>
+          </div>
+        </article>
+        <article class="other-card">
+          <a href="https://governorv.github.io/Licman/#ru" data-lang="ru"><img src="../licman_banner.png" alt="Менеджер лицензий"></a>
+          <a href="https://governorv.github.io/Licman/#en" data-lang="en"><img src="../licman_banner_en.png" alt="License Manager"></a>
+          <div class="other-body">
+            <h3 data-lang="ru">Менеджер лицензий</h3><h3 data-lang="en">License Manager</h3>
+            <p data-lang="ru">Учет лицензий, контроль сроков действия, ответственные, уведомления и экспорт в Excel.</p>
+            <p data-lang="en">Track licenses, expiration dates, owners, notifications and Excel exports.</p>
+            <a class="btn secondary" href="https://governorv.github.io/Licman/#ru" data-lang="ru">Страница</a>
+            <a class="btn secondary" href="https://governorv.github.io/Licman/#en" data-lang="en">Page</a>
+          </div>
+        </article>
+      </div>
     </section>
   </main>
 
