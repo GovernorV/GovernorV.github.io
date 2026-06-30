@@ -136,7 +136,7 @@
     .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
     .feature { padding: 18px; border-radius: 18px; background: rgba(255,255,255,.07); border: 1px solid rgba(116,204,255,.22); }
     .feature span { font-size: 28px; }
-    .screenshots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .screenshots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
     .screenshot {
       overflow: hidden;
       border-radius: 18px;
@@ -145,7 +145,7 @@
     }
     .screenshot img {
       width: 100%;
-      aspect-ratio: 4 / 3;
+      aspect-ratio: 16 / 10;
       object-fit: cover;
       object-position: top left;
       display: block;
@@ -296,7 +296,8 @@
       <p data-lang="en">Three practical views: packing calculation, generated PDF report and built-in user manual.</p>
       <div class="screenshots">
         <figure class="screenshot">
-          <img src="assets/screenshot-layout.jpg" alt="Расчет косоугольной укладки эллипсов">
+          <img data-lang="ru" src="assets/screenshot-layout.jpg" alt="Расчет косоугольной укладки эллипсов">
+          <img data-lang="en" src="assets/screenshot-layout-en.png" alt="Skewed ellipse packing layout calculation">
           <figcaption>
             <h3 data-lang="ru">Расчет схемы укладки</h3>
             <h3 data-lang="en">Packing layout calculation</h3>
@@ -305,7 +306,8 @@
           </figcaption>
         </figure>
         <figure class="screenshot">
-          <img src="assets/screenshot-report.jpg" alt="PDF-отчет по укладке">
+          <img data-lang="ru" src="assets/screenshot-report.jpg" alt="PDF-отчет по укладке">
+          <img data-lang="en" src="assets/screenshot-report-en.png" alt="PDF packing report">
           <figcaption>
             <h3 data-lang="ru">PDF-отчет</h3>
             <h3 data-lang="en">PDF report</h3>
@@ -314,7 +316,8 @@
           </figcaption>
         </figure>
         <figure class="screenshot">
-          <img src="assets/screenshot-manual.jpg" alt="Руководство пользователя Фасовщик">
+          <img data-lang="ru" src="assets/screenshot-manual.jpg" alt="Руководство пользователя Фасовщик">
+          <img data-lang="en" src="assets/screenshot-manual-en.png" alt="Packer user guide">
           <figcaption>
             <h3 data-lang="ru">Руководство пользователя</h3>
             <h3 data-lang="en">User manual</h3>
