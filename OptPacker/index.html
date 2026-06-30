@@ -153,7 +153,7 @@
     }
     .screenshot figcaption { padding: 16px; }
     .screenshot figcaption p { color: var(--muted); margin-bottom: 0; }
-    .pricing { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .pricing { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
     .price {
       background: white;
       color: var(--darkText);
@@ -163,6 +163,8 @@
       box-shadow: 0 18px 48px rgba(0,0,0,.22);
     }
     .price strong { display: block; font-size: 32px; margin: 10px 0; color: #005de8; }
+    .price strong[data-lang] { display: none; }
+    html[lang="ru"] .price strong[data-lang="ru"], html[lang="en"] .price strong[data-lang="en"] { display: block; }
     .price small { color: #52627a; }
     .steps { counter-reset: s; display: grid; gap: 12px; }
     .step { position: relative; padding-left: 48px; }
@@ -220,9 +222,12 @@
     "downloadUrl": "https://disk.yandex.ru/d/WK17ADX26VGjhA",
     "sameAs": ["https://disk.yandex.ru/d/sWVKqbbJb92kSw"],
     "offers": [
-      { "@type": "Offer", "name": "Бессрочная лицензия", "price": "50000", "priceCurrency": "RUB" },
-      { "@type": "Offer", "name": "Аренда на год", "price": "10000", "priceCurrency": "RUB" },
-      { "@type": "Offer", "name": "Аренда на месяц", "price": "1000", "priceCurrency": "RUB" }
+      { "@type": "Offer", "name": "Фасовщик — бессрочная лицензия", "price": "69000", "priceCurrency": "RUB" },
+      { "@type": "Offer", "name": "Фасовщик — аренда на год", "price": "19900", "priceCurrency": "RUB" },
+      { "@type": "Offer", "name": "Фасовщик — аренда на месяц", "price": "2900", "priceCurrency": "RUB" },
+      { "@type": "Offer", "name": "Фасовщик PRO — бессрочная лицензия", "price": "99000", "priceCurrency": "RUB" },
+      { "@type": "Offer", "name": "Фасовщик PRO — аренда на год", "price": "24900", "priceCurrency": "RUB" },
+      { "@type": "Offer", "name": "Фасовщик PRO — аренда на месяц", "price": "3400", "priceCurrency": "RUB" }
     ]
   }
   </script>
@@ -256,7 +261,7 @@
           <span class="chip" data-lang="ru">7 типов изделий</span><span class="chip" data-lang="en">7 product types</span>
           <span class="chip" data-lang="ru">Свободная, решетчатая и перегородочная укладка</span><span class="chip" data-lang="en">Free, grid and partition packing</span>
           <span class="chip" data-lang="ru">Учет деформации</span><span class="chip" data-lang="en">Deformation support</span>
-          <span class="chip" data-lang="ru">Режим дежурства в рабочей версии</span><span class="chip" data-lang="en">Watch mode in the full version</span>
+          <span class="chip" data-lang="ru">Режим дежурства в PRO-версии</span><span class="chip" data-lang="en">Watch mode in the PRO version</span>
         </div>
         <div class="actions">
           <a class="btn primary" href="https://disk.yandex.ru/d/WK17ADX26VGjhA" target="_blank" rel="noopener" data-lang="ru">Скачать демоверсию</a>
@@ -270,7 +275,7 @@
       <div class="hero-card kpi">
         <div><b>FEFCO 0201</b><span data-lang="ru">расчет заготовки ящика</span><span data-lang="en">box blank calculation</span></div>
         <div><b>PDF</b><span data-lang="ru">отчет со схемой укладки</span><span data-lang="en">report with packing layout</span></div>
-        <div><b>JSON</b><span data-lang="ru">автоматическая обработка в рабочей версии</span><span data-lang="en">automatic processing in the full version</span></div>
+        <div><b>JSON</b><span data-lang="ru">автоматическая обработка в PRO-версии</span><span data-lang="en">automatic processing in the PRO version</span></div>
       </div>
     </div>
   </section>
@@ -285,6 +290,9 @@
         <div class="feature"><span>⬢</span><h3 data-lang="ru">Сложные формы</h3><h3 data-lang="en">Special shapes</h3><p data-lang="ru">Эллипсы, линзы, тубы и шестигранники.</p><p data-lang="en">Ellipses, lenses, tubes and hexagonal products.</p></div>
         <div class="feature"><span>▦</span><h3 data-lang="ru">Решетки и перегородки</h3><h3 data-lang="en">Grid and partitions</h3><p data-lang="ru">Расчет равномерных ячеек и центрирование изделий в ячейках.</p><p data-lang="en">Uniform cells and centered products inside each cell.</p></div>
         <div class="feature"><span>⇄</span><h3 data-lang="ru">Составная укладка</h3><h3 data-lang="en">Composite packing</h3><p data-lang="ru">Деление ящика на две части и независимый подбор схемы для каждой части.</p><p data-lang="en">Splits the box into two zones and optimizes each zone independently.</p></div>
+        <div class="feature"><span>◫</span><h3 data-lang="ru">Учет деформации</h3><h3 data-lang="en">Deformation support</h3><p data-lang="ru">Подбор измененных размеров изделия с сохранением объема или площади поверхности.</p><p data-lang="en">Searches deformed product dimensions while preserving volume or surface area.</p></div>
+        <div class="feature"><span>↻</span><h3 data-lang="ru">Учет кантования</h3><h3 data-lang="en">Box tilting positions</h3><p data-lang="ru">Проверка установки ящика плашмя, на ребро и на торец с выбором лучшего результата.</p><p data-lang="en">Checks flat, side and end positions of the box and selects the best result.</p></div>
+        <div class="feature"><span>👁</span><h3 data-lang="ru">Режим дежурства PRO</h3><h3 data-lang="en">PRO watch mode</h3><p data-lang="ru">Автоматический расчет по JSON-файлам из заданной папки и сохранение PDF-отчетов.</p><p data-lang="en">Automatically processes JSON files from a selected folder and saves PDF reports.</p></div>
         <div class="feature"><span>📄</span><h3 data-lang="ru">Отчет и сохранение</h3><h3 data-lang="en">Reports and saving</h3><p data-lang="ru">PDF-отчет со схемой, сохранение расчетов и удобная проверка результата.</p><p data-lang="en">PDF report with layout, saved calculations and clear result checking.</p></div>
       </div>
     </section>
@@ -295,34 +303,46 @@
       <p data-lang="ru">Три рабочих окна: расчет укладки, готовый PDF-отчет и встроенное руководство пользователя.</p>
       <p data-lang="en">Three practical views: packing calculation, generated PDF report and built-in user manual.</p>
       <div class="screenshots">
-        <figure class="screenshot">
-          <img data-lang="ru" src="assets/screenshot-layout.jpg" alt="Расчет косоугольной укладки эллипсов">
-          <img data-lang="en" src="assets/screenshot-layout-en.png" alt="Skewed ellipse packing layout calculation">
+        <figure class="screenshot" data-lang="ru">
+          <img src="assets/screenshot-layout.jpg" alt="Расчет косоугольной укладки эллипсов">
           <figcaption>
-            <h3 data-lang="ru">Расчет схемы укладки</h3>
-            <h3 data-lang="en">Packing layout calculation</h3>
-            <p data-lang="ru">Пример косоугольной укладки эллиптических изделий: программа подбирает количество, угол размещения, коэффициенты площади и объема, а также размер заготовки FEFCO 0201.</p>
-            <p data-lang="en">An example of angled packing for elliptical products: the program selects the item count, placement angle, area and volume efficiency, and FEFCO 0201 blank size.</p>
+            <h3>Расчет схемы укладки</h3>
+            <p>Пример косоугольной укладки эллиптических изделий: программа подбирает количество, угол размещения, коэффициенты площади и объема, а также размер заготовки FEFCO 0201.</p>
           </figcaption>
         </figure>
-        <figure class="screenshot">
-          <img data-lang="ru" src="assets/screenshot-report.jpg" alt="PDF-отчет по укладке">
-          <img data-lang="en" src="assets/screenshot-report-en.png" alt="PDF packing report">
+        <figure class="screenshot" data-lang="ru">
+          <img src="assets/screenshot-report.jpg" alt="PDF-отчет по укладке">
           <figcaption>
-            <h3 data-lang="ru">PDF-отчет</h3>
-            <h3 data-lang="en">PDF report</h3>
-            <p data-lang="ru">Отчет сохраняет исходные размеры, параметры изделия, результат расчета и наглядную схему укладки — удобно передавать технологу, производству или клиенту.</p>
-            <p data-lang="en">The report keeps input dimensions, product parameters, calculated result and a clear packing diagram — convenient for technologists, production teams or customers.</p>
+            <h3>PDF-отчет</h3>
+            <p>Отчет сохраняет исходные размеры, параметры изделия, результат расчета и наглядную схему укладки — удобно передавать технологу, производству или клиенту.</p>
           </figcaption>
         </figure>
-        <figure class="screenshot">
-          <img data-lang="ru" src="assets/screenshot-manual.jpg" alt="Руководство пользователя Фасовщик">
-          <img data-lang="en" src="assets/screenshot-manual-en.png" alt="Packer user guide">
+        <figure class="screenshot" data-lang="ru">
+          <img src="assets/screenshot-manual.jpg" alt="Руководство пользователя Фасовщик">
           <figcaption>
-            <h3 data-lang="ru">Руководство пользователя</h3>
-            <h3 data-lang="en">User manual</h3>
-            <p data-lang="ru">Встроенная справка описывает быстрый порядок работы, типы изделий, варианты укладки, составную укладку, деформацию и формирование отчета.</p>
-            <p data-lang="en">The built-in help explains the quick workflow, product types, packing modes, composite packing, deformation support and report generation.</p>
+            <h3>Руководство пользователя</h3>
+            <p>Встроенная справка описывает быстрый порядок работы, типы изделий, варианты укладки, составную укладку, деформацию и формирование отчета.</p>
+          </figcaption>
+        </figure>
+        <figure class="screenshot" data-lang="en">
+          <img src="assets/screenshot-layout-en.png" alt="Skewed ellipse packing layout calculation">
+          <figcaption>
+            <h3>Packing layout calculation</h3>
+            <p>An example of angled packing for elliptical products: the program selects the item count, placement angle, area and volume efficiency, and FEFCO 0201 blank size.</p>
+          </figcaption>
+        </figure>
+        <figure class="screenshot" data-lang="en">
+          <img src="assets/screenshot-report-en.png" alt="PDF packing report">
+          <figcaption>
+            <h3>PDF report</h3>
+            <p>The report keeps input dimensions, product parameters, calculated result and a clear packing diagram — convenient for technologists, production teams or customers.</p>
+          </figcaption>
+        </figure>
+        <figure class="screenshot" data-lang="en">
+          <img src="assets/screenshot-manual-en.png" alt="Packer user guide">
+          <figcaption>
+            <h3>User manual</h3>
+            <p>The built-in help explains the quick workflow, product types, packing modes, composite packing, deformation support and report generation.</p>
           </figcaption>
         </figure>
       </div>
@@ -336,9 +356,20 @@
       <h2 data-lang="ru">Стоимость</h2>
       <h2 data-lang="en">Pricing</h2>
       <div class="pricing">
-        <div class="price"><h3 data-lang="ru">Покупка</h3><h3 data-lang="en">Purchase</h3><strong>50 000 ₽</strong><small data-lang="ru">Бессрочная лицензия</small><small data-lang="en">Perpetual license</small></div>
-        <div class="price"><h3 data-lang="ru">Аренда на год</h3><h3 data-lang="en">Annual rental</h3><strong>10 000 ₽</strong><small data-lang="ru">Доступ на 12 месяцев</small><small data-lang="en">12-month access</small></div>
-        <div class="price"><h3 data-lang="ru">Аренда на месяц</h3><h3 data-lang="en">Monthly rental</h3><strong>1 000 ₽</strong><small data-lang="ru">Для проверки на реальных задачах</small><small data-lang="en">For real-task evaluation</small></div>
+        <div class="price">
+          <h3 data-lang="ru">Фасовщик</h3><h3 data-lang="en">Box Packing Optimizer</h3>
+          <strong data-lang="ru">69 000 ₽</strong><strong data-lang="en">69,000 ₽</strong>
+          <small data-lang="ru">Бессрочная лицензия</small><small data-lang="en">Perpetual license</small>
+          <p data-lang="ru">Годовая аренда — <b>19 900 ₽</b><br>Месячная аренда — <b>2 900 ₽</b><br>Без режима дежурства.</p>
+          <p data-lang="en">Annual rental — <b>19,900 ₽</b><br>Monthly rental — <b>2,900 ₽</b><br>Without watch mode.</p>
+        </div>
+        <div class="price">
+          <h3 data-lang="ru">Фасовщик PRO</h3><h3 data-lang="en">Box Packing Optimizer PRO</h3>
+          <strong data-lang="ru">99 000 ₽</strong><strong data-lang="en">99,000 ₽</strong>
+          <small data-lang="ru">Бессрочная лицензия</small><small data-lang="en">Perpetual license</small>
+          <p data-lang="ru">Годовая аренда — <b>24 900 ₽</b><br>Месячная аренда — <b>3 400 ₽</b><br>Включает режим дежурства и обработку JSON.</p>
+          <p data-lang="en">Annual rental — <b>24,900 ₽</b><br>Monthly rental — <b>3,400 ₽</b><br>Includes watch mode and JSON processing.</p>
+        </div>
       </div>
     </section>
 
@@ -359,8 +390,8 @@
         <div class="step">Contact the author at <a href="mailto:vguberniev@gmail.com">vguberniev@gmail.com</a> for payment and activation details.</div>
         <div class="step">Send the program name, transaction details and pc-settings code.</div>
       </div>
-      <p class="note" data-lang="ru">В демоверсию включен пример JSON-файла. Автоматический режим «Дежурство» доступен в рабочей версии программы.</p>
-      <p class="note" data-lang="en">The demo includes a sample JSON file. Automatic watch mode is available in the full version.</p>
+      <p class="note" data-lang="ru">В демоверсию включен пример JSON-файла. Автоматический режим «Дежурство» доступен в PRO-версии программы.</p>
+      <p class="note" data-lang="en">The demo includes a sample JSON file. Automatic watch mode is available in the PRO version.</p>
     </section>
 
     <section class="card" id="other-programs">
