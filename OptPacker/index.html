@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Фасовщик — оптимальная укладка изделий в ящик</title>
+  <meta name="description" content="Фасовщик: Windows-программа для оптимальной укладки изделий в ящик, расчета количества изделий, коэффициентов заполнения и заготовки FEFCO 0201.">
+  <meta name="keywords" content="Фасовщик, упаковка в ящик, оптимальная укладка, box packing optimizer, FEFCO 0201, расчет упаковки">
+  <link rel="canonical" href="https://governorv.github.io/OptPacker/">
+  <link rel="alternate" hreflang="ru" href="https://governorv.github.io/OptPacker/">
+  <link rel="alternate" hreflang="en" href="https://governorv.github.io/OptPacker/?lang=en">
+  <link rel="alternate" hreflang="x-default" href="https://governorv.github.io/OptPacker/">
+  <link rel="icon" href="assets/app.ico">
+  <meta property="og:title" content="Фасовщик — оптимальная укладка изделий в ящик">
+  <meta property="og:description" content="Расчет схем укладки изделий в ящик, плотности заполнения и заготовки FEFCO 0201.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://governorv.github.io/OptPacker/">
+  <meta property="og:image" content="https://governorv.github.io/OptPacker/assets/catalog-ru.png">
+  <style>
+    :root {
+      --bg: #061326;
+      --bg2: #0a1d3a;
+      --card: rgba(255,255,255,.08);
+      --card2: rgba(255,255,255,.12);
+      --text: #edf7ff;
+      --muted: #b8d0eb;
+      --line: rgba(116, 204, 255, .3);
+      --accent: #37d8ff;
+      --accent2: #72ffcf;
+      --gold: #ffd36a;
+      --darkText: #0b1b35;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 20% 0%, rgba(55,216,255,.22), transparent 32rem),
+        radial-gradient(circle at 80% 10%, rgba(114,255,207,.16), transparent 34rem),
+        linear-gradient(135deg, var(--bg), #020814 70%);
+      line-height: 1.55;
+    }
+    a { color: inherit; }
+    .container { width: min(1180px, calc(100% - 32px)); margin: 0 auto; }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(18px);
+      background: rgba(3, 12, 26, .78);
+      border-bottom: 1px solid var(--line);
+    }
+    nav { display: flex; align-items: center; justify-content: space-between; min-height: 68px; gap: 18px; }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 800; letter-spacing: .02em; }
+    .brand img { width: 34px; height: 34px; }
+    .nav-links { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+    .nav-links a, .lang button {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 8px 12px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .lang button.active { background: linear-gradient(135deg, var(--accent), #1d7dff); color: white; border-color: transparent; }
+    .hero { padding: 36px 0 34px; }
+    .hero-banner {
+      width: 100%;
+      border-radius: 24px;
+      border: 1px solid var(--line);
+      box-shadow: 0 24px 90px rgba(0,0,0,.45);
+      display: block;
+      overflow: hidden;
+    }
+    .hero-grid { display: grid; grid-template-columns: 1.3fr .7fr; gap: 24px; align-items: stretch; margin-top: 24px; }
+    .hero-card, section.card {
+      background: linear-gradient(180deg, rgba(255,255,255,.1), rgba(255,255,255,.055));
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 26px;
+      box-shadow: 0 18px 70px rgba(0,0,0,.24);
+    }
+    h1 { margin: 0 0 14px; font-size: clamp(36px, 6vw, 72px); line-height: .95; letter-spacing: -.04em; }
+    h2 { margin: 0 0 16px; font-size: clamp(28px, 3.2vw, 44px); line-height: 1.05; }
+    h3 { margin: 0 0 10px; font-size: 21px; }
+    p { margin: 0 0 14px; }
+    .lead { font-size: 20px; color: var(--muted); max-width: 820px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+    .chip { padding: 9px 12px; border: 1px solid var(--line); border-radius: 999px; background: rgba(55,216,255,.08); color: #dff8ff; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 11px 18px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      text-decoration: none;
+      font-weight: 800;
+    }
+    .btn.primary { background: linear-gradient(135deg, var(--accent), #1a7dff); color: white; box-shadow: 0 10px 28px rgba(55,216,255,.25); }
+    .btn.secondary { border-color: var(--line); background: rgba(255,255,255,.06); }
+    .kpi { display: grid; gap: 12px; }
+    .kpi div { background: rgba(255,255,255,.08); border: 1px solid var(--line); border-radius: 18px; padding: 16px; }
+    .kpi b { display: block; font-size: 28px; color: var(--accent2); }
+    main { display: grid; gap: 24px; padding-bottom: 42px; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .feature { padding: 18px; border-radius: 18px; background: rgba(255,255,255,.07); border: 1px solid rgba(116,204,255,.22); }
+    .feature span { font-size: 28px; }
+    .pricing { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .price {
+      background: white;
+      color: var(--darkText);
+      border-radius: 22px;
+      padding: 22px;
+      border: 1px solid rgba(55,216,255,.3);
+      box-shadow: 0 18px 48px rgba(0,0,0,.22);
+    }
+    .price strong { display: block; font-size: 32px; margin: 10px 0; color: #005de8; }
+    .price small { color: #52627a; }
+    .steps { counter-reset: s; display: grid; gap: 12px; }
+    .step { position: relative; padding-left: 48px; }
+    .step::before {
+      counter-increment: s;
+      content: counter(s);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 32px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #00162d;
+      font-weight: 900;
+    }
+    .note { color: var(--muted); font-size: 14px; }
+    footer { border-top: 1px solid var(--line); padding: 28px 0; color: var(--muted); background: rgba(0,0,0,.18); }
+    [data-lang] { display: none; }
+    html[lang="ru"] [data-lang="ru"], html[lang="en"] [data-lang="en"] { display: revert; }
+    html[lang="ru"] img[data-lang="ru"], html[lang="en"] img[data-lang="en"] { display: block; }
+    @media (max-width: 900px) {
+      .hero-grid, .grid, .pricing { grid-template-columns: 1fr; }
+      nav { align-items: flex-start; flex-direction: column; padding: 12px 0; }
+      .hero-card, section.card { padding: 20px; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Фасовщик",
+    "alternateName": "Box Packing Optimizer",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Windows",
+    "url": "https://governorv.github.io/OptPacker/",
+    "downloadUrl": "https://disk.yandex.ru/d/WK17ADX26VGjhA",
+    "offers": [
+      { "@type": "Offer", "name": "Бессрочная лицензия", "price": "50000", "priceCurrency": "RUB" },
+      { "@type": "Offer", "name": "Аренда на год", "price": "10000", "priceCurrency": "RUB" },
+      { "@type": "Offer", "name": "Аренда на месяц", "price": "1000", "priceCurrency": "RUB" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <a class="brand" href="#top"><img src="assets/app.ico" alt=""><span data-lang="ru">Фасовщик</span><span data-lang="en">Box Packing Optimizer</span></a>
+      <div class="nav-links">
+        <a href="#features" data-lang="ru">Возможности</a><a href="#features" data-lang="en">Features</a>
+        <a href="#pricing" data-lang="ru">Цены</a><a href="#pricing" data-lang="en">Pricing</a>
+        <a href="#buy" data-lang="ru">Как купить</a><a href="#buy" data-lang="en">How to buy</a>
+        <a href="../" data-lang="ru">Каталог</a><a href="../" data-lang="en">Catalog</a>
+        <span class="lang"><button type="button" data-set-lang="ru">RU</button><button type="button" data-set-lang="en">EN</button></span>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero container" id="top">
+    <img class="hero-banner" data-lang="ru" src="assets/hero-ru.png" alt="Фасовщик — оптимальная укладка изделий в ящики">
+    <img class="hero-banner" data-lang="en" src="assets/hero-en.png" alt="Box Packing Optimizer — optimal placement of products into boxes">
+    <div class="hero-grid">
+      <div class="hero-card">
+        <h1 data-lang="ru">Фасовщик</h1>
+        <h1 data-lang="en">Box Packing Optimizer</h1>
+        <p class="lead" data-lang="ru">Программа для подбора оптимальной схемы размещения изделий в ящике: считает количество изделий, коэффициенты заполнения и параметры заготовки FEFCO 0201.</p>
+        <p class="lead" data-lang="en">Windows software for selecting the best product arrangement in a box: item count, fill efficiency and FEFCO 0201 blank parameters.</p>
+        <div class="chips">
+          <span class="chip" data-lang="ru">7 типов изделий</span><span class="chip" data-lang="en">7 product types</span>
+          <span class="chip" data-lang="ru">Свободная, решетчатая и перегородочная укладка</span><span class="chip" data-lang="en">Free, grid and partition packing</span>
+          <span class="chip" data-lang="ru">Учет деформации</span><span class="chip" data-lang="en">Deformation support</span>
+          <span class="chip" data-lang="ru">Режим дежурства в рабочей версии</span><span class="chip" data-lang="en">Watch mode in the full version</span>
+        </div>
+        <div class="actions">
+          <a class="btn primary" href="https://disk.yandex.ru/d/WK17ADX26VGjhA" target="_blank" rel="noopener" data-lang="ru">Скачать демоверсию</a>
+          <a class="btn primary" href="https://disk.yandex.ru/d/WK17ADX26VGjhA" target="_blank" rel="noopener" data-lang="en">Download demo</a>
+          <a class="btn secondary" href="mailto:vguberniev@gmail.com?subject=Фасовщик" data-lang="ru">Написать автору</a>
+          <a class="btn secondary" href="mailto:vguberniev@gmail.com?subject=Box Packing Optimizer" data-lang="en">Contact author</a>
+        </div>
+      </div>
+      <div class="hero-card kpi">
+        <div><b>FEFCO 0201</b><span data-lang="ru">расчет заготовки ящика</span><span data-lang="en">box blank calculation</span></div>
+        <div><b>PDF</b><span data-lang="ru">отчет со схемой укладки</span><span data-lang="en">report with packing layout</span></div>
+        <div><b>JSON</b><span data-lang="ru">автоматическая обработка в рабочей версии</span><span data-lang="en">automatic processing in the full version</span></div>
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+    <section class="card" id="features">
+      <h2 data-lang="ru">Что умеет программа</h2>
+      <h2 data-lang="en">Key features</h2>
+      <div class="grid">
+        <div class="feature"><span>◌</span><h3 data-lang="ru">Круглые изделия</h3><h3 data-lang="en">Round products</h3><p data-lang="ru">Банки, бутылки и ведра с учетом сотовых и специальных схем.</p><p data-lang="en">Cans, bottles and buckets with honeycomb and special layouts.</p></div>
+        <div class="feature"><span>▭</span><h3 data-lang="ru">Прямоугольные изделия</h3><h3 data-lang="en">Rectangular products</h3><p data-lang="ru">Флаконы, коробки, книги и другие габаритные изделия.</p><p data-lang="en">Bottles, boxes, books and other rectangular items.</p></div>
+        <div class="feature"><span>⬢</span><h3 data-lang="ru">Сложные формы</h3><h3 data-lang="en">Special shapes</h3><p data-lang="ru">Эллипсы, линзы, тубы и шестигранники.</p><p data-lang="en">Ellipses, lenses, tubes and hexagonal products.</p></div>
+        <div class="feature"><span>▦</span><h3 data-lang="ru">Решетки и перегородки</h3><h3 data-lang="en">Grid and partitions</h3><p data-lang="ru">Расчет равномерных ячеек и центрирование изделий в ячейках.</p><p data-lang="en">Uniform cells and centered products inside each cell.</p></div>
+        <div class="feature"><span>⇄</span><h3 data-lang="ru">Составная укладка</h3><h3 data-lang="en">Composite packing</h3><p data-lang="ru">Деление ящика на две части и независимый подбор схемы для каждой части.</p><p data-lang="en">Splits the box into two zones and optimizes each zone independently.</p></div>
+        <div class="feature"><span>📄</span><h3 data-lang="ru">Отчет и сохранение</h3><h3 data-lang="en">Reports and saving</h3><p data-lang="ru">PDF-отчет со схемой, сохранение расчетов и удобная проверка результата.</p><p data-lang="en">PDF report with layout, saved calculations and clear result checking.</p></div>
+      </div>
+    </section>
+
+    <section class="card" id="pricing">
+      <h2 data-lang="ru">Стоимость</h2>
+      <h2 data-lang="en">Pricing</h2>
+      <div class="pricing">
+        <div class="price"><h3 data-lang="ru">Покупка</h3><h3 data-lang="en">Purchase</h3><strong>50 000 ₽</strong><small data-lang="ru">Бессрочная лицензия</small><small data-lang="en">Perpetual license</small></div>
+        <div class="price"><h3 data-lang="ru">Аренда на год</h3><h3 data-lang="en">Annual rental</h3><strong>10 000 ₽</strong><small data-lang="ru">Доступ на 12 месяцев</small><small data-lang="en">12-month access</small></div>
+        <div class="price"><h3 data-lang="ru">Аренда на месяц</h3><h3 data-lang="en">Monthly rental</h3><strong>1 000 ₽</strong><small data-lang="ru">Для проверки на реальных задачах</small><small data-lang="en">For real-task evaluation</small></div>
+      </div>
+    </section>
+
+    <section class="card" id="buy">
+      <h2 data-lang="ru">Как купить</h2>
+      <h2 data-lang="en">How to buy</h2>
+      <div class="steps" data-lang="ru">
+        <div class="step">Скачайте демоверсию и проверьте интерфейс программы.</div>
+        <div class="step">Выберите вариант лицензии: покупка, год или месяц.</div>
+        <div class="step">Оплатите выбранный вариант на карту <b>5536914068135833</b> с пометкой «Оплата программы Фасовщик», укажите ИНН для получения чека.</div>
+        <div class="step">Отправьте название программы, код и дату транзакции, а также код программы pc-settings на <a href="mailto:vguberniev@gmail.com">vguberniev@gmail.com</a>.</div>
+      </div>
+      <div class="steps" data-lang="en">
+        <div class="step">Download the demo version and check the interface.</div>
+        <div class="step">Choose a license option: purchase, annual or monthly rental.</div>
+        <div class="step">Contact the author at <a href="mailto:vguberniev@gmail.com">vguberniev@gmail.com</a> for payment and activation details.</div>
+        <div class="step">Send the program name, transaction details and pc-settings code.</div>
+      </div>
+      <p class="note" data-lang="ru">В демоверсию включен пример JSON-файла. Автоматический режим «Дежурство» доступен в рабочей версии программы.</p>
+      <p class="note" data-lang="en">The demo includes a sample JSON file. Automatic watch mode is available in the full version.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© PackTuning Software — Viktor Guberniev · <a href="mailto:vguberniev@gmail.com">vguberniev@gmail.com</a></div>
+  </footer>
+
+  <script>
+    const RU = "ru";
+    const EN = "en";
+    function setLang(lang) {
+      const selected = lang === EN ? EN : RU;
+      document.documentElement.lang = selected;
+      document.title = selected === EN
+        ? "Box Packing Optimizer — optimal placement of products into boxes"
+        : "Фасовщик — оптимальная укладка изделий в ящик";
+      document.querySelectorAll("[data-set-lang]").forEach(btn => btn.classList.toggle("active", btn.dataset.setLang === selected));
+      const url = new URL(location.href);
+      if (selected === EN) url.searchParams.set("lang", "en"); else url.searchParams.delete("lang");
+      history.replaceState(null, "", url);
+    }
+    document.querySelectorAll("[data-set-lang]").forEach(btn => btn.addEventListener("click", () => setLang(btn.dataset.setLang)));
+    setLang(new URLSearchParams(location.search).get("lang") === "en" || location.hash === "#en" ? EN : RU);
+  </script>
+</body>
+</html>
