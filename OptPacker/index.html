@@ -31,6 +31,11 @@
       --darkText: #0b1b35;
       --headerBg: rgba(3, 12, 26, .78);
       --footerBg: rgba(0,0,0,.18);
+      --softButtonBg: rgba(255,255,255,.06);
+      --softButtonText: var(--text);
+      --chipBg: rgba(55,216,255,.08);
+      --chipText: #dff8ff;
+      --chipBorder: var(--line);
       --pageBg:
         radial-gradient(circle at 20% 0%, rgba(55,216,255,.22), transparent 32rem),
         radial-gradient(circle at 80% 10%, rgba(114,255,207,.16), transparent 34rem),
@@ -51,6 +56,11 @@
       --darkText: #0b1b35;
       --headerBg: rgba(244,248,255,.86);
       --footerBg: rgba(255,255,255,.62);
+      --softButtonBg: #ffffff;
+      --softButtonText: #10213d;
+      --chipBg: #eef8ff;
+      --chipText: #12345d;
+      --chipBorder: rgba(22,121,232,.26);
       --pageBg:
         radial-gradient(circle at 20% 0%, rgba(22,121,232,.13), transparent 32rem),
         radial-gradient(circle at 80% 10%, rgba(10,168,121,.10), transparent 34rem),
@@ -82,8 +92,8 @@
     .nav-links { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
     .nav-links a, .lang button {
       border: 1px solid var(--line);
-      background: rgba(255,255,255,.06);
-      color: var(--text);
+      background: var(--softButtonBg);
+      color: var(--softButtonText);
       border-radius: 999px;
       padding: 8px 12px;
       text-decoration: none;
@@ -113,7 +123,7 @@
     p { margin: 0 0 14px; }
     .lead { font-size: 20px; color: var(--muted); max-width: 820px; }
     .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
-    .chip { padding: 9px 12px; border: 1px solid var(--line); border-radius: 999px; background: rgba(55,216,255,.08); color: #dff8ff; }
+    .chip { padding: 9px 12px; border: 1px solid var(--chipBorder); border-radius: 999px; background: var(--chipBg); color: var(--chipText); font-weight: 650; }
     .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
     .btn {
       display: inline-flex;
@@ -128,7 +138,7 @@
       font-weight: 800;
     }
     .btn.primary { background: linear-gradient(135deg, var(--accent), #1a7dff); color: white; box-shadow: 0 10px 28px rgba(55,216,255,.25); }
-    .btn.secondary { border-color: var(--line); background: rgba(255,255,255,.06); }
+    .btn.secondary { border-color: var(--line); background: var(--softButtonBg); color: var(--softButtonText); }
     .kpi { display: grid; gap: 12px; }
     .kpi div { background: rgba(255,255,255,.08); border: 1px solid var(--line); border-radius: 18px; padding: 16px; }
     .kpi b { display: block; font-size: 28px; color: var(--accent2); }
@@ -136,6 +146,15 @@
     .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
     .feature { padding: 18px; border-radius: 18px; background: rgba(255,255,255,.07); border: 1px solid rgba(116,204,255,.22); }
     .feature span { font-size: 28px; }
+    .capabilities-card { padding: 0; overflow: hidden; background: transparent; border: 0; box-shadow: none; }
+    .capabilities-image {
+      width: 100%;
+      display: block;
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      box-shadow: var(--bannerShadow);
+      background: #fff;
+    }
     .screenshots { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
     .screenshot {
       margin: 0;
@@ -282,20 +301,9 @@
   </section>
 
   <main class="container">
-    <section class="card" id="features">
-      <h2 data-lang="ru">Что умеет программа</h2>
-      <h2 data-lang="en">Key features</h2>
-      <div class="grid">
-        <div class="feature"><span>◌</span><h3 data-lang="ru">Круглые изделия</h3><h3 data-lang="en">Round products</h3><p data-lang="ru">Банки, бутылки и ведра с учетом сотовых и специальных схем.</p><p data-lang="en">Cans, bottles and buckets with honeycomb and special layouts.</p></div>
-        <div class="feature"><span>▭</span><h3 data-lang="ru">Прямоугольные изделия</h3><h3 data-lang="en">Rectangular products</h3><p data-lang="ru">Флаконы, коробки, книги и другие габаритные изделия.</p><p data-lang="en">Bottles, boxes, books and other rectangular items.</p></div>
-        <div class="feature"><span>⬢</span><h3 data-lang="ru">Сложные формы</h3><h3 data-lang="en">Special shapes</h3><p data-lang="ru">Эллипсы, линзы, тубы и шестигранники.</p><p data-lang="en">Ellipses, lenses, tubes and hexagonal products.</p></div>
-        <div class="feature"><span>▦</span><h3 data-lang="ru">Решетки и перегородки</h3><h3 data-lang="en">Grid and partitions</h3><p data-lang="ru">Расчет равномерных ячеек и центрирование изделий в ячейках.</p><p data-lang="en">Uniform cells and centered products inside each cell.</p></div>
-        <div class="feature"><span>⇄</span><h3 data-lang="ru">Составная укладка</h3><h3 data-lang="en">Composite packing</h3><p data-lang="ru">Деление ящика на две части и независимый подбор схемы для каждой части.</p><p data-lang="en">Splits the box into two zones and optimizes each zone independently.</p></div>
-        <div class="feature"><span>◫</span><h3 data-lang="ru">Учет деформации</h3><h3 data-lang="en">Deformation support</h3><p data-lang="ru">Подбор измененных размеров изделия с сохранением объема или площади поверхности.</p><p data-lang="en">Searches deformed product dimensions while preserving volume or surface area.</p></div>
-        <div class="feature"><span>↻</span><h3 data-lang="ru">Учет кантования</h3><h3 data-lang="en">Box tilting positions</h3><p data-lang="ru">Проверка установки ящика плашмя, на ребро и на торец с выбором лучшего результата.</p><p data-lang="en">Checks flat, side and end positions of the box and selects the best result.</p></div>
-        <div class="feature"><span>👁</span><h3 data-lang="ru">Режим дежурства PRO</h3><h3 data-lang="en">PRO watch mode</h3><p data-lang="ru">Автоматический расчет по JSON-файлам из заданной папки и сохранение PDF-отчетов.</p><p data-lang="en">Automatically processes JSON files from a selected folder and saves PDF reports.</p></div>
-        <div class="feature"><span>📄</span><h3 data-lang="ru">Отчет и сохранение</h3><h3 data-lang="en">Reports and saving</h3><p data-lang="ru">PDF-отчет со схемой, сохранение расчетов и удобная проверка результата.</p><p data-lang="en">PDF report with layout, saved calculations and clear result checking.</p></div>
-      </div>
+    <section class="capabilities-card" id="features">
+      <img class="capabilities-image" data-lang="ru" src="assets/features-ru.png" alt="Что умеет программа Фасовщик">
+      <img class="capabilities-image" data-lang="en" src="assets/features-en.png" alt="What the Box Packing Optimizer can do">
     </section>
 
     <section class="card" id="screenshots">
