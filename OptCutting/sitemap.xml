@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://governorv.github.io/OptCutting/</loc>
+    <lastmod>2026-06-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://governorv.github.io/OptCutting/assets/social-card.png</image:loc>
+      <image:title>Раскройщик OptCutting</image:title>
+      <image:caption>Windows-программа для оптимизации раскроя полотна гофрокартона</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://governorv.github.io/OptCutting/assets/screen-main.png</image:loc>
+      <image:title>Главное окно OptCutting</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://governorv.github.io/OptCutting/assets/screen-params.png</image:loc>
+      <image:title>Параметры оптимизации раскроя OptCutting</image:title>
+      <image:caption>Настройка сроков, ППР, подкроя и совместимости марок гофрокартона</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://governorv.github.io/OptCutting/assets/report-cutting.png</image:loc>
+      <image:title>Отчет по раскрою OptCutting</image:title>
+      <image:caption>Excel/Word-отчеты и сравнение фактического плана с оптимизированным расчетом</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://governorv.github.io/OptCutting/?lang=en</loc>
+    <lastmod>2026-06-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>
