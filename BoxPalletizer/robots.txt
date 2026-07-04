@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://governorv.github.io/BoxPalletizer/sitemap.xml
