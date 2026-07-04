@@ -1,0 +1,1103 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Паллетировщик Box Palletizer — программа расчета укладки коробок на паллеты</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="description"
+      content="Паллетировщик Box Palletizer — Windows-программа для расчета оптимальной и устойчивой укладки коробок на паллеты: 3D-схема, нагрузка на нижние слои, паллетизация, отчеты PDF и Word.">
+<meta name="keywords" content="Паллетировщик, Box Palletizer, программа паллетизации, укладка коробок на паллету, расчет паллет, схема укладки коробок, расчет нагрузки на нижние слои, palletizing software, pallet stacking, manual palletizing, оптимизация паллет">
+<meta name="author" content="Viktor Guberniev">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<link rel="canonical" href="https://governorv.github.io/BoxPalletizer/">
+<link rel="alternate" hreflang="ru" href="https://governorv.github.io/BoxPalletizer/">
+<link rel="alternate" hreflang="en" href="https://governorv.github.io/BoxPalletizer/?lang=en">
+<link rel="alternate" hreflang="x-default" href="https://governorv.github.io/BoxPalletizer/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PackTuning Software">
+<meta property="og:title" content="Паллетировщик Box Palletizer — программа расчета укладки коробок">
+<meta property="og:description" content="Расчет паллетизации: оптимальная укладка коробок на поддон, 3D-схема, нагрузка на нижние слои, PDF и Word-отчеты.">
+<meta property="og:url" content="https://governorv.github.io/BoxPalletizer/">
+<meta property="og:image" content="https://governorv.github.io/BoxPalletizer/boxpalletizer-top-banner.png">
+<meta property="og:image:width" content="1568">
+<meta property="og:image:height" content="287">
+<meta property="og:image:alt" content="Паллетировщик Box Palletizer: расчет укладки коробок на паллеты">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Паллетировщик Box Palletizer — программа расчета укладки коробок">
+<meta name="twitter:description" content="Windows-программа для расчета паллетизации, 3D-схем укладки, нагрузки на нижние слои и PDF/Word-отчетов.">
+<meta name="twitter:image" content="https://governorv.github.io/BoxPalletizer/boxpalletizer-top-banner.png">
+<meta name="twitter:image:alt" content="Box Palletizer software for pallet stacking calculation">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://governorv.github.io/#organization",
+      "name": "PackTuning Software",
+      "url": "https://governorv.github.io/ProgramCatalog/",
+      "email": "vguberniev@gmail.com"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://governorv.github.io/BoxPalletizer/#website",
+      "url": "https://governorv.github.io/BoxPalletizer/",
+      "name": "Паллетировщик Box Palletizer",
+      "inLanguage": ["ru-RU", "en-US"],
+      "publisher": { "@id": "https://governorv.github.io/#organization" }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://governorv.github.io/BoxPalletizer/#software",
+      "name": "Паллетировщик Box Palletizer",
+      "alternateName": "Box Palletizer",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Windows",
+      "url": "https://governorv.github.io/BoxPalletizer/",
+      "downloadUrl": "https://disk.yandex.ru/d/d5Z1fkMeHXIGaA",
+      "image": "https://governorv.github.io/BoxPalletizer/boxpalletizer-top-banner.png",
+      "screenshot": [
+        "https://governorv.github.io/BoxPalletizer/main_screen_rus.jpg",
+        "https://governorv.github.io/BoxPalletizer/pallet_screen_rus.jpg",
+        "https://governorv.github.io/BoxPalletizer/spiral4.jpg"
+      ],
+      "description": "Windows-программа для расчета оптимальной и устойчивой укладки коробок на паллеты: 3D-визуализация, нагрузка на нижние слои, расчет по ГОСТ 9142-2014, PDF и Word-отчеты.",
+      "featureList": [
+        "Расчет оптимальной укладки коробок на паллеты",
+        "Стандартная и спиральная схемы паллетизации",
+        "Расчет нагрузки на нижние слои",
+        "3D-визуализация паллеты",
+        "Паллетизация пачек гофроящиков",
+        "PDF и Word-отчеты",
+        "Многоязычный интерфейс",
+        "Palletizer PRO: режим дежурства, автоматический расчет по JSON и сохранение отчета"
+      ],
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Бессрочная лицензия Box Palletizer",
+          "price": "49990",
+          "priceCurrency": "RUB",
+          "availability": "https://schema.org/InStock",
+          "url": "https://governorv.github.io/BoxPalletizer/#ru-price"
+        },
+        {
+          "@type": "Offer",
+          "name": "Бессрочная лицензия Box Palletizer PRO",
+          "price": "69900",
+          "priceCurrency": "RUB",
+          "availability": "https://schema.org/InStock",
+          "url": "https://governorv.github.io/BoxPalletizer/#ru-price"
+        },
+        {
+          "@type": "Offer",
+          "name": "Аренда Box Palletizer на 1 месяц",
+          "price": "1000",
+          "priceCurrency": "RUB",
+          "availability": "https://schema.org/InStock",
+          "url": "https://governorv.github.io/BoxPalletizer/#ru-price"
+        },
+        {
+          "@type": "Offer",
+          "name": "Аренда Box Palletizer на 1 год",
+          "price": "10000",
+          "priceCurrency": "RUB",
+          "availability": "https://schema.org/InStock",
+          "url": "https://governorv.github.io/BoxPalletizer/#ru-price"
+        },
+        {
+          "@type": "Offer",
+          "name": "Аренда Box Palletizer PRO на 1 месяц",
+          "price": "1500",
+          "priceCurrency": "RUB",
+          "availability": "https://schema.org/InStock",
+          "url": "https://governorv.github.io/BoxPalletizer/#ru-price"
+        },
+        {
+          "@type": "Offer",
+          "name": "Аренда Box Palletizer PRO на 1 год",
+          "price": "15000",
+          "priceCurrency": "RUB",
+          "availability": "https://schema.org/InStock",
+          "url": "https://governorv.github.io/BoxPalletizer/#ru-price"
+        }
+      ],
+      "publisher": { "@id": "https://governorv.github.io/#organization" }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://governorv.github.io/BoxPalletizer/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Для чего нужен Box Palletizer?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Box Palletizer рассчитывает оптимальную и устойчивую укладку коробок на паллеты, показывает 3D-схему, нагрузку на нижние слои и формирует отчеты." }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли рассчитывать паллетизацию пачек гофроящиков?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Да, программа поддерживает паллетизацию коробок с продукцией и пачек сложенных гофроящиков, включая расчет размеров пачки и веса." }
+        },
+        {
+          "@type": "Question",
+          "name": "Какие отчеты формирует программа?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Программа формирует PDF и Word-отчеты со схемой укладки, параметрами паллеты и расчетными показателями." }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://governorv.github.io/BoxPalletizer/#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "PackTuning Software", "item": "https://governorv.github.io/ProgramCatalog/" },
+        { "@type": "ListItem", "position": 2, "name": "Паллетировщик Box Palletizer", "item": "https://governorv.github.io/BoxPalletizer/" }
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="icon" href="boxpal.ico" type="image/x-icon">
+<link rel="shortcut icon" href="boxpal.ico" type="image/x-icon">
+<meta name="msapplication-TileImage" content="boxpal.ico">
+
+<style>
+:root{
+  --bg:#0b1220;
+  --card:#111a30;
+  --line:rgba(255,255,255,.12);
+  --text:#e8eefc;
+  --muted:#b6c2e2;
+  --accent:#6aa9ff;
+  --accent2:#79ffd2;
+  --warn:#ffd36a;
+  --radius:18px;
+}
+html.day-theme{
+  --bg:#f8fafc;
+  --card:#ffffff;
+  --line:#d8e0e7;
+  --text:#18202b;
+  --muted:#617082;
+  --accent:#0f766e;
+  --accent2:#355c8a;
+  --warn:#b37b18;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.55;
+}
+.container{max-width:1200px;margin:auto;padding:0 20px}
+section{padding:52px 0}
+h1,h2,h3{margin:0 0 12px}
+p{margin:0 0 12px;color:var(--muted)}
+ul{margin:0 0 12px 18px;color:var(--muted)}
+b{color:var(--text)}
+.card{
+  background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:28px;
+}
+html.day-theme .card{
+  background:#ffffff;
+  box-shadow:0 20px 60px rgba(24,32,43,.1);
+}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:900px){
+  .grid2,.grid3{grid-template-columns:1fr}
+}
+.btn{
+  display:inline-block;
+  padding:12px 18px;
+  border-radius:14px;
+  text-decoration:none;
+  font-weight:700;
+  margin:6px 6px 0 0;
+}
+.btn.primary{
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#071021;
+}
+.btn.secondary{
+  border:1px solid var(--line);
+  color:var(--text);
+}
+html.day-theme .btn.secondary{
+  background:#ffffff;
+}
+img{width:100%;border-radius:16px;display:block}
+.badge{
+  display:inline-block;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  margin:6px 6px 0 0;
+  font-size:12px;
+  color:var(--muted);
+}
+.warn{
+  background:rgba(255,211,106,.1);
+  border:1px solid rgba(255,211,106,.3);
+  padding:18px;
+  border-radius:14px;
+}
+.monitoring-shot{
+  width:100vw;
+  margin-left:calc(50% - 50vw);
+  border-left:0;
+  border-right:0;
+  border-radius:0;
+  padding:0;
+}
+.monitoring-shot img{border-radius:0;}
+.fullshot{
+  border-radius:20px;
+  border:1px solid var(--line);
+  background:#000;
+  padding:14px;
+}
+footer{
+  border-top:1px solid var(--line);
+  padding:32px 0;
+  color:var(--muted);
+  font-size:13px;
+}
+a{color:inherit}
+
+/* Language switcher */
+.topbar{
+  position:sticky; top:0; z-index:999;
+  background:rgba(11,18,32,.78);
+  backdrop-filter: blur(10px);
+  border-bottom:1px solid var(--line);
+}
+html.day-theme .topbar{
+  background:rgba(248,250,252,.92);
+  box-shadow:0 10px 30px rgba(24,32,43,.06);
+}
+.topbar .inner{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:14px; padding:12px 0;
+}
+.site-banner{
+  height:190px;
+  overflow:hidden;
+  border-bottom:1px solid var(--line);
+  box-shadow:0 22px 55px rgba(0,0,0,.28);
+}
+.site-banner img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:0;
+}
+.brand{
+  display:flex; align-items:center; gap:10px;
+  text-decoration:none;
+}
+.logo{
+  width:34px; height:34px; border-radius:12px;
+  object-fit:cover;
+  box-shadow: 0 18px 50px rgba(106,169,255,.14);
+}
+.brand .name{display:flex; flex-direction:column; line-height:1.1}
+.brand .name strong{font-size:14px}
+.brand .name span{font-size:12px; color:var(--muted)}
+
+.lang{
+  display:inline-flex; gap:4px; align-items:center;
+  padding:4px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:rgba(255,255,255,.06);
+}
+html.day-theme .lang{background:#ffffff}
+.lang button{
+  border:0;
+  background:transparent;
+  color:var(--text);
+  border-radius:999px;
+  padding:10px 18px;
+  font-weight:800;
+  cursor:pointer;
+}
+.lang button.active{
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#071021;
+}
+.hidden{display:none !important;}
+.other-products .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:24px}
+.other-card{padding:0;overflow:hidden}
+.other-card img{width:100%;border-radius:0;aspect-ratio:3/2;object-fit:contain;background:#fff;display:block}
+.other-card .body{padding:22px}
+.other-card h3{font-size:20px}
+@media(max-width:1050px){.other-products .cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.other-products .cards{grid-template-columns:1fr}}
+@media(max-width:640px){
+  .site-banner{height:140px}
+}
+</style>
+</head>
+
+<body>
+
+<header class="topbar">
+  <div class="container">
+    <div class="inner">
+      <a class="brand" href="#top" aria-label="Паллетировщик">
+        <img class="logo" src="boxpal.ico" alt="">
+        <div class="name">
+          <strong>Паллетировщик</strong>
+          <span id="tagline">Ручная паллетизация</span>
+        </div>
+      </a>
+
+      <div class="lang" aria-label="Language switcher">
+        <button id="btn-ru" type="button">Русский</button>
+        <button id="btn-en" type="button">English</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="site-banner" aria-hidden="true">
+  <img src="boxpalletizer-top-banner.png" alt="">
+</div>
+
+<!-- ========================= RU ========================= -->
+<main id="top" data-lang="ru">
+
+  <!-- HERO -->
+  <section>
+    <div class="container grid2">
+      <div class="card">
+        <h1>Паллетировщик Box Palletizer<br>для расчета укладки коробок на паллеты</h1>
+        <p>
+          <b>Box Palletizer</b> — программа-паллетировщик для расчёта
+          <b>устойчивой и оптимальной укладки ящиков на поддон</b>
+          при ручной паллетизации.
+        </p>
+        <p>
+          Вы заранее знаете нагрузку на нижние слои
+          и даёте складу чёткую, однозначную схему укладки.
+        </p>
+
+        <a class="btn primary" href="https://disk.yandex.ru/d/d5Z1fkMeHXIGaA" target="_blank">Скачать демоверсию</a>
+        <a class="btn secondary" href="#ru-price">Цены и условия</a>
+        <a class="btn secondary" href="#ru-damage">Почему это критично</a>
+
+        <div>
+          <span class="badge">Ручная паллетизация</span>
+          <span class="badge">Паллетировщик</span>
+          <span class="badge">Малый и средний бизнес</span>
+          <span class="badge">Windows</span>
+          <span class="badge">PRO: режим дежурства</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Кому особенно полезно</h3>
+        <p>✔ производство и фасовка</p>
+        <p>✔ склады и дистрибьюторы</p>
+        <p>✔ отгрузки на дальние расстояния</p>
+        <p>✔ бизнес, где возвраты бьют по марже</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAMAGE -->
+  <section id="ru-damage">
+    <div class="container">
+      <h2>Что происходит при расчёте «на глаз»</h2>
+      <p>Реальные последствия неправильного распределения нагрузки.</p>
+
+      <div class="grid2">
+        <div class="card">
+          <img src="hershes_box.jpg" alt="Смятый короб">
+          <h3>Короб деформируется</h3>
+          <p>Нижние слои не выдерживают давление, паллет теряет геометрию и устойчивость.</p>
+        </div>
+
+        <div class="card">
+          <img src="hershes.jpg" alt="Повреждённый товар">
+          <h3>Портится товар</h3>
+          <p>Сдавливание приводит к повреждению упаковки, списаниям и рекламациям клиентов.</p>
+        </div>
+      </div>
+
+      <div class="warn">
+        <b>Причина:</b> неоптимальная схема и перегруз нижних слоёв.<br>
+        <b>Решение:</b> расчёт прочности и устойчивости ДО отгрузки.
+      </div>
+    </div>
+  </section>
+
+  <!-- FULL WIDTH SCREENSHOT -->
+  <section>
+    <div class="container">
+      <h2>Как это выглядит в реальной работе</h2>
+      <p>Крупная, наглядная схема укладки: слои, ориентация, итоговые параметры — всё видно сразу.</p>
+
+      <div class="fullshot">
+        <img src="spiral4.jpg" alt="Интерфейс программы Box Palletizer">
+      </div>
+
+      <p style="margin-top:12px;color:var(--muted);font-size:13px">
+        В интерфейсе отображаются как геометрические параметры укладки, так и расчётные показатели нагрузки и прочности по ГОСТ.
+      </p>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section>
+    <div class="container">
+      <h2>Ключевые возможности</h2>
+      <div class="grid3">
+
+        <div class="card">
+          <h3>Оптимальная укладка ящиков</h3>
+          <p>
+            Программа подбирает <b>оптимальную схему укладки в слое</b> с максимальным количеством ящиков
+            при соблюдении ограничений по габаритам, свесам и устойчивости.
+          </p>
+          <p><b>Два варианта укладки:</b></p>
+          <ul>
+            <li><b>Стандартная</b> — простая схема с минимизацией зазоров у борта ящика.</li>
+            <li><b>Спиральная</b> — специфическая укладка, повышающая устойчивость и равномерность нагрузки.</li>
+          </ul>
+          <p>
+            Если оба варианта дают <b>одинаковое количество ящиков в слое</b>,
+            можно заранее задать <b>предпочтение</b>: стандартная или спиральная.
+          </p>
+          <p>
+            Учитывается <b>кантование</b>: укладка <b>на дно</b>, <b>на ребро</b> и <b>на торец</b>.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Расчёт нагрузки и прочности</h3>
+          <p>
+            Расчёт выполняется по <b>ГОСТ 9142-2014</b> для тары из гофрокартона.
+          </p>
+          <p>Выводятся ключевые параметры (в зависимости от включённых опций):</p>
+          <ul>
+            <li>нагрузка на нижний ящик (кг/Н);</li>
+            <li>допустимая нагрузка при штабелировании и запас прочности;</li>
+            <li>сопротивление торцевому сжатию (ECT);</li>
+            <li>тип/марка гофрокартона и влияние ориентации гофры.</li>
+          </ul>
+        </div>
+
+         <div class="card"><h3>3D-визуализация</h3><p>Понятная схема для работников склада. Четные и нечетные слои укладки отобрадаются разным цветом.
+      Возможен поворот наждого слоя на 180 градусов относительно соседних слоев для более прочной укладки (связка слоев).
+На схему можно добавить текстовый блок с параметрами оптимальной укладки. Схему можно скопировать в буфер обмена и вставить в любой офисный документ (Word, Excel, PowerPoint)</p></div>
+      <div class="card">
+  <h3>Отчёт Word с шаблоном пользователя</h3>
+  <p>
+    Программа формирует подробный отчёт в формате <b>Microsoft Word</b>,
+    который может быть <b>настроен под шаблон пользователя</b>.
+  </p>
+  <p>
+    Вы можете использовать собственный бланк предприятия:
+    логотип, реквизиты, фирменные шрифты, структуру документа —
+    отчёт автоматически заполняется рассчитанными данными.
+  </p>
+  <p>
+    Это удобно для передачи схем укладки в производство,
+    логистику или заказчику без ручного оформления.
+  </p>
+</div>
+
+        <div class="card">
+          <h3>Гибкие параметры</h3>
+          <p>Любые размеры ящиков/поддонов, ограничения по высоте/весу, свесы, нестандартная тара.</p>
+        </div>
+        <div class="card">
+          <h3>Palletizer PRO: режим дежурства</h3>
+          <p>
+            PRO-версия может следить за указанным каталогом, автоматически запускать расчет
+            при появлении JSON-файла с параметрами паллетизации и сохранять PDF/JPG-отчет
+            в заданный каталог.
+          </p>
+          <p>
+            После успешного расчета исходный JSON можно удалить или перенести в архивную директорию.
+          </p>
+        </div>
+      </div>
+
+      <div class="fullshot monitoring-shot">
+        <img src="boxpalletizer-monitoring.jpg" alt="Palletizer PRO: режим дежурства и автоматический расчет по JSON">
+      </div>
+
+      <div class="grid3">
+        <div class="card">
+          <h3>Мультиязычный интерфейс</h3>
+          <p>
+            Доступные языки: <b>Русский</b>, <b>English</b>, <b>עברית</b>, <b>Deutsch</b>, <b>Italiano</b>.<br>
+            Пользователь может <b>сам перевести программу на любой язык</b> — без перекомпиляции, редактируя языковой файл.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="ru-price">
+    <div class="container grid3">
+      <div class="card">
+        <h2>Обычная версия</h2>
+        <h3>49 990 ₽</h3>
+        <p>✔ расчет укладки коробок на паллеты</p>
+        <p>✔ PDF и Word-отчеты</p>
+        <p>✔ поддержка и консультации — 1 год</p>
+        <p>✔ +10% за каждое дополнительное рабочее место</p>
+      </div>
+
+      <div class="card">
+        <h2>Palletizer PRO</h2>
+        <h3>69 900 ₽</h3>
+        <p>✔ все возможности обычной версии</p>
+        <p>✔ режим дежурства и автоматический расчет по JSON</p>
+        <p>✔ сохранение отчета в заданный каталог</p>
+      </div>
+
+      <div class="card">
+        <h2>Аренда</h2>
+        <p><b>Обычная версия:</b> 1 000 ₽/мес или 10 000 ₽/год</p>
+        <p><b>PRO:</b> 1 500 ₽/мес или 15 000 ₽/год</p>
+        <p>Для тестирования или разовых проектов.</p>
+      </div>
+      <div class="card">
+        <h2>Как купить</h2>
+        <ol>
+          <li>Скачайте программу: <a href="https://disk.yandex.ru/d/rmziVsloasOaug" target="_blank" rel="noopener">pc-settings.exe</a>.</li>
+          <li>Распакуйте её и запустите на своём компьютере. При возникновении экрана "Windows защитила ваш компьютер" нажмите "Подробнее" и затем "выполнить в любом случае".</li>
+          <li>Сохраните код, который она выдаст.</li>
+          <li>Оплатите стоимость выбранного вами варианта лицензии на карту <b>5536914068135833</b> с пометкой "Оплата программы Box Palletizer", укажите также свой ИНН для получения чека.</li>
+          <li>Вышлите название программы "Box Palletizer", код и дату транзакции, а также код программы pc-settings по адресу <a href="mailto:vguberniev@gmail.com">vguberniev@gmail.com</a>.</li>
+          <li>После проверки платежа в ответном письме вам придет ссылка на ваш дистрибутив (для того компьютера, код которого вы выслали).</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+   <section>
+    <div class="container card">
+      <h2>Презентация программы</h2>
+      <p>
+        Скачайте презентацию программы (формат pps, 12 слайдов)
+      </p>
+
+
+      <a class="btn primary" href="https://disk.yandex.ru/i/9GQRmaekVxZqSg" target="_blank">Скачать</a>
+      <a class="btn secondary" href="mailto:vguberniev@gmail.com">Написать разработчику</a>
+    </div>
+  </section>
+
+
+  <section>
+    <div class="container card">
+      <h2>Скачайте демоверсию</h2>
+      <p>
+        Демоверсия показывает интерфейс и логику расчёта.<br>
+        <b>Важно:</b> в демо-режиме к введённым значениям <b>добавляется случайная погрешность</b>,
+        поэтому результаты носят ознакомительный характер.
+      </p>
+
+
+      <a class="btn primary" href="https://disk.yandex.ru/d/d5Z1fkMeHXIGaA" target="_blank">Скачать демо</a>
+      <a class="btn secondary" href="mailto:vguberniev@gmail.com">Написать разработчику</a>
+    </div>
+  </section>
+
+  <!-- OTHER PRODUCTS (RU) -->
+  <section class="other-products">
+    <div class="container">
+      <h2>Познакомьтесь также с другими моими программами</h2>
+      <div class="cards">
+        <article class="card other-card">
+          <a href="https://governorv.github.io/OptPacker/" target="_blank" rel="noopener"><img src="fasovshik_banner.png" alt="Фасовщик"></a>
+          <div class="body">
+            <h3>Фасовщик</h3>
+            <p>Оптимальная укладка изделий в ящик, расчет заполнения, заготовки FEFCO 0201 и PDF-отчет.</p>
+            <a class="btn secondary" href="https://governorv.github.io/OptPacker/" target="_blank" rel="noopener">Страница</a>
+          </div>
+        </article>
+                <article class="card other-card">
+          <a href="https://governorv.github.io/BoxPriceCalculator/#ru" target="_blank" rel="noopener"><img src="boxprice_banner.png" alt="Калькулятор стоимости гофроящика"></a>
+          <div class="body">
+            <h3>Калькулятор гофроящиков</h3>
+            <p>Расчёт себестоимости гофроупаковки с учётом материалов, печати и дополнительных расходов.</p>
+            <a class="btn secondary" href="https://governorv.github.io/BoxPriceCalculator/#ru" target="_blank" rel="noopener">Страница</a>
+          </div>
+        </article>
+        <article class="card other-card">
+          <a href="https://governorv.github.io/DBSearch/#ru" target="_blank" rel="noopener"><img src="dbsearch_banner.png" alt="Поиск по базе данных"></a>
+          <div class="body">
+            <h3>Поисковик по базам данных</h3>
+            <p>Поиск объектов и данных в SQL Server, просмотр кода, фильтры и экспорт результатов.</p>
+            <a class="btn secondary" href="https://governorv.github.io/DBSearch/#ru" target="_blank" rel="noopener">Страница</a>
+          </div>
+        </article>
+        <article class="card other-card">
+          <a href="https://governorv.github.io/Licman/#ru" target="_blank" rel="noopener"><img src="licman_banner.png" alt="Менеджер лицензий"></a>
+          <div class="body">
+            <h3>Менеджер лицензий</h3>
+            <p>Учёт лицензий, контроль сроков действия, ответственные, уведомления и экспорт в Excel.</p>
+            <a class="btn secondary" href="https://governorv.github.io/Licman/#ru" target="_blank" rel="noopener">Страница</a>
+          </div>
+        </article>
+        <article class="card other-card">
+          <a href="https://governorv.github.io/OptCutting/" target="_blank" rel="noopener"><img src="optcutting_banner.png" alt="Раскройщик OptCutting"></a>
+          <div class="body">
+            <h3>Раскройщик</h3>
+            <p>Оптимизация раскроя полотна гофрокартона, карты раскроя, сетевой график и отчеты Excel.</p>
+            <a class="btn secondary" href="https://governorv.github.io/OptCutting/" target="_blank" rel="noopener">Страница</a>
+          </div>
+        </article>
+        <article class="card other-card">
+          <a href="https://governorv.github.io/palletizer-site/#ru" target="_blank" rel="noopener"><img src="platepalletizer_banner.png" alt="Паллетировщик плит"></a>
+          <div class="body">
+            <h3>Паллетировщик плит</h3>
+            <p>Оптимальное распределение листовых материалов по поддонам: импорт заявок из Excel, расчет поддонов, контроль размеров, веса, высоты и цвета.</p>
+            <a class="btn secondary" href="https://governorv.github.io/palletizer-site/#ru" target="_blank" rel="noopener">Страница</a>
+          </div>
+        </article><article class="card other-card">
+          <a href="https://governorv.github.io/truckloader-site/" target="_blank" rel="noopener"><img src="truckloader_banner.png" alt="TruckLoader"></a>
+          <div class="body">
+            <h3>TruckLoader</h3>
+            <p>Расчет загрузки поддонов в автофургоны и контейнеры, 2D и 3D схемы.</p>
+            <a class="btn secondary" href="https://governorv.github.io/truckloader-site/" target="_blank" rel="noopener">Страница</a>
+          </div>
+        </article>        <article class="card other-card">
+          <a href="https://governorv.github.io/gost/" target="_blank" rel="noopener"><img src="gost914290_banner.png" alt="Расчет нагрузки на гофроящик по ГОСТ 9142-2014"></a>
+          <div class="body">
+            <h3>Расчет нагрузки по ГОСТ 9142-2014</h3>
+            <p>Расчет характеристик гофроящика, подбор марки гофрокартона и PDF-отчет.</p>
+            <a class="btn secondary" href="https://governorv.github.io/gost/" target="_blank" rel="noopener">Страница</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ========================= EN ========================= -->
+<main data-lang="en" class="hidden">
+
+  <!-- HERO -->
+  <section>
+    <div class="container grid2">
+      <div class="card">
+        <h1>Stop losing money<br>on crushed boxes and claims</h1>
+
+        <p>
+          <b>Box Palletizer</b> is a professional tool for calculating
+          <b>stable and optimal box stacking on pallets</b>
+          during manual palletizing.
+        </p>
+
+        <p>
+          You know the load on lower layers in advance and provide warehouse staff
+          with a clear, unambiguous stacking scheme.
+        </p>
+
+        <a class="btn primary" href="https://disk.yandex.ru/d/d5Z1fkMeHXIGaA" target="_blank">Download demo</a>
+        <a class="btn secondary" href="https://disk.yandex.ru/i/7dcdTSHqNQpzvQ" target="_blank" rel="noopener">View presentation</a>
+        <a class="btn secondary" href="#en-pricing">Pricing</a>
+        <a class="btn secondary" href="#en-damage">Why it matters</a>
+
+        <div>
+          <span class="badge">Manual palletizing</span>
+          <span class="badge">SMB</span>
+          <span class="badge">Windows</span>
+          <span class="badge">PRO: watch mode</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Best suited for</h3>
+        <p>✔ manufacturing and packaging</p>
+        <p>✔ warehouses and distributors</p>
+        <p>✔ long-distance shipments</p>
+        <p>✔ businesses affected by returns and damage</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAMAGE -->
+  <section id="en-damage">
+    <div class="container">
+      <h2>What happens without proper load calculation</h2>
+      <p>Real consequences of “by-eye” pallet stacking.</p>
+
+      <div class="grid2">
+        <div class="card">
+          <img src="hershes_box.jpg" alt="Deformed cardboard box on pallet">
+          <h3>Boxes lose their shape</h3>
+          <p>Lower layers cannot withstand the load. The pallet deforms and becomes unstable.</p>
+        </div>
+
+        <div class="card">
+          <img src="hershes.jpg" alt="Damaged products inside boxes">
+          <h3>Products are damaged</h3>
+          <p>Excessive pressure leads to crushed packaging, product loss and customer claims.</p>
+        </div>
+      </div>
+
+      <div class="warn">
+        <b>Cause:</b> uneven load distribution and non-optimal stacking.<br>
+        <b>Solution:</b> calculate strength and stability before shipment.
+      </div>
+    </div>
+  </section>
+
+  <!-- FULL WIDTH SCREENSHOT -->
+  <section>
+    <div class="container">
+      <h2>How it looks in real work</h2>
+      <p>A large, clear pallet visualization showing layers, orientation and calculated parameters.</p>
+
+      <div class="fullshot">
+        <img src="spiral_eng.jpg" alt="Box Palletizer software interface">
+      </div>
+
+      <p style="margin-top:12px;color:var(--muted);font-size:13px">
+        The interface displays both geometric stacking parameters and calculated load and strength values according to GOST standards.
+      </p>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section>
+    <div class="container">
+      <h2>Key features</h2>
+      <div class="grid3">
+
+        <div class="card">
+          <h3>Optimal stacking logic</h3>
+          <p>
+            The software calculates the most efficient box layout per layer, maximizing box count while respecting stability and overhang limits.
+          </p>
+          <p><b>Two stacking modes:</b></p>
+          <ul>
+            <li><b>Standard</b> — a simple layout that minimizes gaps at the box edge.</li>
+            <li><b>Spiral</b> — specific layout that increases stability and load uniformity.</li>
+          </ul>
+          <p>
+            If both modes produce the <b>same box count per layer</b>, the user can define which mode has priority.
+          </p>
+          <p>
+            Box orientation can be considered: <b>upright</b>, <b>on edge</b>, or <b>on side</b>.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Load and strength calculation</h3>
+          <p>
+            Load calculations are performed in accordance with <b>GOST 9142-2014</b>  for corrugated cardboard packaging.
+          </p>
+          <p>Key output parameters (depending on enabled options):</p>
+          <ul>
+            <li>load on lower boxes (kg/N);</li>
+            <li>allowable stacking load and safety margin;</li>
+            <li>edge crush resistance (ECT);</li>
+            <li>cardboard type and flute orientation influence.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>3D visualization</h3>
+          <p>A clear diagram for warehouse workers. Even and odd stacking layers are displayed in different colors. Each layer can be rotated 180 degrees relative to adjacent layers for more secure stacking (layer linking).
+                A text block with optimal stacking parameters can be added to the diagram. The diagram can be copied to the clipboard and pasted into any office document (Word, Excel, PowerPoint).</p>
+        </div>
+
+        <div class="card">
+          <h3>Word & PDF reports</h3>
+          <p>
+            Detailed reports can be generated in Word and PDF formats.
+            Word reports support <b>custom user templates</b> (company branding, layout), automatically filled with calculated data.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Flexible parameters</h3>
+          <p>Any box/pallet sizes, height/weight limits, overhang settings and non-standard packaging.</p>
+        </div>
+        <div class="card">
+          <h3>Palletizer PRO: watch mode</h3>
+          <p>
+            The PRO version can monitor a selected directory, automatically run the calculation
+            when a JSON file with palletizing parameters appears, and save the PDF/JPG report
+            to the selected output directory.
+          </p>
+          <p>
+            After successful processing, the source JSON file can be deleted or moved to an archive directory.
+          </p>
+        </div>
+      </div>
+
+      <div class="fullshot monitoring-shot">
+        <img src="boxpalletizer-monitoring-en.jpg" alt="Palletizer PRO watch mode and automatic JSON calculation">
+      </div>
+
+      <div class="grid3">
+        <div class="card">
+          <h3>Multilingual interface</h3>
+          <p>
+            Available languages: <b>English</b>, <b>Russian</b>, <b>Hebrew</b>, <b>German</b> and <b>Italian</b>.<br>
+            Users can translate the interface to any language by editing language files without recompilation.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="en-pricing">
+    <div class="container grid3">
+      <div class="card">
+        <h2>Standard version</h2>
+        <h3>49,990 RUB</h3>
+        <p>✔ pallet stacking calculation</p>
+        <p>✔ PDF and Word reports</p>
+        <p>✔ 1 year of support</p>
+        <p>✔ +10% per additional workstation</p>
+      </div>
+
+      <div class="card">
+        <h2>Palletizer PRO</h2>
+        <h3>69,900 RUB</h3>
+        <p>✔ all standard-version features</p>
+        <p>✔ watch mode and automatic JSON-based calculation</p>
+        <p>✔ report export to a selected directory</p>
+      </div>
+
+      <div class="card">
+        <h2>Rental options</h2>
+        <p><b>Standard:</b> 1,000 RUB/month or 10,000 RUB/year</p>
+        <p><b>PRO:</b> 1,500 RUB/month or 15,000 RUB/year</p>
+        <p>Suitable for testing or one-time projects.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA --><section>
+    <div class="container card">
+      <h2>Download the demo</h2>
+      <p>
+        The demo version demonstrates the interface and calculation logic.<br>
+        <b>Note:</b> random deviation is added to user input in demo mode, so results are for demonstration purposes only.
+      </p>
+
+      <a class="btn primary" href="https://disk.yandex.ru/d/d5Z1fkMeHXIGaA" target="_blank">Download demo</a>
+      <a class="btn secondary" href="https://disk.yandex.ru/i/7dcdTSHqNQpzvQ" target="_blank" rel="noopener">View presentation</a>
+      <a class="btn secondary" href="mailto:vguberniev@gmail.com">Contact developer</a>
+    </div>
+  </section>
+
+  <!-- OTHER PRODUCTS (EN) -->
+  <section class="other-products">
+    <div class="container">
+      <h2>Explore my other software as well</h2>
+      <div class="cards">
+        <article class="card other-card">
+          <a href="https://governorv.github.io/OptPacker/?lang=en" target="_blank" rel="noopener"><img src="fasovshik_banner_en.png" alt="Box Packing Optimizer"></a>
+          <div class="body">
+            <h3>Box Packing Optimizer</h3>
+            <p>Optimal product placement into boxes with fill efficiency, FEFCO 0201 blanks and PDF reports.</p>
+            <a class="btn secondary" href="https://governorv.github.io/OptPacker/?lang=en" target="_blank" rel="noopener">Page</a>
+          </div>
+        </article>
+                <article class="card other-card">
+          <a href="https://governorv.github.io/BoxPriceCalculator/#en" target="_blank" rel="noopener"><img src="boxprice_banner_en.png" alt="Corrugated Box Cost Calculator"></a>
+          <div class="body">
+            <h3>Corrugated Box Cost Calculator</h3>
+            <p>Estimate corrugated packaging costs with materials, printing and additional expenses.</p>
+            <a class="btn secondary" href="https://governorv.github.io/BoxPriceCalculator/#en" target="_blank" rel="noopener">Page</a>
+          </div>
+        </article>
+        <article class="card other-card">
+          <a href="https://governorv.github.io/DBSearch/#en" target="_blank" rel="noopener"><img src="dbsearch_banner_en.png" alt="Database Search"></a>
+          <div class="body">
+            <h3>Database Search</h3>
+            <p>Search SQL Server objects and data, view code, filter results and export reports.</p>
+            <a class="btn secondary" href="https://governorv.github.io/DBSearch/#en" target="_blank" rel="noopener">Page</a>
+          </div>
+        </article>
+        <article class="card other-card">
+          <a href="https://governorv.github.io/Licman/#en" target="_blank" rel="noopener"><img src="licman_banner_en.png" alt="License Manager"></a>
+          <div class="body">
+            <h3>License Manager</h3>
+            <p>Track licenses, expiration dates, owners, notifications and Excel exports.</p>
+            <a class="btn secondary" href="https://governorv.github.io/Licman/#en" target="_blank" rel="noopener">Page</a>
+          </div>
+        </article>
+        <article class="card other-card">
+          <a href="https://governorv.github.io/OptCutting/?lang=en" target="_blank" rel="noopener"><img src="optcutting_banner_en.png" alt="OptCutting"></a>
+          <div class="body">
+            <h3>OptCutting</h3>
+            <p>Corrugated board cutting optimization with cutting maps, Gantt schedule and Excel reports.</p>
+            <a class="btn secondary" href="https://governorv.github.io/OptCutting/?lang=en" target="_blank" rel="noopener">Page</a>
+          </div>
+        </article>
+        <article class="card other-card">
+          <a href="https://governorv.github.io/palletizer-site/#en" target="_blank" rel="noopener"><img src="platepalletizer_banner_en.png" alt="Sheet Palletizer"></a>
+          <div class="body">
+            <h3>Sheet Palletizer</h3>
+            <p>Optimal pallet distribution for sheet materials: Excel order import, pallet calculation, size, weight, height and color control.</p>
+            <a class="btn secondary" href="https://governorv.github.io/palletizer-site/#en" target="_blank" rel="noopener">Page</a>
+          </div>
+        </article><article class="card other-card">
+          <a href="https://governorv.github.io/truckloader-site/?lang=en" target="_blank" rel="noopener"><img src="truckloader_banner_en.png" alt="TruckLoader"></a>
+          <div class="body">
+            <h3>TruckLoader</h3>
+            <p>Pallet loading calculation for trucks and containers with 2D and 3D layouts.</p>
+            <a class="btn secondary" href="https://governorv.github.io/truckloader-site/?lang=en" target="_blank" rel="noopener">Page</a>
+          </div>
+        </article>        <article class="card other-card">
+          <a href="https://governorv.github.io/gost/" target="_blank" rel="noopener"><img src="gost914290_banner_en.png" alt="GOST 9142-2014 Box Load Calculator"></a>
+          <div class="body">
+            <h3>GOST 9142-2014 Load Calculator</h3>
+            <p>Corrugated box load, board grade calculation and PDF report export.</p>
+            <a class="btn secondary" href="https://governorv.github.io/gost/" target="_blank" rel="noopener">Page</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    © Box Palletizer — pallet stacking software<br>
+    Contact: <a href="mailto:vguberniev@gmail.com">vguberniev@gmail.com</a>
+  </div>
+</footer>
+
+<script>
+(function () {
+  const RU = "ru";
+  const EN = "en";
+
+  const btnRu = document.getElementById("btn-ru");
+  const btnEn = document.getElementById("btn-en");
+  const mains = Array.from(document.querySelectorAll("main[data-lang]"));
+  const brandTitle = document.querySelector(".brand .name strong");
+  const tagline = document.getElementById("tagline");
+
+  function applyAutoTheme(){
+    const hour = new Date().getHours();
+    const isDay = hour >= 6 && hour < 18;
+    document.documentElement.classList.toggle("day-theme", isDay);
+    document.documentElement.classList.toggle("night-theme", !isDay);
+  }
+
+  function setMetaForLang(lang){
+    document.documentElement.lang = lang;
+    const meta = (lang === RU)
+      ? {
+          title: "Паллетировщик Box Palletizer — программа расчета укладки коробок на паллеты",
+          desc: "Паллетировщик Box Palletizer — Windows-программа для расчета оптимальной и устойчивой укладки коробок на паллеты: 3D-схема, нагрузка на нижние слои, паллетизация, отчеты PDF и Word.",
+          ogTitle: "Паллетировщик Box Palletizer — программа расчета укладки коробок",
+          ogDesc: "Расчет паллетизации: оптимальная укладка коробок на поддон, 3D-схема, нагрузка на нижние слои, PDF и Word-отчеты.",
+          url: "https://governorv.github.io/BoxPalletizer/"
+        }
+      : {
+          title: "Box Palletizer — pallet stacking calculation software",
+          desc: "Box Palletizer is Windows software for calculating stable and optimal box stacking on pallets: palletizing layouts, 3D visualization, lower-layer load and PDF/Word reports.",
+          ogTitle: "Box Palletizer — pallet stacking calculation software",
+          ogDesc: "Palletizing software for stable box stacking on pallets, 3D layout visualization, lower-layer load calculation and PDF/Word reports.",
+          url: "https://governorv.github.io/BoxPalletizer/?lang=en"
+        };
+    document.title = meta.title;
+    const desc = document.querySelector('meta[name="description"]');
+    const canonical = document.querySelector('link[rel="canonical"]');
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    const ogDesc = document.querySelector('meta[property="og:description"]');
+    const ogUrl = document.querySelector('meta[property="og:url"]');
+    const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+    const twitterDesc = document.querySelector('meta[name="twitter:description"]');
+    if (desc) desc.setAttribute("content", meta.desc);
+    if (canonical) canonical.setAttribute("href", meta.url);
+    if (ogTitle) ogTitle.setAttribute("content", meta.ogTitle);
+    if (ogDesc) ogDesc.setAttribute("content", meta.ogDesc);
+    if (ogUrl) ogUrl.setAttribute("content", meta.url);
+    if (twitterTitle) twitterTitle.setAttribute("content", meta.ogTitle);
+    if (twitterDesc) twitterDesc.setAttribute("content", meta.ogDesc);
+
+    if (brandTitle){
+      brandTitle.textContent = (lang === RU) ? "Паллетировщик" : "Palletizer";
+    }
+    if (tagline){
+      tagline.textContent = (lang === RU) ? "Ручная паллетизация" : "Manual pallet stacking";
+    }
+  }
+
+  function showLang(lang){
+    mains.forEach(m => {
+      m.classList.toggle("hidden", m.getAttribute("data-lang") !== lang);
+    });
+
+    btnRu.classList.toggle("active", lang === RU);
+    btnEn.classList.toggle("active", lang === EN);
+
+    setMetaForLang(lang);
+    try { localStorage.setItem("lang", lang); } catch(e) {}
+
+    const url = new URL(window.location.href);
+    if (lang === EN) url.searchParams.set("lang", EN);
+    else url.searchParams.delete("lang");
+    const h = (window.location.hash || "").toLowerCase();
+    url.hash = (h === "#ru" || h === "#en") ? "" : window.location.hash;
+    history.replaceState(null, "", url);
+  }
+
+  function detectInitialLang(){
+    const queryLang = new URLSearchParams(window.location.search).get("lang");
+    if (queryLang === EN) return EN;
+    if (queryLang === RU) return RU;
+    const h = (window.location.hash || "").toLowerCase();
+    if (h === "#en") return EN;
+    if (h === "#ru") return RU;
+
+    try {
+      const saved = localStorage.getItem("lang");
+      if (saved === EN || saved === RU) return saved;
+    } catch(e) {}
+
+    return RU;
+  }
+
+  btnRu.addEventListener("click", () => { showLang(RU); });
+  btnEn.addEventListener("click", () => { showLang(EN); });
+
+  // If user opens a link with #en or #ru
+  window.addEventListener("hashchange", () => {
+    const h = (window.location.hash || "").toLowerCase();
+    if (h === "#en") showLang(EN);
+    if (h === "#ru") showLang(RU);
+  });
+
+  applyAutoTheme();
+  setInterval(applyAutoTheme, 60 * 1000);
+  showLang(detectInitialLang());
+})();
+</script>
+
+</body>
+</html>

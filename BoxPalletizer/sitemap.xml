@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://governorv.github.io/BoxPalletizer/</loc>
+    <lastmod>2026-06-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://governorv.github.io/BoxPalletizer/boxpalletizer-top-banner.png</image:loc>
+      <image:title>Паллетировщик Box Palletizer</image:title>
+      <image:caption>Windows-программа для расчета укладки коробок на паллеты</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://governorv.github.io/BoxPalletizer/main_screen_rus.jpg</image:loc>
+      <image:title>Главное окно Box Palletizer</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://governorv.github.io/BoxPalletizer/pallet_screen_rus.jpg</image:loc>
+      <image:title>Расчет паллетизации в Box Palletizer</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://governorv.github.io/BoxPalletizer/spiral4.jpg</image:loc>
+      <image:title>3D-схема укладки коробок на паллету</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://governorv.github.io/BoxPalletizer/?lang=en</loc>
+    <lastmod>2026-06-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>

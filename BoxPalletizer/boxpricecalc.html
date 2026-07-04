@@ -1,0 +1,838 @@
+﻿<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Box Price Calculator — Corrugated Packaging Cost Estimator</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Cost calculator for corrugated boxes, sheets and rolls. Materials, printing, packaging, delivery. PDF tech card and report.">
+
+<style>
+:root{
+  --bg:#0b1220;
+  --card:#111a30;
+  --line:rgba(255,255,255,.12);
+  --text:#e8eefc;
+  --muted:#b6c2e2;
+  --accent:#6aa9ff;
+  --accent2:#79ffd2;
+  --warn:#ffd36a;
+  --radius:18px;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.55;
+}
+.container{max-width:1200px;margin:auto;padding:0 20px}
+section{padding:52px 0}
+h1,h2,h3{margin:0 0 12px}
+p{margin:0 0 12px;color:var(--muted)}
+ul{margin:0 0 12px 18px;color:var(--muted)}
+b{color:var(--text)}
+a{color:inherit}
+
+.card{
+  background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:28px;
+}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:900px){
+  .grid2,.grid3{grid-template-columns:1fr}
+}
+.badge{
+  display:inline-block;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  margin:6px 6px 0 0;
+  font-size:12px;
+  color:var(--muted);
+}
+.btn{
+  display:inline-block;
+  padding:12px 18px;
+  border-radius:14px;
+  text-decoration:none;
+  font-weight:700;
+  margin:6px 6px 0 0;
+}
+.btn.primary{
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#071021;
+}
+.btn.secondary{
+  border:1px solid var(--line);
+  color:var(--text);
+}
+.warn{
+  background:rgba(255,211,106,.1);
+  border:1px solid rgba(255,211,106,.3);
+  padding:18px;
+  border-radius:14px;
+}
+.small{font-size:13px;color:var(--muted)}
+hr.sep{border:none;border-top:1px solid var(--line);margin:18px 0}
+footer{
+  border-top:1px solid var(--line);
+  padding:32px 0;
+  color:var(--muted);
+  font-size:13px;
+}
+img{width:100%;border-radius:16px;display:block}
+
+.fullshot{
+  border-radius:20px;
+  border:1px solid var(--line);
+  background:#000;
+  padding:14px;
+}
+
+/* Top bar + language switcher */
+.topbar{
+  position:sticky; top:0; z-index:999;
+  background:rgba(11,18,32,.78);
+  backdrop-filter: blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.topbar .inner{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:14px; padding:12px 0;
+}
+.site-banner{
+  height:190px;
+  overflow:hidden;
+  border-bottom:1px solid var(--line);
+  box-shadow:0 22px 55px rgba(0,0,0,.28);
+}
+.site-banner img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:0;
+}
+.brand{
+  display:flex; align-items:center; gap:10px;
+  text-decoration:none;
+}
+.logo{
+  width:34px; height:34px; border-radius:12px;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  box-shadow: 0 18px 50px rgba(106,169,255,.14);
+}
+.brand .name{display:flex; flex-direction:column; line-height:1.1}
+.brand .name strong{font-size:14px}
+.brand .name span{font-size:12px; color:var(--muted)}
+.lang{display:flex; gap:8px; align-items:center}
+.lang button{
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.04);
+  color:var(--text);
+  border-radius:12px;
+  padding:8px 10px;
+  font-weight:700;
+  cursor:pointer;
+}
+.lang button.active{
+  border-color:transparent;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#071021;
+}
+.hidden{display:none !important;}
+@media(max-width:640px){
+  .site-banner{height:140px}
+}
+</style>
+</head>
+
+<body>
+
+<header class="topbar">
+  <div class="container">
+    <div class="inner">
+      <a class="brand" href="#top" aria-label="Box Price Calculator">
+        <div class="logo" aria-hidden="true"></div>
+        <div class="name">
+          <strong>Box Price Calculator</strong>
+          <span id="tagline">Калькулятор стоимости гофроупаковки</span>
+        </div>
+      </a>
+
+      <div class="lang" aria-label="Language switcher">
+        <button id="btn-ru" type="button">Русский</button>
+        <button id="btn-en" type="button">English</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="site-banner" aria-hidden="true">
+  <img src="box-price-calc-top-banner.png" alt="">
+</div>
+
+<!-- ========================= RU ========================= -->
+<main id="top" data-lang="ru">
+
+  <!-- HERO -->
+  <section>
+    <div class="container grid2">
+      <div class="card">
+        <h1>Быстрый расчёт себестоимости<br>гофроизделий — без Excel и ручных ошибок</h1>
+
+        <p>
+          <b>Box Price Calculator</b> — программа для расчёта стоимости изделий из гофрокартона:
+          <b>гофроящиков</b>, <b>гофролистов</b> и <b>гофрорулонов</b>.
+          Учитывает материалы, печать, упаковку и доставку, формирует техкарту и отчёт в PDF.
+        </p>
+
+        <a class="btn secondary" href="#ru-how">Как работает</a>
+        <a class="btn secondary" href="#ru-features">Возможности</a>
+        <a class="btn secondary" href="#ru-auto">Автоматизация</a>
+
+        <div>
+          <span class="badge">Windows</span>
+          <span class="badge">Portable (без установки)</span>
+          <span class="badge">Данные в текстовых файлах</span>
+        </div>
+
+        <div class="warn" style="margin-top:16px">
+          <b>Для кого:</b> производители гофроупаковки, менеджеры продаж, технологи и коммерсанты,
+          которым важно быстро и одинаково считать заказы.
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Что вы получаете</h3>
+        <p>✔ единый расчёт для коробов, листов и рулонов</p>
+        <p>✔ прозрачные параметры: обрезь/отход, площадь заготовки, потребность картона</p>
+        <p>✔ учёт печати, упаковки и доставки в себестоимости</p>
+        <p>✔ экспорт техкарты и отчёта в PDF</p>
+        <hr class="sep">
+        <p class="small">
+          Программа работает в Windows и не требует установки базы данных — параметры и прайс хранятся в файлах.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FULL WIDTH SCREENSHOT (RU) -->
+  <section>
+    <div class="container">
+      <h2>Как это выглядит в работе</h2>
+      <p>
+        Главное окно: ввод параметров, расчет стоимости, предупреждения по ограничениям
+        и построение развертки/чертежа.
+      </p>
+
+      <div class="fullshot">
+        <img src="main_screen_rus.jpg" alt="Box Price Calculator — главное окно программы">
+      </div>
+
+    
+    </div>
+  </section>
+
+  <!-- HOW -->
+  <section id="ru-how">
+    <div class="container">
+      <h2>Как это работает</h2>
+
+      <div class="grid3">
+        <div class="card">
+          <h3>1) Выбор изделия</h3>
+          <p>
+            Вы выбираете тип изделия: гофроящик (Д×Ш×В), гофролист (Д×Ш) или гофрорулон (тип и длина намотки),
+            задаёте размер партии и ключевые параметры.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>2) Параметры и цены</h3>
+          <p>
+            Выбираете профиль (B/C), марку картона (T-21, T-22 и т. п.) и цены.
+            Программа может подставлять сохранённые значения из прайс-файла.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>3) Итог и документы</h3>
+          <p>
+            Получаете себестоимость и стоимость партии, детализацию по статьям,
+            а также PDF-техкарту и PDF-отчёт для производства/продаж.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- BUNDLE PALLETIZER (RU) -->
+<section>
+  <div class="container">
+    <h2>Встроенный паллетировщик пачек</h2>
+
+    <p>
+      В состав программы входит <b>паллетировщик пачек готовой продукции</b>,
+      позволяющий рассчитать оптимальную укладку пачек на поддон
+      после упаковки гофроизделий.
+    </p>
+
+    <p>
+      Паллетировщик учитывает размеры пачки, размеры поддона,
+      допустимые свесы, количество слоёв и ориентацию пачек.
+      Это позволяет заранее определить:
+    </p>
+
+    <ul>
+      <li>сколько пачек помещается на один поддон;</li>
+      <li>высоту и устойчивость укладки;</li>
+      <li>количество поддонов на заказ;</li>
+      <li>эффективность использования объёма.</li>
+    </ul>
+
+    <p>
+      Расчёт особенно полезен при планировании отгрузок,
+      хранении на складе и согласовании логистики с заказчиком.
+    </p>
+
+    <div class="fullshot">
+      <img src="pallet_screen_rus.jpg"
+           alt="Паллетировщик пачек — расчет укладки на поддон">
+    </div>
+
+    <p class="small" style="margin-top:12px">
+      Скриншот показывает расчёт укладки пачек на поддон с визуализацией слоёв.
+    </p>
+  </div>
+</section>
+
+
+  <!-- FEATURES -->
+  <section id="ru-features">
+    <div class="container">
+      <h2>Ключевые возможности</h2>
+
+      <div class="grid3">
+        <div class="card">
+          <h3>Короба / листы / рулоны</h3>
+          <p>
+            Единый инструмент для трёх типов изделий — удобно, когда в заказах встречаются разные форматы.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Материалы, печать, упаковка, доставка</h3>
+          <p>
+            Можно включать в расчёт печать (включая форму), упаковку партии и доставку — без ручных дописок в конце.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Подробные расчётные параметры</h3>
+          <p>
+            Обрезь/отход, площадь заготовки, количество заготовок на листе, потребность картона (м²/кг) и другие показатели,
+            которые нужны технологу и экономисту.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Техкарта и отчёт (PDF)</h3>
+          <p>
+            Быстро формируете документы для производства и для клиента — единый формат и единый стиль.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Развертка и схемы</h3>
+          <p>
+            Программа может строить развертку гофроящика и выдавать вспомогательные схемы, полезные в работе технолога.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Файлы данных без базы</h3>
+          <p>
+            Настройки и справочники хранятся в файлах: их легко копировать, переносить, резервировать и версионировать.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MULTILANG + UPDATES -->
+  <section>
+    <div class="container grid2">
+      <div class="card">
+        <h2>Мультиязычность</h2>
+        <p>
+          Интерфейс многоязычный: переводы подключаются файлами <b>.lng</b>.
+          Достаточно добавить новый <b>.lng</b> в папку программы — язык появится в списке.
+        </p>
+        <p><b>Языки интерфейса:</b></p>
+        <div>
+          <span class="badge">Русский</span>
+          <span class="badge">English</span>
+          <span class="badge">Deutsch</span>
+          <span class="badge">Español</span>
+          <span class="badge">Српски</span>
+	  <span class="badge">Қазақ</span>
+          <span class="badge">עברית</span>
+        </div>
+        <p class="small" style="margin-top:12px">
+          Пользователь может добавить свой язык самостоятельно — без перекомпиляции.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Обновления и словари</h2>
+        <p>
+          Программа может проверять наличие обновлений при запуске (проверку можно включать/отключать).
+          Отдельно можно обновлять установленные словари/языковые модули.
+        </p>
+        <div class="warn">
+          <b>Практично:</b> пользователи получают улучшения и обновлённые словари без “ручной установки”.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AUTOMATION -->
+  <section id="ru-auto">
+    <div class="container">
+      <h2>Автоматизация “дежурством”</h2>
+      <div class="card">
+        <p>
+          Программу можно поставить на “дежурство”: она следит за указанной папкой и,
+          если появляется JSON-файл с данными расчёта, выполняет расчёт автоматически и
+          сохраняет техкарту и отчёт в заданные каталоги.
+        </p>
+        <p>
+          Это удобно для интеграции с сайтом/CRM: заказ → JSON → автоматический расчёт → готовые PDF-документы.
+        </p>
+      </div>
+    </div>
+  </section>
+
+<!-- DOWNLOAD & PRICING (RU) -->
+<section>
+  <div class="container card">
+    <h2>Демоверсия и условия лицензирования</h2>
+
+    <p>
+      Вы можете скачать демоверсию программы и ознакомиться с интерфейсом и возможностями.
+      <br>
+      <b>В демоверсии к введённым пользователем данным добавляются случайные значения</b>,
+      поэтому результаты расчётов носят ознакомительный характер.
+    </p>
+
+    <a class="btn primary"
+       href="https://disk.yandex.ru/d/ywhr1urjcLI7Lw"
+       target="_blank" rel="noopener">
+      Скачать демоверсию
+    </a>
+
+    <hr class="sep">
+
+    <h3>Цены</h3>
+
+    <ul>
+      <li><b>Покупка (постоянная лицензия):</b> 75 000 ₽</li>
+      <li><b>Аренда на 1 месяц:</b> 1500 ₽</li>
+      <li><b>Аренда на 1 год:</b> 15 000 ₽</li>
+      <li><b>Дополнительные рабочие места:</b> +10% за каждое</li>
+    </ul>
+
+    <p class="small">
+      Лицензирование подходит как для одиночных пользователей,
+      так и для небольших производственных и коммерческих команд.
+    </p>
+  </div>
+</section>
+
+  <!-- CTA -->
+
+
+  <section>
+    <div class="container card">
+      <h2>Связаться со мной</h2>
+      <p>
+        Напишите — подскажу, как быстрее внедрить расчёт в ваш процесс
+        (включая “дежурство” и файловый обмен), а также обсудим лицензирование.
+      </p>
+      <a class="btn primary" href="mailto:vguberniev@gmail.com">vguberniev@gmail.com</a>
+      <a class="btn secondary" href="#top">Наверх</a>
+    </div>
+  </section>
+
+</main>
+
+<!-- ========================= EN ========================= -->
+<main data-lang="en" class="hidden">
+
+  <!-- HERO -->
+  <section>
+    <div class="container grid2">
+      <div class="card">
+        <h1>Fast cost estimation<br>for corrugated packaging — without Excel mistakes</h1>
+
+        <p>
+          <b>Box Price Calculator</b> estimates the cost of corrugated cardboard products:
+          <b>corrugated boxes</b>, <b>corrugated sheets</b> and <b>corrugated rolls</b>.
+          It can include materials, printing, packaging and delivery, and generates a PDF tech card and report.
+        </p>
+
+        <a class="btn secondary" href="#en-how">Workflow</a>
+        <a class="btn secondary" href="#en-features">Features</a>
+        <a class="btn secondary" href="#en-auto">Automation</a>
+
+        <div>
+          <span class="badge">Windows</span>
+          <span class="badge">Portable (no install)</span>
+          <span class="badge">Plain files (no database)</span>
+        </div>
+
+        <div class="warn" style="margin-top:16px">
+          <b>Best for:</b> corrugated packaging manufacturers, sales managers, technologists and estimating teams
+          who need consistent, repeatable calculations.
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>What you get</h3>
+        <p>✔ one tool for boxes, sheets and rolls</p>
+        <p>✔ transparent calculation parameters (waste, blank area, material demand)</p>
+        <p>✔ optional printing, packaging and delivery cost inclusion</p>
+        <p>✔ PDF tech card + PDF report export</p>
+        <hr class="sep">
+        <p class="small">
+          Runs on Windows with no database setup — settings and price lists are stored in files.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FULL WIDTH SCREENSHOT (EN) -->
+  <section>
+    <div class="container">
+      <h2>How it looks in real work</h2>
+      <p>
+        Main window: input parameters, cost calculation, constraint warnings,
+        and blank layout/drawing preview.
+      </p>
+
+      <div class="fullshot">
+        <img src="main_screen.jpg" alt="Box Price Calculator — main software window">
+      </div>
+
+      
+    </div>
+  </section>
+
+  <!-- HOW -->
+  <section id="en-how">
+    <div class="container">
+      <h2>How it works</h2>
+
+      <div class="grid3">
+        <div class="card">
+          <h3>1) Choose product type</h3>
+          <p>
+            Select: corrugated box (L×W×H), sheet (L×W) or roll (roll type + winding length),
+            then set batch size and key parameters.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>2) Enter parameters & prices</h3>
+          <p>
+            Choose flute profile (B/C), board grade (T-21, T-22, etc.) and pricing.
+            The program can auto-fill saved values from a price list file.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>3) Results & documents</h3>
+          <p>
+            Get unit cost and batch cost, detailed breakdown by cost items,
+            plus a PDF tech card and PDF report for production and sales.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- BUNDLE PALLETIZER (EN) -->
+<section>
+  <div class="container">
+    <h2>Built-in bundle palletizer</h2>
+
+    <p>
+      The software includes a <b>built-in bundle palletizer</b>
+      designed to calculate optimal stacking of finished product bundles
+      on pallets after packaging.
+    </p>
+
+    <p>
+      The palletizer takes into account bundle dimensions, pallet size,
+      allowed overhangs, number of layers and bundle orientation.
+      This allows you to determine in advance:
+    </p>
+
+    <ul>
+      <li>how many bundles fit on a pallet;</li>
+      <li>overall pallet height and stability;</li>
+      <li>required number of pallets per order;</li>
+      <li>storage and transport space efficiency.</li>
+    </ul>
+
+    <p>
+      This calculation is especially useful for shipment planning,
+      warehouse storage and logistics coordination with customers.
+    </p>
+
+    <div class="fullshot">
+      <img src="pallet_screen.jpg"
+           alt="Bundle palletizer — pallet stacking calculation">
+    </div>
+
+    <p class="small" style="margin-top:12px">
+      Screenshot shows bundle pallet stacking with layer-by-layer visualization.
+    </p>
+  </div>
+</section>
+
+
+  <!-- FEATURES -->
+  <section id="en-features">
+    <div class="container">
+      <h2>Key features</h2>
+
+      <div class="grid3">
+        <div class="card">
+          <h3>Boxes / sheets / rolls</h3>
+          <p>
+            One estimator for three corrugated product types — convenient for mixed order portfolios.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Materials + printing + packaging + delivery</h3>
+          <p>
+            Optionally include printing (including plate), packaging and delivery costs — no manual “final adjustments”.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Calculated parameters</h3>
+          <p>
+            Waste/trim, blank area, blanks per sheet, material demand (m²/kg) and other parameters needed by engineers and finance.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>PDF tech card & PDF report</h3>
+          <p>
+            Generate consistent documents for production and customers in a standard, repeatable format.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Blank layout & helper schemes</h3>
+          <p>
+            The program can build a corrugated box blank layout and provide helper schemes useful in engineering work.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>No database — plain files</h3>
+          <p>
+            Settings and reference data are stored in files — easy to copy, backup and version-control.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MULTILANG + UPDATES -->
+  <section>
+    <div class="container grid2">
+      <div class="card">
+        <h2>Multilingual UI</h2>
+        <p>
+          The UI is language-module based: translations are stored as <b>.lng</b> files.
+          Add a new <b>.lng</b> file to the program folder and it appears in the language list.
+        </p>
+        <p><b>UI languages:</b></p>
+        <div>
+          <span class="badge">English</span>
+          <span class="badge">Русский</span>
+          <span class="badge">Deutsch</span>
+          <span class="badge">Español</span>
+          <span class="badge">Српски</span>
+	  <span class="badge">Қазақ</span>
+          <span class="badge">עברית</span>
+        </div>
+        <p class="small" style="margin-top:12px">
+          Users can add their own language without recompilation.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Updates & dictionaries</h2>
+        <p>
+          The program can check for updates on startup (this can be enabled/disabled).
+          Installed dictionaries/language modules can be updated via a dedicated command.
+        </p>
+        <div class="warn">
+          <b>Practical:</b> users receive improvements and updated dictionaries with minimal friction.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AUTOMATION -->
+  <section id="en-auto">
+    <div class="container">
+      <h2>Automation with “Watch mode”</h2>
+      <div class="card">
+        <p>
+          The program can run in Watch mode: it monitors a directory, and when a JSON input file appears,
+          it performs an automatic calculation and saves the tech card and report to specified folders.
+        </p>
+        <p>
+          This makes website/CRM integration straightforward: order → JSON → automatic calculation → ready-to-send PDFs.
+        </p>
+      </div>
+    </div>
+  </section>
+<!-- DOWNLOAD & PRICING (EN) -->
+<section>
+  <div class="container card">
+    <h2>Demo version and pricing</h2>
+
+    <p>
+      You can download the demo version to explore the interface and main features.
+      <br>
+      <b>In demo mode, random values are added to user input data</b>,
+      so calculation results are for evaluation purposes only.
+    </p>
+
+    <a class="btn primary"
+       href="https://disk.yandex.ru/d/ywhr1urjcLI7Lw"
+       target="_blank" rel="noopener">
+      Download demo version
+    </a>
+
+    <hr class="sep">
+
+    <h3>Pricing</h3>
+
+    <ul>
+      <li><b>Perpetual license (one-time purchase):</b> €500</li>
+      <li><b>Monthly rental:</b> €10</li>
+      <li><b>Annual rental:</b> €100</li>
+      <li><b>Additional workstations:</b> +10% per workstation</li>
+    </ul>
+
+    <p class="small">
+      Licensing options are suitable for individual users
+      as well as small production and sales teams.
+    </p>
+  </div>
+</section>
+
+
+  <!-- CTA -->
+  <section>
+    <div class="container card">
+      <h2>Contact</h2>
+      <p>
+        Email me to discuss licensing and implementation details
+        (including Watch mode and file-based integration).
+      </p>
+      <a class="btn primary" href="mailto:vguberniev@gmail.com">vguberniev@gmail.com</a>
+      <a class="btn secondary" href="#top">Back to top</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    © Box Price Calculator — corrugated packaging cost estimator<br>
+    Contact: <a href="mailto:vguberniev@gmail.com">vguberniev@gmail.com</a>
+  </div>
+</footer>
+
+<script>
+(function () {
+  const RU = "ru";
+  const EN = "en";
+
+  const btnRu = document.getElementById("btn-ru");
+  const btnEn = document.getElementById("btn-en");
+  const mains = Array.from(document.querySelectorAll("main[data-lang]"));
+  const tagline = document.getElementById("tagline");
+
+  function setMetaForLang(lang){
+    document.documentElement.lang = lang;
+    if (tagline){
+      tagline.textContent = (lang === RU)
+        ? "Калькулятор стоимости гофроупаковки"
+        : "Cost estimator for corrugated packaging";
+    }
+  }
+
+  function showLang(lang){
+    mains.forEach(m => {
+      m.classList.toggle("hidden", m.getAttribute("data-lang") !== lang);
+    });
+
+    btnRu.classList.toggle("active", lang === RU);
+    btnEn.classList.toggle("active", lang === EN);
+
+    setMetaForLang(lang);
+
+    try { localStorage.setItem("lang", lang); } catch(e) {}
+
+    const h = (window.location.hash || "").toLowerCase();
+    if (h === "#ru" || h === "#en" || h === "") {
+      history.replaceState(null, "", "#" + lang);
+    }
+  }
+
+  function detectInitialLang(){
+    const h = (window.location.hash || "").toLowerCase();
+    if (h === "#en") return EN;
+    if (h === "#ru") return RU;
+
+    try {
+      const saved = localStorage.getItem("lang");
+      if (saved === EN || saved === RU) return saved;
+    } catch(e) {}
+
+    const nav = (navigator.language || "").toLowerCase();
+    return nav.startsWith("ru") ? RU : EN;
+  }
+
+  btnRu.addEventListener("click", () => { showLang(RU); });
+  btnEn.addEventListener("click", () => { showLang(EN); });
+
+  window.addEventListener("hashchange", () => {
+    const h = (window.location.hash || "").toLowerCase();
+    if (h === "#en") showLang(EN);
+    if (h === "#ru") showLang(RU);
+  });
+
+  showLang(detectInitialLang());
+})();
+</script>
+
+</body>
+</html>
+
+

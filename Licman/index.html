@@ -1,0 +1,310 @@
+﻿<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LicMan — менеджер лицензий и договоров для бизнеса</title>
+  <meta name="description" content="LicMan — программа для учета лицензий, договоров, сроков действия, ответственных пользователей, продлений и уведомлений по программному обеспечению.">
+  <meta name="keywords" content="LicMan, менеджер лицензий, учет лицензий ПО, software license manager, license tracking, договоры ПО, сроки лицензий, продление лицензий, учет программного обеспечения">
+  <meta name="author" content="Viktor Guberniev">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://governorv.github.io/Licman/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="LicMan">
+  <meta property="og:title" content="LicMan — менеджер лицензий и договоров">
+  <meta property="og:description" content="Учет лицензий, договоров, сроков действия, ответственных пользователей и уведомлений о продлении.">
+  <meta property="og:url" content="https://governorv.github.io/Licman/">
+  <meta property="og:image" content="https://governorv.github.io/Licman/assets/licman-top-banner.png">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="LicMan — License Manager">
+  <meta name="twitter:description" content="Desktop software for tracking software licenses, contracts, renewals, roles and notifications.">
+  <meta name="twitter:image" content="https://governorv.github.io/Licman/assets/licman-top-banner.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "LicMan",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Windows",
+    "url": "https://governorv.github.io/Licman/",
+    "image": "https://governorv.github.io/Licman/assets/licman-top-banner.png",
+    "description": "License management software for tracking software licenses, contracts, expiration dates, renewals and responsible users.",
+    "author": {
+      "@type": "Person",
+      "name": "Viktor Guberniev"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "300",
+      "priceCurrency": "EUR",
+      "availability": "https://schema.org/InStock"
+    }
+  }
+  </script>
+  <link rel="icon" href="assets/licman_Icon4.ico" type="image/x-icon">
+  <link rel="stylesheet" href="styles.css?v=20260519-1">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Менеджер лицензий">
+      <img class="brand-mark" src="assets/licman_Icon4.ico" alt="">
+      <span>Менеджер лицензий</span>
+    </a>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="#features" data-i18n="nav.features">Возможности</a>
+      <a href="#pricing" data-i18n="nav.pricing">Цены</a>
+      <a href="#demo" data-i18n="nav.demo">Демо</a>
+      <a href="#screenshots" data-i18n="nav.screens">Скриншоты</a>
+    </nav>
+    <div class="language-switch" role="group" aria-label="Language switcher">
+      <button class="lang-btn is-active" type="button" data-lang="ru">Русский</button>
+      <button class="lang-btn" type="button" data-lang="en">English</button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="ornament" aria-hidden="true">
+        <img src="assets/licman-top-banner.png" alt="">
+      </div>
+      <div class="hero-copy">
+        <p class="eyebrow" data-i18n="hero.eyebrow">Менеджер лицензий и договоров</p>
+        <h1 data-i18n="hero.title">License Manager</h1>
+        <p class="hero-text" data-i18n="hero.text">Контроль лицензий, договоров, сроков действия, ответственных лиц и уведомлений в одной рабочей программе.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="https://disk.yandex.ru/d/4qYe74wipzErXQ" target="_blank" rel="noopener" data-i18n="hero.demo">Скачать демо</a>
+          <a class="button secondary" href="https://disk.yandex.ru/d/N48k9SDMdRWnkA" target="_blank" rel="noopener" data-ru-only>Презентация</a>
+          <a class="button secondary lang-en" href="https://disk.yandex.ru/i/eJv7JohTlN-H1w" target="_blank" rel="noopener">View presentation</a>
+          <a class="button secondary" href="#pricing" data-i18n="hero.pricing">Посмотреть цены</a>
+        </div>
+      </div>
+      <figure class="hero-screen">
+        <img data-screenshot="hero" src="assets/licman-main-ru.jpg" alt="License Manager main screen">
+      </figure>
+    </section>
+
+    <section class="section split" id="features">
+      <div>
+        <p class="eyebrow" data-i18n="features.eyebrow">Ключевые возможности</p>
+        <h2 data-i18n="features.title">Все важные лицензии под контролем</h2>
+      </div>
+      <div class="feature-grid">
+        <article>
+          <h3 data-i18n="features.items.0.title">Единый реестр</h3>
+          <p data-i18n="features.items.0.text">Таблица лицензий и договоров с номером договора, контрагентом, названием, датами, ценой, количеством, типом и отделом.</p>
+        </article>
+        <article>
+          <h3 data-i18n="features.items.1.title">Сроки и уведомления</h3>
+          <p data-i18n="features.items.1.text">Контроль окончания лицензий с уведомлениями за 90, 30 и 15 дней через SQL Server Agent и Database Mail.</p>
+        </article>
+        <article>
+          <h3 data-i18n="features.items.2.title">Роли и доступ</h3>
+          <p data-i18n="features.items.2.text">Администратор, супервайзер, пользователь и гость с ограничением доступа по ролям и отделам.</p>
+        </article>
+        <article>
+          <h3 data-i18n="features.items.3.title">Поиск и фильтры</h3>
+          <p data-i18n="features.items.3.text">Поиск по выбранному полю, фильтрация по датам, типу и признаку активности, сортировка по колонкам.</p>
+        </article>
+        <article>
+          <h3 data-i18n="features.items.4.title">Экспорт</h3>
+          <p data-i18n="features.items.4.text">Экспорт текущей таблицы в Excel для отчетности и дальнейшего анализа.</p>
+        </article>
+        <article>
+          <h3 data-i18n="features.items.5.title">Цветовая индикация</h3>
+          <p data-i18n="features.items.5.text">Белый, желтый, оранжевый, красный и черный статусы помогают быстро увидеть приближающиеся и просроченные окончания.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section pricing" id="pricing">
+      <div class="section-heading">
+        <p class="eyebrow" data-i18n="pricing.eyebrow">Стоимость</p>
+        <h2 data-i18n="pricing.title">Простые варианты покупки и аренды</h2>
+      </div>
+      <div class="price-grid">
+        <article class="price-card">
+          <h3 data-i18n="pricing.buy.title">Покупка</h3>
+          <p class="price" data-price="buy">29 990 руб.</p>
+          <p data-i18n="pricing.buy.extra">+ 3 000 руб. за дополнительное рабочее место</p>
+        </article>
+        <article class="price-card">
+          <h3 data-i18n="pricing.month.title">Аренда на месяц</h3>
+          <p class="price" data-price="month">1 000 руб.</p>
+          <p data-i18n="pricing.month.extra">+ 100 руб. за дополнительное рабочее место</p>
+        </article>
+        <article class="price-card">
+          <h3 data-i18n="pricing.year.title">Аренда на год</h3>
+          <p class="price" data-price="year">10 000 руб.</p>
+          <p data-i18n="pricing.year.extra">+ 1 000 руб. за дополнительное рабочее место</p>
+        </article>
+        <article class="price-card" data-ru-only>
+          <h3>Как купить</h3>
+          <ol>
+            <li>Скачайте программу: <a href="https://disk.yandex.ru/d/rmziVsloasOaug" target="_blank" rel="noopener">pc-settings.exe</a>.</li>
+            <li>Распакуйте её и запустите на своём компьютере. При возникновении экрана "Windows защитила ваш компьютер" нажмите "Подробнее" и затем "выполнить в любом случае".</li>
+            <li>Сохраните код, который она выдаст.</li>
+            <li>Оплатите стоимость выбранного вами варианта лицензии на карту <b>5536914068135833</b> с пометкой "Оплата программы LicMan", укажите также свой ИНН для получения чека.</li>
+            <li>Вышлите название программы "LicMan", код и дату транзакции, а также код программы pc-settings по адресу <a href="mailto:vguberniev@gmail.com">vguberniev@gmail.com</a>.</li>
+            <li>После проверки платежа в ответном письме вам придет ссылка на ваш дистрибутив (для того компьютера, код которого вы выслали).</li>
+          </ol>
+        </article>
+      </div>
+      <p class="note" data-i18n="pricing.note">В английской версии цены указаны в евро по курсу 100 руб./$.</p>
+    </section>
+
+    <section class="section demo" id="demo">
+      <div>
+        <p class="eyebrow" data-i18n="demo.eyebrow">Демо-версия</p>
+        <h2 data-i18n="demo.title">Попробуйте программу перед внедрением</h2>
+        <a class="button primary" href="https://disk.yandex.ru/d/4qYe74wipzErXQ" target="_blank" rel="noopener" data-i18n="demo.link">Открыть демо на Яндекс Диске</a>
+        <a class="button secondary" href="https://disk.yandex.ru/d/N48k9SDMdRWnkA" target="_blank" rel="noopener" data-ru-only>Открыть презентацию</a>
+        <a class="button secondary lang-en" href="https://disk.yandex.ru/i/eJv7JohTlN-H1w" target="_blank" rel="noopener">View presentation</a>
+      </div>
+      <div class="demo-limits">
+        <h3 data-i18n="demo.limitsTitle">Ограничения демо</h3>
+        <ul>
+          <li data-i18n="demo.limits.0">Используется база данных LicManDemo.</li>
+          <li data-i18n="demo.limits.1">Сохранение и удаление данных заблокированы.</li>
+          <li data-i18n="demo.limits.2">Администрирование пользователей и резервное копирование отключены.</li>
+          <li data-i18n="demo.limits.3">Экспорт ограничен и помечен как DEMO.</li>
+          <li data-i18n="demo.limits.4">Интерфейс помечен как Demonstration mode.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="screenshots">
+      <div class="section-heading">
+        <p class="eyebrow" data-i18n="screens.eyebrow">Скриншоты</p>
+        <h2 data-i18n="screens.title">Основной экран</h2>
+      </div>
+      <figure class="screenshot">
+        <img data-screenshot="main" src="assets/licman-main-ru.jpg" alt="Главное окно Менеджера лицензий">
+        <figcaption data-i18n="screens.caption">Главное окно: редактор лицензии, создание, управление, поиск, фильтр и таблица договоров.</figcaption>
+      </figure>
+    </section>
+
+    <section class="section other-products">
+      <div class="section-heading">
+        <h2>
+          <span class="lang-ru">Познакомьтесь также с другими моими программами</span>
+          <span class="lang-en">Explore my other software as well</span>
+        </h2>
+      </div>
+      <div class="other-products-grid">
+
+
+        <article class="other-product-card">
+          <a href="https://governorv.github.io/OptPacker/" target="_blank" rel="noopener">
+            <img class="lang-ru" src="assets/cross/fasovshik_banner.png" alt="Фасовщик">
+            <img class="lang-en" src="assets/cross/fasovshik_banner_en.png" alt="Box Packing Optimizer">
+          </a>
+          <div class="other-product-body">
+            <h3><span class="lang-ru">Фасовщик</span><span class="lang-en">Box Packing Optimizer</span></h3>
+            <p><span class="lang-ru">Оптимальная укладка изделий в ящик, расчет заполнения, заготовки FEFCO 0201 и PDF-отчет.</span><span class="lang-en">Optimal product placement into boxes with fill efficiency, FEFCO 0201 blanks and PDF reports.</span></p>
+            <a class="button secondary lang-ru" href="https://governorv.github.io/OptPacker/" target="_blank" rel="noopener">Страница</a>
+            <a class="button secondary lang-en" href="https://governorv.github.io/OptPacker/?lang=en" target="_blank" rel="noopener">Page</a>
+          </div>
+        </article>
+
+        <article class="other-product-card">
+          <a href="https://governorv.github.io/BoxPriceCalculator/#ru" target="_blank" rel="noopener">
+            <img class="lang-ru" src="assets/cross/boxprice_banner.png" alt="Калькулятор стоимости гофроящика">
+            <img class="lang-en" src="assets/cross/boxprice_banner_en.png" alt="Corrugated Box Cost Calculator">
+          </a>
+          <div class="other-product-body">
+            <h3><span class="lang-ru">Калькулятор гофроящиков</span><span class="lang-en">Corrugated Box Cost Calculator</span></h3>
+            <p><span class="lang-ru">Расчёт себестоимости гофроупаковки с учётом материалов, печати и дополнительных расходов.</span><span class="lang-en">Estimate corrugated packaging costs with materials, printing and additional expenses.</span></p>
+            <a class="button secondary lang-ru" href="https://governorv.github.io/BoxPriceCalculator/#ru" target="_blank" rel="noopener">Страница</a>
+            <a class="button secondary lang-en" href="https://governorv.github.io/BoxPriceCalculator/#en" target="_blank" rel="noopener">Page</a>
+          </div>
+        </article>
+
+        <article class="other-product-card">
+          <a href="https://governorv.github.io/DBSearch/#ru" target="_blank" rel="noopener">
+            <img class="lang-ru" src="assets/cross/dbsearch_banner.png" alt="Поиск по базе данных">
+            <img class="lang-en" src="assets/cross/dbsearch_banner_en.png" alt="Database Search">
+          </a>
+          <div class="other-product-body">
+            <h3><span class="lang-ru">Поисковик по базам данных</span><span class="lang-en">Database Search</span></h3>
+            <p><span class="lang-ru">Поиск объектов и данных в SQL Server, просмотр кода, фильтры и экспорт результатов.</span><span class="lang-en">Search SQL Server objects and data, view code, filter results and export reports.</span></p>
+            <a class="button secondary lang-ru" href="https://governorv.github.io/DBSearch/#ru" target="_blank" rel="noopener">Страница</a>
+            <a class="button secondary lang-en" href="https://governorv.github.io/DBSearch/#en" target="_blank" rel="noopener">Page</a>
+          </div>
+        </article>
+
+        <article class="other-product-card">
+          <a href="https://governorv.github.io/BoxPalletizer/#ru" target="_blank" rel="noopener">
+            <img class="lang-ru" src="assets/cross/palletizer_banner.png" alt="Паллетировщик">
+            <img class="lang-en" src="assets/cross/palletizer_banner_en.png" alt="Palletizer">
+          </a>
+          <div class="other-product-body">
+            <h3><span class="lang-ru">Паллетировщик</span><span class="lang-en">Palletizer</span></h3>
+            <p><span class="lang-ru">Расчёт укладки коробов на поддон, 3D-визуализация, ограничения и отчёты.</span><span class="lang-en">Plan pallet stacking with 3D visualization, constraints and exportable reports.</span></p>
+            <a class="button secondary lang-ru" href="https://governorv.github.io/BoxPalletizer/#ru" target="_blank" rel="noopener">Страница</a>
+            <a class="button secondary lang-en" href="https://governorv.github.io/BoxPalletizer/#en" target="_blank" rel="noopener">Page</a>
+          </div>
+        </article>
+
+        <article class="other-product-card">
+          <a href="https://governorv.github.io/OptCutting/" target="_blank" rel="noopener">
+            <img class="lang-ru" src="assets/cross/optcutting_banner.png" alt="Раскройщик OptCutting">
+            <img class="lang-en" src="assets/cross/optcutting_banner_en.png" alt="OptCutting">
+          </a>
+          <div class="other-product-body">
+            <h3><span class="lang-ru">Раскройщик</span><span class="lang-en">OptCutting</span></h3>
+            <p><span class="lang-ru">Оптимизация раскроя полотна гофрокартона, карты раскроя, сетевой график и отчеты Excel.</span><span class="lang-en">Corrugated board cutting optimization with cutting maps, Gantt schedule and Excel reports.</span></p>
+            <a class="button secondary lang-ru" href="https://governorv.github.io/OptCutting/" target="_blank" rel="noopener">Страница</a>
+            <a class="button secondary lang-en" href="https://governorv.github.io/OptCutting/?lang=en" target="_blank" rel="noopener">Page</a>
+          </div>
+        </article>
+        <article class="other-product-card">
+          <a href="https://governorv.github.io/palletizer-site/#ru" target="_blank" rel="noopener">
+            <img class="lang-ru" src="assets/cross/platepalletizer_banner.png" alt="Паллетировщик плит">
+            <img class="lang-en" src="assets/cross/platepalletizer_banner_en.png" alt="Sheet Palletizer">
+          </a>
+          <div class="other-product-body">
+            <h3><span class="lang-ru">Паллетировщик плит</span><span class="lang-en">Sheet Palletizer</span></h3>
+            <p><span class="lang-ru">Оптимальное распределение листовых материалов по поддонам: импорт заявок из Excel, расчет поддонов, контроль размеров, веса, высоты и цвета.</span><span class="lang-en">Optimal pallet distribution for sheet materials: Excel order import, pallet calculation, size, weight, height and color control.</span></p>
+            <a class="button secondary lang-ru" href="https://governorv.github.io/palletizer-site/#ru" target="_blank" rel="noopener">Страница</a>
+            <a class="button secondary lang-en" href="https://governorv.github.io/palletizer-site/#en" target="_blank" rel="noopener">Page</a>
+          </div>
+        </article>
+        <article class="other-product-card">
+          <a href="https://governorv.github.io/truckloader-site/" target="_blank" rel="noopener">
+            <img class="lang-ru" src="assets/cross/truckloader_banner.png" alt="TruckLoader">
+            <img class="lang-en" src="assets/cross/truckloader_banner_en.png" alt="TruckLoader">
+          </a>
+          <div class="other-product-body">
+            <h3><span class="lang-ru">TruckLoader</span><span class="lang-en">TruckLoader</span></h3>
+            <p><span class="lang-ru">Расчет загрузки поддонов в автофургоны и контейнеры, 2D и 3D схемы.</span><span class="lang-en">Pallet loading calculation for trucks and containers with 2D and 3D layouts.</span></p>
+            <a class="button secondary lang-ru" href="https://governorv.github.io/truckloader-site/" target="_blank" rel="noopener">Страница</a>
+            <a class="button secondary lang-en" href="https://governorv.github.io/truckloader-site/?lang=en" target="_blank" rel="noopener">Page</a>
+          </div>
+        </article>
+        <article class="other-product-card">
+          <a href="https://governorv.github.io/gost/" target="_blank" rel="noopener">
+            <img class="lang-ru" src="assets/cross/gost914290_banner.png" alt="Расчет нагрузки на гофроящик по ГОСТ 9142-2014">
+            <img class="lang-en" src="assets/cross/gost914290_banner_en.png" alt="GOST 9142-2014 Box Load Calculator">
+          </a>
+          <div class="other-product-body">
+            <h3><span class="lang-ru">Расчет нагрузки по ГОСТ 9142-2014</span><span class="lang-en">GOST 9142-2014 Load Calculator</span></h3>
+            <p><span class="lang-ru">Расчет характеристик гофроящика, подбор марки гофрокартона и PDF-отчет.</span><span class="lang-en">Corrugated box load, board grade calculation and PDF report export.</span></p>
+            <a class="button secondary lang-ru" href="https://governorv.github.io/gost/" target="_blank" rel="noopener">Страница</a>
+            <a class="button secondary lang-en" href="https://governorv.github.io/gost/" target="_blank" rel="noopener">Page</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>LicMan</span>
+    <a href="https://disk.yandex.ru/d/4qYe74wipzErXQ" target="_blank" rel="noopener" data-i18n="footer.demo">Демо-версия</a>
+  </footer>
+
+  <script src="script.js?v=20260510-2"></script>
+</body>
+</html>
+
