@@ -155,6 +155,37 @@
       box-shadow: var(--bannerShadow);
       background: #fff;
     }
+    .language-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, .9fr);
+      gap: 22px;
+      align-items: start;
+    }
+    .language-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 18px 0 0;
+    }
+    .language-list span {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.88);
+      color: var(--darkText);
+      border: 1px solid rgba(55,216,255,.26);
+      font-weight: 800;
+    }
+    .language-note {
+      background: rgba(255,255,255,.88);
+      color: var(--darkText);
+      border-radius: 18px;
+      padding: 18px;
+      border: 1px solid rgba(55,216,255,.26);
+      margin: 0;
+    }
     .screenshots { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
     .screenshot {
       margin: 0;
@@ -182,6 +213,7 @@
       border: 1px solid rgba(55,216,255,.3);
       box-shadow: 0 18px 48px rgba(0,0,0,.22);
     }
+    .price-icon { width: 58px; height: 58px; border-radius: 16px; object-fit: cover; display: block; margin-bottom: 12px; }
     .price strong { display: block; font-size: 32px; margin: 10px 0; color: #005de8; }
     .price strong[data-lang] { display: none; }
     html[lang="ru"] .price strong[data-lang="ru"], html[lang="en"] .price strong[data-lang="en"] { display: block; }
@@ -225,7 +257,7 @@
     html[lang="ru"] [data-lang="ru"], html[lang="en"] [data-lang="en"] { display: revert; }
     html[lang="ru"] img[data-lang="ru"], html[lang="en"] img[data-lang="en"] { display: block; }
     @media (max-width: 900px) {
-      .hero-grid, .grid, .screenshots, .pricing, .other-grid { grid-template-columns: 1fr; }
+      .hero-grid, .grid, .screenshots, .pricing, .other-grid, .language-card { grid-template-columns: 1fr; }
       nav { align-items: flex-start; flex-direction: column; padding: 12px 0; }
       .hero-card, section.card { padding: 20px; }
     }
@@ -282,6 +314,7 @@
           <span class="chip" data-lang="ru">Свободная, решетчатая и перегородочная укладка</span><span class="chip" data-lang="en">Free, grid and partition packing</span>
           <span class="chip" data-lang="ru">Учет деформации</span><span class="chip" data-lang="en">Deformation support</span>
           <span class="chip" data-lang="ru">Режим дежурства в PRO-версии</span><span class="chip" data-lang="en">Watch mode in the PRO version</span>
+          <span class="chip" data-lang="ru">10 языков интерфейса</span><span class="chip" data-lang="en">10 interface languages</span>
         </div>
         <div class="actions">
           <a class="btn primary" href="https://disk.yandex.ru/d/WK17ADX26VGjhA" target="_blank" rel="noopener" data-lang="ru">Скачать демоверсию</a>
@@ -304,6 +337,29 @@
     <section class="capabilities-card" id="features">
       <img class="capabilities-image" data-lang="ru" src="assets/features-ru.png" alt="Что умеет программа Фасовщик">
       <img class="capabilities-image" data-lang="en" src="assets/features-en.png" alt="What the Box Packing Optimizer can do">
+    </section>
+
+    <section class="card language-card" id="languages">
+      <div>
+        <h2 data-lang="ru">Мультиязычный интерфейс</h2>
+        <h2 data-lang="en">Multilingual Interface</h2>
+        <p data-lang="ru">Фасовщик уже поставляется со словарями интерфейса для десяти языков. Переключение языка помогает внедрять программу в смешанных командах и на площадках с разными рабочими языками.</p>
+        <p data-lang="en">Box Packing Optimizer already ships with interface dictionaries for ten languages. Language switching helps deploy the program in mixed teams and production sites with different working languages.</p>
+        <div class="language-list" aria-label="Supported interface languages">
+          <span>Русский</span>
+          <span>English</span>
+          <span>Deutsch</span>
+          <span>Français</span>
+          <span>עברית</span>
+          <span>Italiano</span>
+          <span>Қазақша</span>
+          <span>Português</span>
+          <span>Српски</span>
+          <span>Español</span>
+        </div>
+      </div>
+      <p class="language-note" data-lang="ru">Если нужен другой язык, можно самостоятельно создать словарь перевода для любого языка и подключить его к программе.</p>
+      <p class="language-note" data-lang="en">If another language is needed, you can create your own translation dictionary for any language and connect it to the program.</p>
     </section>
 
     <section class="card" id="screenshots">
@@ -366,6 +422,7 @@
       <h2 data-lang="en">Pricing</h2>
       <div class="pricing">
         <div class="price">
+          <img class="price-icon" src="../assets/icons/fasovshik.png" alt="">
           <h3 data-lang="ru">Фасовщик</h3><h3 data-lang="en">Box Packing Optimizer</h3>
           <strong data-lang="ru">69 000 ₽</strong><strong data-lang="en">69,000 ₽</strong>
           <small data-lang="ru">Бессрочная лицензия</small><small data-lang="en">Perpetual license</small>
@@ -373,6 +430,7 @@
           <p data-lang="en">Annual rental — <b>19,900 ₽</b><br>Monthly rental — <b>2,900 ₽</b><br>Without watch mode.</p>
         </div>
         <div class="price">
+          <img class="price-icon" src="../assets/icons/fasovshik-pro.png" alt="">
           <h3 data-lang="ru">Фасовщик PRO</h3><h3 data-lang="en">Box Packing Optimizer PRO</h3>
           <strong data-lang="ru">99 000 ₽</strong><strong data-lang="en">99,000 ₽</strong>
           <small data-lang="ru">Бессрочная лицензия</small><small data-lang="en">Perpetual license</small>

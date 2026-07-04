@@ -318,6 +318,32 @@ html[data-theme="day"] .lang{background:#fff}
   letter-spacing:.4px;
   color:#071021;
 }
+.versionIcons{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:12px;
+}
+.versionIcon{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:5px 8px 5px 5px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:var(--soft);
+  color:var(--muted);
+  font-size:12px;
+  line-height:1;
+}
+.versionIcon img{
+  width:24px;
+  height:24px;
+  border-radius:8px;
+  object-fit:cover;
+  display:block;
+}
 .productTitleWrap{min-width:0}
 .productTitle{
   font-size:18px;
@@ -507,7 +533,7 @@ footer{
     {
       id: "optpacker",
       glyph: "FP",
-      icon: "OptPacker/assets/app.ico",
+      icon: "assets/icons/fasovshik.png",
       cover: {
         ru: "fasovshik_banner.png",
         en: "fasovshik_banner_en.png"
@@ -554,7 +580,7 @@ footer{
     {
       id: "optcutting",
       glyph: "OC",
-      icon: "https://governorv.github.io/OptCutting/assets/app-icon.png",
+      icon: "assets/icons/optcutting.png",
       cover: {
         ru: "optcutting_banner.png",
         en: "optcutting_banner_en.png"
@@ -601,7 +627,7 @@ footer{
     {
   id: "dbsearch",
   glyph: "DB",
-  icon: "icon_dbsearch.ico",
+  icon: "assets/icons/dbsearch.png",
   cover: {
     ru: "dbsearch_banner.png",
     en: "dbsearch_banner_en.png"
@@ -651,7 +677,7 @@ footer{
     {
       id: "licman",
       glyph: "LM",
-      icon: "icon_licman.ico",
+      icon: "assets/icons/licman.png",
       cover: {
         ru: "licman_banner.png",
         en: "licman_banner_en.png"
@@ -698,7 +724,7 @@ footer{
     {
       id: "boxpalletizer",
       glyph: "BP",
-      icon: "icon_boxpalletizer.ico",
+      icon: "assets/icons/palletizer.png",
       cover: {
         ru: "palletizer_banner.png",
         en: "palletizer_banner_en.png"
@@ -745,7 +771,7 @@ footer{
     {
       id: "truckloader",
       glyph: "TL",
-      icon: "truckloader-site/assets/truckloader.ico",
+      icon: "assets/icons/truckloader.png",
       cover: {
         ru: "truckloader_banner.png",
         en: "truckloader_banner_en.png"
@@ -792,7 +818,7 @@ footer{
     {
       id: "platepalletizer",
       glyph: "PP",
-      icon: "platepalletizer_icon.png",
+      icon: "assets/icons/platepalletizer.png",
       cover: {
         ru: "platepalletizer_banner.png?v=20260604-2",
         en: "platepalletizer_banner_en.png?v=20260605-1"
@@ -842,7 +868,7 @@ footer{
     {
       id: "boxpricecalculator",
       glyph: "BC",
-      icon: "icon_boxpricecalculator.ico",
+      icon: "assets/icons/boxprice.png",
       cover: {
         ru: "boxprice_banner.png",
         en: "boxprice_banner_en.png"
@@ -889,7 +915,7 @@ footer{
     {
       id: "gost914290",
       glyph: "G",
-      icon: "gost914290_icon.ico",
+      icon: "assets/icons/gost.png",
       cover: {
         ru: "gost914290_banner.png",
         en: "gost914290_banner_en.png"
@@ -935,6 +961,49 @@ footer{
     }
   ];
   // -------------------------------------------------------
+
+  const VERSION_ICONS = {
+    optpacker: [
+      { label: { ru: "Демо", en: "Demo" }, icon: "assets/icons/fasovshik-demo.png" },
+      { label: { ru: "Базовая", en: "Standard" }, icon: "assets/icons/fasovshik.png" },
+      { label: { ru: "PRO", en: "PRO" }, icon: "assets/icons/fasovshik-pro.png" }
+    ],
+    optcutting: [
+      { label: { ru: "Демо", en: "Demo" }, icon: "assets/icons/optcutting-demo.png" },
+      { label: { ru: "Лайт", en: "Lite" }, icon: "assets/icons/optcutting-lite.png" },
+      { label: { ru: "Полная", en: "Full" }, icon: "assets/icons/optcutting.png" }
+    ],
+    dbsearch: [
+      { label: { ru: "Демо", en: "Demo" }, icon: "assets/icons/dbsearch-demo.png" },
+      { label: { ru: "Полная", en: "Full" }, icon: "assets/icons/dbsearch.png" }
+    ],
+    licman: [
+      { label: { ru: "Демо", en: "Demo" }, icon: "assets/icons/licman-demo.png" },
+      { label: { ru: "Полная", en: "Full" }, icon: "assets/icons/licman.png" }
+    ],
+    boxpalletizer: [
+      { label: { ru: "Демо", en: "Demo" }, icon: "assets/icons/palletizer-demo.png" },
+      { label: { ru: "Базовая", en: "Standard" }, icon: "assets/icons/palletizer.png" },
+      { label: { ru: "PRO", en: "PRO" }, icon: "assets/icons/palletizer-pro.png" }
+    ],
+    truckloader: [
+      { label: { ru: "Демо", en: "Demo" }, icon: "assets/icons/truckloader-demo.png" },
+      { label: { ru: "Полная", en: "Full" }, icon: "assets/icons/truckloader.png" }
+    ],
+    platepalletizer: [
+      { label: { ru: "Демо", en: "Demo" }, icon: "assets/icons/platepalletizer-demo.png" },
+      { label: { ru: "Полная", en: "Full" }, icon: "assets/icons/platepalletizer.png" }
+    ],
+    boxpricecalculator: [
+      { label: { ru: "Демо", en: "Demo" }, icon: "assets/icons/boxprice-demo.png" },
+      { label: { ru: "Базовая", en: "Standard" }, icon: "assets/icons/boxprice.png" },
+      { label: { ru: "PRO", en: "PRO" }, icon: "assets/icons/boxprice-pro.png" }
+    ],
+    gost914290: [
+      { label: { ru: "Демо", en: "Demo" }, icon: "assets/icons/gost-demo.png" },
+      { label: { ru: "Полная", en: "Full" }, icon: "assets/icons/gost.png" }
+    ]
+  };
 
   const ui = {
     tagline: document.getElementById("tagline"),
@@ -1169,6 +1238,29 @@ if (p.cover) {
 
       price.appendChild(priceTitle);
       price.appendChild(list);
+
+      const versions = VERSION_ICONS[p.id] || [];
+      if (versions.length) {
+        const versionIcons = document.createElement("div");
+        versionIcons.className = "versionIcons";
+        for (const version of versions) {
+          const item = document.createElement("span");
+          item.className = "versionIcon";
+
+          const itemIcon = document.createElement("img");
+          itemIcon.src = version.icon;
+          itemIcon.alt = "";
+          itemIcon.loading = "lazy";
+
+          const itemLabel = document.createElement("span");
+          itemLabel.textContent = version.label[lang] || version.label.ru;
+
+          item.appendChild(itemIcon);
+          item.appendChild(itemLabel);
+          versionIcons.appendChild(item);
+        }
+        price.appendChild(versionIcons);
+      }
 
       const actions = document.createElement("div");
       actions.className = "actions";
