@@ -201,9 +201,63 @@
       object-position: top center;
       display: block;
       background: rgba(255,255,255,.9);
+      cursor: zoom-in;
+    }
+    .screenshot img:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: -3px;
     }
     .screenshot figcaption { padding: 14px; }
     .screenshot figcaption p { color: var(--muted); margin-bottom: 0; }
+    .image-viewer {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(2, 8, 20, .86);
+      backdrop-filter: blur(6px);
+    }
+    .image-viewer.open { display: flex; }
+    .image-viewer-inner {
+      position: relative;
+      width: min(96vw, 1500px);
+      max-height: 92vh;
+      display: grid;
+      gap: 12px;
+    }
+    .image-viewer img {
+      width: 100%;
+      max-height: 86vh;
+      object-fit: contain;
+      display: block;
+      border-radius: 12px;
+      background: #fff;
+      box-shadow: 0 30px 90px rgba(0,0,0,.48);
+    }
+    .image-viewer-caption {
+      color: #fff;
+      font-weight: 800;
+      text-align: center;
+      margin: 0;
+    }
+    .image-viewer-close {
+      position: absolute;
+      top: -18px;
+      right: -18px;
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(255,255,255,.28);
+      border-radius: 50%;
+      background: rgba(5, 17, 35, .95);
+      color: #fff;
+      font-size: 28px;
+      line-height: 1;
+      cursor: pointer;
+    }
+    body.viewer-open { overflow: hidden; }
     .pricing { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
     .price {
       background: white;
@@ -563,9 +617,61 @@
     <div class="container">© PackTuning Software — Viktor Guberniev · <a href="mailto:vguberniev@gmail.com">vguberniev@gmail.com</a></div>
   </footer>
 
+  <div class="image-viewer" id="imageViewer" aria-hidden="true">
+    <div class="image-viewer-inner" role="dialog" aria-modal="true" aria-labelledby="imageViewerCaption">
+      <button class="image-viewer-close" type="button" id="imageViewerClose" aria-label="Close full-size image">&times;</button>
+      <img id="imageViewerImg" src="" alt="">
+      <p class="image-viewer-caption" id="imageViewerCaption"></p>
+    </div>
+  </div>
+
   <script>
     const RU = "ru";
     const EN = "en";
+    const viewer = document.getElementById("imageViewer");
+    const viewerImg = document.getElementById("imageViewerImg");
+    const viewerCaption = document.getElementById("imageViewerCaption");
+    const viewerClose = document.getElementById("imageViewerClose");
+    let lastViewerTrigger = null;
+
+    function openImageViewer(image) {
+      lastViewerTrigger = image;
+      viewerImg.src = image.currentSrc || image.src;
+      viewerImg.alt = image.alt || "";
+      const title = image.closest(".screenshot")?.querySelector("h3")?.textContent?.trim() || image.alt || "";
+      viewerCaption.textContent = title;
+      viewer.classList.add("open");
+      viewer.setAttribute("aria-hidden", "false");
+      document.body.classList.add("viewer-open");
+      viewerClose.focus();
+    }
+
+    function closeImageViewer() {
+      viewer.classList.remove("open");
+      viewer.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("viewer-open");
+      viewerImg.removeAttribute("src");
+      if (lastViewerTrigger) lastViewerTrigger.focus();
+    }
+
+    document.querySelectorAll(".screenshot img").forEach(image => {
+      image.tabIndex = 0;
+      image.addEventListener("click", () => openImageViewer(image));
+      image.addEventListener("keydown", event => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          openImageViewer(image);
+        }
+      });
+    });
+    viewerClose.addEventListener("click", closeImageViewer);
+    viewer.addEventListener("click", event => {
+      if (event.target === viewer) closeImageViewer();
+    });
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape" && viewer.classList.contains("open")) closeImageViewer();
+    });
+
     function applyAutoTheme() {
       const hour = new Date().getHours();
       document.documentElement.dataset.theme = hour >= 6 && hour < 18 ? "day" : "night";
