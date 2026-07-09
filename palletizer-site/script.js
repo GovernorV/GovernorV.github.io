@@ -114,9 +114,9 @@ const text = {
     pricingEyebrow: "Licenses",
     pricingTitle: "Pricing",
     priceCards: [
-      ["Perpetual license", "Purchase", "29,900 ₽", "Best for regular production use.", "Order"],
-      ["Subscription", "Annual", "10,000 ₽", "Convenient for seasonal workload or pilot adoption.", "Subscribe"],
-      ["Flexible start", "Monthly", "1,000 ₽", "Good for testing the program on real orders.", "Try"]
+      ["Perpetual license", "Purchase", "€299", "Best for regular production use.", "Order"],
+      ["Subscription", "Annual", "€100", "Convenient for seasonal workload or pilot adoption.", "Subscribe"],
+      ["Flexible start", "Monthly", "€10", "Good for testing the program on real orders.", "Try"]
     ],
     otherEyebrow: "Catalog",
     otherTitle: "Explore my other software as well",
