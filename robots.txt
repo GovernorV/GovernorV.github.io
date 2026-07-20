@@ -5,6 +5,7 @@ Sitemap: https://governorv.github.io/sitemap-main.xml
 Sitemap: https://governorv.github.io/sitemap.txt
 Sitemap: https://governorv.github.io/sitemap.xml
 Sitemap: https://governorv.github.io/OptPacker/sitemap.xml
+Sitemap: https://governorv.github.io/BottleOptimizer/sitemap.xml
 Sitemap: https://governorv.github.io/OptCutting/sitemap.xml
 Sitemap: https://governorv.github.io/palletizer-site/sitemap.xml
 Sitemap: https://governorv.github.io/truckloader-site/sitemap.xml
