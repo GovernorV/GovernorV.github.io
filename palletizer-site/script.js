@@ -59,6 +59,8 @@ const text = {
     otherTitle: "Познакомьтесь также с другими моими программами",
     otherButton: "Страница",
     otherCards: [
+      ["Проектировщик бутылок", "Оптимизация бутылки, ящика, решётки и паллетной укладки."],
+      ["Фасовщик", "Оптимальная укладка изделий в ящик, расчет заполнения и PDF-отчет."],
       ["Паллетировщик", "Расчет укладки коробов на поддон, 3D-визуализация, ограничения и отчеты."],
       ["Калькулятор гофроящиков", "Расчет себестоимости гофроупаковки с учетом материалов, печати и дополнительных расходов."],
       ["Поисковик по базам данных", "Поиск объектов и данных в SQL Server, просмотр кода, фильтры и экспорт результатов."],
@@ -122,6 +124,8 @@ const text = {
     otherTitle: "Explore my other software as well",
     otherButton: "Page",
     otherCards: [
+      ["Bottle Optimizer", "Optimize bottle geometry, box, divider and pallet layout for minimum total cost."],
+      ["Box Packing Optimizer", "Optimal product placement in boxes, fill calculation and PDF reporting."],
       ["Box Palletizer", "Plan box stacking on pallets with 3D visualization, constraints and exportable reports."],
       ["Corrugated Box Cost Calculator", "Estimate corrugated packaging costs with materials, printing and additional expenses."],
       ["Database Search", "Search SQL Server objects and data, view code, filter results and export reports."],

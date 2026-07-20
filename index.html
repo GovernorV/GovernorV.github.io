@@ -79,6 +79,12 @@
       "position": 8,
       "url": "https://governorv.github.io/truckloader-site/",
       "name": "TruckLoader"
+    },
+    {
+      "@type": "ListItem",
+      "position": 9,
+      "url": "https://governorv.github.io/BottleOptimizer/",
+      "name": "Проектировщик бутылок / Bottle Optimizer"
     }
   ]
 }
@@ -578,6 +584,53 @@ footer{
       }
     },
     {
+      id: "bottleoptimizer",
+      glyph: "BO",
+      icon: "assets/icons/bottleoptimizer.ico",
+      cover: {
+        ru: "bottleoptimizer.png",
+        en: "bottleoptimizer_eng.png"
+      },
+      gradient: ["#1268f3", "#17d7ff"],
+      titles: {
+        ru: "Проектировщик бутылок",
+        en: "Bottle Optimizer"
+      },
+      subtitles: {
+        ru: "Оптимизация бутылки и всей транспортной упаковки",
+        en: "Bottle and complete packaging system optimization"
+      },
+      descriptions: {
+        ru: "Рассчитывает геометрию и стоимость бутылки, ящика, картонной решётки и паллетной укладки, находит оптимальный диаметр и формирует PDF-отчёты.",
+        en: "Calculates bottle, box, divider and pallet costs, finds the optimal bottle diameter and produces detailed PDF reports."
+      },
+      pricing: {
+        ru: {
+          main: "от 69 000 ₽ (покупка)",
+          lines: [
+            "Standard: 69 000 ₽; PRO: 99 000 ₽",
+            "Аренда: от 3 400 ₽/мес",
+            "Годовая аренда: от 22 900 ₽"
+          ]
+        },
+        en: {
+          main: "from €690 (one-time purchase)",
+          lines: [
+            "Standard: €690; PRO: €990",
+            "Monthly rental: €34 / €49",
+            "Annual rental: €229 / €329"
+          ]
+        }
+      },
+      links: {
+        demo: "mailto:vguberniev@gmail.com?subject=BottleOptimizer DEMO",
+        page: {
+          ru: "https://governorv.github.io/BottleOptimizer/",
+          en: "https://governorv.github.io/BottleOptimizer/?lang=en"
+        }
+      }
+    },
+    {
       id: "optcutting",
       glyph: "OC",
       icon: "assets/icons/optcutting.png",
@@ -963,6 +1016,9 @@ footer{
   // -------------------------------------------------------
 
   const VERSION_ICONS = {
+    bottleoptimizer: [
+      { label: { ru: "Demo / Standard / PRO", en: "Demo / Standard / PRO" }, icon: "assets/icons/bottleoptimizer-editions.png" }
+    ],
     optpacker: [
       { label: { ru: "Демо", en: "Demo" }, icon: "assets/icons/fasovshik-demo.png" },
       { label: { ru: "Базовая", en: "Standard" }, icon: "assets/icons/fasovshik.png" },
