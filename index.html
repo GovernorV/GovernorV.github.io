@@ -1195,12 +1195,13 @@ footer{
     for (const p of PRODUCTS){
       const card = document.createElement("div");
       card.className = "card productCard";
+      if (p.id === "bottleoptimizer") card.style.order = "998";
+      if (p.id === "gost914290") card.style.order = "999";
 
       const head = document.createElement("a");
       head.className = "productHead";
       head.href = localizedLink(p.links.page, lang);
-      head.target = "_blank";
-      head.rel = "noopener";
+      if (p.id !== "bottleoptimizer") { head.target = "_blank"; head.rel = "noopener"; }
       head.style.textDecoration = "none";
       head.style.color = "inherit";
 
@@ -1257,8 +1258,7 @@ footer{
 if (p.cover) {
   const coverLink = document.createElement("a");
   coverLink.href = localizedLink(p.links.page, lang);
-  coverLink.target = "_blank";
-  coverLink.rel = "noopener";
+  if (p.id !== "bottleoptimizer") { coverLink.target = "_blank"; coverLink.rel = "noopener"; }
   coverLink.className = "productCover";
 
   const img = document.createElement("img");
@@ -1336,8 +1336,7 @@ if (p.cover) {
       const aPage = document.createElement("a");
       aPage.className = "btn secondary";
       aPage.href = localizedLink(p.links.page, lang);
-      aPage.target = "_blank";
-      aPage.rel = "noopener";
+      if (p.id !== "bottleoptimizer") { aPage.target = "_blank"; aPage.rel = "noopener"; }
       aPage.textContent = TEXT[lang].pageBtn;
 
       const aMail = document.createElement("a");

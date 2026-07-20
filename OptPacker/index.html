@@ -296,6 +296,8 @@
     }
     .note { color: var(--muted); font-size: 14px; }
     .other-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .other-grid > .bottleoptimizer-card { order: 998; }
+    .other-grid > :last-child { order: 999; }
     .other-card {
       overflow: hidden;
       border-radius: 18px;
@@ -526,7 +528,7 @@
       <p data-lang="ru">Инструменты для упаковочного производства, логистики, учета лицензий и поиска по базам данных.</p>
       <p data-lang="en">Tools for packaging production, logistics, license tracking and database search.</p>
       <div class="other-grid">
-        <article class="other-card">
+        <article class="other-card bottleoptimizer-card">
           <a href="https://governorv.github.io/BottleOptimizer/" data-lang="ru"><img src="../bottleoptimizer.png" alt="Проектировщик бутылок"></a>
           <a href="https://governorv.github.io/BottleOptimizer/?lang=en" data-lang="en"><img src="../bottleoptimizer_eng.png" alt="Bottle Optimizer"></a>
           <div class="other-body">
