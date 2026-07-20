@@ -586,7 +586,7 @@ footer{
     {
       id: "bottleoptimizer",
       glyph: "BO",
-      icon: "assets/icons/bottleoptimizer.ico",
+      icon: "assets/icons/bottleoptimizer-editions.png",
       cover: {
         ru: "bottleoptimizer.png",
         en: "bottleoptimizer_eng.png"
@@ -1196,8 +1196,13 @@ footer{
       const card = document.createElement("div");
       card.className = "card productCard";
 
-      const head = document.createElement("div");
+      const head = document.createElement("a");
       head.className = "productHead";
+      head.href = localizedLink(p.links.page, lang);
+      head.target = "_blank";
+      head.rel = "noopener";
+      head.style.textDecoration = "none";
+      head.style.color = "inherit";
 
       const icon = document.createElement("div");
       icon.className = "productIcon";
