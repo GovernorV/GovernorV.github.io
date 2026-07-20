@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru" data-theme="day">
+<html lang="ru" data-theme="day" data-lang="ru">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -169,11 +169,11 @@
 <script>
 (() => {
   const root=document.documentElement,ru=document.getElementById('ruBtn'),en=document.getElementById('enBtn'),theme=document.getElementById('themeBtn');
-  const query=new URLSearchParams(location.search);let lang=query.get('lang')==='en'?'en':(localStorage.getItem('bottleoptimizer-lang')||'ru');
-  function setLang(value){lang=value==='en'?'en':'ru';root.dataset.lang=lang;root.lang=lang;ru.classList.toggle('active',lang==='ru');en.classList.toggle('active',lang==='en');localStorage.setItem('bottleoptimizer-lang',lang);document.title=lang==='ru'?'Проектировщик бутылок — оптимизация бутылки и упаковки':'Bottle Optimizer — bottle and packaging optimization';}
-  function setTheme(value){root.dataset.theme=value;localStorage.setItem('bottleoptimizer-theme',value);theme.textContent=value==='night'?'☀':'◐';}
+  const query=new URLSearchParams(location.search);let savedLang='ru',savedTheme='day';try{savedLang=localStorage.getItem('bottleoptimizer-lang')||'ru';savedTheme=localStorage.getItem('bottleoptimizer-theme')||'day';}catch(e){}let lang=query.get('lang')==='en'?'en':savedLang;
+  function setLang(value){lang=value==='en'?'en':'ru';root.dataset.lang=lang;root.lang=lang;ru.classList.toggle('active',lang==='ru');en.classList.toggle('active',lang==='en');try{localStorage.setItem('bottleoptimizer-lang',lang);}catch(e){}document.title=lang==='ru'?'Проектировщик бутылок — оптимизация бутылки и упаковки':'Bottle Optimizer — bottle and packaging optimization';}
+  function setTheme(value){root.dataset.theme=value;try{localStorage.setItem('bottleoptimizer-theme',value);}catch(e){}theme.textContent=value==='night'?'☀':'◐';}
   ru.addEventListener('click',()=>setLang('ru'));en.addEventListener('click',()=>setLang('en'));theme.addEventListener('click',()=>setTheme(root.dataset.theme==='night'?'day':'night'));
-  setTheme(localStorage.getItem('bottleoptimizer-theme')||'day');setLang(lang);
+  setTheme(savedTheme);setLang(lang);
 })();
 </script>
 </body>
