@@ -69,7 +69,7 @@
         ]
       }
     </script>
-  <style>.instagram-menu-link{position:relative;display:inline-grid!important;place-items:center;width:40px;height:40px;min-width:40px;padding:0!important;border:0!important;border-radius:12px!important;background:linear-gradient(135deg,#833ab4,#fd1d1d 55%,#fcb045)!important;color:#fff!important;box-shadow:0 5px 16px rgba(193,53,132,.28);text-decoration:none!important;flex:0 0 auto}.instagram-menu-link:hover{transform:translateY(-1px)}.instagram-menu-link:focus-visible{outline:3px solid #fff;outline-offset:2px}.instagram-glyph{position:relative;width:21px;height:21px;border:2px solid #fff;border-radius:7px}.instagram-glyph::before{content:"";position:absolute;inset:4px;border:2px solid #fff;border-radius:50%}.instagram-glyph::after{content:"";position:absolute;right:3px;top:3px;width:3px;height:3px;border-radius:50%;background:#fff}</style>
+  <style>.instagram-menu-link,.social-menu-link{position:relative;display:inline-grid!important;place-items:center;width:40px;height:40px;min-width:40px;padding:0!important;border:0!important;border-radius:12px!important;color:#fff!important;text-decoration:none!important;flex:0 0 auto;transition:transform .18s ease,box-shadow .18s ease}.instagram-menu-link{background:linear-gradient(135deg,#833ab4,#fd1d1d 55%,#fcb045)!important;box-shadow:0 5px 16px rgba(193,53,132,.28)}.instagram-menu-link:hover,.social-menu-link:hover{transform:translateY(-1px)}.instagram-menu-link:focus-visible,.social-menu-link:focus-visible{outline:3px solid #fff;outline-offset:2px}.instagram-glyph{position:relative;width:21px;height:21px;border:2px solid #fff;border-radius:7px}.instagram-glyph::before{content:"";position:absolute;inset:4px;border:2px solid #fff;border-radius:50%}.instagram-glyph::after{content:"";position:absolute;right:3px;top:3px;width:3px;height:3px;border-radius:50%;background:#fff}.social-menu-link span{font:800 20px/1 Arial,sans-serif;letter-spacing:-.04em}.social-menu-link.facebook{background:#1877f2!important}.social-menu-link.linkedin{background:#0a66c2!important}.social-menu-link.vk{background:#07f!important}.social-menu-link.linkedin span{font-size:16px}.social-menu-link.vk span{font-size:14px;letter-spacing:-.08em}.social-menu-link[hidden]{display:none!important}</style>
 </head>
   <body>
     <header class="site-header">
@@ -386,6 +386,31 @@
     glyph.setAttribute('aria-hidden', 'true');
     link.append(glyph);
     menu.prepend(link);
+    const russianSocials = [
+      { href: 'https://www.facebook.com/groups/1561529331198175', label: 'Группа PackTuning в Facebook', brand: 'facebook', glyph: 'f' },
+      { href: 'https://www.linkedin.com/groups/10072044/', label: 'Группа PackTuning в LinkedIn', brand: 'linkedin', glyph: 'in' },
+      { href: 'https://vk.ru/club79622771', label: 'Группа PackTuning ВКонтакте', brand: 'vk', glyph: 'VK' }
+    ].map(({ href, label, brand, glyph: mark }) => {
+      const social = document.createElement('a');
+      social.href = href;
+      social.target = '_blank';
+      social.rel = 'noopener noreferrer';
+      social.className = 'social-menu-link social-ru ' + brand;
+      social.setAttribute('aria-label', label);
+      social.title = label;
+      const icon = document.createElement('span');
+      icon.setAttribute('aria-hidden', 'true');
+      icon.textContent = mark;
+      social.append(icon);
+      return social;
+    });
+    link.after(...russianSocials);
+    const syncRussianSocials = () => {
+      const isRussian = (document.documentElement.lang || 'ru').toLowerCase().startsWith('ru');
+      russianSocials.forEach((social) => { social.hidden = !isRussian; });
+    };
+    new MutationObserver(syncRussianSocials).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+    syncRussianSocials();
   })();
   </script>
 </body>
