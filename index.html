@@ -419,6 +419,7 @@ footer{
 }
 .kpi .mini b{color:var(--text)}
 </style>
+  <style>.instagram-menu-link{position:relative;display:inline-grid!important;place-items:center;width:40px;height:40px;min-width:40px;padding:0!important;border:0!important;border-radius:12px!important;background:linear-gradient(135deg,#833ab4,#fd1d1d 55%,#fcb045)!important;color:#fff!important;box-shadow:0 5px 16px rgba(193,53,132,.28);text-decoration:none!important;flex:0 0 auto}.instagram-menu-link:hover{transform:translateY(-1px)}.instagram-menu-link:focus-visible{outline:3px solid #fff;outline-offset:2px}.instagram-glyph{position:relative;width:21px;height:21px;border:2px solid #fff;border-radius:7px}.instagram-glyph::before{content:"";position:absolute;inset:4px;border:2px solid #fff;border-radius:50%}.instagram-glyph::after{content:"";position:absolute;right:3px;top:3px;width:3px;height:3px;border-radius:50%;background:#fff}</style>
 </head>
 
 <body>
@@ -1414,6 +1415,24 @@ if (p.cover) {
 })();
 </script>
 
+  <script>
+  (() => {
+    const link = document.querySelector('a[href="https://www.instagram.com/packtuning/"]');
+    const selectors = ['header .lang','header .language-switch','header .toolbar','header .controls','header .navlinks','header .nav-links','header .switch','.topbar .lang-switch','header nav','header .inner','header','.topbar'];
+    const menu = selectors.map((selector) => document.querySelector(selector)).find(Boolean);
+    if (!link || !menu) return;
+    link.removeAttribute('style');
+    link.className = 'instagram-menu-link';
+    link.setAttribute('aria-label', 'Instagram PackTuning');
+    link.setAttribute('title', 'Instagram @packtuning');
+    link.textContent = '';
+    const glyph = document.createElement('span');
+    glyph.className = 'instagram-glyph';
+    glyph.setAttribute('aria-hidden', 'true');
+    link.append(glyph);
+    menu.prepend(link);
+  })();
+  </script>
 </body>
 </html>
 
