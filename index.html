@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <title>PackTuning Software — каталог программ для упаковки, логистики и SQL</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="PackTuning Software: каталог программ для паллетизации, загрузки поддонов в автофургоны, расчета стоимости гофроупаковки, расчета нагрузки на гофроящик по ГОСТ 9142-2014, учета лицензий и поиска по базам данных SQL Server.">
-<meta name="keywords" content="PackTuning Software, программы для упаковки, паллетизация, загрузка поддонов в автофургоны, расчет загрузки фуры, TruckLoader, расчет стоимости гофроящика, ГОСТ 9142-2014, расчет нагрузки на гофроящик, учет лицензий, поиск по базе данных, SQL Server, Box Palletizer, Box Price Calculator, LicMan, DBSearch">
+<meta name="description" content="PackTuning Software: каталог программ для паллетизации, загрузки поддонов в автофургоны, расчета стоимости гофроупаковки, ПОЯС, ГОСТ 9142-2014, учета лицензий и поиска по базам данных SQL Server.">
+<meta name="keywords" content="PackTuning Software, ПОЯС, программы для упаковки, паллетизация, загрузка поддонов в автофургоны, расчет загрузки фуры, TruckLoader, расчет стоимости гофроящика, ГОСТ 9142-2014, расчет нагрузки на гофроящик, учет лицензий, поиск по базе данных, SQL Server, Box Palletizer, Box Price Calculator, LicMan, DBSearch">
 <meta name="author" content="Viktor Guberniev">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://governorv.github.io/">
@@ -14,7 +14,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="PackTuning Software">
 <meta property="og:title" content="PackTuning Software — каталог программ для упаковки и логистики">
-<meta property="og:description" content="Программы для паллетизации, загрузки поддонов в автофургоны, расчета стоимости гофроупаковки, расчета нагрузки на гофроящик по ГОСТ 9142-2014, учета лицензий и поиска по базам данных SQL Server.">
+<meta property="og:description" content="Программы для паллетизации, загрузки поддонов в автофургоны, расчета стоимости гофроупаковки, ПОЯС, ГОСТ 9142-2014, учета лицензий и поиска по базам данных SQL Server.">
 <meta property="og:url" content="https://governorv.github.io/">
 <meta property="og:image" content="https://governorv.github.io/palletizer_banner.png">
 <meta property="og:locale" content="ru_RU">
@@ -85,6 +85,12 @@
       "position": 9,
       "url": "https://governorv.github.io/BottleOptimizer/",
       "name": "Проектировщик бутылок / Bottle Optimizer"
+    },
+    {
+      "@type": "ListItem",
+      "position": 10,
+      "url": "https://governorv.github.io/Pojas/",
+      "name": "ПОЯС / POJAS"
     }
   ]
 }
@@ -539,6 +545,52 @@ footer{
 
   // ---- EDIT HERE to add more programs later ----
   const PRODUCTS = [
+    {
+      id: "pojas",
+      glyph: "P",
+      icon: "assets/icons/pojas.png",
+      cover: {
+        ru: "pojas_banner.png",
+        en: "pojas_banner.png"
+      },
+      gradient: ["#0b78d7", "#22d7ff"],
+      titles: {
+        ru: "ПОЯС",
+        en: "POJAS"
+      },
+      subtitles: {
+        ru: "Комплексное решение для индустрии тары и упаковки",
+        en: "Integrated software suite for packaging engineering"
+      },
+      descriptions: {
+        ru: "Объединяет расчеты раскроя гофролиста, укладки изделий в ящики, ГОСТов, паллет, контейнеров, транспортных пакетов, сырья и производственных справочников.",
+        en: "Combines corrugated cutting, product packing into boxes, standards, pallets, containers, transport packages, raw materials and production reference data."
+      },
+      pricing: {
+        ru: {
+          main: "по запросу",
+          lines: [
+            "Внедрение под базу и процессы заказчика",
+            "Перенос данных и настройка справочников",
+            "Доработки модулей под производство"
+          ]
+        },
+        en: {
+          main: "on request",
+          lines: [
+            "Deployment for customer data and workflow",
+            "Data migration and reference setup",
+            "Custom production modules"
+          ]
+        }
+      },
+      links: {
+        page: {
+          ru: "https://governorv.github.io/Pojas/",
+          en: "https://governorv.github.io/Pojas/?lang=en"
+        }
+      }
+    },
     {
       id: "optpacker",
       glyph: "FP",
@@ -1329,15 +1381,8 @@ if (p.cover) {
       const actions = document.createElement("div");
       actions.className = "actions";
 
-      const aDemo = document.createElement("a");
-      aDemo.className = "btn primary";
-      aDemo.href = localizedLink(p.links.demo, lang);
-      aDemo.target = "_blank";
-      aDemo.rel = "noopener";
-      aDemo.textContent = TEXT[lang].demoBtn;
-
       const aPage = document.createElement("a");
-      aPage.className = "btn secondary";
+      aPage.className = p.links.demo ? "btn secondary" : "btn primary";
       aPage.href = localizedLink(p.links.page, lang);
       if (p.id !== "bottleoptimizer") { aPage.target = "_blank"; aPage.rel = "noopener"; }
       aPage.textContent = TEXT[lang].pageBtn;
@@ -1347,7 +1392,15 @@ if (p.cover) {
       aMail.href = "mailto:vguberniev@gmail.com";
       aMail.textContent = TEXT[lang].contactBtn;
 
-      actions.appendChild(aDemo);
+      if (p.links.demo) {
+        const aDemo = document.createElement("a");
+        aDemo.className = "btn primary";
+        aDemo.href = localizedLink(p.links.demo, lang);
+        aDemo.target = "_blank";
+        aDemo.rel = "noopener";
+        aDemo.textContent = TEXT[lang].demoBtn;
+        actions.appendChild(aDemo);
+      }
       actions.appendChild(aPage);
       actions.appendChild(aMail);
 

@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ПОЯС — программный комплекс для тары и упаковки</title>
+  <meta name="description" content="ПОЯС: программный комплекс для индустрии тары и упаковки. Раскрой гофролиста, укладка изделий в ящики, паллеты, контейнеры, транспортные пакеты, ГОСТы, сырье и производственные расчеты.">
+  <meta name="keywords" content="ПОЯС, упаковка, тара, раскрой гофролиста, гофрокартон, укладка изделий в ящики, транспортный пакет, ГОСТ, паллетизация, SQL Server, PackTuning">
+  <meta name="author" content="Victor Guberniev">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://governorv.github.io/Pojas/">
+  <link rel="alternate" hreflang="ru" href="https://governorv.github.io/Pojas/">
+  <link rel="alternate" hreflang="en" href="https://governorv.github.io/Pojas/?lang=en">
+  <link rel="alternate" hreflang="x-default" href="https://governorv.github.io/Pojas/">
+  <link rel="icon" type="image/png" href="assets/app-icon.png">
+  <link rel="apple-touch-icon" href="assets/app-icon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PackTuning Software">
+  <meta property="og:title" content="ПОЯС — программный комплекс для тары и упаковки">
+  <meta property="og:description" content="Комплексное решение для расчета упаковки: раскрой, ящики, изделия, ГОСТы, паллеты, контейнеры, сырье и транспортные пакеты.">
+  <meta property="og:url" content="https://governorv.github.io/Pojas/">
+  <meta property="og:image" content="https://governorv.github.io/Pojas/assets/hero-ru.png">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="POJAS Packaging Software Suite">
+  <meta name="twitter:description" content="A Windows suite for packaging engineering: corrugated cutting, box packing, pallets, containers, transport packages, standards and raw material calculations.">
+  <meta name="twitter:image" content="https://governorv.github.io/Pojas/assets/hero-ru.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "ПОЯС",
+    "alternateName": "POJAS",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Windows",
+    "author": {
+      "@type": "Person",
+      "name": "Victor Guberniev"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "PackTuning"
+    },
+    "url": "https://governorv.github.io/Pojas/",
+    "image": "https://governorv.github.io/Pojas/assets/hero-ru.png",
+    "description": "ПОЯС is a Windows software suite for packaging engineering: corrugated board cutting, product packing into boxes, pallet and container loading, transport package calculations, standards and raw material modules."
+  }
+  </script>
+
+  <style>
+    :root {
+      --ink: #f5fbff;
+      --muted: #c4d9f5;
+      --dark: #06162d;
+      --deep: #071f45;
+      --blue: #0b78d7;
+      --cyan: #22d7ff;
+      --line: rgba(102, 207, 255, .28);
+      --panel: rgba(5, 19, 44, .82);
+      --panel2: rgba(8, 39, 83, .86);
+      --paper: #f5f9ff;
+      --paperInk: #10213d;
+      --paperMuted: #53657d;
+      --accent: #ffc857;
+      --shadow: 0 28px 90px rgba(0, 0, 0, .32);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 0%, rgba(34, 215, 255, .20), transparent 28rem),
+        radial-gradient(circle at 86% 10%, rgba(255, 200, 87, .14), transparent 30rem),
+        linear-gradient(180deg, #0b72c9 0%, #0a3978 38%, #06162d 100%);
+      line-height: 1.55;
+    }
+    a { color: inherit; }
+    .container { width: min(1180px, calc(100% - 32px)); margin: 0 auto; }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(4, 19, 44, .82);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
+    }
+    nav {
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      font-weight: 900;
+      letter-spacing: .02em;
+    }
+    .brand img { width: 42px; height: 42px; border-radius: 12px; object-fit: cover; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .nav-links a, .lang button {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, .08);
+      color: var(--ink);
+      border-radius: 999px;
+      padding: 8px 12px;
+      text-decoration: none;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .lang button.active {
+      color: #06162d;
+      background: linear-gradient(135deg, var(--cyan), #b6f4ff);
+      border-color: transparent;
+    }
+    .hero {
+      min-height: calc(100vh - 68px);
+      display: grid;
+      align-items: end;
+      position: relative;
+      isolation: isolate;
+      border-bottom: 1px solid var(--line);
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(2, 10, 25, .80) 0%, rgba(2, 10, 25, .46) 46%, rgba(2, 10, 25, .15) 100%),
+        linear-gradient(180deg, rgba(2, 10, 25, .18) 0%, rgba(2, 10, 25, .84) 100%),
+        url("assets/hero-ru.png") center / cover no-repeat;
+      z-index: -2;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 52% 65%, rgba(34, 215, 255, .24), transparent 22rem);
+      z-index: -1;
+    }
+    .hero-content {
+      padding: 92px 0 44px;
+      max-width: 760px;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: #dff8ff;
+      background: rgba(0, 33, 75, .55);
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+    h1 {
+      margin: 0 0 14px;
+      font-size: clamp(52px, 12vw, 132px);
+      line-height: .82;
+      letter-spacing: .01em;
+      text-transform: uppercase;
+      text-shadow: 0 10px 32px rgba(0, 0, 0, .38);
+    }
+    .hero-lead {
+      max-width: 680px;
+      font-size: clamp(20px, 3vw, 34px);
+      line-height: 1.16;
+      margin: 0 0 18px;
+      color: #ecf9ff;
+      font-weight: 800;
+    }
+    .hero-text {
+      max-width: 660px;
+      color: var(--muted);
+      font-size: 18px;
+      margin: 0 0 24px;
+    }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 12px 18px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 900;
+      border: 1px solid transparent;
+    }
+    .btn.primary {
+      color: #06162d;
+      background: linear-gradient(135deg, var(--cyan), #f4fcff);
+      box-shadow: 0 14px 38px rgba(34, 215, 255, .22);
+    }
+    .btn.secondary {
+      color: var(--ink);
+      background: rgba(255, 255, 255, .08);
+      border-color: var(--line);
+    }
+    section { padding: 64px 0; }
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 26px;
+    }
+    h2 {
+      font-size: clamp(30px, 5vw, 54px);
+      line-height: 1.02;
+      margin: 0 0 12px;
+    }
+    h3 { margin: 0 0 10px; font-size: 22px; }
+    p { margin: 0 0 12px; color: var(--muted); }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: linear-gradient(180deg, var(--panel2), var(--panel));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .feature { padding: 22px; }
+    .feature b {
+      display: inline-flex;
+      width: 42px;
+      height: 42px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--cyan), #0b78d7);
+      color: #031023;
+      margin-bottom: 16px;
+      font-size: 20px;
+    }
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, .82fr);
+      gap: 24px;
+      align-items: center;
+    }
+    .visual img, .shot img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+    .visual img {
+      aspect-ratio: 16 / 10;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+    .module-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 22px;
+    }
+    .module {
+      padding: 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, .12);
+      background: rgba(255, 255, 255, .06);
+    }
+    .module strong { display: block; margin-bottom: 4px; }
+    .shots {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .shot {
+      background: var(--paper);
+      color: var(--paperInk);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255, 255, 255, .38);
+    }
+    .shot img { aspect-ratio: 16 / 10; }
+    .shot div { padding: 16px; }
+    .shot p { color: var(--paperMuted); }
+    .specs {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .spec {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, .07);
+    }
+    .spec span {
+      display: block;
+      color: var(--accent);
+      font-weight: 900;
+      margin-bottom: 4px;
+    }
+    .contact {
+      background:
+        linear-gradient(135deg, rgba(34, 215, 255, .18), rgba(255, 200, 87, .12)),
+        rgba(255, 255, 255, .05);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    footer {
+      padding: 28px 0;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+    }
+    .lang-en { display: none; }
+    html[data-lang="en"] .lang-ru { display: none; }
+    html[data-lang="en"] .lang-en { display: revert; }
+
+    @media (max-width: 900px) {
+      .grid, .specs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .split { grid-template-columns: 1fr; }
+      .hero::before {
+        background:
+          linear-gradient(180deg, rgba(2, 10, 25, .38) 0%, rgba(2, 10, 25, .88) 100%),
+          url("assets/hero-ru.png") center / cover no-repeat;
+      }
+    }
+    @media (max-width: 640px) {
+      nav { align-items: flex-start; flex-direction: column; padding: 12px 0; }
+      .nav-links { justify-content: flex-start; }
+      .hero { min-height: 760px; }
+      .grid, .shots, .module-list, .specs { grid-template-columns: 1fr; }
+      .hero-content { padding-top: 48px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="container">
+      <a class="brand" href="#top" aria-label="ПОЯС">
+        <img src="assets/app-icon.png" alt="">
+        <span>ПОЯС</span>
+      </a>
+      <div class="nav-links">
+        <a href="../">Каталог</a>
+        <a href="#modules" class="lang-ru">Модули</a>
+        <a href="#modules" class="lang-en">Modules</a>
+        <a href="#screens" class="lang-ru">Скриншоты</a>
+        <a href="#screens" class="lang-en">Screenshots</a>
+        <a href="#contact" class="lang-ru">Связаться</a>
+        <a href="#contact" class="lang-en">Contact</a>
+        <span class="lang" aria-label="Language switcher">
+          <button type="button" data-lang-button="ru" class="active">RU</button>
+          <button type="button" data-lang-button="en">EN</button>
+        </span>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-content">
+        <div class="eyebrow">
+          <span class="lang-ru">PackTuning Software · Windows · SQL Server</span>
+          <span class="lang-en">PackTuning Software · Windows · SQL Server</span>
+        </div>
+        <h1>ПОЯС</h1>
+        <p class="hero-lead lang-ru">Комплексное решение для индустрии тары и упаковки</p>
+        <p class="hero-lead lang-en">Integrated software suite for packaging engineering</p>
+        <p class="hero-text lang-ru">
+          Один рабочий комплекс для расчета гофрокартона, изделий, ящиков, раскроя, транспортных пакетов, поддонов, контейнеров, ГОСТов, сырья и производственных сценариев.
+        </p>
+        <p class="hero-text lang-en">
+          One desktop suite for corrugated board, products, boxes, cutting plans, transport packages, pallets, containers, standards, raw materials and production calculations.
+        </p>
+        <div class="actions">
+          <a class="btn primary lang-ru" href="mailto:vguberniev@gmail.com?subject=ПОЯС">Запросить демонстрацию</a>
+          <a class="btn primary lang-en" href="mailto:vguberniev@gmail.com?subject=POJAS">Request a demo</a>
+          <a class="btn secondary lang-ru" href="#screens">Посмотреть интерфейс</a>
+          <a class="btn secondary lang-en" href="#screens">View interface</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container split">
+        <div>
+          <div class="section-head">
+            <h2 class="lang-ru">Не набор отдельных калькуляторов, а единая рабочая среда</h2>
+            <h2 class="lang-en">Not a set of separate calculators, but a complete work environment</h2>
+            <p class="lang-ru">
+              ПОЯС объединяет инженерные расчеты упаковки с производственными справочниками: клиенты, изделия, типы ящиков, ГОСТы, сырье, контейнеры, поддоны и транспортные нормы доступны из одного рабочего стола.
+            </p>
+            <p class="lang-en">
+              POJAS combines packaging engineering calculations with production reference data: customers, products, box types, standards, raw materials, containers, pallets and transport rules are available from one desktop.
+            </p>
+          </div>
+          <div class="specs">
+            <div class="spec"><span>14.00</span><span class="lang-ru">актуальная версия</span><span class="lang-en">current version</span></div>
+            <div class="spec"><span>SQL Server</span><span class="lang-ru">современная база данных</span><span class="lang-en">modern database</span></div>
+            <div class="spec"><span>Windows</span><span class="lang-ru">настольная работа</span><span class="lang-en">desktop workflow</span></div>
+            <div class="spec"><span>PackTuning</span><span class="lang-ru">прикладная логика упаковки</span><span class="lang-en">packaging know-how</span></div>
+          </div>
+        </div>
+        <div class="visual">
+          <img src="assets/desktop-icons.png" alt="Рабочий стол программы ПОЯС">
+        </div>
+      </div>
+    </section>
+
+    <section id="modules">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="lang-ru">Что входит в ПОЯС</h2>
+          <h2 class="lang-en">What POJAS includes</h2>
+          <p class="lang-ru">Модули закрывают полный цикл упаковочного расчета: от изделия и ящика до поддона, контейнера, норм отгрузки и отчетов.</p>
+          <p class="lang-en">Modules cover the full packaging calculation flow: from product and box to pallet, container, shipment norms and reports.</p>
+        </div>
+        <div class="grid">
+          <article class="card feature">
+            <b>1</b>
+            <h3 class="lang-ru">Раскрой гофролиста</h3>
+            <h3 class="lang-en">Corrugated cutting</h3>
+            <p class="lang-ru">Подбор карт раскроя, учет форматов, сроков, марок картона и технологических ограничений.</p>
+            <p class="lang-en">Cutting maps, board formats, due dates, grades and production constraints.</p>
+          </article>
+          <article class="card feature">
+            <b>2</b>
+            <h3 class="lang-ru">Укладка изделий в ящики</h3>
+            <h3 class="lang-en">Product packing into boxes</h3>
+            <p class="lang-ru">Свободная укладка, решетки, зазоры, ориентации изделий и поиск подходящих типоразмеров ящиков.</p>
+            <p class="lang-en">Free packing, dividers, clearances, product orientations and suitable box sizes.</p>
+          </article>
+          <article class="card feature">
+            <b>3</b>
+            <h3 class="lang-ru">ГОСТы и прочность</h3>
+            <h3 class="lang-en">Standards and strength</h3>
+            <p class="lang-ru">Справочники ГОСТов, расчет параметров гофроящика и контроль ограничений по упаковке.</p>
+            <p class="lang-en">Standards reference data, corrugated box parameters and packaging constraints.</p>
+          </article>
+          <article class="card feature">
+            <b>4</b>
+            <h3 class="lang-ru">Паллеты и контейнеры</h3>
+            <h3 class="lang-en">Pallets and containers</h3>
+            <p class="lang-ru">Расчет укладки ящиков на поддон, контейнеров и транспортных схем с учетом габаритов и массы.</p>
+            <p class="lang-en">Box-to-pallet, container and transport layouts with dimensions and weight limits.</p>
+          </article>
+          <article class="card feature">
+            <b>5</b>
+            <h3 class="lang-ru">Сырье и склад</h3>
+            <h3 class="lang-en">Raw materials and stock</h3>
+            <p class="lang-ru">Справочники марок, сортов, производителей, складских остатков и расчет потребности для заказа.</p>
+            <p class="lang-en">Grades, manufacturers, stock balances and material demand for orders.</p>
+          </article>
+          <article class="card feature">
+            <b>6</b>
+            <h3 class="lang-ru">Производственные расчеты</h3>
+            <h3 class="lang-en">Production planning</h3>
+            <p class="lang-ru">Расчет транспортных пакетов, высот, норм отгрузки и вспомогательных производственных параметров.</p>
+            <p class="lang-en">Transport packages, heights, shipment norms and supporting production parameters.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="screens">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="lang-ru">Интерфейс и рабочие модули</h2>
+          <h2 class="lang-en">Interface and working modules</h2>
+          <p class="lang-ru">Скриншоты показывают реальные рабочие окна комплекса: расчет раскроя, транспортных пакетов, ГОСТов и логистических задач.</p>
+          <p class="lang-en">Screenshots show real working windows: cutting, transport packages, standards and logistics calculations.</p>
+        </div>
+        <div class="shots">
+          <article class="shot">
+            <img src="assets/optcut.jpg" alt="Модуль раскроя ПОЯС">
+            <div>
+              <h3 class="lang-ru">Раскрой и оптимизация</h3>
+              <h3 class="lang-en">Cutting optimization</h3>
+              <p class="lang-ru">Подбор раскроя с учетом форматов, марок картона и производственного задания.</p>
+              <p class="lang-en">Cutting selection by formats, board grades and production order.</p>
+            </div>
+          </article>
+          <article class="shot">
+            <img src="assets/truck.jpg" alt="Расчет транспортной загрузки ПОЯС">
+            <div>
+              <h3 class="lang-ru">Транспортные расчеты</h3>
+              <h3 class="lang-en">Transport calculations</h3>
+              <p class="lang-ru">Варианты загрузки, поддоны, контейнеры и нормы отгрузочного пакета.</p>
+              <p class="lang-en">Loading variants, pallets, containers and shipment package norms.</p>
+            </div>
+          </article>
+          <article class="shot">
+            <img src="assets/gost.jpg" alt="Справочник ГОСТов ПОЯС">
+            <div>
+              <h3 class="lang-ru">ГОСТы и справочники</h3>
+              <h3 class="lang-en">Standards and references</h3>
+              <p class="lang-ru">Справочная база норм, материалов, типов ящиков и ограничений.</p>
+              <p class="lang-en">Reference data for standards, materials, box types and constraints.</p>
+            </div>
+          </article>
+          <article class="shot">
+            <img src="assets/cutting.jpg" alt="Рабочий экран раскроя ПОЯС">
+            <div>
+              <h3 class="lang-ru">Рабочий расчет</h3>
+              <h3 class="lang-en">Production calculation</h3>
+              <p class="lang-ru">Практические расчеты для упаковочного производства и логистики.</p>
+              <p class="lang-en">Practical calculations for packaging production and logistics.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container split">
+        <div>
+          <h2 class="lang-ru">Нужен ПОЯС под вашу базу и процессы?</h2>
+          <h2 class="lang-en">Need POJAS adapted to your data and workflow?</h2>
+          <p class="lang-ru">
+            Напишите, какие задачи упаковки нужно считать: раскрой, ящики, ГОСТы, транспорт, склад сырья или комплексное внедрение. Можно обсудить демонстрацию, перенос данных и доработки под производство.
+          </p>
+          <p class="lang-en">
+            Tell us which packaging tasks you need to calculate: cutting, boxes, standards, transport, raw material stock or a complete deployment. We can discuss a demo, data migration and custom production logic.
+          </p>
+          <div class="actions">
+            <a class="btn primary" href="mailto:vguberniev@gmail.com?subject=ПОЯС">vguberniev@gmail.com</a>
+            <a class="btn secondary" href="../">PackTuning Software</a>
+          </div>
+        </div>
+        <div class="visual">
+          <img src="assets/app-icon.png" alt="Иконка ПОЯС">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <span>© Victor Guberniev · PackTuning Software · ПОЯС</span>
+    </div>
+  </footer>
+
+  <script>
+    const RU = "ru";
+    const EN = "en";
+    const langButtons = document.querySelectorAll("[data-lang-button]");
+
+    function setLang(lang) {
+      const safeLang = lang === EN ? EN : RU;
+      document.documentElement.lang = safeLang;
+      document.documentElement.dataset.lang = safeLang;
+      langButtons.forEach((button) => {
+        button.classList.toggle("active", button.dataset.langButton === safeLang);
+      });
+      try { localStorage.setItem("pojas-lang", safeLang); } catch (e) {}
+    }
+
+    langButtons.forEach((button) => {
+      button.addEventListener("click", () => setLang(button.dataset.langButton));
+    });
+
+    const params = new URLSearchParams(window.location.search);
+    setLang(params.get("lang") || localStorage.getItem("pojas-lang") || RU);
+  </script>
+</body>
+</html>
