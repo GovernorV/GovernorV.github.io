@@ -68,7 +68,7 @@
       --shadow: 0 28px 90px rgba(0, 0, 0, .32);
     }
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 78px; }
     body {
       margin: 0;
       font-family: "Segoe UI", Arial, sans-serif;
@@ -220,6 +220,7 @@
       border-color: var(--line);
     }
     section { padding: 64px 0; }
+    section[id] { scroll-margin-top: 78px; }
     .section-head {
       max-width: 760px;
       margin-bottom: 26px;
@@ -273,6 +274,10 @@
       border: 1px solid var(--line);
       box-shadow: var(--shadow);
     }
+    .visual img.program-window {
+      aspect-ratio: auto;
+      object-fit: contain;
+    }
     .module-list {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -302,6 +307,62 @@
     .shot img { aspect-ratio: 16 / 10; }
     .shot div { padding: 16px; }
     .shot p { color: var(--paperMuted); }
+    .materials-content {
+      padding: clamp(20px, 4vw, 42px);
+      border-radius: 22px;
+      background: var(--paper);
+      color: var(--paperInk);
+      box-shadow: var(--shadow);
+    }
+    .materials-content > p:first-child {
+      color: var(--paperInk);
+      font-size: clamp(24px, 4vw, 38px);
+      line-height: 1.16;
+      font-weight: 900;
+      margin-bottom: 28px;
+    }
+    .materials-content h3 {
+      color: var(--paperInk);
+      font-size: clamp(24px, 3vw, 34px);
+      line-height: 1.18;
+      margin: 44px 0 14px;
+    }
+    .materials-content p,
+    .materials-content li {
+      color: var(--paperMuted);
+      font-size: 17px;
+    }
+    .materials-content ul {
+      margin: 0 0 18px;
+      padding-left: 24px;
+    }
+    .materials-content li { margin: 8px 0; }
+    .materials-content a {
+      color: #0867b2;
+      font-weight: 800;
+    }
+    .material-image {
+      margin: 22px auto;
+      width: fit-content;
+      max-width: 100%;
+    }
+    .material-image img {
+      display: block;
+      width: auto;
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #d4dfec;
+      border-radius: 12px;
+      box-shadow: 0 14px 38px rgba(16, 33, 61, .16);
+    }
+    .wp-block-media-text {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, .72fr);
+      gap: 24px;
+      align-items: center;
+      margin: 22px 0;
+    }
+    .wp-block-media-text .material-image { margin: 0; }
     .publication {
       display: grid;
       grid-template-columns: minmax(0, .72fr) minmax(320px, 1fr);
@@ -361,7 +422,7 @@
 
     @media (max-width: 900px) {
       .grid, .shots, .specs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .split, .publication { grid-template-columns: 1fr; }
+      .split, .publication, .wp-block-media-text { grid-template-columns: 1fr; }
       .hero::before {
         background:
           linear-gradient(180deg, rgba(2, 10, 25, .38) 0%, rgba(2, 10, 25, .88) 100%),
@@ -376,6 +437,8 @@
     @media (max-width: 640px) {
       nav { align-items: flex-start; flex-direction: column; padding: 12px 0; }
       .nav-links { justify-content: flex-start; }
+      html { scroll-padding-top: 180px; }
+      section[id] { scroll-margin-top: 180px; }
       .hero { min-height: 760px; }
       .grid, .shots, .module-list, .specs { grid-template-columns: 1fr; }
       .hero-content { padding-top: 48px; }
@@ -454,7 +517,7 @@
           </div>
         </div>
         <div class="visual">
-          <img src="assets/desktop-icons.png" alt="Рабочий стол программы ПОЯС">
+          <img class="program-window" src="assets/pojas-main-window.png" alt="Главное окно программы ПОЯС">
         </div>
       </div>
     </section>
@@ -519,77 +582,274 @@
         <div class="section-head">
           <h2 class="lang-ru">Материалы и рабочие задачи ПОЯС</h2>
           <h2 class="lang-en">POJAS materials and working tasks</h2>
-          <p class="lang-ru">Иллюстрации и формулировки взяты с текущей страницы PackTuning о ПОЯСе: это именно модули комплекса, а не скриншоты сторонних программ.</p>
-          <p class="lang-en">Images and descriptions are based on the current PackTuning POJAS page: these are POJAS suite modules, not third-party screenshots.</p>
         </div>
-        <div class="shots">
-          <article class="shot">
-            <img src="assets/pojas-box-optimization.png" alt="ПОЯС: оптимизация размеров гофроящика">
-            <div>
-              <h3 class="lang-ru">Оптимизация гофроящика</h3>
-              <h3 class="lang-en">Corrugated box optimization</h3>
-              <p class="lang-ru">Расчет размеров ящика с учетом стоимости транспортной тары, ограничений изделия и обрезного отхода.</p>
-              <p class="lang-en">Box dimension calculation with transport packaging cost, product constraints and trimming waste in mind.</p>
-            </div>
-          </article>
-          <article class="shot">
-            <img src="assets/pojas-product-packing.png" alt="ПОЯС: укладка изделий в ящики">
-            <div>
-              <h3 class="lang-ru">Укладка изделий</h3>
-              <h3 class="lang-en">Product packing</h3>
-              <p class="lang-ru">Поиск укладки разных типов изделий в заданный ящик, включая решетки, перегородки, зазоры и кантование.</p>
-              <p class="lang-en">Packing layouts for different product types, including dividers, clearances and permitted orientations.</p>
-            </div>
-          </article>
-          <article class="shot">
-            <img src="assets/pojas-gost-boxes.png" alt="ПОЯС: подбор ящиков из ГОСТов">
-            <div>
-              <h3 class="lang-ru">ГОСТы и наборы ящиков</h3>
-              <h3 class="lang-en">Standards and box sets</h3>
-              <p class="lang-ru">Подбор ящика из ГОСТов или собственного набора размеров, например складских ящиков и существующих штампов.</p>
-              <p class="lang-en">Choosing a box from standards or a custom set, such as stock boxes and existing cutting dies.</p>
-            </div>
-          </article>
-          <article class="shot">
-            <img src="assets/pojas-pallet-layout.png" alt="ПОЯС: оптимальная укладка ящиков на поддон">
-            <div>
-              <h3 class="lang-ru">Укладка на поддон</h3>
-              <h3 class="lang-en">Pallet layouts</h3>
-              <p class="lang-ru">Оптимизация размещения готовых ящиков на поддоне для снижения числа поддонов и транспортных расходов.</p>
-              <p class="lang-en">Optimized pallet layouts to reduce pallet count and transportation cost.</p>
-            </div>
-          </article>
-          <article class="shot">
-            <img src="assets/pojas-group-packaging.png" alt="ПОЯС: групповая тара и анализатор">
-            <div>
-              <h3 class="lang-ru">Групповая тара</h3>
-              <h3 class="lang-en">Group packaging</h3>
-              <p class="lang-ru">Группировка изделий по ящикам из ГОСТов или произвольных размеров, в том числе через модуль анализа совместимости.</p>
-              <p class="lang-en">Grouping products into standard or custom boxes, including compatibility analysis.</p>
-            </div>
-          </article>
-          <article class="shot">
-            <img src="assets/pojas-container-layout.png" alt="ПОЯС: укладка ящиков в контейнер">
-            <div>
-              <h3 class="lang-ru">Контейнеры</h3>
-              <h3 class="lang-en">Containers</h3>
-              <p class="lang-ru">Расчет погрузки ящиков в контейнер, вагон, трюм или автофургон, с поддонами или без них.</p>
-              <p class="lang-en">Loading boxes into containers, rail cars, ship holds or trucks, with or without pallets.</p>
-            </div>
-          </article>
-          <article class="shot">
-            <img src="assets/pojas-transport-package.png" alt="ПОЯС: формирование транспортного пакета">
-            <div>
-              <h3 class="lang-ru">Транспортный пакет</h3>
-              <h3 class="lang-en">Transport package</h3>
-              <p class="lang-ru">Подбор числа заготовок в пачке и высоты пакета для отгрузки сложенных ящиков и заполнения контейнера.</p>
-              <p class="lang-en">Selecting bundle count and package height for shipping folded boxes and filling a container efficiently.</p>
-            </div>
-          </article>
-        </div>
+        <article class="materials-content">
+<p class="wp-block-paragraph">Как снизить себестоимость продукта за счёт упаковки?<br>И чем в этом может помочь программа «ПОЯС»?</p>
+
+<figure class="material-image"><img src="assets/packtuning/image02.jpeg" width="779" height="578" alt="Иллюстрация к материалам программы ПОЯС" loading="lazy"></figure>
+
+<h3>Индивидуальная упаковка</h3>
+
+<p class="wp-block-paragraph">Стоимость&nbsp;&nbsp; индивидуальной&nbsp;&nbsp; упаковки&nbsp;&nbsp; может&nbsp;&nbsp; быть&nbsp;&nbsp; снижена&nbsp;&nbsp;за счёт&nbsp;выбора оптимальных размеров изделия при сохранении вместимости.</p>
+
+<p class="wp-block-paragraph">В программе «ПОЯС» реализованы модули для оптимизации индивидуальной упаковки для следующих типов изделий:</p>
+
+<ul class="wp-block-list">
+<li>• Жидкости в бутылках (с сечением в форме круга, эллипса или прямоугольника). </li>
+
+<li>Чай или иной насыпной товар в бумажных пачках.</li>
+</ul>
+
+<figure class="material-image"><img src="assets/packtuning/image03.png" width="818" height="557" alt="Иллюстрация к материалам программы ПОЯС" loading="lazy"></figure>
+
+<figure class="material-image"><img src="assets/packtuning/image04.png" width="778" height="521" alt="Иллюстрация к материалам программы ПОЯС" loading="lazy"></figure>
+
+<h3>Транспортная тара</h3>
+
+<p class="wp-block-paragraph">Для перевозки от производителя к потребителю товар упаковывается в транспортную тару. Одним из наиболее распространённых видов транспортной тары является ящик из гофрированного картона.</p>
+
+<ul class="wp-block-list">
+<li>Существует множество конструкций гофроящиков. За счёт выбора оптимальной конструкции можно снизить расход гофрокартона при сохранении объёма ящика.</li>
+
+<li>Изделия в индивидуальной упаковке можно укладывать в транспортную тару различными способами. Чем больше изделий уложено в ящик, тем меньшая доля его стоимости приходится на одно изделие.</li>
+
+<li>При раскрое листа гофрокартона на заготовки гофроящиков некоторая часть листа уходит в отход. Выбор оптимальных размеров гофроящика позволяет снизить этот отход до минимума.</li>
+
+<li>У многих производителей упаковки имеется свой набор готовых ящиков на складе или готовых штампов для изготовления ящиков. Подбор готового ящика для изделий или ящика, для которого имеется штамп позволяет существенно сэкономить на упаковке за счёт проектирования, изготовления штампа или вырубки заготовок гофроящиков.</li>
+</ul>
+
+<h3>Подбор оптимальной конструкции гофроящика</h3>
+
+<p class="wp-block-paragraph">Для каждой конструкции гофроящика существует оптимальное соотношение размеров ящика (длины, ширины и высоты), при котором достигается минимум площади развёртки. Чем ближе соотношение размеров исходного ящика к оптимальному, тем более экономичной является рассматриваемая конструкция. </p>
+
+<figure class="material-image"><img src="assets/packtuning/image05.png" width="591" height="541" alt="Иллюстрация к материалам программы ПОЯС" loading="lazy"></figure>
+
+<h3>Оптимизация укладки изделий</h3>
+
+<p class="wp-block-paragraph">Программа «ПОЯС» позволяет находить оптимальную укладку изделий различных типов в заданный ящик. </p>
+
+<p class="wp-block-paragraph">При этом изделия могут подвергаться деформации (как за счёт сжатия содержимого, так и за счёт растяжения индивидуальной упаковки). </p>
+
+<p class="wp-block-paragraph">Возможна укладка с разделительными решётками или перегородками. Изделия можно укладывать плашмя, ставить на ребро или на торец (кантовать).</p>
+
+<p class="wp-block-paragraph">Изделия могут вставляться друг в друга с выступом на определённую величину. </p>
+
+<p class="wp-block-paragraph">При необходимости деформацию, кантование, решётки и неподходящие виды укладки можно отключить. </p>
+
+<figure class="material-image"><img src="assets/packtuning/image06.png" width="558" height="573" alt="Иллюстрация к материалам программы ПОЯС" loading="lazy"></figure>
+
+<figure class="material-image"><img src="assets/packtuning/image07.png" width="684" height="464" alt="Иллюстрация к материалам программы ПОЯС" loading="lazy"></figure>
+
+<h3>Снижение обрезного отхода</h3>
+
+<p class="wp-block-paragraph">При подборе оптимального ящика программа «ПОЯС» учитывает обрезной отход. Его снижение позволяет значительно снизить себестоимость транспортной тары. </p>
+
+<p class="wp-block-paragraph">Если используется несколько форматов листа, программа подберёт оптимальный. </p>
+
+<figure class="material-image"><img src="assets/packtuning/image08_-1024x515.png" width="1024" height="515" alt="Иллюстрация к материалам программы ПОЯС" loading="lazy"></figure>
+
+<h3>Подбор оптимального ящика из имеющегося набора размеров</h3>
+
+<p class="wp-block-paragraph">В программе «ПОЯС» возможен подбор ящика из ГОСТов, представляющих из себя наборы размеров. </p>
+
+<p class="wp-block-paragraph">При этом вы можете завести в базу данных свой «ГОСТ», в который внесёте размеры своих готовых ящиков, имеющихся на складе или ящиков для которых у вас есть в наличии вырубные штампы.  </p>
+
+<figure class="material-image"><img src="assets/packtuning/image10.png" width="652" height="401" alt="Иллюстрация к материалам программы ПОЯС" loading="lazy"></figure>
+
+<h3>Оптимальная укладка на поддон</h3>
+
+<p class="wp-block-paragraph">Транспортные ящики с готовой продукцией в большинстве случаев перевозятся на поддонах. За счёт оптимизации укладки ящиков на поддон можно снизить число перевозимых поддонов и существенно сократить транспортные расходы. </p>
+
+<p class="wp-block-paragraph">Хорошая укладка также препятствует рассыпанию ящиков из-за тряски во время перевозки. </p>
+
+<figure class="material-image"><img src="assets/packtuning/image11.png" width="745" height="543" alt="Иллюстрация к материалам программы ПОЯС" loading="lazy"></figure>
+
+<h3>Групповая тара</h3>
+
+<p class="wp-block-paragraph">Если видов изделий много, то значительную экономию можно получить за счёт снижения числа типоразмеров ящиков. Ведь один и тот же ящик можно использовать для разных изделий. </p>
+
+<p class="wp-block-paragraph">Это позволяет сэкономить на проектировании ящика, на создании вырубного штампа, на перенастройке оборудования и на учёте упаковочной продукции. </p>
+
+<p class="wp-block-paragraph">Программа «ПОЯС» позволяет группировать изделия по ящикам как из ГОСТов или заданных наборов, так и произвольных размеров. Группировка возможна как в автоматическом, так и в ручном режиме при помощи специального модуля «Анализатор». </p>
+
+<figure class="material-image"><img src="assets/packtuning/image12.png" width="779" height="568" alt="Иллюстрация к материалам программы ПОЯС" loading="lazy"></figure>
+
+<figure class="material-image"><img src="assets/packtuning/image13.png" width="779" height="568" alt="Иллюстрация к материалам программы ПОЯС" loading="lazy"></figure>
+
+<p class="wp-block-paragraph">В данном примере для 6 изделий фирмы «Апрель» найдены 2 ящика из ГОСТа. </p>
+
+<h3>Группировка вручную</h3>
+
+<p class="wp-block-paragraph">Модуль «Анализатор» позволяет анализировать совместимость ограничений на укладку изделий и вручную формировать группы изделий. </p>
+
+<figure class="material-image"><img src="assets/packtuning/image14.png" width="768" height="600" alt="Иллюстрация к материалам программы ПОЯС" loading="lazy"></figure>
+
+<figure class="material-image"><img src="assets/packtuning/image15_-1024x841.png" width="1024" height="841" alt="Иллюстрация к материалам программы ПОЯС" loading="lazy"></figure>
+
+<h3>Улучшение ящика</h3>
+
+<p class="wp-block-paragraph">Принимая за основу ящик из ГОСТа, программа «ПОЯС» позволяет улучшить его за счёт изменения размеров. </p>
+
+<p class="wp-block-paragraph">В качестве критерия принимается стоимость транспортной тары на единицу изделия, в неё упакованного. </p>
+
+<p class="wp-block-paragraph">Найденное решение можно изменять вручную, наблюдая как при этом изменяется укладка (сразу, в реальном времени). Таким образом при расчёте можно сразу одновременно оптимизировать укладку ящиков на поддон.</p>
+
+<figure class="material-image"><img src="assets/packtuning/image16.png" width="779" height="568" alt="Иллюстрация к материалам программы ПОЯС" loading="lazy"></figure>
+
+<h3>Укладка ящиков в контейнер</h3>
+
+<p class="wp-block-paragraph">Ящики на поддонах погружают в контейнер: железнодорожный вагон, трюм корабля или кузов автофургона. Реже ящики укладывают в контейнер без поддонов. Оптимальная укладка ящиков в контейнер позволяет снизить число необходимых контейнеров или число перевозок, что даёт существенную экономию на транспортировке продукции.</p>
+
+<figure class="material-image"><img src="assets/packtuning/image17.png" width="659" height="604" alt="Иллюстрация к материалам программы ПОЯС" loading="lazy"></figure>
+
+<figure class="material-image"><img src="assets/packtuning/image18.png" width="659" height="604" alt="Иллюстрация к материалам программы ПОЯС" loading="lazy"></figure>
+
+<h3>Формирование транспортного пакета</h3>
+
+<p class="wp-block-paragraph">При отгрузке готовых ящиков в сложенном виде клиенту возникает задача формирования транспортного пакета. </p>
+
+<p class="wp-block-paragraph">Ящики увязывают в пачки, и за счёт оптимального выбора числа ящиков в пачке можно добиться хорошего заполнения контейнера по высоте и выровнять количество заготовок на поддонах, чтобы последний поддон не был полупустым. </p>
+
+<p class="wp-block-paragraph">Если транспортная тара идёт в комплекте (например, ящик, решётка в сборе, прокладка), то программа позволяет рассчитать норму отгрузки комплектов на контейнер. Это необходимо для определения количества потребных контейнеров. </p>
+
+<figure class="material-image"><img src="assets/packtuning/image19.png" width="796" height="629" alt="Иллюстрация к материалам программы ПОЯС" loading="lazy"></figure>
+
+<h3>Оптимальный раскрой полотна гофроагрегата</h3>
+
+<p class="wp-block-paragraph">При изготовлении заготовок гофроящиков и других изделий из гофрокартона за счёт рационального раскроя полотна можно существенно снизить обрезной отход. </p>
+
+<figure class="material-image"><img src="assets/packtuning/image21_-1024x525.png" width="1024" height="525" alt="Иллюстрация к материалам программы ПОЯС" loading="lazy"></figure>
+
+<p class="wp-block-paragraph">Программа «ПОЯС» позволяет сформировать план работы гофроагрегата с учётом рационального раскроя заготовок на полотне. </p>
+
+<h3>Учёт переработки заказов</h3>
+
+<p class="wp-block-paragraph">После изготовления на гофроагрегате заготовки поступают на перерабатывающие линии. </p>
+
+<p class="wp-block-paragraph">Программа «ПОЯС» позволяет сформировать план работы гофроагрегата с учётом рациональной загрузки перерабатывающих линий. Это позволяет избежать их простоя в работе. </p>
+
+<figure class="material-image"><img src="assets/packtuning/image23.jpeg" width="673" height="507" alt="Иллюстрация к материалам программы ПОЯС" loading="lazy"></figure>
+
+<figure class="material-image"><img src="assets/packtuning/image24.jpeg" width="666" height="426" alt="Иллюстрация к материалам программы ПОЯС" loading="lazy"></figure>
+
+<h3>Расчёт предельной нагрузки ящика</h3>
+
+<p class="wp-block-paragraph">Программа «ПОЯС» позволяет рассчитать предельную нагрузку на ящик заданных размеров, и выбрать марку гофрокартона. </p>
+
+<p class="wp-block-paragraph">Правильный выбор марки гофрокартона для изготовления ящика позволяет с одной стороны не допустить излишних расходов на сырьё, из-за завышенной прочности ящика, а с другой стороны не допустить разрушения ящика, и порчи груза из-за заниженной прочности. </p>
+
+<p class="wp-block-paragraph">Условия хранения и перевозки ящика можно задать не постоянными, а случайными величинами с нормальным распределением: с известными средним значением и стандартным отклонением. </p>
+
+<div class="wp-block-media-text has-media-on-the-right is-stacked-on-mobile"><div class="wp-block-media-text__content">
+<p class="wp-block-paragraph">В этом случае предельная нагрузка определяется серией статистических испытаний. </p>
+</div><figure class="material-image"><img src="assets/packtuning/image26.jpeg" width="300" height="308" alt="Иллюстрация к материалам программы ПОЯС" loading="lazy"></figure></div>
+
+<p class="wp-block-paragraph">Программа «ПОЯС» позволяет решать и обратную задачу: определение количества ящиков в штабеле для заданной марки гофрокартона: </p>
+
+<figure class="material-image"><img src="assets/packtuning/image25_.png" width="710" height="428" alt="Иллюстрация к материалам программы ПОЯС" loading="lazy"></figure>
+
+<h3>ГОСТ 9142-90</h3>
+
+<p class="wp-block-paragraph">В программе «ПОЯС» реализована возможность удобного использования ГОСТ 9142-90: </p>
+
+<figure class="material-image"><img src="assets/packtuning/gost_cut_2-1024x570.png" width="1024" height="570" alt="Иллюстрация к материалам программы ПОЯС" loading="lazy"></figure>
+
+<p class="wp-block-paragraph">Также есть реализация ГОСТ 9142-90 в виде отдельной <a href="https://tara.plitmontazh.com/gost914290/" data-type="page" data-id="71" target="_blank" rel="noreferrer noopener">программы</a>. </p>
+
+<h3>Расчёт длины ножей на штампе</h3>
+
+<p class="wp-block-paragraph">Программа позволяет рассчитывать длину резательных и биговальных ножей на штампе как для стандартных четырёх-клапанных ящиков, так и для ящиков произвольной конструкции. </p>
+
+<figure class="material-image"><img src="assets/packtuning/image30.png" width="595" height="255" alt="Иллюстрация к материалам программы ПОЯС" loading="lazy"></figure>
+
+<h3>Построение эскиза самосборной решётки</h3>
+
+<p class="wp-block-paragraph">В программе «ПОЯС» имеется специальный модуль для построения эскиза самосборной решётки.<br>Программа позволяет также рассчитать оптимальную укладку решёток в сборе на поддон.</p>
+
+<figure class="material-image"><img src="assets/packtuning/image31_-1024x542.png" width="1024" height="542" alt="Иллюстрация к материалам программы ПОЯС" loading="lazy"></figure>
+
+<h3>Оптимальный раскрой полотна на продольно-резательном станке</h3>
+
+<div class="wp-block-media-text has-media-on-the-right is-stacked-on-mobile"><div class="wp-block-media-text__content">
+<p class="wp-block-paragraph">Для раскроя бобины бумаги или картона на ПРС в программе «ПОЯС» предусмотрен отдельный модуль: </p>
+</div><figure class="material-image"><img src="assets/packtuning/image33.jpeg" width="615" height="461" alt="Иллюстрация к материалам программы ПОЯС" loading="lazy"></figure></div>
+
+<figure class="material-image"><img src="assets/packtuning/image34.png" width="748" height="515" alt="Иллюстрация к материалам программы ПОЯС" loading="lazy"></figure>
+
+<h3>Раскрой рулонов на бобинорезке</h3>
+
+<p class="wp-block-paragraph">Программа позволяет построить план работы бобинорезки с учётом рационального раскроя рулонов: </p>
+
+<figure class="material-image"><img src="assets/packtuning/image35.png" width="760" height="498" alt="Иллюстрация к материалам программы ПОЯС" loading="lazy"></figure>
+
+<h3>Планирование работы ротационных станков</h3>
+
+<div class="wp-block-media-text has-media-on-the-right is-stacked-on-mobile"><div class="wp-block-media-text__content">
+<p class="wp-block-paragraph">Программа позволяет построить план работы ротационных станков</p>
+</div><figure class="material-image"><img src="assets/packtuning/image36.jpeg" width="500" height="376" alt="Иллюстрация к материалам программы ПОЯС" loading="lazy"></figure></div>
+
+<figure class="material-image"><img src="assets/packtuning/image37.png" width="899" height="509" alt="Иллюстрация к материалам программы ПОЯС" loading="lazy"></figure>
+
+<h3>Планирование работы картоноделательной машины</h3>
+
+<div class="wp-block-media-text has-media-on-the-right is-stacked-on-mobile"><div class="wp-block-media-text__content">
+<p class="wp-block-paragraph">Программа «ПОЯС» позволяет построить план работы КДМ по заданному пакету заказов: </p>
+</div><figure class="material-image"><img src="assets/packtuning/image39.jpeg" width="500" height="326" alt="Иллюстрация к материалам программы ПОЯС" loading="lazy"></figure></div>
+
+<figure class="material-image"><img src="assets/packtuning/image38.png" width="1024" height="763" alt="Иллюстрация к материалам программы ПОЯС" loading="lazy"></figure>
+
+<h3>Расчёт коэффициента гофрирования</h3>
+
+<p class="wp-block-paragraph">Программа позволяет рассчитать коэффициент гофрирования, необходимый для определения потребного количества бумаги для гофрирования. </p>
+
+<figure class="material-image"><img src="assets/packtuning/image41_-1024x545.png" width="1024" height="545" alt="Иллюстрация к материалам программы ПОЯС" loading="lazy"></figure>
+
+<h3>Склад сырья и расчёт стоимости заказа</h3>
+
+<p class="wp-block-paragraph">Программа «ПОЯС» позволяет вести учёт сырьевых материалов и<br>рассчитать стоимость заказа с выбранным сырьём. </p>
+
+<figure class="material-image"><img src="assets/packtuning/image43.png" width="808" height="605" alt="Иллюстрация к материалам программы ПОЯС" loading="lazy"></figure>
+
+<h3>Привязка марки гофрокартона к сырью</h3>
+
+<div class="wp-block-media-text has-media-on-the-right is-stacked-on-mobile"><div class="wp-block-media-text__content">
+<p class="wp-block-paragraph">В специальном модуле программы «ПОЯС» можно привязать имеющееся сырьё к маркам и сортам гофрокартона. </p>
+
+<p class="wp-block-paragraph">Это необходимо для определения базовой композиции сырья при расчёте предельной нагрузки ящика. А также для определения стоимости 1 кв. метра гофрокартона.</p>
+</div><figure class="material-image"><img src="assets/packtuning/image45.png" width="486" height="439" alt="Иллюстрация к материалам программы ПОЯС" loading="lazy"></figure></div>
+
+<figure class="material-image"><img src="assets/packtuning/image44.png" width="698" height="513" alt="Иллюстрация к материалам программы ПОЯС" loading="lazy"></figure>
+
+<h3>Дизайн ящика</h3>
+
+<div class="wp-block-media-text has-media-on-the-right is-stacked-on-mobile"><div class="wp-block-media-text__content">
+<p class="wp-block-paragraph">Программа позволяет создать эскиз дизайна гофроящика, нанести упаковочные знаки и штрих-код EAN-13</p>
+</div><figure class="material-image"><img src="assets/packtuning/image47.png" width="506" height="322" alt="Иллюстрация к материалам программы ПОЯС" loading="lazy"></figure></div>
+
+<figure class="material-image"><img src="assets/packtuning/image46-1024x629.jpeg" width="1024" height="629" alt="Иллюстрация к материалам программы ПОЯС" loading="lazy"></figure>
+
+<h3>Внедрение</h3>
+
+<p class="wp-block-paragraph">Программа «ПОЯС» установлена на таких предприятиях, как</p>
+
+<ul class="wp-block-list">
+<li>ГОТЭК (г. Железногорск, Курской обл.)</li>
+
+<li>ККТК (г. Киев)</li>
+
+<li>Фабрика «СОЮЗ» (г. Москва)</li>
+
+<li>Картонатара (г. Майкоп, Респ. Адыгея)</li>
+
+<li>И ряде других предприятий России и СНГ.</li>
+</ul>
+
+<p class="wp-block-paragraph">Программа «ПОЯС» успешно применялась для решения задач таких компаний, как</p>
+
+<p class="wp-block-paragraph">• Фабрика «Свобода» (г. Москва.)<br>• Невская Косметика (г. Санкт-Петербург)<br>• Останкинский молочный комбинат (г. Москва)<br>• Униливер (г. Москва)<br>• И десятков других предприятий России и СНГ.</p>
+        </article>
       </div>
     </section>
-
     <section id="publications">
       <div class="container publication">
         <div class="section-head">
