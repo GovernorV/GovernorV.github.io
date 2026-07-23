@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ПОЯС — программный комплекс для тары и упаковки</title>
-  <meta name="description" content="ПОЯС: программный комплекс для индустрии тары и упаковки. Раскрой гофролиста, укладка изделий в ящики, паллеты, контейнеры, транспортные пакеты, ГОСТы, сырье и производственные расчеты.">
+  <meta name="description" content="ПОЯС: программный комплекс для индустрии тары и упаковки. Раскрой гофролиста, укладка изделий в ящики, паллеты, контейнеры, транспортные пакеты, ГОСТы, сырье, публикации и производственные расчеты.">
   <meta name="keywords" content="ПОЯС, упаковка, тара, раскрой гофролиста, гофрокартон, укладка изделий в ящики, транспортный пакет, ГОСТ, паллетизация, SQL Server, PackTuning">
   <meta name="author" content="Victor Guberniev">
   <meta name="robots" content="index, follow, max-image-preview:large">
@@ -18,7 +18,7 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="PackTuning Software">
   <meta property="og:title" content="ПОЯС — программный комплекс для тары и упаковки">
-  <meta property="og:description" content="Комплексное решение для расчета упаковки: раскрой, ящики, изделия, ГОСТы, паллеты, контейнеры, сырье и транспортные пакеты.">
+  <meta property="og:description" content="Комплексное решение для расчета упаковки: раскрой, ящики, изделия, ГОСТы, паллеты, контейнеры, сырье, публикации и транспортные пакеты.">
   <meta property="og:url" content="https://governorv.github.io/Pojas/">
   <meta property="og:image" content="https://governorv.github.io/Pojas/assets/hero-ru.png">
   <meta property="og:locale" content="ru_RU">
@@ -282,7 +282,7 @@
     .module strong { display: block; margin-bottom: 4px; }
     .shots {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 18px;
     }
     .shot {
@@ -296,6 +296,22 @@
     .shot img { aspect-ratio: 16 / 10; }
     .shot div { padding: 16px; }
     .shot p { color: var(--paperMuted); }
+    .publication {
+      display: grid;
+      grid-template-columns: minmax(0, .72fr) minmax(320px, 1fr);
+      gap: 22px;
+      align-items: stretch;
+    }
+    .publication-card {
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: linear-gradient(180deg, var(--panel2), var(--panel));
+      box-shadow: var(--shadow);
+    }
+    .publication-card a { color: var(--cyan); font-weight: 900; }
+    .source-list { margin: 14px 0 0; padding-left: 20px; color: var(--muted); }
+    .source-list li { margin: 8px 0; }
     .specs {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -330,8 +346,8 @@
     html[data-lang="en"] .lang-en { display: revert; }
 
     @media (max-width: 900px) {
-      .grid, .specs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .split { grid-template-columns: 1fr; }
+      .grid, .shots, .specs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .split, .publication { grid-template-columns: 1fr; }
       .hero::before {
         background:
           linear-gradient(180deg, rgba(2, 10, 25, .38) 0%, rgba(2, 10, 25, .88) 100%),
@@ -359,8 +375,10 @@
         <a href="../">Каталог</a>
         <a href="#modules" class="lang-ru">Модули</a>
         <a href="#modules" class="lang-en">Modules</a>
-        <a href="#screens" class="lang-ru">Скриншоты</a>
-        <a href="#screens" class="lang-en">Screenshots</a>
+        <a href="#screens" class="lang-ru">Материалы</a>
+        <a href="#screens" class="lang-en">Materials</a>
+        <a href="#publications" class="lang-ru">Публикации</a>
+        <a href="#publications" class="lang-en">Publications</a>
         <a href="#contact" class="lang-ru">Связаться</a>
         <a href="#contact" class="lang-en">Contact</a>
         <span class="lang" aria-label="Language switcher">
@@ -390,8 +408,8 @@
         <div class="actions">
           <a class="btn primary lang-ru" href="mailto:vguberniev@gmail.com?subject=ПОЯС">Запросить демонстрацию</a>
           <a class="btn primary lang-en" href="mailto:vguberniev@gmail.com?subject=POJAS">Request a demo</a>
-          <a class="btn secondary lang-ru" href="#screens">Посмотреть интерфейс</a>
-          <a class="btn secondary lang-en" href="#screens">View interface</a>
+          <a class="btn secondary lang-ru" href="#screens">Посмотреть материалы</a>
+          <a class="btn secondary lang-en" href="#screens">View materials</a>
         </div>
       </div>
     </section>
@@ -480,49 +498,101 @@
     <section id="screens">
       <div class="container">
         <div class="section-head">
-          <h2 class="lang-ru">Интерфейс и рабочие модули</h2>
-          <h2 class="lang-en">Interface and working modules</h2>
-          <p class="lang-ru">Скриншоты показывают реальные рабочие окна комплекса: расчет раскроя, транспортных пакетов, ГОСТов и логистических задач.</p>
-          <p class="lang-en">Screenshots show real working windows: cutting, transport packages, standards and logistics calculations.</p>
+          <h2 class="lang-ru">Материалы и рабочие задачи ПОЯС</h2>
+          <h2 class="lang-en">POJAS materials and working tasks</h2>
+          <p class="lang-ru">Иллюстрации и формулировки взяты с текущей страницы PackTuning о ПОЯСе: это именно модули комплекса, а не скриншоты сторонних программ.</p>
+          <p class="lang-en">Images and descriptions are based on the current PackTuning POJAS page: these are POJAS suite modules, not third-party screenshots.</p>
         </div>
         <div class="shots">
           <article class="shot">
-            <img src="assets/optcut.jpg" alt="Модуль раскроя ПОЯС">
+            <img src="assets/pojas-box-optimization.png" alt="ПОЯС: оптимизация размеров гофроящика">
             <div>
-              <h3 class="lang-ru">Раскрой и оптимизация</h3>
-              <h3 class="lang-en">Cutting optimization</h3>
-              <p class="lang-ru">Подбор раскроя с учетом форматов, марок картона и производственного задания.</p>
-              <p class="lang-en">Cutting selection by formats, board grades and production order.</p>
+              <h3 class="lang-ru">Оптимизация гофроящика</h3>
+              <h3 class="lang-en">Corrugated box optimization</h3>
+              <p class="lang-ru">Расчет размеров ящика с учетом стоимости транспортной тары, ограничений изделия и обрезного отхода.</p>
+              <p class="lang-en">Box dimension calculation with transport packaging cost, product constraints and trimming waste in mind.</p>
             </div>
           </article>
           <article class="shot">
-            <img src="assets/truck.jpg" alt="Расчет транспортной загрузки ПОЯС">
+            <img src="assets/pojas-product-packing.png" alt="ПОЯС: укладка изделий в ящики">
             <div>
-              <h3 class="lang-ru">Транспортные расчеты</h3>
-              <h3 class="lang-en">Transport calculations</h3>
-              <p class="lang-ru">Варианты загрузки, поддоны, контейнеры и нормы отгрузочного пакета.</p>
-              <p class="lang-en">Loading variants, pallets, containers and shipment package norms.</p>
+              <h3 class="lang-ru">Укладка изделий</h3>
+              <h3 class="lang-en">Product packing</h3>
+              <p class="lang-ru">Поиск укладки разных типов изделий в заданный ящик, включая решетки, перегородки, зазоры и кантование.</p>
+              <p class="lang-en">Packing layouts for different product types, including dividers, clearances and permitted orientations.</p>
             </div>
           </article>
           <article class="shot">
-            <img src="assets/gost.jpg" alt="Справочник ГОСТов ПОЯС">
+            <img src="assets/pojas-gost-boxes.png" alt="ПОЯС: подбор ящиков из ГОСТов">
             <div>
-              <h3 class="lang-ru">ГОСТы и справочники</h3>
-              <h3 class="lang-en">Standards and references</h3>
-              <p class="lang-ru">Справочная база норм, материалов, типов ящиков и ограничений.</p>
-              <p class="lang-en">Reference data for standards, materials, box types and constraints.</p>
+              <h3 class="lang-ru">ГОСТы и наборы ящиков</h3>
+              <h3 class="lang-en">Standards and box sets</h3>
+              <p class="lang-ru">Подбор ящика из ГОСТов или собственного набора размеров, например складских ящиков и существующих штампов.</p>
+              <p class="lang-en">Choosing a box from standards or a custom set, such as stock boxes and existing cutting dies.</p>
             </div>
           </article>
           <article class="shot">
-            <img src="assets/cutting.jpg" alt="Рабочий экран раскроя ПОЯС">
+            <img src="assets/pojas-pallet-layout.png" alt="ПОЯС: оптимальная укладка ящиков на поддон">
             <div>
-              <h3 class="lang-ru">Рабочий расчет</h3>
-              <h3 class="lang-en">Production calculation</h3>
-              <p class="lang-ru">Практические расчеты для упаковочного производства и логистики.</p>
-              <p class="lang-en">Practical calculations for packaging production and logistics.</p>
+              <h3 class="lang-ru">Укладка на поддон</h3>
+              <h3 class="lang-en">Pallet layouts</h3>
+              <p class="lang-ru">Оптимизация размещения готовых ящиков на поддоне для снижения числа поддонов и транспортных расходов.</p>
+              <p class="lang-en">Optimized pallet layouts to reduce pallet count and transportation cost.</p>
+            </div>
+          </article>
+          <article class="shot">
+            <img src="assets/pojas-group-packaging.png" alt="ПОЯС: групповая тара и анализатор">
+            <div>
+              <h3 class="lang-ru">Групповая тара</h3>
+              <h3 class="lang-en">Group packaging</h3>
+              <p class="lang-ru">Группировка изделий по ящикам из ГОСТов или произвольных размеров, в том числе через модуль анализа совместимости.</p>
+              <p class="lang-en">Grouping products into standard or custom boxes, including compatibility analysis.</p>
+            </div>
+          </article>
+          <article class="shot">
+            <img src="assets/pojas-container-layout.png" alt="ПОЯС: укладка ящиков в контейнер">
+            <div>
+              <h3 class="lang-ru">Контейнеры</h3>
+              <h3 class="lang-en">Containers</h3>
+              <p class="lang-ru">Расчет погрузки ящиков в контейнер, вагон, трюм или автофургон, с поддонами или без них.</p>
+              <p class="lang-en">Loading boxes into containers, rail cars, ship holds or trucks, with or without pallets.</p>
+            </div>
+          </article>
+          <article class="shot">
+            <img src="assets/pojas-transport-package.png" alt="ПОЯС: формирование транспортного пакета">
+            <div>
+              <h3 class="lang-ru">Транспортный пакет</h3>
+              <h3 class="lang-en">Transport package</h3>
+              <p class="lang-ru">Подбор числа заготовок в пачке и высоты пакета для отгрузки сложенных ящиков и заполнения контейнера.</p>
+              <p class="lang-en">Selecting bundle count and package height for shipping folded boxes and filling a container efficiently.</p>
             </div>
           </article>
         </div>
+      </div>
+    </section>
+
+    <section id="publications">
+      <div class="container publication">
+        <div class="section-head">
+          <h2 class="lang-ru">Публикации о ПОЯС</h2>
+          <h2 class="lang-en">Publications about POJAS</h2>
+          <p class="lang-ru">История комплекса хорошо описана в профильной статье журнала «Пакет» и в современном обзоре PackTuning.</p>
+          <p class="lang-en">The suite history is covered in a trade magazine article and in the current PackTuning overview.</p>
+        </div>
+        <article class="publication-card">
+          <h3 class="lang-ru">«Мода на ПОЯСа!» — оптимизация параметров гофротары</h3>
+          <h3 class="lang-en">“Moda na POJASa!” — corrugated packaging optimization</h3>
+          <p class="lang-ru">
+            Статья Семена Фрейдина и Виктора Губерниева в журнале «Пакет» описывает исходную идею ПОЯС: переход от ручного подбора гофроящика к комплексной оптимизации, где одновременно учитываются изделие, прочность, укладка, поддоны, контейнеры, себестоимость и унификация типоразмеров.
+          </p>
+          <p class="lang-en">
+            The article by Semen Freydin and Victor Guberniev describes the original POJAS idea: moving from manual box selection to an integrated optimization process that considers product geometry, strength, packing, pallets, containers, cost and box-size unification.
+          </p>
+          <ul class="source-list">
+            <li><a href="https://www.kursiv.ru/kursivnew/paket_magazine/archive/23/18.php" target="_blank" rel="noopener">Журнал «Пакет»: «Мода на ПОЯСа!»</a></li>
+            <li><a href="https://packtuning.com/poyas/" target="_blank" rel="noopener">PackTuning: современное описание ПОЯС</a></li>
+          </ul>
+        </article>
       </div>
     </section>
 
