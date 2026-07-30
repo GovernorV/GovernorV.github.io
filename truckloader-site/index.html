@@ -469,19 +469,19 @@ html[lang="en"] .smart-lang-en,html[data-lang="en"] .smart-lang-en{display:block
   </div>
 </article>
     <article class="smart-related-card">
-  <a href="https://governorv.github.io/palletizer-site/" target="_blank" rel="noopener"><img src="https://governorv.github.io/platepalletizer_banner.png" alt="Паллетировщик плит" loading="lazy"></a>
+  <a href="https://governorv.github.io/palletizer-site/#ru" target="_blank" rel="noopener"><img src="https://governorv.github.io/platepalletizer_banner.png" alt="Паллетировщик плит" loading="lazy"></a>
   <div class="smart-related-body">
     <h3>Паллетировщик плит</h3>
     <p>Оптимальное распределение листовых материалов по поддонам.</p>
-    <a class="smart-related-link" href="https://governorv.github.io/palletizer-site/" target="_blank" rel="noopener">Открыть страницу</a>
+    <a class="smart-related-link" href="https://governorv.github.io/palletizer-site/#ru" target="_blank" rel="noopener">Открыть страницу</a>
   </div>
 </article>
     <article class="smart-related-card">
-  <a href="https://governorv.github.io/OptPacker/" target="_blank" rel="noopener"><img src="https://governorv.github.io/fasovshik_banner.png" alt="Фасовщик" loading="lazy"></a>
+  <a href="https://governorv.github.io/OptPacker/?lang=ru" target="_blank" rel="noopener"><img src="https://governorv.github.io/fasovshik_banner.png" alt="Фасовщик" loading="lazy"></a>
   <div class="smart-related-body">
     <h3>Фасовщик</h3>
     <p>Оптимальная укладка изделий в ящик и расчёт параметров упаковки.</p>
-    <a class="smart-related-link" href="https://governorv.github.io/OptPacker/" target="_blank" rel="noopener">Открыть страницу</a>
+    <a class="smart-related-link" href="https://governorv.github.io/OptPacker/?lang=ru" target="_blank" rel="noopener">Открыть страницу</a>
   </div>
 </article>
     <article class="smart-related-card smart-catalog-card">
@@ -509,11 +509,11 @@ html[lang="en"] .smart-lang-en,html[data-lang="en"] .smart-lang-en{display:block
   </div>
 </article>
     <article class="smart-related-card">
-  <a href="https://governorv.github.io/palletizer-site/?lang=en" target="_blank" rel="noopener"><img src="https://governorv.github.io/platepalletizer_banner_en.png" alt="Sheet Palletizer" loading="lazy"></a>
+  <a href="https://governorv.github.io/palletizer-site/#en" target="_blank" rel="noopener"><img src="https://governorv.github.io/platepalletizer_banner_en.png" alt="Sheet Palletizer" loading="lazy"></a>
   <div class="smart-related-body">
     <h3>Sheet Palletizer</h3>
     <p>Optimal distribution of sheet materials across pallets.</p>
-    <a class="smart-related-link" href="https://governorv.github.io/palletizer-site/?lang=en" target="_blank" rel="noopener">Open page</a>
+    <a class="smart-related-link" href="https://governorv.github.io/palletizer-site/#en" target="_blank" rel="noopener">Open page</a>
   </div>
 </article>
     <article class="smart-related-card">
@@ -661,7 +661,10 @@ html[lang="en"] .smart-lang-en,html[data-lang="en"] .smart-lang-en{display:block
       function initialLang(){
         const query = new URLSearchParams(window.location.search).get("lang");
         if (query === EN) return EN;
-        if ((window.location.hash || "").toLowerCase() === "#en") return EN;
+        if (query === RU) return RU;
+        const hash = (window.location.hash || "").toLowerCase();
+        if (hash === "#en") return EN;
+        if (hash === "#ru") return RU;
         try {
           const saved = localStorage.getItem("truckloader-lang");
           if (saved === EN || saved === RU) return saved;

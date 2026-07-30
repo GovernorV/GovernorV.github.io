@@ -383,6 +383,49 @@
     .demo-callout img { width: 72px; height: 72px; border-radius: 20px; }
     .demo-callout h3 { margin-bottom: 7px; }
 
+    html[lang="en"] [data-ru-only] { display: none !important; }
+    .purchase-card {
+      padding: clamp(24px, 4vw, 42px);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+    .purchase-steps {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: purchase-step;
+    }
+    .purchase-steps li {
+      position: relative;
+      min-height: 112px;
+      padding: 20px 20px 20px 72px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--surface-raised);
+      color: var(--muted);
+      counter-increment: purchase-step;
+    }
+    .purchase-steps li::before {
+      content: counter(purchase-step);
+      position: absolute;
+      top: 19px;
+      left: 18px;
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--orange), #ff9c46);
+      color: #241006;
+      font-weight: 950;
+    }
+    .purchase-steps strong { display: block; margin-bottom: 5px; color: var(--text); }
+
     .related-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
     .related-card { border-radius: 24px; overflow: hidden; }
     .related-card img {
@@ -435,6 +478,7 @@
       .hero-banner img { object-position: 50% center; }
       .hero-copy, .hero-side { padding: 25px; border-radius: 24px; }
       .workflow-grid, .edition-grid, .related-grid { grid-template-columns: 1fr; }
+      .purchase-steps { grid-template-columns: 1fr; }
       .rentals { grid-template-columns: 1fr; }
       .demo-callout { grid-template-columns: auto 1fr; }
       .demo-callout .btn { grid-column: 1 / -1; }
@@ -470,6 +514,7 @@
         <a href="#workflow" data-ru="Как работает" data-en="Workflow">Как работает</a>
         <a href="#features" data-ru="Возможности" data-en="Features">Возможности</a>
         <a href="#pricing" data-ru="Цены" data-en="Pricing">Цены</a>
+        <a href="#how-to-buy" data-ru-only>Как купить</a>
         <a href="#related" data-ru="Другие программы" data-en="Other software">Другие программы</a>
       </nav>
       <div class="lang" aria-label="Language">
@@ -640,6 +685,44 @@
       </div>
     </section>
 
+    <section id="how-to-buy" data-ru-only>
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Покупка и активация</p>
+          <h2>Как купить</h2>
+          <p>Лицензия подготавливается для конкретного компьютера. Выполните шесть шагов, чтобы получить персональный дистрибутив.</p>
+        </div>
+        <div class="purchase-card">
+          <ol class="purchase-steps">
+            <li>
+              <strong>Скачайте программу определения кода</strong>
+              Загрузите <a href="https://mega.nz/file/j0JyjaYA#1It6_lUaPj6cNP6vodtz6XPoXAkzUjzKVQY-PyzcAt8" target="_blank" rel="noopener">pc-settings-detector.zip</a>.
+            </li>
+            <li>
+              <strong>Запустите программу</strong>
+              Распакуйте архив и запустите программу на компьютере, для которого приобретается лицензия.
+            </li>
+            <li>
+              <strong>Сохраните полученный код</strong>
+              Скопируйте код оборудования, показанный программой.
+            </li>
+            <li>
+              <strong>Оплатите выбранную лицензию</strong>
+              Переведите сумму на карту <b>5536914068135833</b> с пометкой «Оплата программы ГофроТехкарта» и укажите ИНН для получения чека.
+            </li>
+            <li>
+              <strong>Отправьте данные автору</strong>
+              Направьте название программы, код оборудования и дату транзакции на <a href="mailto:vguberniev@gmail.com">vguberniev@gmail.com</a>.
+            </li>
+            <li>
+              <strong>Получите персональный дистрибутив</strong>
+              После проверки платежа ссылка на программу для указанного компьютера придёт ответным письмом.
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
     <section id="related">
       <div class="container">
         <div class="section-head">
@@ -653,7 +736,7 @@
             <div class="related-body">
               <h3>OptCutting</h3>
               <p data-ru="Оптимизация раскроя полотна гофрокартона, карты раскроя, сетевой график и отчёты." data-en="Corrugated board cutting optimization, cutting maps, schedule and reports.">Оптимизация раскроя полотна гофрокартона, карты раскроя, сетевой график и отчёты.</p>
-              <a class="btn ghost" href="https://governorv.github.io/OptCutting/" target="_blank" rel="noopener" data-related-url-en="https://governorv.github.io/OptCutting/?lang=en" data-ru="Открыть страницу" data-en="Open page">Открыть страницу</a>
+              <a class="btn ghost" href="https://governorv.github.io/OptCutting/?lang=ru" target="_blank" rel="noopener" data-related-url-en="https://governorv.github.io/OptCutting/?lang=en" data-ru="Открыть страницу" data-en="Open page">Открыть страницу</a>
             </div>
           </article>
           <article class="related-card">
@@ -661,7 +744,7 @@
             <div class="related-body">
               <h3>Box Strength Calculator (ГОСТ)</h3>
               <p data-ru="Расчёт нагрузки, сопротивления и марки гофрокартона по ГОСТ 9142-2014." data-en="Box load, resistance and board grade calculation according to GOST 9142-2014.">Расчёт нагрузки, сопротивления и марки гофрокартона по ГОСТ 9142-2014.</p>
-              <a class="btn ghost" href="https://governorv.github.io/gost/" target="_blank" rel="noopener" data-related-url-en="https://governorv.github.io/gost/?lang=en" data-ru="Открыть страницу" data-en="Open page">Открыть страницу</a>
+              <a class="btn ghost" href="https://governorv.github.io/gost/?lang=ru" target="_blank" rel="noopener" data-related-url-en="https://governorv.github.io/gost/?lang=en" data-ru="Открыть страницу" data-en="Open page">Открыть страницу</a>
             </div>
           </article>
           <article class="related-card">
@@ -669,7 +752,7 @@
             <div class="related-body">
               <h3>Box Price Calculator</h3>
               <p data-ru="Расчёт себестоимости гофроящиков, материалов, печати, упаковки и доставки." data-en="Cost estimation for corrugated boxes, materials, printing, packaging and delivery.">Расчёт себестоимости гофроящиков, материалов, печати, упаковки и доставки.</p>
-              <a class="btn ghost" href="https://governorv.github.io/BoxPriceCalculator/" target="_blank" rel="noopener" data-related-url-en="https://governorv.github.io/BoxPriceCalculator/?lang=en" data-ru="Открыть страницу" data-en="Open page">Открыть страницу</a>
+              <a class="btn ghost" href="https://governorv.github.io/BoxPriceCalculator/?lang=ru" target="_blank" rel="noopener" data-related-url-en="https://governorv.github.io/BoxPriceCalculator/?lang=en" data-ru="Открыть страницу" data-en="Open page">Открыть страницу</a>
             </div>
           </article>
           <article class="related-card">

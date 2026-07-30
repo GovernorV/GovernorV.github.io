@@ -232,27 +232,27 @@ html[lang="en"] .smart-lang-en,html[data-lang="en"] .smart-lang-en{display:block
   </div>
   <div class="smart-related-grid">
     <article class="smart-related-card">
-  <a href="https://governorv.github.io/OptPacker/" target="_blank" rel="noopener"><img src="https://governorv.github.io/fasovshik_banner.png" alt="Фасовщик" loading="lazy"></a>
+  <a href="https://governorv.github.io/OptPacker/?lang=ru" target="_blank" rel="noopener"><img src="https://governorv.github.io/fasovshik_banner.png" alt="Фасовщик" loading="lazy"></a>
   <div class="smart-related-body">
     <h3>Фасовщик</h3>
     <p>Оптимальная укладка изделий в ящик и расчёт параметров упаковки.</p>
-    <a class="smart-related-link" href="https://governorv.github.io/OptPacker/" target="_blank" rel="noopener">Открыть страницу</a>
+    <a class="smart-related-link" href="https://governorv.github.io/OptPacker/?lang=ru" target="_blank" rel="noopener">Открыть страницу</a>
   </div>
 </article>
     <article class="smart-related-card">
-  <a href="https://governorv.github.io/BoxPriceCalculator/" target="_blank" rel="noopener"><img src="https://governorv.github.io/boxprice_banner.png" alt="Box Price Calculator" loading="lazy"></a>
+  <a href="https://governorv.github.io/BoxPriceCalculator/?lang=ru" target="_blank" rel="noopener"><img src="https://governorv.github.io/boxprice_banner.png" alt="Box Price Calculator" loading="lazy"></a>
   <div class="smart-related-body">
     <h3>Box Price Calculator</h3>
     <p>Расчёт себестоимости гофроящиков, материалов, печати, упаковки и доставки.</p>
-    <a class="smart-related-link" href="https://governorv.github.io/BoxPriceCalculator/" target="_blank" rel="noopener">Открыть страницу</a>
+    <a class="smart-related-link" href="https://governorv.github.io/BoxPriceCalculator/?lang=ru" target="_blank" rel="noopener">Открыть страницу</a>
   </div>
 </article>
     <article class="smart-related-card">
-  <a href="https://governorv.github.io/GofroTechCard/" target="_blank" rel="noopener"><img src="https://governorv.github.io/techcard_banner.png" alt="ГофроТехкарта" loading="lazy"></a>
+  <a href="https://governorv.github.io/GofroTechCard/?lang=ru" target="_blank" rel="noopener"><img src="https://governorv.github.io/GofroTechCard/assets/techcard-screen-ru.png" alt="ГофроТехкарта" loading="lazy"></a>
   <div class="smart-related-body">
     <h3>ГофроТехкарта</h3>
     <p>Параметрический чертёж FEFCO 0201, дизайн развёртки, спецификация и готовая техкарта в PDF.</p>
-    <a class="smart-related-link" href="https://governorv.github.io/GofroTechCard/" target="_blank" rel="noopener">Открыть страницу</a>
+    <a class="smart-related-link" href="https://governorv.github.io/GofroTechCard/?lang=ru" target="_blank" rel="noopener">Открыть страницу</a>
   </div>
 </article>
     <article class="smart-related-card smart-catalog-card">
@@ -288,7 +288,7 @@ html[lang="en"] .smart-lang-en,html[data-lang="en"] .smart-lang-en{display:block
   </div>
 </article>
     <article class="smart-related-card">
-  <a href="https://governorv.github.io/GofroTechCard/?lang=en" target="_blank" rel="noopener"><img src="https://governorv.github.io/techcard_banner_en.png" alt="Corrugated Box Tech Card" loading="lazy"></a>
+  <a href="https://governorv.github.io/GofroTechCard/?lang=en" target="_blank" rel="noopener"><img src="https://governorv.github.io/GofroTechCard/assets/techcard-screen-en.png" alt="Corrugated Box Tech Card" loading="lazy"></a>
   <div class="smart-related-body">
     <h3>Corrugated Box Tech Card</h3>
     <p>FEFCO 0201 parametric drawing, dieline artwork, specification and a production-ready PDF tech card.</p>
@@ -323,7 +323,7 @@ html[lang="en"] .smart-lang-en,html[data-lang="en"] .smart-lang-en{display:block
 <script>
 (() => {
   const root=document.documentElement,ru=document.getElementById('ruBtn'),en=document.getElementById('enBtn');
-  const query=new URLSearchParams(location.search);let savedLang='ru';try{savedLang=localStorage.getItem('bottleoptimizer-lang')||'ru';}catch(e){}let lang=query.get('lang')==='en'?'en':savedLang;
+  const query=new URLSearchParams(location.search);let savedLang='ru';try{savedLang=localStorage.getItem('bottleoptimizer-lang')||'ru';}catch(e){}const requestedLang=query.get('lang');let lang=requestedLang==='en'?'en':requestedLang==='ru'?'ru':savedLang;
   function setLang(value){lang=value==='en'?'en':'ru';root.dataset.lang=lang;root.lang=lang;ru.classList.toggle('active',lang==='ru');en.classList.toggle('active',lang==='en');try{localStorage.setItem('bottleoptimizer-lang',lang);}catch(e){}document.title=lang==='ru'?'Проектировщик бутылок — оптимизация бутылки и упаковки':'Bottle Optimizer — bottle and packaging optimization';}
   function setAutomaticTheme(){const hour=new Date().getHours();root.dataset.theme=hour>=6&&hour<18?'day':'night';}
   ru.addEventListener('click',()=>setLang('ru'));en.addEventListener('click',()=>setLang('en'));
