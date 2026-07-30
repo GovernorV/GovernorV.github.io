@@ -5,8 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ГофроТехкарта — программа для проектирования техкарт гофроящиков</title>
   <meta name="description" content="ГофроТехкарта формирует параметрический чертёж FEFCO 0201, размещает дизайн и манипуляционные знаки и выпускает готовую технологическую карту в PDF.">
-  <meta name="theme-color" content="#071221" media="(prefers-color-scheme: dark)">
-  <meta name="theme-color" content="#f5f8fc" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#071221">
   <link rel="canonical" href="https://governorv.github.io/GofroTechCard/">
   <link rel="alternate" hreflang="ru" href="https://governorv.github.io/GofroTechCard/">
   <link rel="alternate" hreflang="en" href="https://governorv.github.io/GofroTechCard/?lang=en">
@@ -102,6 +101,14 @@
     ]
   }
   </script>
+  <script>
+    (() => {
+      const hour = new Date().getHours();
+      const theme = hour >= 6 && hour < 18 ? "day" : "night";
+      document.documentElement.dataset.theme = theme;
+      document.querySelector('meta[name="theme-color"]').content = theme === "day" ? "#f5f8fc" : "#071221";
+    })();
+  </script>
   <style>
     :root {
       color-scheme: light dark;
@@ -124,20 +131,18 @@
       --max: 1220px;
     }
 
-    @media (prefers-color-scheme: light) {
-      :root {
-        --bg: #f5f8fc;
-        --bg-soft: #eaf1f8;
-        --surface: rgba(255, 255, 255, .94);
-        --surface-strong: #ffffff;
-        --surface-raised: #eef5fb;
-        --text: #0c2544;
-        --muted: #546b82;
-        --line: rgba(12, 55, 95, .14);
-        --line-strong: rgba(19, 129, 171, .34);
-        --orange-soft: rgba(255, 112, 42, .1);
-        --shadow: 0 24px 70px rgba(28, 61, 92, .14);
-      }
+    :root[data-theme="day"] {
+      --bg: #f5f8fc;
+      --bg-soft: #eaf1f8;
+      --surface: rgba(255, 255, 255, .94);
+      --surface-strong: #ffffff;
+      --surface-raised: #eef5fb;
+      --text: #0c2544;
+      --muted: #546b82;
+      --line: rgba(12, 55, 95, .14);
+      --line-strong: rgba(19, 129, 171, .34);
+      --orange-soft: rgba(255, 112, 42, .1);
+      --shadow: 0 24px 70px rgba(28, 61, 92, .14);
     }
 
     * { box-sizing: border-box; }
@@ -856,6 +861,13 @@
       return (navigator.language || "").toLowerCase().startsWith("ru") ? RU : EN;
     }
 
+    function applyAutomaticTheme() {
+      const hour = new Date().getHours();
+      const theme = hour >= 6 && hour < 18 ? "day" : "night";
+      document.documentElement.dataset.theme = theme;
+      document.querySelector('meta[name="theme-color"]').content = theme === "day" ? "#f5f8fc" : "#071221";
+    }
+
     function setLanguage(language, updateUrl = true) {
       const lang = language === EN ? EN : RU;
       document.documentElement.lang = lang;
@@ -901,6 +913,12 @@
     }
 
     buttons.forEach((button) => button.addEventListener("click", () => setLanguage(button.dataset.langButton)));
+    applyAutomaticTheme();
+    window.setInterval(applyAutomaticTheme, 30 * 1000);
+    document.addEventListener("visibilitychange", () => {
+      if (!document.hidden) applyAutomaticTheme();
+    });
+    window.addEventListener("pageshow", applyAutomaticTheme);
     setLanguage(preferredLanguage(), false);
   })();
   </script>
