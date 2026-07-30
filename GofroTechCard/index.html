@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ГофроТехкарта — программа для проектирования техкарт гофроящиков</title>
   <meta name="description" content="ГофроТехкарта формирует параметрический чертёж FEFCO 0201, размещает дизайн и манипуляционные знаки и выпускает готовую технологическую карту в PDF.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="author" content="Viktor Guberniev, PackTuning Software">
+  <meta name="application-name" content="ГофроТехкарта">
   <meta name="theme-color" content="#071221">
   <link rel="canonical" href="https://governorv.github.io/GofroTechCard/">
   <link rel="alternate" hreflang="ru" href="https://governorv.github.io/GofroTechCard/">
@@ -12,16 +15,24 @@
   <link rel="alternate" hreflang="x-default" href="https://governorv.github.io/GofroTechCard/">
   <link rel="icon" type="image/png" href="assets/techcard.png">
   <link rel="apple-touch-icon" href="assets/techcard.png">
+  <link rel="manifest" href="manifest.webmanifest">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="PackTuning Software">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:locale:alternate" content="en_US">
   <meta property="og:title" content="ГофроТехкарта — технологическая карта гофроящика в PDF">
   <meta property="og:description" content="Параметрический чертёж FEFCO 0201, дизайн развёртки, спецификация и готовая техкарта в одном мастере.">
   <meta property="og:url" content="https://governorv.github.io/GofroTechCard/">
   <meta property="og:image" content="https://governorv.github.io/GofroTechCard/assets/techcard-hero-ru.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:alt" content="ГофроТехкарта — программа для проектирования технологических карт гофроящиков">
   <meta property="og:image:width" content="2172">
   <meta property="og:image:height" content="724">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ГофроТехкарта — технологическая карта гофроящика в PDF">
+  <meta name="twitter:description" content="Параметрический чертёж FEFCO 0201, дизайн развёртки, спецификация и готовая техкарта в одном мастере.">
   <meta name="twitter:image" content="https://governorv.github.io/GofroTechCard/assets/techcard-hero-ru.png">
+  <meta name="twitter:image:alt" content="ГофроТехкарта — программа для проектирования технологических карт гофроящиков">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -34,10 +45,15 @@
         "applicationCategory": "BusinessApplication",
         "applicationSubCategory": "Packaging engineering software",
         "operatingSystem": "Windows",
+        "softwareRequirements": "Windows 10 or Windows 11",
+        "inLanguage": ["ru", "en", "fr", "de", "he", "it", "kk", "pt", "sr", "es"],
         "url": "https://governorv.github.io/GofroTechCard/",
         "downloadUrl": "https://mega.nz/file/ewIlzAzD#6wSdK_s9-MNIAcQrM1RPstCtZUulSqPnV1OFRjjBYe0",
         "image": "https://governorv.github.io/GofroTechCard/assets/techcard-hero-ru.png",
         "screenshot": "https://governorv.github.io/GofroTechCard/assets/app-screen-ru.png",
+        "publisher": {
+          "@id": "https://governorv.github.io/#organization"
+        },
         "description": "Windows-программа для проектирования и оформления технологических карт гофроящиков с параметрическим чертежом FEFCO 0201, дизайном развёртки, спецификацией и экспортом в PDF.",
         "featureList": [
           "Пошаговый мастер технологической карты",
@@ -95,7 +111,30 @@
               "@type": "Answer",
               "text": "PRO включает дежурный режим: программа следит за папкой, обрабатывает входные JSON-файлы и сохраняет готовые PDF без ручного запуска мастера."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "Какие языки поддерживает ГофроТехкарта?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "В комплект входят русский, английский, французский, немецкий, иврит, итальянский, казахский, португальский, сербский и испанский языки. Пользователь может самостоятельно добавить новый UTF-8 словарь в формате LNG."
+            }
           }
+        ]
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://governorv.github.io/#organization",
+        "name": "PackTuning Software",
+        "url": "https://governorv.github.io/",
+        "email": "vguberniev@gmail.com",
+        "founder": {
+          "@type": "Person",
+          "name": "Viktor Guberniev"
+        },
+        "sameAs": [
+          "https://www.instagram.com/packtuning/",
+          "https://www.linkedin.com/in/victor-guberniev/"
         ]
       }
     ]
@@ -252,7 +291,8 @@
       border-bottom: 1px solid var(--line);
       background: #030a13;
     }
-    .hero-banner img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-banner picture { display: block; width: 100%; height: 100%; }
+    .hero-banner img { display: block; width: 100%; height: 100%; object-fit: cover; }
     .hero-banner::after {
       content: "";
       position: absolute; inset: 0;
@@ -335,13 +375,76 @@
       gap: 26px; align-items: stretch;
     }
     .screenshot {
+      margin: 0;
       padding: 10px;
       border: 1px solid var(--line);
       border-radius: 26px;
       background: var(--surface-strong);
       box-shadow: var(--shadow);
     }
-    .screenshot img { width: 100%; border-radius: 18px; }
+    .screenshot-zoom {
+      position: relative;
+      display: block;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      border: 0;
+      border-radius: 18px;
+      background: transparent;
+      color: inherit;
+      cursor: zoom-in;
+    }
+    .screenshot-zoom img { width: 100%; border-radius: 18px; }
+    .screenshot-zoom:focus-visible { outline: 3px solid var(--cyan); outline-offset: 4px; }
+    .zoom-hint {
+      position: absolute;
+      right: 14px;
+      bottom: 14px;
+      padding: 8px 12px;
+      border: 1px solid rgba(255, 255, 255, .32);
+      border-radius: 999px;
+      background: rgba(4, 18, 38, .84);
+      color: #fff;
+      font-size: .78rem;
+      font-weight: 850;
+      box-shadow: 0 8px 26px rgba(0, 0, 0, .25);
+    }
+    .preview-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: grid;
+      place-items: center;
+      padding: 30px;
+      background: rgba(1, 8, 18, .92);
+      backdrop-filter: blur(8px);
+    }
+    .preview-lightbox[hidden] { display: none; }
+    .preview-lightbox img {
+      max-width: min(96vw, 1920px);
+      max-height: 90vh;
+      border-radius: 16px;
+      background: #fff;
+      box-shadow: 0 30px 90px rgba(0, 0, 0, .55);
+    }
+    .preview-close {
+      position: fixed;
+      top: 20px;
+      right: 22px;
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      width: 46px;
+      height: 46px;
+      border: 1px solid rgba(255, 255, 255, .34);
+      border-radius: 14px;
+      background: rgba(7, 24, 50, .9);
+      color: #fff;
+      font: 800 1.8rem/1 Inter, sans-serif;
+      cursor: pointer;
+    }
+    body.preview-open { overflow: hidden; }
     .feature-list { display: grid; gap: 12px; }
     .feature {
       display: grid; grid-template-columns: 38px 1fr; gap: 13px; align-items: start;
@@ -353,6 +456,133 @@
       background: rgba(34, 211, 238, .12); color: var(--cyan);
     }
     .feature span { color: var(--muted); }
+
+    .language-layout {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+    .capability-panel {
+      padding: clamp(26px, 4vw, 42px);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+    .capability-panel h3 { font-size: clamp(1.45rem, 2.6vw, 2rem); }
+    .capability-panel > p { margin-top: 13px; }
+    .language-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 26px;
+    }
+    .language-chip {
+      padding: 9px 13px;
+      border: 1px solid var(--line-strong);
+      border-radius: 999px;
+      background: var(--surface-raised);
+      color: var(--text);
+      font-size: .86rem;
+      font-weight: 800;
+    }
+    .dictionary-steps {
+      display: grid;
+      gap: 12px;
+      margin: 24px 0 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: dictionary-step;
+    }
+    .dictionary-steps li {
+      position: relative;
+      min-height: 44px;
+      padding: 8px 0 8px 52px;
+      color: var(--muted);
+      counter-increment: dictionary-step;
+    }
+    .dictionary-steps li::before {
+      content: counter(dictionary-step);
+      position: absolute;
+      left: 0;
+      top: 4px;
+      display: grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--blue), var(--cyan));
+      color: #fff;
+      font-weight: 900;
+    }
+    code {
+      padding: .1em .38em;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: var(--surface-raised);
+      color: var(--text);
+      font-size: .9em;
+    }
+
+    .watch-panel {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(28px, 4vw, 46px);
+      border: 1px solid rgba(255, 199, 65, .5);
+      border-radius: 30px;
+      background:
+        radial-gradient(circle at 100% 0, rgba(255, 199, 65, .16), transparent 26rem),
+        linear-gradient(145deg, var(--surface), color-mix(in srgb, var(--surface) 82%, transparent));
+      box-shadow: var(--shadow);
+    }
+    .watch-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .pro-badge {
+      flex: 0 0 auto;
+      padding: 8px 13px;
+      border-radius: 999px;
+      background: #ffd64d;
+      color: #211800;
+      font-size: .78rem;
+      font-weight: 950;
+      letter-spacing: .08em;
+    }
+    .watch-flow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 30px;
+    }
+    .watch-step {
+      position: relative;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--surface-raised);
+    }
+    .watch-step b {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      margin-bottom: 14px;
+      border-radius: 12px;
+      background: rgba(34, 211, 238, .14);
+      color: var(--cyan);
+    }
+    .watch-step strong { display: block; margin-bottom: 6px; }
+    .watch-step span { color: var(--muted); font-size: .92rem; }
+    .watch-details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 24px;
+      margin-top: 26px;
+    }
 
     .edition-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
     .price-card { position: relative; border-radius: 28px; padding: clamp(26px, 3.5vw, 40px); }
@@ -471,8 +701,9 @@
 
     @media (max-width: 1000px) {
       .nav { display: none; }
-      .hero-grid, .preview-grid { grid-template-columns: 1fr; }
+      .hero-grid, .preview-grid, .language-layout { grid-template-columns: 1fr; }
       .workflow-grid { grid-template-columns: repeat(2, 1fr); }
+      .watch-flow { grid-template-columns: repeat(2, 1fr); }
       .related-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 720px) {
@@ -484,6 +715,8 @@
       .hero-copy, .hero-side { padding: 25px; border-radius: 24px; }
       .workflow-grid, .edition-grid, .related-grid { grid-template-columns: 1fr; }
       .purchase-steps { grid-template-columns: 1fr; }
+      .watch-flow, .watch-details { grid-template-columns: 1fr; }
+      .watch-head { flex-direction: column; }
       .rentals { grid-template-columns: 1fr; }
       .demo-callout { grid-template-columns: auto 1fr; }
       .demo-callout .btn { grid-column: 1 / -1; }
@@ -518,6 +751,8 @@
       <nav class="nav" aria-label="Основная навигация">
         <a href="#workflow" data-ru="Как работает" data-en="Workflow">Как работает</a>
         <a href="#features" data-ru="Возможности" data-en="Features">Возможности</a>
+        <a href="#languages" data-ru="Языки" data-en="Languages">Языки</a>
+        <a href="#watch-mode" data-ru="Дежурство" data-en="Watch mode">Дежурство</a>
         <a href="#pricing" data-ru="Цены" data-en="Pricing">Цены</a>
         <a href="#how-to-buy" data-ru-only>Как купить</a>
         <a href="#related" data-ru="Другие программы" data-en="Other software">Другие программы</a>
@@ -530,7 +765,10 @@
   </header>
 
   <div id="top" class="hero-banner">
-    <img id="hero-image" src="assets/techcard-hero-ru.png" alt="ГофроТехкарта — проектирование технологических карт гофроящиков">
+    <picture>
+      <source id="hero-source" type="image/webp" srcset="assets/techcard-hero-ru.webp">
+      <img id="hero-image" src="assets/techcard-hero-ru.png" width="2172" height="724" fetchpriority="high" decoding="async" alt="ГофроТехкарта — проектирование технологических карт гофроящиков">
+    </picture>
   </div>
 
   <main id="content">
@@ -610,7 +848,10 @@
         </div>
         <div class="preview-grid">
           <figure class="screenshot">
-            <img id="screen-image" src="assets/app-screen-ru.png" alt="Интерфейс ГофроТехкарты и предпросмотр готового документа">
+            <button id="screen-zoom" class="screenshot-zoom" type="button" aria-label="Увеличить скриншот">
+              <img id="screen-image" src="assets/app-screen-ru.png" width="1920" height="1043" loading="lazy" decoding="async" alt="Интерфейс ГофроТехкарты и предпросмотр готового документа">
+              <span class="zoom-hint" data-ru="Увеличить" data-en="Enlarge">Увеличить</span>
+            </button>
           </figure>
           <div class="feature-list">
             <div class="feature"><b>↔</b><span data-ru="Пропорциональный параметрический чертёж с размерными и выносными линиями." data-en="A proportional parametric drawing with complete dimension and extension lines.">Пропорциональный параметрический чертёж с размерными и выносными линиями.</span></div>
@@ -619,6 +860,87 @@
             <div class="feature"><b>PDF</b><span data-ru="Файл формируется для печати, согласования с заказчиком и передачи в производство." data-en="The PDF is ready for printing, customer approval and production handoff.">Файл формируется для печати, согласования с заказчиком и передачи в производство.</span></div>
             <div class="feature"><b>A</b><span data-ru="Интерфейс переводится на лету; новые языки подключаются пользовательскими словарями." data-en="The UI switches language live; additional languages are added through custom dictionaries.">Интерфейс переводится на лету; новые языки подключаются пользовательскими словарями.</span></div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="languages">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow" data-ru="Мультиязычный интерфейс" data-en="Multilingual interface">Мультиязычный интерфейс</p>
+          <h2 data-ru="10 встроенных языков и собственные словари" data-en="10 built-in languages and custom dictionaries">10 встроенных языков и собственные словари</h2>
+          <p data-ru="Язык меняется на лету через меню Language — без закрытия программы и потери введённых данных." data-en="Switch the interface live from the Language menu without restarting the application or losing entered data.">Язык меняется на лету через меню Language — без закрытия программы и потери введённых данных.</p>
+        </div>
+        <div class="language-layout">
+          <article class="capability-panel">
+            <h3 data-ru="Поддерживаемые языки" data-en="Supported languages">Поддерживаемые языки</h3>
+            <p data-ru="В комплект входят десять готовых словарей, включая поддержку письма справа налево для иврита." data-en="The package includes ten ready-to-use dictionaries, including right-to-left layout support for Hebrew.">В комплект входят десять готовых словарей, включая поддержку письма справа налево для иврита.</p>
+            <div class="language-cloud" aria-label="Поддерживаемые языки">
+              <span class="language-chip" data-ru="Русский" data-en="Russian">Русский</span>
+              <span class="language-chip" data-ru="Английский" data-en="English">Английский</span>
+              <span class="language-chip" data-ru="Французский" data-en="French">Французский</span>
+              <span class="language-chip" data-ru="Немецкий" data-en="German">Немецкий</span>
+              <span class="language-chip" data-ru="Иврит" data-en="Hebrew">Иврит</span>
+              <span class="language-chip" data-ru="Итальянский" data-en="Italian">Итальянский</span>
+              <span class="language-chip" data-ru="Казахский" data-en="Kazakh">Казахский</span>
+              <span class="language-chip" data-ru="Португальский" data-en="Portuguese">Португальский</span>
+              <span class="language-chip" data-ru="Сербский" data-en="Serbian">Сербский</span>
+              <span class="language-chip" data-ru="Испанский" data-en="Spanish">Испанский</span>
+            </div>
+          </article>
+          <article class="capability-panel">
+            <h3 data-ru="Добавьте свой язык самостоятельно" data-en="Add another language yourself">Добавьте свой язык самостоятельно</h3>
+            <p data-ru="Словари хранятся рядом с программой в открытом текстовом формате UTF-8. Для нового языка не требуется новая сборка приложения." data-en="Dictionaries are stored beside the application as open UTF-8 text files. Adding a language does not require a new application build.">Словари хранятся рядом с программой в открытом текстовом формате UTF-8. Для нового языка не требуется новая сборка приложения.</p>
+            <ol class="dictionary-steps">
+              <li data-ru="Скопируйте любой файл .lng и задайте ему новое имя." data-en="Copy any .lng file and give it a new name.">Скопируйте любой файл .lng и задайте ему новое имя.</li>
+              <li data-ru="Укажите отображаемое название языка в строке language=." data-en="Set the displayed language name in the language= line.">Укажите отображаемое название языка в строке language=.</li>
+              <li data-ru="Добавьте переводы в формате «исходный русский текст=>перевод»." data-en="Add translations as “source Russian text=>translation” pairs.">Добавьте переводы в формате «исходный русский текст=>перевод».</li>
+              <li data-ru="Выберите «Обновить список словарей» в меню Language — новый язык сразу появится в списке." data-en="Choose “Refresh dictionary list” from Language; the new language appears immediately.">Выберите «Обновить список словарей» в меню Language — новый язык сразу появится в списке.</li>
+            </ol>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="watch-mode">
+      <div class="container">
+        <div class="watch-panel">
+          <div class="watch-head">
+            <div class="section-head" style="margin-bottom:0">
+              <p class="eyebrow" data-ru="Автоматизация потока заказов" data-en="Order-flow automation">Автоматизация потока заказов</p>
+              <h2 data-ru="Дежурный режим формирует техкарты автоматически" data-en="Watch mode generates tech cards automatically">Дежурный режим формирует техкарты автоматически</h2>
+              <p data-ru="ГофроТехкарта PRO следит за входной папкой и запускает расчёт при появлении файла с исходными данными — мастер вручную открывать не нужно." data-en="GofroTechCard PRO monitors an input folder and starts calculation when a source-data file appears, without opening the wizard manually.">ГофроТехкарта PRO следит за входной папкой и запускает расчёт при появлении файла с исходными данными — мастер вручную открывать не нужно.</p>
+            </div>
+            <span class="pro-badge">PRO</span>
+          </div>
+          <div class="watch-flow">
+            <div class="watch-step">
+              <b>01</b>
+              <strong data-ru="Контроль папки" data-en="Folder monitoring">Контроль папки</strong>
+              <span data-ru="Программа проверяет выбранный каталог с заданным интервалом." data-en="The application checks the selected folder at a configurable interval.">Программа проверяет выбранный каталог с заданным интервалом.</span>
+            </div>
+            <div class="watch-step">
+              <b>02</b>
+              <strong data-ru="Получение задания" data-en="Job detected">Получение задания</strong>
+              <span><span data-ru="При появлении " data-en="When ">При появлении </span><code>input.json</code><span data-ru=" считываются параметры будущей техкарты." data-en=" appears, the application reads the tech-card parameters."> считываются параметры будущей техкарты.</span></span>
+            </div>
+            <div class="watch-step">
+              <b>03</b>
+              <strong data-ru="Расчёт и PDF" data-en="Calculation and PDF">Расчёт и PDF</strong>
+              <span data-ru="Развёртка рассчитывается, спецификация заполняется, готовый PDF создаётся автоматически." data-en="The dieline is calculated, the specification is completed, and the PDF is generated automatically.">Развёртка рассчитывается, спецификация заполняется, готовый PDF создаётся автоматически.</span>
+            </div>
+            <div class="watch-step">
+              <b>04</b>
+              <strong data-ru="Сохранение результата" data-en="Result delivery">Сохранение результата</strong>
+              <span data-ru="Документ сохраняется в выходную папку, а исходный файл удаляется или переносится." data-en="The document is saved to the output folder, while the source file is deleted or moved.">Документ сохраняется в выходную папку, а исходный файл удаляется или переносится.</span>
+            </div>
+          </div>
+          <ul class="checks watch-details">
+            <li data-ru="Настраиваемые папки, имя входного файла и период проверки." data-en="Configurable folders, input filename and polling interval.">Настраиваемые папки, имя входного файла и период проверки.</li>
+            <li data-ru="Выбор действия с исходным файлом после успешного расчёта." data-en="Choose how the source file is handled after successful processing.">Выбор действия с исходным файлом после успешного расчёта.</li>
+            <li data-ru="Подходит для обмена заданиями с сайтом, CRM, ERP или внутренней системой." data-en="Suitable for exchanging jobs with a website, CRM, ERP or internal system.">Подходит для обмена заданиями с сайтом, CRM, ERP или внутренней системой.</li>
+            <li data-ru="Статус дежурства виден в интерфейсе; режим можно включить и остановить из меню." data-en="Watch status is visible in the interface and can be started or stopped from the menu.">Статус дежурства виден в интерфейсе; режим можно включить и остановить из меню.</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -794,6 +1116,10 @@
             <p data-ru="Программа следит за выбранным каталогом. При появлении input.json она выполняет расчёт, формирует PDF и сохраняет результат в заданную папку. Исходный файл можно удалить или переместить после обработки." data-en="The application monitors a selected folder. When input.json appears, it calculates the card, generates a PDF and saves the result to the chosen output folder. The source file can then be removed or moved.">Программа следит за выбранным каталогом. При появлении input.json она выполняет расчёт, формирует PDF и сохраняет результат в заданную папку. Исходный файл можно удалить или переместить после обработки.</p>
           </details>
           <details class="faq-item">
+            <summary data-ru="Какие языки поддерживает программа?" data-en="Which languages does the application support?">Какие языки поддерживает программа?</summary>
+            <p data-ru="В комплект входят русский, английский, французский, немецкий, иврит, итальянский, казахский, португальский, сербский и испанский языки. Дополнительный язык можно подключить самостоятельно с помощью UTF-8-словаря .lng." data-en="Russian, English, French, German, Hebrew, Italian, Kazakh, Portuguese, Serbian and Spanish are included. You can add another language yourself with a UTF-8 .lng dictionary.">В комплект входят русский, английский, французский, немецкий, иврит, итальянский, казахский, португальский, сербский и испанский языки. Дополнительный язык можно подключить самостоятельно с помощью UTF-8-словаря .lng.</p>
+          </details>
+          <details class="faq-item">
             <summary data-ru="Как приобрести лицензию?" data-en="How do I purchase a license?">Как приобрести лицензию?</summary>
             <p><span data-ru="Напишите на" data-en="Email">Напишите на</span> <a href="mailto:vguberniev@gmail.com">vguberniev@gmail.com</a><span data-ru=", указав версию и желаемый срок лицензии. В ответ вы получите порядок оплаты и подготовки персонального дистрибутива." data-en=" with the edition and license term you need. You will receive payment and personalized distribution instructions.">, указав версию и желаемый срок лицензии. В ответ вы получите порядок оплаты и подготовки персонального дистрибутива.</span></p>
           </details>
@@ -826,26 +1152,49 @@
     </div>
   </footer>
 
+  <div id="preview-lightbox" class="preview-lightbox" role="dialog" aria-modal="true" aria-label="Увеличенный скриншот" hidden>
+    <button id="preview-close" class="preview-close" type="button" aria-label="Закрыть">×</button>
+    <img id="preview-image" alt="">
+  </div>
+
   <script>
   (() => {
     const RU = "ru";
     const EN = "en";
+    const heroSource = document.getElementById("hero-source");
     const hero = document.getElementById("hero-image");
     const screen = document.getElementById("screen-image");
+    const zoomButton = document.getElementById("screen-zoom");
+    const previewLightbox = document.getElementById("preview-lightbox");
+    const previewClose = document.getElementById("preview-close");
+    const previewImage = document.getElementById("preview-image");
     const buttons = [...document.querySelectorAll("[data-lang-button]")];
     const relatedLinks = [...document.querySelectorAll("[data-related-url-en]")];
     const catalogLinks = [...document.querySelectorAll("[data-catalog-link]")];
+    let previewReturnFocus = null;
 
     const META = {
       ru: {
         title: "ГофроТехкарта — программа для проектирования техкарт гофроящиков",
         description: "ГофроТехкарта формирует параметрический чертёж FEFCO 0201, размещает дизайн и манипуляционные знаки и выпускает готовую технологическую карту в PDF.",
+        shareTitle: "ГофроТехкарта — технологическая карта гофроящика в PDF",
+        shareDescription: "Параметрический чертёж FEFCO 0201, дизайн развёртки, спецификация и готовая техкарта в одном мастере.",
+        canonical: "https://governorv.github.io/GofroTechCard/",
+        locale: "ru_RU",
+        applicationName: "ГофроТехкарта",
+        image: "https://governorv.github.io/GofroTechCard/assets/techcard-hero-ru.png",
         heroAlt: "ГофроТехкарта — проектирование технологических карт гофроящиков",
         screenAlt: "Интерфейс ГофроТехкарты и предпросмотр готового документа"
       },
       en: {
         title: "Corrugated Box Tech Card — process sheet design software",
         description: "Create a parametric FEFCO 0201 drawing, place artwork and handling marks, complete the specification and export a production-ready PDF tech card.",
+        shareTitle: "Corrugated Box Tech Card — production-ready process sheets",
+        shareDescription: "Build a FEFCO 0201 dieline, place artwork and handling marks, complete the specification and export a production-ready PDF.",
+        canonical: "https://governorv.github.io/GofroTechCard/?lang=en",
+        locale: "en_US",
+        applicationName: "Corrugated Box Tech Card",
+        image: "https://governorv.github.io/GofroTechCard/assets/techcard-hero-en.png",
         heroAlt: "Corrugated Box Tech Card — corrugated packaging process sheet software",
         screenAlt: "Corrugated Box Tech Card interface and finished document preview"
       }
@@ -868,6 +1217,23 @@
       document.querySelector('meta[name="theme-color"]').content = theme === "day" ? "#f5f8fc" : "#071221";
     }
 
+    function openPreview() {
+      previewReturnFocus = document.activeElement;
+      previewImage.src = screen.src;
+      previewImage.alt = screen.alt;
+      previewLightbox.hidden = false;
+      document.body.classList.add("preview-open");
+      previewClose.focus();
+    }
+
+    function closePreview() {
+      if (previewLightbox.hidden) return;
+      previewLightbox.hidden = true;
+      document.body.classList.remove("preview-open");
+      previewImage.removeAttribute("src");
+      if (previewReturnFocus instanceof HTMLElement) previewReturnFocus.focus();
+    }
+
     function setLanguage(language, updateUrl = true) {
       const lang = language === EN ? EN : RU;
       document.documentElement.lang = lang;
@@ -879,10 +1245,19 @@
         button.classList.toggle("active", active);
         button.setAttribute("aria-pressed", String(active));
       });
+      heroSource.srcset = lang === EN ? "assets/techcard-hero-en.webp" : "assets/techcard-hero-ru.webp";
       hero.src = lang === EN ? "assets/techcard-hero-en.png" : "assets/techcard-hero-ru.png";
       hero.alt = META[lang].heroAlt;
       screen.src = lang === EN ? "assets/app-screen-en.png" : "assets/app-screen-ru.png";
       screen.alt = META[lang].screenAlt;
+      screen.height = lang === EN ? 1040 : 1043;
+      zoomButton.setAttribute("aria-label", lang === EN ? "Enlarge screenshot" : "Увеличить скриншот");
+      previewLightbox.setAttribute("aria-label", lang === EN ? "Enlarged screenshot" : "Увеличенный скриншот");
+      previewClose.setAttribute("aria-label", lang === EN ? "Close" : "Закрыть");
+      if (!previewLightbox.hidden) {
+        previewImage.src = screen.src;
+        previewImage.alt = screen.alt;
+      }
       document.getElementById("related-optcutting").src = lang === EN ? "../optcutting_banner_en.png" : "../optcutting_banner.png";
       document.getElementById("related-gost").src = lang === EN ? "../gost914290_banner_en.png" : "../gost914290_banner.png";
       document.getElementById("related-boxprice").src = lang === EN ? "../boxprice_banner_en.png" : "../boxprice_banner.png";
@@ -897,12 +1272,18 @@
       });
       document.title = META[lang].title;
       document.querySelector('meta[name="description"]').content = META[lang].description;
-      document.querySelector('meta[property="og:title"]').content = META[lang].title;
-      document.querySelector('meta[property="og:description"]').content = META[lang].description;
-      document.querySelector('meta[property="og:image"]').content = lang === EN
-        ? "https://governorv.github.io/GofroTechCard/assets/techcard-hero-en.png"
-        : "https://governorv.github.io/GofroTechCard/assets/techcard-hero-ru.png";
-      document.querySelector('meta[name="twitter:image"]').content = document.querySelector('meta[property="og:image"]').content;
+      document.querySelector('meta[name="application-name"]').content = META[lang].applicationName;
+      document.querySelector('link[rel="canonical"]').href = META[lang].canonical;
+      document.querySelector('meta[property="og:title"]').content = META[lang].shareTitle;
+      document.querySelector('meta[property="og:description"]').content = META[lang].shareDescription;
+      document.querySelector('meta[property="og:url"]').content = META[lang].canonical;
+      document.querySelector('meta[property="og:locale"]').content = META[lang].locale;
+      document.querySelector('meta[property="og:image"]').content = META[lang].image;
+      document.querySelector('meta[property="og:image:alt"]').content = META[lang].heroAlt;
+      document.querySelector('meta[name="twitter:title"]').content = META[lang].shareTitle;
+      document.querySelector('meta[name="twitter:description"]').content = META[lang].shareDescription;
+      document.querySelector('meta[name="twitter:image"]').content = META[lang].image;
+      document.querySelector('meta[name="twitter:image:alt"]').content = META[lang].heroAlt;
       try { localStorage.setItem("gofrotechcard-lang", lang); } catch (_) {}
       if (updateUrl) {
         const url = new URL(location.href);
@@ -913,6 +1294,18 @@
     }
 
     buttons.forEach((button) => button.addEventListener("click", () => setLanguage(button.dataset.langButton)));
+    zoomButton.addEventListener("click", openPreview);
+    previewClose.addEventListener("click", closePreview);
+    previewLightbox.addEventListener("click", (event) => {
+      if (event.target === previewLightbox) closePreview();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && !previewLightbox.hidden) closePreview();
+      if (event.key === "Tab" && !previewLightbox.hidden) {
+        event.preventDefault();
+        previewClose.focus();
+      }
+    });
     applyAutomaticTheme();
     window.setInterval(applyAutomaticTheme, 30 * 1000);
     document.addEventListener("visibilitychange", () => {

@@ -330,11 +330,15 @@
 .smart-lang-en{display:none!important}
 html[lang="en"] .smart-lang-ru,html[data-lang="en"] .smart-lang-ru{display:none!important}
 html[lang="en"] .smart-lang-en,html[data-lang="en"] .smart-lang-en{display:block!important}
+html[data-theme="day"] .smart-related-card,html.day-theme .smart-related-card{background:rgba(255,255,255,.92);color:#10233d;box-shadow:0 18px 46px rgba(24,54,84,.1)}
 @media(prefers-color-scheme:light){
-  .smart-related-card{background:rgba(255,255,255,.92);box-shadow:0 18px 46px rgba(24,54,84,.1)}
+  html:not([data-theme]):not(.night-theme) .smart-related-card{background:rgba(255,255,255,.92);color:#10233d;box-shadow:0 18px 46px rgba(24,54,84,.1)}
 }
 @media(max-width:1050px){.smart-related-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:640px){.smart-related-grid{grid-template-columns:1fr}}
+</style>
+<style id="purchase-guide-style">
+.purchase-guide{padding:64px 0}.purchase-guide-wrap{width:min(1180px,calc(100% - 36px));margin:0 auto}.purchase-guide-head{max-width:820px;margin-bottom:26px}.purchase-guide-head h2{margin:0 0 10px;font-size:clamp(1.9rem,3vw,2.7rem);line-height:1.12}.purchase-guide-head p{margin:0;color:inherit;opacity:.76}.purchase-guide-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin:0;padding:0;list-style:none;counter-reset:purchase-step}.purchase-guide-card{position:relative;min-height:176px;padding:34px 30px 30px 108px;border:1px solid #2e5a82;border-radius:26px;background:#193b5d;color:#eef6ff;box-shadow:0 18px 46px rgba(0,0,0,.14);counter-increment:purchase-step}.purchase-guide-card::before{content:counter(purchase-step);position:absolute;top:28px;left:28px;display:grid;place-items:center;width:58px;height:58px;border-radius:18px;background:linear-gradient(135deg,#ff6b25,#ff9a3d);color:#180b03;font-size:1.25rem;font-weight:950}.purchase-guide-card h3{margin:0 0 12px;color:#f5f9ff;font-size:1.12rem;line-height:1.35}.purchase-guide-card p{margin:0;color:#b6c9dc;line-height:1.65}.purchase-guide-card a{color:#cce6fa;text-underline-offset:3px}.purchase-guide-card b{color:#d7e7f6}@media(max-width:760px){.purchase-guide-grid{grid-template-columns:1fr}.purchase-guide-card{min-height:0;padding:28px 24px 26px 88px}.purchase-guide-card::before{top:23px;left:22px;width:48px;height:48px;border-radius:15px}}
 </style>
 </head>
 <body>
@@ -346,7 +350,7 @@ html[lang="en"] .smart-lang-en,html[data-lang="en"] .smart-lang-en{display:block
           <a href="#download" data-i18n="navDemo">Демоверсия</a>
           <a href="#features" data-i18n="navFeatures">Возможности</a>
           <a href="#prices" data-i18n="navPrices">Цены</a>
-          <a href="#buy" data-i18n="navBuy">Как купить</a>
+          <a href="#buy" class="smart-lang-ru">Как купить</a>
           <a href="#sites" data-i18n="navOther">Другие программы</a>
           <a href="../" data-i18n="navCatalog">Каталог</a>
         </nav>
@@ -408,23 +412,17 @@ html[lang="en"] .smart-lang-en,html[data-lang="en"] .smart-lang-en{display:block
       </div>
     </section>
 
-    <section id="buy">
-      <div class="wrap">
-        <div class="panel">
-          <h2 data-i18n="buyTitle">Как купить</h2>
-          <p data-i18n="buyLead">Для оформления лицензии нужен код компьютера, на котором будет установлена программа.</p>
-          <ol>
-            <li data-i18n="buy1">Скачайте архив pc-settings-detector.zip, распакуйте его и запустите программу на своем компьютере.</li>
-            <li data-i18n="buy2">Сохраните код, который она выдаст.</li>
-            <li data-i18n="buy3">Оплатите выбранный вариант лицензии на карту 5536914068135833 с пометкой "Оплата программы TruckLoader", укажите также свой ИНН для получения чека.</li>
-            <li data-i18n="buy4">Вышлите название программы "TruckLoader", код, дату транзакции и код программы pc-settings по адресу vguberniev@gmail.com.</li>
-            <li data-i18n="buy5">После проверки платежа в ответном письме придет ссылка на дистрибутив для указанного компьютера.</li>
-          </ol>
-          <div class="actions">
-            <a class="btn primary" href="https://mega.nz/file/j0JyjaYA#1It6_lUaPj6cNP6vodtz6XPoXAkzUjzKVQY-PyzcAt8" target="_blank" rel="noopener" data-i18n="pcBtn">Скачать pc-settings-detector.zip</a>
-            <a class="btn secondary" href="mailto:vguberniev@gmail.com?subject=TruckLoader" data-i18n="mailBtn">Написать на почту</a>
-          </div>
-        </div>
+    <section class="purchase-guide smart-lang-ru" id="buy">
+      <div class="purchase-guide-wrap">
+        <div class="purchase-guide-head"><h2>Как купить</h2><p>Лицензия подготавливается для конкретного компьютера. Выполните шесть шагов, чтобы получить персональный дистрибутив.</p></div>
+        <ol class="purchase-guide-grid">
+          <li class="purchase-guide-card"><h3>Скачайте программу определения кода</h3><p>Загрузите <a href="https://mega.nz/file/j0JyjaYA#1It6_lUaPj6cNP6vodtz6XPoXAkzUjzKVQY-PyzcAt8" target="_blank" rel="noopener">pc-settings-detector.zip</a>.</p></li>
+          <li class="purchase-guide-card"><h3>Запустите программу</h3><p>Распакуйте архив и запустите программу на компьютере, для которого приобретается лицензия.</p></li>
+          <li class="purchase-guide-card"><h3>Сохраните полученный код</h3><p>Скопируйте код оборудования, показанный программой.</p></li>
+          <li class="purchase-guide-card"><h3>Оплатите выбранную лицензию</h3><p>Переведите сумму на карту <b>5536914068135833</b> с пометкой «Оплата программы TruckLoader» и укажите ИНН для получения чека.</p></li>
+          <li class="purchase-guide-card"><h3>Отправьте данные автору</h3><p>Направьте название программы, код оборудования и дату транзакции на <a href="mailto:vguberniev@gmail.com">vguberniev@gmail.com</a>.</p></li>
+          <li class="purchase-guide-card"><h3>Получите персональный дистрибутив</h3><p>После проверки платежа ссылка на программу для указанного компьютера придёт ответным письмом.</p></li>
+        </ol>
       </div>
     </section>
 

@@ -465,8 +465,9 @@
 .smart-lang-en{display:none!important}
 html[lang="en"] .smart-lang-ru,html[data-lang="en"] .smart-lang-ru{display:none!important}
 html[lang="en"] .smart-lang-en,html[data-lang="en"] .smart-lang-en{display:block!important}
+html[data-theme="day"] .smart-related-card,html.day-theme .smart-related-card{background:rgba(255,255,255,.92);color:#10233d;box-shadow:0 18px 46px rgba(24,54,84,.1)}
 @media(prefers-color-scheme:light){
-  .smart-related-card{background:rgba(255,255,255,.92);box-shadow:0 18px 46px rgba(24,54,84,.1)}
+  html:not([data-theme]):not(.night-theme) .smart-related-card{background:rgba(255,255,255,.92);color:#10233d;box-shadow:0 18px 46px rgba(24,54,84,.1)}
 }
 @media(max-width:1050px){.smart-related-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:640px){.smart-related-grid{grid-template-columns:1fr}}
