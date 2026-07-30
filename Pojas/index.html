@@ -444,6 +444,33 @@
       .hero-content { padding-top: 48px; }
     }
   </style>
+
+
+<style id="smart-related-style">
+.smart-related{padding:64px 0}
+.smart-related-wrap{width:min(1180px,calc(100% - 36px));margin:0 auto}
+.smart-related-head{max-width:760px;margin-bottom:26px}
+.smart-related-head h2{margin:0 0 10px;font-size:clamp(1.9rem,3vw,2.7rem);line-height:1.12}
+.smart-related-head p{margin:0;opacity:.74}
+.smart-related-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.smart-related-card{overflow:hidden;border:1px solid rgba(125,155,190,.28);border-radius:20px;background:rgba(15,35,60,.72);box-shadow:0 18px 46px rgba(0,0,0,.15)}
+.smart-related-card>a:first-child{display:block;background:#fff}
+.smart-related-card img{display:block;width:100%;aspect-ratio:4/3;object-fit:contain}
+.smart-related-body{padding:20px}
+.smart-related-body h3{margin:0 0 8px;font-size:1.18rem}
+.smart-related-body p{min-height:3.2em;margin:0 0 16px;opacity:.76}
+.smart-related-link,.smart-catalog-link{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 16px;border:1px solid rgba(125,155,190,.34);border-radius:12px;color:inherit;font-weight:800;text-decoration:none}
+.smart-related-link:hover,.smart-catalog-link:hover{border-color:#22d3ee;transform:translateY(-1px)}
+.smart-catalog-card{border-color:rgba(47,117,255,.38)}
+.smart-lang-en{display:none!important}
+html[lang="en"] .smart-lang-ru,html[data-lang="en"] .smart-lang-ru{display:none!important}
+html[lang="en"] .smart-lang-en,html[data-lang="en"] .smart-lang-en{display:block!important}
+@media(prefers-color-scheme:light){
+  .smart-related-card{background:rgba(255,255,255,.92);box-shadow:0 18px 46px rgba(24,54,84,.1)}
+}
+@media(max-width:1050px){.smart-related-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.smart-related-grid{grid-template-columns:1fr}}
+</style>
 </head>
 
 <body>
@@ -878,6 +905,91 @@
         </article>
       </div>
     </section>
+
+    <section class="smart-related" id="other-programs" data-smart-related>
+  <div class="smart-related-wrap">
+    <div class="smart-lang-ru">
+  <div class="smart-related-head">
+    <h2>Вам также могут пригодиться</h2>
+    <p>Следующие решения продолжают типичный рабочий процесс и помогают на смежных этапах.</p>
+  </div>
+  <div class="smart-related-grid">
+    <article class="smart-related-card">
+  <a href="https://governorv.github.io/OptCutting/" target="_blank" rel="noopener"><img src="https://governorv.github.io/optcutting_banner.png" alt="Раскройщик OptCutting" loading="lazy"></a>
+  <div class="smart-related-body">
+    <h3>Раскройщик OptCutting</h3>
+    <p>Оптимизация раскроя полотна гофрокартона, карты раскроя, график и отчёты.</p>
+    <a class="smart-related-link" href="https://governorv.github.io/OptCutting/" target="_blank" rel="noopener">Открыть страницу</a>
+  </div>
+</article>
+    <article class="smart-related-card">
+  <a href="https://governorv.github.io/OptPacker/" target="_blank" rel="noopener"><img src="https://governorv.github.io/fasovshik_banner.png" alt="Фасовщик" loading="lazy"></a>
+  <div class="smart-related-body">
+    <h3>Фасовщик</h3>
+    <p>Оптимальная укладка изделий в ящик и расчёт параметров упаковки.</p>
+    <a class="smart-related-link" href="https://governorv.github.io/OptPacker/" target="_blank" rel="noopener">Открыть страницу</a>
+  </div>
+</article>
+    <article class="smart-related-card">
+  <a href="https://governorv.github.io/BoxPalletizer/#ru" target="_blank" rel="noopener"><img src="https://governorv.github.io/palletizer_banner.png" alt="Паллетировщик" loading="lazy"></a>
+  <div class="smart-related-body">
+    <h3>Паллетировщик</h3>
+    <p>Расчёт устойчивой укладки коробов на поддон, 3D-схема и отчёты.</p>
+    <a class="smart-related-link" href="https://governorv.github.io/BoxPalletizer/#ru" target="_blank" rel="noopener">Открыть страницу</a>
+  </div>
+</article>
+    <article class="smart-related-card smart-catalog-card">
+      <a href="https://governorv.github.io/#ru" target="_blank" rel="noopener"><img src="https://governorv.github.io/catalog_banner.png" alt="Каталог программ" loading="lazy"></a>
+      <div class="smart-related-body">
+        <h3>Каталог программ</h3>
+        <p>Все решения PackTuning Software для упаковки, производства и логистики.</p>
+        <a class="smart-related-link" href="https://governorv.github.io/#ru" target="_blank" rel="noopener">Открыть весь каталог</a>
+      </div>
+    </article>
+  </div>
+</div>
+    <div class="smart-lang-en">
+  <div class="smart-related-head">
+    <h2>You may also find these useful</h2>
+    <p>These tools continue the typical workflow and support closely related tasks.</p>
+  </div>
+  <div class="smart-related-grid">
+    <article class="smart-related-card">
+  <a href="https://governorv.github.io/OptCutting/?lang=en" target="_blank" rel="noopener"><img src="https://governorv.github.io/optcutting_banner_en.png" alt="OptCutting" loading="lazy"></a>
+  <div class="smart-related-body">
+    <h3>OptCutting</h3>
+    <p>Corrugated board cutting optimization, cutting maps, production schedule and reports.</p>
+    <a class="smart-related-link" href="https://governorv.github.io/OptCutting/?lang=en" target="_blank" rel="noopener">Open page</a>
+  </div>
+</article>
+    <article class="smart-related-card">
+  <a href="https://governorv.github.io/OptPacker/?lang=en" target="_blank" rel="noopener"><img src="https://governorv.github.io/fasovshik_banner_en.png" alt="Box Packing Optimizer" loading="lazy"></a>
+  <div class="smart-related-body">
+    <h3>Box Packing Optimizer</h3>
+    <p>Optimal product placement in a box and packaging parameter calculation.</p>
+    <a class="smart-related-link" href="https://governorv.github.io/OptPacker/?lang=en" target="_blank" rel="noopener">Open page</a>
+  </div>
+</article>
+    <article class="smart-related-card">
+  <a href="https://governorv.github.io/BoxPalletizer/#en" target="_blank" rel="noopener"><img src="https://governorv.github.io/palletizer_banner_en.png" alt="Box Palletizer" loading="lazy"></a>
+  <div class="smart-related-body">
+    <h3>Box Palletizer</h3>
+    <p>Stable box palletizing calculation with 3D layouts and reports.</p>
+    <a class="smart-related-link" href="https://governorv.github.io/BoxPalletizer/#en" target="_blank" rel="noopener">Open page</a>
+  </div>
+</article>
+    <article class="smart-related-card smart-catalog-card">
+      <a href="https://governorv.github.io/#en" target="_blank" rel="noopener"><img src="https://governorv.github.io/catalog_banner_en.png" alt="Software Catalog" loading="lazy"></a>
+      <div class="smart-related-body">
+        <h3>Software Catalog</h3>
+        <p>All PackTuning Software solutions for packaging, production and logistics.</p>
+        <a class="smart-related-link" href="https://governorv.github.io/#en" target="_blank" rel="noopener">Open full catalog</a>
+      </div>
+    </article>
+  </div>
+</div>
+  </div>
+</section>
 
     <section class="contact" id="contact">
       <div class="container split">

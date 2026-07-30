@@ -1,0 +1,825 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ГофроТехкарта — программа для проектирования техкарт гофроящиков</title>
+  <meta name="description" content="ГофроТехкарта формирует параметрический чертёж FEFCO 0201, размещает дизайн и манипуляционные знаки и выпускает готовую технологическую карту в PDF.">
+  <meta name="theme-color" content="#071221" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f5f8fc" media="(prefers-color-scheme: light)">
+  <link rel="canonical" href="https://governorv.github.io/GofroTechCard/">
+  <link rel="alternate" hreflang="ru" href="https://governorv.github.io/GofroTechCard/">
+  <link rel="alternate" hreflang="en" href="https://governorv.github.io/GofroTechCard/?lang=en">
+  <link rel="alternate" hreflang="x-default" href="https://governorv.github.io/GofroTechCard/">
+  <link rel="icon" type="image/png" href="assets/techcard.png">
+  <link rel="apple-touch-icon" href="assets/techcard.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PackTuning Software">
+  <meta property="og:title" content="ГофроТехкарта — технологическая карта гофроящика в PDF">
+  <meta property="og:description" content="Параметрический чертёж FEFCO 0201, дизайн развёртки, спецификация и готовая техкарта в одном мастере.">
+  <meta property="og:url" content="https://governorv.github.io/GofroTechCard/">
+  <meta property="og:image" content="https://governorv.github.io/GofroTechCard/assets/techcard-hero-ru.png">
+  <meta property="og:image:width" content="2172">
+  <meta property="og:image:height" content="724">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://governorv.github.io/GofroTechCard/assets/techcard-hero-ru.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://governorv.github.io/GofroTechCard/#software",
+        "name": "ГофроТехкарта",
+        "alternateName": "Corrugated Box Tech Card",
+        "applicationCategory": "BusinessApplication",
+        "applicationSubCategory": "Packaging engineering software",
+        "operatingSystem": "Windows",
+        "url": "https://governorv.github.io/GofroTechCard/",
+        "downloadUrl": "https://mega.nz/file/ewIlzAzD#6wSdK_s9-MNIAcQrM1RPstCtZUulSqPnV1OFRjjBYe0",
+        "image": "https://governorv.github.io/GofroTechCard/assets/techcard-hero-ru.png",
+        "screenshot": "https://governorv.github.io/GofroTechCard/assets/techcard-screen-ru.png",
+        "description": "Windows-программа для проектирования и оформления технологических карт гофроящиков с параметрическим чертежом FEFCO 0201, дизайном развёртки, спецификацией и экспортом в PDF.",
+        "featureList": [
+          "Пошаговый мастер технологической карты",
+          "Параметрический чертёж FEFCO 0201",
+          "Автоматический расчёт размеров развёртки",
+          "Размещение изображений, надписей и манипуляционных знаков",
+          "Формирование спецификации упаковки",
+          "Предварительный просмотр и экспорт в PDF",
+          "Дежурный режим в версии PRO",
+          "Многоязычный интерфейс с подключаемыми словарями"
+        ],
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "ГофроТехкарта Standard — бессрочная лицензия",
+            "price": "99000",
+            "priceCurrency": "RUB",
+            "availability": "https://schema.org/InStock",
+            "url": "https://governorv.github.io/GofroTechCard/#pricing"
+          },
+          {
+            "@type": "Offer",
+            "name": "ГофроТехкарта PRO — бессрочная лицензия",
+            "price": "119000",
+            "priceCurrency": "RUB",
+            "availability": "https://schema.org/InStock",
+            "url": "https://governorv.github.io/GofroTechCard/#pricing"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://governorv.github.io/GofroTechCard/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Что формирует ГофроТехкарта?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Программа формирует готовую технологическую карту гофроящика с размерами, параметрическим чертежом, логотипами, манипуляционными знаками и спецификацией в PDF."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Какие конструкции доступны?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "В текущей версии доступна параметрическая конструкция FEFCO 0201."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Чем отличается версия PRO?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "PRO включает дежурный режим: программа следит за папкой, обрабатывает входные JSON-файлы и сохраняет готовые PDF без ручного запуска мастера."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #071221;
+      --bg-soft: #0b1b31;
+      --surface: rgba(13, 31, 54, .9);
+      --surface-strong: #102641;
+      --surface-raised: #153151;
+      --text: #edf6ff;
+      --muted: #a9bfd6;
+      --line: rgba(126, 196, 255, .2);
+      --line-strong: rgba(56, 189, 248, .48);
+      --cyan: #22d3ee;
+      --blue: #2f75ff;
+      --orange: #ff702a;
+      --orange-soft: rgba(255, 112, 42, .15);
+      --green: #52e5a8;
+      --shadow: 0 24px 80px rgba(0, 0, 0, .28);
+      --radius: 24px;
+      --max: 1220px;
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f5f8fc;
+        --bg-soft: #eaf1f8;
+        --surface: rgba(255, 255, 255, .94);
+        --surface-strong: #ffffff;
+        --surface-raised: #eef5fb;
+        --text: #0c2544;
+        --muted: #546b82;
+        --line: rgba(12, 55, 95, .14);
+        --line-strong: rgba(19, 129, 171, .34);
+        --orange-soft: rgba(255, 112, 42, .1);
+        --shadow: 0 24px 70px rgba(28, 61, 92, .14);
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 82px; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(34, 211, 238, .12), transparent 28rem),
+        radial-gradient(circle at 88% 24%, rgba(47, 117, 255, .14), transparent 32rem),
+        var(--bg);
+      color: var(--text);
+      font: 16px/1.62 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      opacity: .24;
+      background-image:
+        linear-gradient(var(--line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, #000, transparent 65%);
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    .container { width: min(var(--max), calc(100% - 40px)); margin-inline: auto; }
+    .skip-link {
+      position: fixed; left: 16px; top: -80px; z-index: 100;
+      padding: 10px 16px; border-radius: 10px; background: var(--surface-strong);
+    }
+    .skip-link:focus { top: 12px; }
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--cyan);
+      font-size: .78rem;
+      font-weight: 850;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    h1, h2, h3 { margin: 0; line-height: 1.12; letter-spacing: -.03em; }
+    h1 { font-size: clamp(2.45rem, 5.4vw, 5rem); max-width: 960px; }
+    h2 { font-size: clamp(2rem, 3.5vw, 3.35rem); }
+    h3 { font-size: 1.24rem; }
+    p { margin: 0; color: var(--muted); }
+    section { padding: 88px 0; }
+    .section-head { max-width: 780px; margin-bottom: 34px; }
+    .section-head p { margin-top: 14px; font-size: 1.08rem; }
+
+    .topbar {
+      position: sticky; top: 0; z-index: 50;
+      border-bottom: 1px solid var(--line);
+      background: color-mix(in srgb, var(--bg) 82%, transparent);
+      backdrop-filter: blur(16px);
+    }
+    .topbar-inner {
+      min-height: 70px;
+      display: flex; align-items: center; gap: 24px;
+    }
+    .brand {
+      display: inline-flex; align-items: center; gap: 11px;
+      min-width: max-content; text-decoration: none;
+    }
+    .brand img { width: 42px; height: 42px; border-radius: 12px; }
+    .brand-copy { display: grid; line-height: 1.12; }
+    .brand-copy strong { font-size: 1rem; }
+    .brand-copy small { color: var(--muted); font-size: .72rem; }
+    .nav {
+      display: flex; align-items: center; gap: 20px;
+      margin-left: auto;
+    }
+    .nav a {
+      color: var(--muted);
+      font-weight: 700;
+      font-size: .88rem;
+      text-decoration: none;
+    }
+    .nav a:hover, .nav a:focus-visible { color: var(--text); }
+    .lang {
+      display: inline-flex; gap: 4px;
+      padding: 4px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface);
+    }
+    .lang button {
+      border: 0; border-radius: 999px;
+      padding: 8px 12px;
+      color: var(--muted);
+      background: transparent;
+      font: inherit; font-size: .78rem; font-weight: 850;
+      cursor: pointer;
+    }
+    .lang button.active {
+      background: linear-gradient(135deg, var(--cyan), #5eead4);
+      color: #052036;
+    }
+
+    .hero-banner {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 3 / 1;
+      min-height: 250px;
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+      background: #030a13;
+    }
+    .hero-banner img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-banner::after {
+      content: "";
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, transparent 68%, var(--bg));
+      pointer-events: none;
+    }
+    .hero { padding-top: 64px; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.45fr .75fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+    .hero-copy, .hero-side, .card, .price-card, .related-card, .faq-item {
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, var(--surface), color-mix(in srgb, var(--surface) 78%, transparent));
+      box-shadow: var(--shadow);
+    }
+    .hero-copy, .hero-side { border-radius: 30px; padding: clamp(28px, 4vw, 52px); }
+    .hero-copy .lead { max-width: 850px; margin-top: 22px; font-size: clamp(1.04rem, 2vw, 1.25rem); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+      min-height: 48px; padding: 12px 19px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface-strong);
+      color: var(--text);
+      font-weight: 850;
+      text-decoration: none;
+      transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+    }
+    .btn:hover { transform: translateY(-2px); border-color: var(--line-strong); }
+    .btn:focus-visible, button:focus-visible { outline: 3px solid var(--cyan); outline-offset: 3px; }
+    .btn.primary {
+      border-color: transparent;
+      background: linear-gradient(135deg, var(--orange), #ff9c46);
+      color: #241006;
+      box-shadow: 0 14px 36px rgba(255, 112, 42, .26);
+    }
+    .btn.ghost { background: transparent; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 26px; }
+    .chip {
+      padding: 7px 11px; border: 1px solid var(--line);
+      border-radius: 999px; color: var(--muted); font-size: .78rem; font-weight: 700;
+    }
+    .hero-side { display: grid; align-content: center; gap: 18px; }
+    .hero-stat {
+      display: grid; grid-template-columns: auto 1fr; gap: 14px; align-items: center;
+      padding-bottom: 18px; border-bottom: 1px solid var(--line);
+    }
+    .hero-stat:last-child { border-bottom: 0; padding-bottom: 0; }
+    .hero-stat strong {
+      display: grid; place-items: center;
+      width: 48px; height: 48px; border-radius: 15px;
+      background: linear-gradient(135deg, rgba(34, 211, 238, .2), rgba(47, 117, 255, .24));
+      color: var(--cyan); font-size: 1.1rem;
+    }
+    .hero-stat span { color: var(--muted); }
+
+    .workflow-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .card { position: relative; border-radius: var(--radius); padding: 25px; overflow: hidden; }
+    .step-number {
+      display: inline-grid; place-items: center;
+      width: 42px; height: 42px; margin-bottom: 22px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--blue), var(--cyan));
+      color: #fff; font-weight: 900;
+    }
+    .card p { margin-top: 10px; }
+    .card::after {
+      content: "";
+      position: absolute; width: 120px; height: 120px;
+      right: -60px; bottom: -70px;
+      border: 1px solid var(--line-strong); border-radius: 50%;
+    }
+
+    .preview-grid {
+      display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(280px, .55fr);
+      gap: 26px; align-items: stretch;
+    }
+    .screenshot {
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      background: var(--surface-strong);
+      box-shadow: var(--shadow);
+    }
+    .screenshot img { width: 100%; border-radius: 18px; }
+    .feature-list { display: grid; gap: 12px; }
+    .feature {
+      display: grid; grid-template-columns: 38px 1fr; gap: 13px; align-items: start;
+      padding: 17px; border: 1px solid var(--line); border-radius: 17px; background: var(--surface);
+    }
+    .feature b {
+      display: grid; place-items: center;
+      width: 36px; height: 36px; border-radius: 12px;
+      background: rgba(34, 211, 238, .12); color: var(--cyan);
+    }
+    .feature span { color: var(--muted); }
+
+    .edition-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .price-card { position: relative; border-radius: 28px; padding: clamp(26px, 3.5vw, 40px); }
+    .price-card.pro { border-color: rgba(255, 194, 64, .55); }
+    .ribbon {
+      position: absolute; top: 20px; right: 20px;
+      padding: 6px 10px; border-radius: 999px;
+      background: #ffd64d; color: #211800;
+      font-size: .72rem; font-weight: 950; letter-spacing: .08em;
+    }
+    .edition-title { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; }
+    .edition-title img { width: 58px; height: 58px; border-radius: 17px; }
+    .buy-price { font-size: clamp(2rem, 4vw, 3rem); font-weight: 950; letter-spacing: -.045em; }
+    .price-caption { margin-top: 4px; }
+    .rentals { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 24px 0; }
+    .rental {
+      padding: 15px; border: 1px solid var(--line); border-radius: 16px; background: var(--surface-raised);
+    }
+    .rental small { display: block; color: var(--muted); }
+    .rental strong { font-size: 1.12rem; }
+    .checks { display: grid; gap: 10px; margin: 22px 0 0; padding: 0; list-style: none; }
+    .checks li { position: relative; padding-left: 27px; color: var(--muted); }
+    .checks li::before { content: "✓"; position: absolute; left: 0; color: var(--green); font-weight: 900; }
+
+    .demo-callout {
+      display: grid; grid-template-columns: auto 1fr auto; gap: 24px; align-items: center;
+      padding: 28px;
+      border: 1px solid rgba(255, 112, 42, .42);
+      border-radius: 26px;
+      background: linear-gradient(120deg, var(--orange-soft), var(--surface));
+      box-shadow: var(--shadow);
+    }
+    .demo-callout img { width: 72px; height: 72px; border-radius: 20px; }
+    .demo-callout h3 { margin-bottom: 7px; }
+
+    .related-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+    .related-card { border-radius: 24px; overflow: hidden; }
+    .related-card img {
+      width: 100%; aspect-ratio: 3 / 2; object-fit: contain;
+      background: #fff; border-bottom: 1px solid var(--line);
+    }
+    .related-body { padding: 22px; }
+    .related-body p { margin: 9px 0 18px; min-height: 3.2em; }
+    .catalog-cta {
+      display: flex; align-items: center; justify-content: space-between; gap: 22px;
+      margin-top: 22px; padding: 26px;
+      border: 1px solid var(--line); border-radius: 24px; background: var(--surface);
+    }
+
+    .faq { display: grid; gap: 12px; }
+    .faq-item { border-radius: 18px; overflow: hidden; }
+    .faq-item summary {
+      padding: 20px 54px 20px 22px;
+      cursor: pointer; font-weight: 850; list-style: none; position: relative;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: "+";
+      position: absolute; right: 22px; top: 50%; transform: translateY(-50%);
+      color: var(--cyan); font-size: 1.5rem;
+    }
+    .faq-item[open] summary::after { content: "–"; }
+    .faq-item p { padding: 0 22px 22px; max-width: 900px; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--line); }
+    .footer-inner {
+      display: flex; align-items: center; justify-content: space-between; gap: 24px;
+      color: var(--muted); font-size: .9rem;
+    }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 18px; }
+    .footer-links a { text-decoration: none; }
+    .footer-links a:hover { color: var(--text); }
+
+    @media (max-width: 1000px) {
+      .nav { display: none; }
+      .hero-grid, .preview-grid { grid-template-columns: 1fr; }
+      .workflow-grid { grid-template-columns: repeat(2, 1fr); }
+      .related-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 720px) {
+      .container { width: min(100% - 28px, var(--max)); }
+      section { padding: 64px 0; }
+      .brand-copy small { display: none; }
+      .hero-banner { aspect-ratio: 2.1 / 1; min-height: 190px; }
+      .hero-banner img { object-position: 50% center; }
+      .hero-copy, .hero-side { padding: 25px; border-radius: 24px; }
+      .workflow-grid, .edition-grid, .related-grid { grid-template-columns: 1fr; }
+      .rentals { grid-template-columns: 1fr; }
+      .demo-callout { grid-template-columns: auto 1fr; }
+      .demo-callout .btn { grid-column: 1 / -1; }
+      .catalog-cta, .footer-inner { align-items: flex-start; flex-direction: column; }
+    }
+    @media (max-width: 460px) {
+      .brand-copy strong { font-size: .9rem; }
+      .brand img { width: 38px; height: 38px; }
+      .lang button { padding: 7px 10px; }
+      .hero-banner { min-height: 172px; }
+      .hero-actions .btn { width: 100%; }
+      h1 { font-size: 2.35rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#content" data-ru="Перейти к содержанию" data-en="Skip to content">Перейти к содержанию</a>
+
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="#top" aria-label="ГофроТехкарта">
+        <img src="assets/techcard.png" alt="">
+        <span class="brand-copy">
+          <strong data-ru="ГофроТехкарта" data-en="Corrugated Box Tech Card">ГофроТехкарта</strong>
+          <small>PackTuning Software</small>
+        </span>
+      </a>
+      <nav class="nav" aria-label="Основная навигация">
+        <a href="#workflow" data-ru="Как работает" data-en="Workflow">Как работает</a>
+        <a href="#features" data-ru="Возможности" data-en="Features">Возможности</a>
+        <a href="#pricing" data-ru="Цены" data-en="Pricing">Цены</a>
+        <a href="#related" data-ru="Другие программы" data-en="Other software">Другие программы</a>
+      </nav>
+      <div class="lang" aria-label="Language">
+        <button id="lang-ru" type="button" data-lang-button="ru">RU</button>
+        <button id="lang-en" type="button" data-lang-button="en">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <div id="top" class="hero-banner">
+    <img id="hero-image" src="assets/techcard-hero-ru.png" alt="ГофроТехкарта — проектирование технологических карт гофроящиков">
+  </div>
+
+  <main id="content">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow" data-ru="Техкарта без ручной верстки" data-en="A process sheet without manual layout">Техкарта без ручной верстки</p>
+          <h1 data-ru="От параметров ящика — к готовой техкарте в PDF" data-en="From box parameters to a production-ready PDF tech card">От параметров ящика — к готовой техкарте в PDF</h1>
+          <p class="lead" data-ru="ГофроТехкарта проводит технолога по шагам: исходные данные, конструкция, материал, дизайн, печать, производство и упаковка. На выходе — наглядный параметрический чертёж и заполненный документ формата A4." data-en="Corrugated Box Tech Card guides the engineer through source data, structure, material, artwork, printing, production and packaging. The result is a clear parametric drawing and a completed A4 document.">
+            ГофроТехкарта проводит технолога по шагам: исходные данные, конструкция, материал, дизайн, печать, производство и упаковка. На выходе — наглядный параметрический чертёж и заполненный документ формата A4.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="https://mega.nz/file/ewIlzAzD#6wSdK_s9-MNIAcQrM1RPstCtZUulSqPnV1OFRjjBYe0" target="_blank" rel="noopener" data-ru="Скачать демоверсию" data-en="Download demo">Скачать демоверсию</a>
+            <a class="btn ghost" href="#pricing" data-ru="Сравнить версии" data-en="Compare editions">Сравнить версии</a>
+          </div>
+          <div class="chips" aria-label="Характеристики">
+            <span class="chip">Windows 10/11</span>
+            <span class="chip" data-ru="FEFCO 0201" data-en="FEFCO 0201">FEFCO 0201</span>
+            <span class="chip" data-ru="Экспорт PDF" data-en="PDF export">Экспорт PDF</span>
+            <span class="chip" data-ru="10 языков + свои словари" data-en="10 languages + custom dictionaries">10 языков + свои словари</span>
+          </div>
+        </div>
+        <aside class="hero-side" aria-label="Ключевые результаты">
+          <div class="hero-stat">
+            <strong>8</strong>
+            <span data-ru="понятных этапов мастера" data-en="guided wizard stages">понятных этапов мастера</span>
+          </div>
+          <div class="hero-stat">
+            <strong>0201</strong>
+            <span data-ru="параметрическая конструкция в текущей версии" data-en="parametric box style in the current release">параметрическая конструкция в текущей версии</span>
+          </div>
+          <div class="hero-stat">
+            <strong>PDF</strong>
+            <span data-ru="готовая техкарта для согласования и производства" data-en="ready for review and production">готовая техкарта для согласования и производства</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="workflow">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow" data-ru="Рабочий процесс" data-en="Workflow">Рабочий процесс</p>
+          <h2 data-ru="Все данные собираются в одном мастере" data-en="All source data is collected in one wizard">Все данные собираются в одном мастере</h2>
+          <p data-ru="Изменения сразу отражаются в предпросмотре. На любой этап можно вернуться, а черновик сохраняется автоматически." data-en="Changes appear in the preview immediately. You can return to any stage, while the draft is saved automatically.">Изменения сразу отражаются в предпросмотре. На любой этап можно вернуться, а черновик сохраняется автоматически.</p>
+        </div>
+        <div class="workflow-grid">
+          <article class="card">
+            <span class="step-number">01</span>
+            <h3 data-ru="Заказ и конструкция" data-en="Order and structure">Заказ и конструкция</h3>
+            <p data-ru="Покупатель, поставщик, номер заказа и внутренние размеры ящика. Сейчас доступен параметрический шаблон FEFCO 0201." data-en="Customer, supplier, order number and internal box dimensions. The current release includes the FEFCO 0201 parametric template.">Покупатель, поставщик, номер заказа и внутренние размеры ящика. Сейчас доступен параметрический шаблон FEFCO 0201.</p>
+          </article>
+          <article class="card">
+            <span class="step-number">02</span>
+            <h3 data-ru="Материал и печать" data-en="Material and printing">Материал и печать</h3>
+            <p data-ru="ГОСТ ящика и картона, марка, профиль, цвет, граммаж, просечка, краски, клише и допустимые отклонения." data-en="Box and board standards, grade, flute, color, grammage, slots, inks, printing plate and tolerances.">ГОСТ ящика и картона, марка, профиль, цвет, граммаж, просечка, краски, клише и допустимые отклонения.</p>
+          </article>
+          <article class="card">
+            <span class="step-number">03</span>
+            <h3 data-ru="Дизайн развёртки" data-en="Dieline artwork">Дизайн развёртки</h3>
+            <p data-ru="Несколько изображений, произвольные надписи, шрифт и размер. Логотипы, текст и манипуляционные знаки перемещаются мышью." data-en="Multiple images, custom text, font and size. Logos, labels and handling marks can be positioned by dragging.">Несколько изображений, произвольные надписи, шрифт и размер. Логотипы, текст и манипуляционные знаки перемещаются мышью.</p>
+          </article>
+          <article class="card">
+            <span class="step-number">04</span>
+            <h3 data-ru="Спецификация и PDF" data-en="Specification and PDF">Спецификация и PDF</h3>
+            <p data-ru="Оборудование, способ скрепления, упаковка, схема укладки и размер блока автоматически попадают в итоговый документ." data-en="Equipment, joint method, packaging, stacking pattern and block size are placed into the finished document automatically.">Оборудование, способ скрепления, упаковка, схема укладки и размер блока автоматически попадают в итоговый документ.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow" data-ru="Предпросмотр результата" data-en="Result preview">Предпросмотр результата</p>
+          <h2 data-ru="Чертёж, оформление и спецификация на одном листе" data-en="Drawing, artwork and specification on one sheet">Чертёж, оформление и спецификация на одном листе</h2>
+        </div>
+        <div class="preview-grid">
+          <figure class="screenshot">
+            <img id="screen-image" src="assets/techcard-screen-ru.png" alt="Интерфейс ГофроТехкарты и предпросмотр готового документа">
+          </figure>
+          <div class="feature-list">
+            <div class="feature"><b>↔</b><span data-ru="Пропорциональный параметрический чертёж с размерными и выносными линиями." data-en="A proportional parametric drawing with complete dimension and extension lines.">Пропорциональный параметрический чертёж с размерными и выносными линиями.</span></div>
+            <div class="feature"><b>T</b><span data-ru="Надписи, логотипы, изображения и знаки размещаются непосредственно на развёртке." data-en="Text, logos, images and handling marks are positioned directly on the dieline.">Надписи, логотипы, изображения и знаки размещаются непосредственно на развёртке.</span></div>
+            <div class="feature"><b>≡</b><span data-ru="Материал, печать, производство и упаковка сводятся в единую спецификацию." data-en="Material, printing, production and packaging are combined into one specification.">Материал, печать, производство и упаковка сводятся в единую спецификацию.</span></div>
+            <div class="feature"><b>PDF</b><span data-ru="Файл формируется для печати, согласования с заказчиком и передачи в производство." data-en="The PDF is ready for printing, customer approval and production handoff.">Файл формируется для печати, согласования с заказчиком и передачи в производство.</span></div>
+            <div class="feature"><b>A</b><span data-ru="Интерфейс переводится на лету; новые языки подключаются пользовательскими словарями." data-en="The UI switches language live; additional languages are added through custom dictionaries.">Интерфейс переводится на лету; новые языки подключаются пользовательскими словарями.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow" data-ru="Лицензирование" data-en="Licensing">Лицензирование</p>
+          <h2 data-ru="Выберите Standard или PRO" data-en="Choose Standard or PRO">Выберите Standard или PRO</h2>
+          <p data-ru="Можно приобрести бессрочную лицензию или арендовать программу на месяц или год." data-en="Choose a perpetual license, monthly rental or annual rental.">Можно приобрести бессрочную лицензию или арендовать программу на месяц или год.</p>
+        </div>
+        <div class="edition-grid">
+          <article class="price-card">
+            <div class="edition-title">
+              <img src="assets/techcard.png" alt="">
+              <div>
+                <p class="eyebrow">STANDARD</p>
+                <h3 data-ru="Для работы технолога" data-en="For packaging engineers">Для работы технолога</h3>
+              </div>
+            </div>
+            <div class="buy-price">99 000 ₽</div>
+            <p class="price-caption" data-ru="бессрочная лицензия" data-en="perpetual license">бессрочная лицензия</p>
+            <div class="rentals">
+              <div class="rental"><small data-ru="Аренда на месяц" data-en="Monthly rental">Аренда на месяц</small><strong>3 490 ₽</strong></div>
+              <div class="rental"><small data-ru="Аренда на год" data-en="Annual rental">Аренда на год</small><strong>24 900 ₽</strong></div>
+            </div>
+            <ul class="checks">
+              <li data-ru="Все восемь этапов мастера" data-en="All eight wizard stages">Все восемь этапов мастера</li>
+              <li data-ru="Параметрический чертёж FEFCO 0201" data-en="FEFCO 0201 parametric drawing">Параметрический чертёж FEFCO 0201</li>
+              <li data-ru="Дизайн развёртки и манипуляционные знаки" data-en="Dieline artwork and handling marks">Дизайн развёртки и манипуляционные знаки</li>
+              <li data-ru="Готовая техкарта в PDF" data-en="Finished tech card in PDF">Готовая техкарта в PDF</li>
+              <li data-ru="10 языков и подключаемые словари" data-en="10 languages and custom dictionaries">10 языков и подключаемые словари</li>
+            </ul>
+          </article>
+
+          <article class="price-card pro">
+            <span class="ribbon">PRO</span>
+            <div class="edition-title">
+              <img src="assets/techcard-pro.png" alt="">
+              <div>
+                <p class="eyebrow">PRO</p>
+                <h3 data-ru="Для автоматизации потока заказов" data-en="For automated order processing">Для автоматизации потока заказов</h3>
+              </div>
+            </div>
+            <div class="buy-price">119 000 ₽</div>
+            <p class="price-caption" data-ru="бессрочная лицензия" data-en="perpetual license">бессрочная лицензия</p>
+            <div class="rentals">
+              <div class="rental"><small data-ru="Аренда на месяц" data-en="Monthly rental">Аренда на месяц</small><strong>3 990 ₽</strong></div>
+              <div class="rental"><small data-ru="Аренда на год" data-en="Annual rental">Аренда на год</small><strong>29 900 ₽</strong></div>
+            </div>
+            <ul class="checks">
+              <li data-ru="Все возможности Standard" data-en="Everything in Standard">Все возможности Standard</li>
+              <li data-ru="Дежурный режим с контролем входной папки" data-en="Watch mode with input-folder monitoring">Дежурный режим с контролем входной папки</li>
+              <li data-ru="Автоматическая обработка input.json" data-en="Automatic input.json processing">Автоматическая обработка input.json</li>
+              <li data-ru="Сохранение PDF в заданный каталог" data-en="Save generated PDFs to a selected folder">Сохранение PDF в заданный каталог</li>
+              <li data-ru="Интеграция с сайтом, CRM или внутренней системой через файлы" data-en="File-based website, CRM or internal-system integration">Интеграция с сайтом, CRM или внутренней системой через файлы</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="demo-callout" style="margin-top: 24px">
+          <img src="assets/techcard-demo.png" alt="">
+          <div>
+            <h3 data-ru="Попробуйте демоверсию" data-en="Try the demo version">Попробуйте демоверсию</h3>
+            <p data-ru="Демоверсия знакомит со всем рабочим процессом. При расчёте введённые размеры изменяются на случайную величину до 10%, а на итоговый PDF наносится водяной знак DEMO." data-en="The demo presents the complete workflow. During calculation, entered dimensions are changed randomly by up to 10%, and the finished PDF carries a DEMO watermark.">Демоверсия знакомит со всем рабочим процессом. При расчёте введённые размеры изменяются на случайную величину до 10%, а на итоговый PDF наносится водяной знак DEMO.</p>
+          </div>
+          <a class="btn primary" href="https://mega.nz/file/ewIlzAzD#6wSdK_s9-MNIAcQrM1RPstCtZUulSqPnV1OFRjjBYe0" target="_blank" rel="noopener" data-ru="Скачать бесплатно" data-en="Free download">Скачать бесплатно</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="related">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow" data-ru="Экосистема PackTuning" data-en="PackTuning ecosystem">Экосистема PackTuning</p>
+          <h2 data-ru="Вам также могут пригодиться" data-en="You may also find these useful">Вам также могут пригодиться</h2>
+          <p data-ru="Три решения, наиболее близкие по задачам технологов и производителей гофроупаковки." data-en="Three closely related tools for corrugated packaging engineers and manufacturers.">Три решения, наиболее близкие по задачам технологов и производителей гофроупаковки.</p>
+        </div>
+        <div class="related-grid">
+          <article class="related-card">
+            <img id="related-optcutting" src="../optcutting_banner.png" alt="OptCutting">
+            <div class="related-body">
+              <h3>OptCutting</h3>
+              <p data-ru="Оптимизация раскроя полотна гофрокартона, карты раскроя, сетевой график и отчёты." data-en="Corrugated board cutting optimization, cutting maps, schedule and reports.">Оптимизация раскроя полотна гофрокартона, карты раскроя, сетевой график и отчёты.</p>
+              <a class="btn ghost" href="https://governorv.github.io/OptCutting/" target="_blank" rel="noopener" data-related-url-en="https://governorv.github.io/OptCutting/?lang=en" data-ru="Открыть страницу" data-en="Open page">Открыть страницу</a>
+            </div>
+          </article>
+          <article class="related-card">
+            <img id="related-gost" src="../gost914290_banner.png" alt="Box Strength Calculator (ГОСТ)">
+            <div class="related-body">
+              <h3>Box Strength Calculator (ГОСТ)</h3>
+              <p data-ru="Расчёт нагрузки, сопротивления и марки гофрокартона по ГОСТ 9142-2014." data-en="Box load, resistance and board grade calculation according to GOST 9142-2014.">Расчёт нагрузки, сопротивления и марки гофрокартона по ГОСТ 9142-2014.</p>
+              <a class="btn ghost" href="https://governorv.github.io/gost/" target="_blank" rel="noopener" data-related-url-en="https://governorv.github.io/gost/?lang=en" data-ru="Открыть страницу" data-en="Open page">Открыть страницу</a>
+            </div>
+          </article>
+          <article class="related-card">
+            <img id="related-boxprice" src="../boxprice_banner.png" alt="Box Price Calculator">
+            <div class="related-body">
+              <h3>Box Price Calculator</h3>
+              <p data-ru="Расчёт себестоимости гофроящиков, материалов, печати, упаковки и доставки." data-en="Cost estimation for corrugated boxes, materials, printing, packaging and delivery.">Расчёт себестоимости гофроящиков, материалов, печати, упаковки и доставки.</p>
+              <a class="btn ghost" href="https://governorv.github.io/BoxPriceCalculator/" target="_blank" rel="noopener" data-related-url-en="https://governorv.github.io/BoxPriceCalculator/?lang=en" data-ru="Открыть страницу" data-en="Open page">Открыть страницу</a>
+            </div>
+          </article>
+          <article class="related-card">
+            <a href="https://governorv.github.io/#ru" data-catalog-link target="_blank" rel="noopener">
+              <img id="related-catalog" src="../catalog_banner.png" alt="Каталог программ PackTuning Software">
+            </a>
+            <div class="related-body">
+              <h3 data-ru="Каталог программ" data-en="Software Catalog">Каталог программ</h3>
+              <p data-ru="Все решения PackTuning Software для упаковки, производства и логистики." data-en="All PackTuning Software solutions for packaging, production and logistics.">Все решения PackTuning Software для упаковки, производства и логистики.</p>
+              <a class="btn ghost" href="https://governorv.github.io/#ru" data-catalog-link target="_blank" rel="noopener" data-ru="Открыть весь каталог" data-en="Open full catalog">Открыть весь каталог</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow" data-ru="Вопросы и ответы" data-en="Questions and answers">Вопросы и ответы</p>
+          <h2 data-ru="Коротко о главном" data-en="Key questions">Коротко о главном</h2>
+        </div>
+        <div class="faq">
+          <details class="faq-item">
+            <summary data-ru="Какие конструкции ящиков доступны?" data-en="Which box styles are available?">Какие конструкции ящиков доступны?</summary>
+            <p data-ru="В текущей версии доступен FEFCO 0201 — четырёхклапанный ящик. Развёртка и все основные размеры пересчитываются параметрически." data-en="The current release supports FEFCO 0201, a regular slotted container. Its dieline and key dimensions are recalculated parametrically.">В текущей версии доступен FEFCO 0201 — четырёхклапанный ящик. Развёртка и все основные размеры пересчитываются параметрически.</p>
+          </details>
+          <details class="faq-item">
+            <summary data-ru="Можно ли разместить собственный дизайн?" data-en="Can I place my own artwork?">Можно ли разместить собственный дизайн?</summary>
+            <p data-ru="Да. Можно загрузить несколько изображений, добавить произвольные надписи, выбрать шрифт и размер и перетащить объекты в нужное место на развёртке." data-en="Yes. Upload multiple images, add custom text, choose font and size, and drag objects to the desired position on the dieline.">Да. Можно загрузить несколько изображений, добавить произвольные надписи, выбрать шрифт и размер и перетащить объекты в нужное место на развёртке.</p>
+          </details>
+          <details class="faq-item">
+            <summary data-ru="Как работает PRO-режим дежурства?" data-en="How does PRO Watch mode work?">Как работает PRO-режим дежурства?</summary>
+            <p data-ru="Программа следит за выбранным каталогом. При появлении input.json она выполняет расчёт, формирует PDF и сохраняет результат в заданную папку. Исходный файл можно удалить или переместить после обработки." data-en="The application monitors a selected folder. When input.json appears, it calculates the card, generates a PDF and saves the result to the chosen output folder. The source file can then be removed or moved.">Программа следит за выбранным каталогом. При появлении input.json она выполняет расчёт, формирует PDF и сохраняет результат в заданную папку. Исходный файл можно удалить или переместить после обработки.</p>
+          </details>
+          <details class="faq-item">
+            <summary data-ru="Как приобрести лицензию?" data-en="How do I purchase a license?">Как приобрести лицензию?</summary>
+            <p><span data-ru="Напишите на" data-en="Email">Напишите на</span> <a href="mailto:vguberniev@gmail.com">vguberniev@gmail.com</a><span data-ru=", указав версию и желаемый срок лицензии. В ответ вы получите порядок оплаты и подготовки персонального дистрибутива." data-en=" with the edition and license term you need. You will receive payment and personalized distribution instructions.">, указав версию и желаемый срок лицензии. В ответ вы получите порядок оплаты и подготовки персонального дистрибутива.</span></p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section aria-label="Контакт">
+      <div class="container">
+        <div class="catalog-cta">
+          <div>
+            <p class="eyebrow" data-ru="Обсудить внедрение" data-en="Discuss implementation">Обсудить внедрение</p>
+            <h2 data-ru="Нужна лицензия или интеграция PRO?" data-en="Need a license or PRO integration?">Нужна лицензия или интеграция PRO?</h2>
+            <p data-ru="Опишите вашу задачу, количество рабочих мест и желаемый вариант лицензии." data-en="Tell me about your workflow, workstation count and preferred licensing option.">Опишите вашу задачу, количество рабочих мест и желаемый вариант лицензии.</p>
+          </div>
+          <a class="btn primary" href="mailto:vguberniev@gmail.com" data-ru="Написать автору" data-en="Contact the developer">Написать автору</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>© PackTuning Software — Viktor Guberniev<br><a href="mailto:vguberniev@gmail.com">vguberniev@gmail.com</a></div>
+      <div class="footer-links">
+        <a href="https://www.instagram.com/packtuning/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.linkedin.com/in/victor-guberniev/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://governorv.github.io/" target="_blank" rel="noopener" data-ru="Каталог программ" data-en="Software catalog">Каталог программ</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (() => {
+    const RU = "ru";
+    const EN = "en";
+    const hero = document.getElementById("hero-image");
+    const screen = document.getElementById("screen-image");
+    const buttons = [...document.querySelectorAll("[data-lang-button]")];
+    const relatedLinks = [...document.querySelectorAll("[data-related-url-en]")];
+    const catalogLinks = [...document.querySelectorAll("[data-catalog-link]")];
+
+    const META = {
+      ru: {
+        title: "ГофроТехкарта — программа для проектирования техкарт гофроящиков",
+        description: "ГофроТехкарта формирует параметрический чертёж FEFCO 0201, размещает дизайн и манипуляционные знаки и выпускает готовую технологическую карту в PDF.",
+        heroAlt: "ГофроТехкарта — проектирование технологических карт гофроящиков",
+        screenAlt: "Интерфейс ГофроТехкарты и предпросмотр готового документа"
+      },
+      en: {
+        title: "Corrugated Box Tech Card — process sheet design software",
+        description: "Create a parametric FEFCO 0201 drawing, place artwork and handling marks, complete the specification and export a production-ready PDF tech card.",
+        heroAlt: "Corrugated Box Tech Card — corrugated packaging process sheet software",
+        screenAlt: "Corrugated Box Tech Card interface and finished document preview"
+      }
+    };
+
+    function preferredLanguage() {
+      const query = new URLSearchParams(location.search).get("lang");
+      if (query === EN || query === RU) return query;
+      try {
+        const stored = localStorage.getItem("gofrotechcard-lang");
+        if (stored === EN || stored === RU) return stored;
+      } catch (_) {}
+      return (navigator.language || "").toLowerCase().startsWith("ru") ? RU : EN;
+    }
+
+    function setLanguage(language, updateUrl = true) {
+      const lang = language === EN ? EN : RU;
+      document.documentElement.lang = lang;
+      document.querySelectorAll("[data-ru][data-en]").forEach((node) => {
+        node.textContent = node.dataset[lang];
+      });
+      buttons.forEach((button) => {
+        const active = button.dataset.langButton === lang;
+        button.classList.toggle("active", active);
+        button.setAttribute("aria-pressed", String(active));
+      });
+      hero.src = lang === EN ? "assets/techcard-hero-en.png" : "assets/techcard-hero-ru.png";
+      hero.alt = META[lang].heroAlt;
+      screen.src = lang === EN ? "assets/techcard-screen-en.png" : "assets/techcard-screen-ru.png";
+      screen.alt = META[lang].screenAlt;
+      document.getElementById("related-optcutting").src = lang === EN ? "../optcutting_banner_en.png" : "../optcutting_banner.png";
+      document.getElementById("related-gost").src = lang === EN ? "../gost914290_banner_en.png" : "../gost914290_banner.png";
+      document.getElementById("related-boxprice").src = lang === EN ? "../boxprice_banner_en.png" : "../boxprice_banner.png";
+      document.getElementById("related-catalog").src = lang === EN ? "../catalog_banner_en.png" : "../catalog_banner.png";
+      document.getElementById("related-catalog").alt = lang === EN ? "PackTuning Software Catalog" : "Каталог программ PackTuning Software";
+      relatedLinks.forEach((link) => {
+        if (!link.dataset.urlRu) link.dataset.urlRu = link.href;
+        link.href = lang === EN ? link.dataset.relatedUrlEn : link.dataset.urlRu;
+      });
+      catalogLinks.forEach((link) => {
+        link.href = lang === EN ? "https://governorv.github.io/#en" : "https://governorv.github.io/#ru";
+      });
+      document.title = META[lang].title;
+      document.querySelector('meta[name="description"]').content = META[lang].description;
+      document.querySelector('meta[property="og:title"]').content = META[lang].title;
+      document.querySelector('meta[property="og:description"]').content = META[lang].description;
+      document.querySelector('meta[property="og:image"]').content = lang === EN
+        ? "https://governorv.github.io/GofroTechCard/assets/techcard-hero-en.png"
+        : "https://governorv.github.io/GofroTechCard/assets/techcard-hero-ru.png";
+      document.querySelector('meta[name="twitter:image"]').content = document.querySelector('meta[property="og:image"]').content;
+      try { localStorage.setItem("gofrotechcard-lang", lang); } catch (_) {}
+      if (updateUrl) {
+        const url = new URL(location.href);
+        if (lang === EN) url.searchParams.set("lang", EN);
+        else url.searchParams.delete("lang");
+        history.replaceState(null, "", url);
+      }
+    }
+
+    buttons.forEach((button) => button.addEventListener("click", () => setLanguage(button.dataset.langButton)));
+    setLanguage(preferredLanguage(), false);
+  })();
+  </script>
+</body>
+</html>

@@ -71,6 +71,33 @@
     </script>
   <style>.social-menu{display:inline-flex;align-items:center;gap:8px;margin-left:auto;margin-right:16px;padding-right:16px;border-right:1px solid rgba(148,163,184,.4);flex:0 0 auto}.instagram-menu-link,.social-menu-link{position:relative;box-sizing:border-box!important;display:inline-grid!important;place-items:center;width:40px!important;height:40px!important;min-width:40px!important;min-height:40px!important;max-width:40px!important;padding:0!important;margin:0!important;border:0!important;border-radius:12px!important;color:#fff!important;text-decoration:none!important;flex:0 0 40px!important;transition:transform .18s ease,box-shadow .18s ease}.instagram-menu-link{background:linear-gradient(135deg,#833ab4,#fd1d1d 55%,#fcb045)!important;box-shadow:0 5px 16px rgba(193,53,132,.28)}.instagram-menu-link:hover,.social-menu-link:hover{transform:translateY(-1px)}.instagram-menu-link:focus-visible,.social-menu-link:focus-visible{outline:3px solid #fff;outline-offset:2px}.instagram-glyph{position:relative;width:21px;height:21px;border:2px solid #fff;border-radius:7px}.instagram-glyph::before{content:"";position:absolute;inset:4px;border:2px solid #fff;border-radius:50%}.instagram-glyph::after{content:"";position:absolute;right:3px;top:3px;width:3px;height:3px;border-radius:50%;background:#fff}.social-menu-link span{font:800 20px/1 Arial,sans-serif;letter-spacing:-.04em}.social-menu-link.facebook{background:#1877f2!important}.social-menu-link.linkedin{background:#0a66c2!important}.social-menu-link.vk{background:#07f!important}.social-menu-link.linkedin span{font-size:16px}.social-menu-link.vk span{font-size:14px;letter-spacing:-.08em}.social-menu-link[hidden]{display:none!important}@media(max-width:640px){.social-menu{gap:6px;margin-right:10px;padding-right:10px}.instagram-menu-link,.social-menu-link{width:36px!important;height:36px!important;min-width:36px!important;min-height:36px!important;max-width:36px!important;flex-basis:36px!important}}</style>
   <style>.social-language-cluster{display:inline-flex;align-items:center;margin-left:auto;flex:0 0 auto}.social-language-cluster .social-menu{margin-left:0!important;margin-right:16px!important;padding-right:16px!important}@media(max-width:640px){.social-language-cluster .social-menu{margin-right:10px!important;padding-right:10px!important}}</style>
+
+
+<style id="smart-related-style">
+.smart-related{padding:64px 0}
+.smart-related-wrap{width:min(1180px,calc(100% - 36px));margin:0 auto}
+.smart-related-head{max-width:760px;margin-bottom:26px}
+.smart-related-head h2{margin:0 0 10px;font-size:clamp(1.9rem,3vw,2.7rem);line-height:1.12}
+.smart-related-head p{margin:0;opacity:.74}
+.smart-related-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.smart-related-card{overflow:hidden;border:1px solid rgba(125,155,190,.28);border-radius:20px;background:rgba(15,35,60,.72);box-shadow:0 18px 46px rgba(0,0,0,.15)}
+.smart-related-card>a:first-child{display:block;background:#fff}
+.smart-related-card img{display:block;width:100%;aspect-ratio:4/3;object-fit:contain}
+.smart-related-body{padding:20px}
+.smart-related-body h3{margin:0 0 8px;font-size:1.18rem}
+.smart-related-body p{min-height:3.2em;margin:0 0 16px;opacity:.76}
+.smart-related-link,.smart-catalog-link{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 16px;border:1px solid rgba(125,155,190,.34);border-radius:12px;color:inherit;font-weight:800;text-decoration:none}
+.smart-related-link:hover,.smart-catalog-link:hover{border-color:#22d3ee;transform:translateY(-1px)}
+.smart-catalog-card{border-color:rgba(47,117,255,.38)}
+.smart-lang-en{display:none!important}
+html[lang="en"] .smart-lang-ru,html[data-lang="en"] .smart-lang-ru{display:none!important}
+html[lang="en"] .smart-lang-en,html[data-lang="en"] .smart-lang-en{display:block!important}
+@media(prefers-color-scheme:light){
+  .smart-related-card{background:rgba(255,255,255,.92);box-shadow:0 18px 46px rgba(24,54,84,.1)}
+}
+@media(max-width:1050px){.smart-related-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.smart-related-grid{grid-template-columns:1fr}}
+</style>
 </head>
   <body>
     <header class="site-header">
@@ -255,104 +282,90 @@
         </div>
       </section>
 
-      <section id="other-programs" class="section other-programs">
-        <div class="section-heading">
-          <p class="eyebrow">Каталог</p>
-          <h2>Познакомьтесь также с другими моими программами</h2>
-        </div>
-        <div class="other-programs-grid">
-          <article class="other-program-card bottleoptimizer-card" style="order:998">
-            <a href="https://governorv.github.io/BottleOptimizer/?v=2" data-ru-href="https://governorv.github.io/BottleOptimizer/?v=2" data-en-href="https://governorv.github.io/BottleOptimizer/?lang=en&amp;v=2">
-              <img src="../bottleoptimizer.png" data-ru-src="../bottleoptimizer.png" data-en-src="../bottleoptimizer_eng.png" alt="Bottle Optimizer">
-            </a>
-            <div class="other-program-body">
-              <h3>Проектировщик бутылок</h3>
-              <p>Оптимизация бутылки, ящика, решётки и паллетной укладки.</p>
-              <a class="button secondary" href="https://governorv.github.io/BottleOptimizer/?v=2" data-ru-href="https://governorv.github.io/BottleOptimizer/?v=2" data-en-href="https://governorv.github.io/BottleOptimizer/?lang=en&amp;v=2">Страница</a>
-            </div>
-          </article>
-          <article class="other-program-card">
-            <a href="https://governorv.github.io/OptPacker/" data-ru-href="https://governorv.github.io/OptPacker/" data-en-href="https://governorv.github.io/OptPacker/?lang=en" target="_blank" rel="noopener">
-              <img src="assets/cross/fasovshik_banner.png" data-ru-src="assets/cross/fasovshik_banner.png" data-en-src="assets/cross/fasovshik_banner_en.png" alt="Фасовщик">
-            </a>
-            <div class="other-program-body">
-              <h3>Фасовщик</h3>
-              <p>Оптимальная укладка изделий в ящик, расчет заполнения, заготовки FEFCO 0201 и PDF-отчет.</p>
-              <a class="button secondary" href="https://governorv.github.io/OptPacker/" data-ru-href="https://governorv.github.io/OptPacker/" data-en-href="https://governorv.github.io/OptPacker/?lang=en" target="_blank" rel="noopener">Страница</a>
-            </div>
-          </article>
-          <article class="other-program-card">
-            <a href="https://governorv.github.io/BoxPalletizer/#ru" data-ru-href="https://governorv.github.io/BoxPalletizer/#ru" data-en-href="https://governorv.github.io/BoxPalletizer/#en" target="_blank" rel="noopener">
-              <img src="assets/cross/palletizer_banner.png" data-ru-src="assets/cross/palletizer_banner.png" data-en-src="assets/cross/palletizer_banner_en.png" alt="Паллетировщик коробов">
-            </a>
-            <div class="other-program-body">
-              <h3>Паллетировщик</h3>
-              <p>Расчет укладки коробов на поддон, 3D-визуализация, ограничения и отчеты.</p>
-              <a class="button secondary" href="https://governorv.github.io/BoxPalletizer/#ru" data-ru-href="https://governorv.github.io/BoxPalletizer/#ru" data-en-href="https://governorv.github.io/BoxPalletizer/#en" target="_blank" rel="noopener">Страница</a>
-            </div>
-          </article>
-          <article class="other-program-card">
-            <a href="https://governorv.github.io/BoxPriceCalculator/#ru" data-ru-href="https://governorv.github.io/BoxPriceCalculator/#ru" data-en-href="https://governorv.github.io/BoxPriceCalculator/#en" target="_blank" rel="noopener">
-              <img src="assets/cross/boxprice_banner.png" data-ru-src="assets/cross/boxprice_banner.png" data-en-src="assets/cross/boxprice_banner_en.png" alt="Калькулятор гофроящиков">
-            </a>
-            <div class="other-program-body">
-              <h3>Калькулятор гофроящиков</h3>
-              <p>Расчет себестоимости гофроупаковки с учетом материалов, печати и дополнительных расходов.</p>
-              <a class="button secondary" href="https://governorv.github.io/BoxPriceCalculator/#ru" data-ru-href="https://governorv.github.io/BoxPriceCalculator/#ru" data-en-href="https://governorv.github.io/BoxPriceCalculator/#en" target="_blank" rel="noopener">Страница</a>
-            </div>
-          </article>
-          <article class="other-program-card">
-            <a href="https://governorv.github.io/DBSearch/#ru" data-ru-href="https://governorv.github.io/DBSearch/#ru" data-en-href="https://governorv.github.io/DBSearch/#en" target="_blank" rel="noopener">
-              <img src="assets/cross/dbsearch_banner.png" data-ru-src="assets/cross/dbsearch_banner.png" data-en-src="assets/cross/dbsearch_banner_en.png" alt="Поисковик по базам данных">
-            </a>
-            <div class="other-program-body">
-              <h3>Поисковик по базам данных</h3>
-              <p>Поиск объектов и данных в SQL Server, просмотр кода, фильтры и экспорт результатов.</p>
-              <a class="button secondary" href="https://governorv.github.io/DBSearch/#ru" data-ru-href="https://governorv.github.io/DBSearch/#ru" data-en-href="https://governorv.github.io/DBSearch/#en" target="_blank" rel="noopener">Страница</a>
-            </div>
-          </article>
-          <article class="other-program-card">
-            <a href="https://governorv.github.io/Licman/#ru" data-ru-href="https://governorv.github.io/Licman/#ru" data-en-href="https://governorv.github.io/Licman/#en" target="_blank" rel="noopener">
-              <img src="assets/cross/licman_banner.png" data-ru-src="assets/cross/licman_banner.png" data-en-src="assets/cross/licman_banner_en.png" alt="Менеджер лицензий">
-            </a>
-            <div class="other-program-body">
-              <h3>Менеджер лицензий</h3>
-              <p>Учет лицензий, контроль сроков действия, ответственные, уведомления и экспорт в Excel.</p>
-              <a class="button secondary" href="https://governorv.github.io/Licman/#ru" data-ru-href="https://governorv.github.io/Licman/#ru" data-en-href="https://governorv.github.io/Licman/#en" target="_blank" rel="noopener">Страница</a>
-            </div>
-          </article>
-          <article class="other-program-card">
-            <a href="https://governorv.github.io/OptCutting/" data-ru-href="https://governorv.github.io/OptCutting/" data-en-href="https://governorv.github.io/OptCutting/?lang=en" target="_blank" rel="noopener">
-              <img src="assets/cross/optcutting_banner.png" data-ru-src="assets/cross/optcutting_banner.png" data-en-src="assets/cross/optcutting_banner_en.png" alt="Раскройщик OptCutting">
-            </a>
-            <div class="other-program-body">
-              <h3>Раскройщик</h3>
-              <p>Оптимизация раскроя полотна гофрокартона, карты раскроя, сетевой график и отчеты Excel.</p>
-              <a class="button secondary" href="https://governorv.github.io/OptCutting/" data-ru-href="https://governorv.github.io/OptCutting/" data-en-href="https://governorv.github.io/OptCutting/?lang=en" target="_blank" rel="noopener">Страница</a>
-            </div>
-          </article>
-          <article class="other-program-card">
-            <a href="https://governorv.github.io/truckloader-site/" data-ru-href="https://governorv.github.io/truckloader-site/" data-en-href="https://governorv.github.io/truckloader-site/" target="_blank" rel="noopener">
-              <img src="assets/cross/truckloader_banner.png" data-ru-src="assets/cross/truckloader_banner.png" data-en-src="assets/cross/truckloader_banner_en.png" alt="TruckLoader">
-            </a>
-            <div class="other-program-body">
-              <h3>TruckLoader</h3>
-              <p>Расчет загрузки поддонов в автофургоны и контейнеры, 2D и 3D схемы.</p>
-              <a class="button secondary" href="https://governorv.github.io/truckloader-site/" data-ru-href="https://governorv.github.io/truckloader-site/" data-en-href="https://governorv.github.io/truckloader-site/" target="_blank" rel="noopener">Страница</a>
-            </div>
-          </article>
-          <article class="other-program-card" style="order:999">
-            <a href="https://governorv.github.io/gost/" data-ru-href="https://governorv.github.io/gost/" data-en-href="https://governorv.github.io/gost/?lang=en" target="_blank" rel="noopener">
-              <img src="assets/cross/gost914290_banner.png" data-ru-src="assets/cross/gost914290_banner.png" data-en-src="assets/cross/gost914290_banner_en.png" alt="Расчет нагрузки по ГОСТ 9142-2014">
-            </a>
-            <div class="other-program-body">
-              <h3>Расчет нагрузки по ГОСТ 9142-2014</h3>
-              <p>Расчет характеристик гофроящика, подбор марки гофрокартона и PDF-отчет.</p>
-              <a class="button secondary" href="https://governorv.github.io/gost/" data-ru-href="https://governorv.github.io/gost/" data-en-href="https://governorv.github.io/gost/?lang=en" target="_blank" rel="noopener">Страница</a>
-            </div>
-          </article>
-        </div>
-      </section>
+      <section class="smart-related" id="other-programs" data-smart-related>
+  <div class="smart-related-wrap">
+    <div class="smart-lang-ru">
+  <div class="smart-related-head">
+    <h2>Вам также могут пригодиться</h2>
+    <p>Следующие решения продолжают типичный рабочий процесс и помогают на смежных этапах.</p>
+  </div>
+  <div class="smart-related-grid">
+    <article class="smart-related-card">
+  <a href="https://governorv.github.io/truckloader-site/" target="_blank" rel="noopener"><img src="https://governorv.github.io/truckloader_banner.png" alt="TruckLoader" loading="lazy"></a>
+  <div class="smart-related-body">
+    <h3>TruckLoader</h3>
+    <p>Расчёт загрузки поддонов в автофургоны и контейнеры с 2D- и 3D-схемами.</p>
+    <a class="smart-related-link" href="https://governorv.github.io/truckloader-site/" target="_blank" rel="noopener">Открыть страницу</a>
+  </div>
+</article>
+    <article class="smart-related-card">
+  <a href="https://governorv.github.io/BoxPalletizer/#ru" target="_blank" rel="noopener"><img src="https://governorv.github.io/palletizer_banner.png" alt="Паллетировщик" loading="lazy"></a>
+  <div class="smart-related-body">
+    <h3>Паллетировщик</h3>
+    <p>Расчёт устойчивой укладки коробов на поддон, 3D-схема и отчёты.</p>
+    <a class="smart-related-link" href="https://governorv.github.io/BoxPalletizer/#ru" target="_blank" rel="noopener">Открыть страницу</a>
+  </div>
+</article>
+    <article class="smart-related-card">
+  <a href="https://governorv.github.io/DBSearch/#ru" target="_blank" rel="noopener"><img src="https://governorv.github.io/dbsearch_banner.png" alt="Поисковик по базам данных" loading="lazy"></a>
+  <div class="smart-related-body">
+    <h3>Поисковик по базам данных</h3>
+    <p>Поиск объектов и данных в SQL Server и на связанных серверах.</p>
+    <a class="smart-related-link" href="https://governorv.github.io/DBSearch/#ru" target="_blank" rel="noopener">Открыть страницу</a>
+  </div>
+</article>
+    <article class="smart-related-card smart-catalog-card">
+      <a href="https://governorv.github.io/#ru" target="_blank" rel="noopener"><img src="https://governorv.github.io/catalog_banner.png" alt="Каталог программ" loading="lazy"></a>
+      <div class="smart-related-body">
+        <h3>Каталог программ</h3>
+        <p>Все решения PackTuning Software для упаковки, производства и логистики.</p>
+        <a class="smart-related-link" href="https://governorv.github.io/#ru" target="_blank" rel="noopener">Открыть весь каталог</a>
+      </div>
+    </article>
+  </div>
+</div>
+    <div class="smart-lang-en">
+  <div class="smart-related-head">
+    <h2>You may also find these useful</h2>
+    <p>These tools continue the typical workflow and support closely related tasks.</p>
+  </div>
+  <div class="smart-related-grid">
+    <article class="smart-related-card">
+  <a href="https://governorv.github.io/truckloader-site/?lang=en" target="_blank" rel="noopener"><img src="https://governorv.github.io/truckloader_banner_en.png" alt="TruckLoader" loading="lazy"></a>
+  <div class="smart-related-body">
+    <h3>TruckLoader</h3>
+    <p>Pallet loading calculation for trucks and containers with 2D and 3D layouts.</p>
+    <a class="smart-related-link" href="https://governorv.github.io/truckloader-site/?lang=en" target="_blank" rel="noopener">Open page</a>
+  </div>
+</article>
+    <article class="smart-related-card">
+  <a href="https://governorv.github.io/BoxPalletizer/#en" target="_blank" rel="noopener"><img src="https://governorv.github.io/palletizer_banner_en.png" alt="Box Palletizer" loading="lazy"></a>
+  <div class="smart-related-body">
+    <h3>Box Palletizer</h3>
+    <p>Stable box palletizing calculation with 3D layouts and reports.</p>
+    <a class="smart-related-link" href="https://governorv.github.io/BoxPalletizer/#en" target="_blank" rel="noopener">Open page</a>
+  </div>
+</article>
+    <article class="smart-related-card">
+  <a href="https://governorv.github.io/DBSearch/#en" target="_blank" rel="noopener"><img src="https://governorv.github.io/dbsearch_banner_en.png" alt="Database Search Tool" loading="lazy"></a>
+  <div class="smart-related-body">
+    <h3>Database Search Tool</h3>
+    <p>Search for objects and data across SQL Server databases and linked servers.</p>
+    <a class="smart-related-link" href="https://governorv.github.io/DBSearch/#en" target="_blank" rel="noopener">Open page</a>
+  </div>
+</article>
+    <article class="smart-related-card smart-catalog-card">
+      <a href="https://governorv.github.io/#en" target="_blank" rel="noopener"><img src="https://governorv.github.io/catalog_banner_en.png" alt="Software Catalog" loading="lazy"></a>
+      <div class="smart-related-body">
+        <h3>Software Catalog</h3>
+        <p>All PackTuning Software solutions for packaging, production and logistics.</p>
+        <a class="smart-related-link" href="https://governorv.github.io/#en" target="_blank" rel="noopener">Open full catalog</a>
+      </div>
+    </article>
+  </div>
+</div>
+  </div>
+</section>
 
       <section id="contact" class="contact">
         <div>
