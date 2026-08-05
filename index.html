@@ -516,6 +516,18 @@ footer{
     </div>
   </section>
 
+  <section id="languages">
+    <div class="container">
+      <div class="card">
+        <h2 id="languagesTitle">Поддерживаемые языки</h2>
+        <p id="languagesLead">В комплект программ входят десять готовых словарей, включая поддержку письма справа налево для иврита.</p>
+        <div aria-label="Supported interface languages" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:18px">
+          <span class="badge">Русский</span><span class="badge">English</span><span class="badge">Français</span><span class="badge">Deutsch</span><span class="badge" dir="rtl">עברית</span><span class="badge">Italiano</span><span class="badge">Қазақша</span><span class="badge">Português</span><span class="badge">Српски</span><span class="badge">Español</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="buyGuide">
     <div class="container">
       <div class="card">
@@ -1188,6 +1200,8 @@ footer{
     badgeB2B: document.getElementById("badgeB2B"),
     productsTitle: document.getElementById("productsTitle"),
     productsLead: document.getElementById("productsLead"),
+    languagesTitle: document.getElementById("languagesTitle"),
+    languagesLead: document.getElementById("languagesLead"),
     addMoreTitle: document.getElementById("addMoreTitle"),
     addMoreText: document.getElementById("addMoreText"),
     btnContactBottom: document.getElementById("btnContactBottom"),
@@ -1218,6 +1232,8 @@ footer{
       badgeB2B: "B2B",
       productsTitle: "Программы",
       productsLead: "Нажми “Страница” для подробностей и скриншотов, “Демо” — для скачивания пробной версии.",
+      languagesTitle: "Поддерживаемые языки",
+      languagesLead: "В комплект программ входят десять готовых словарей, включая поддержку письма справа налево для иврита.",
       addMoreTitle: "Другие программы",
       addMoreText: "Также имеются и другие программы для решения задач упаковочной индустрии.",
       btnContactBottom: "vguberniev@gmail.com",
@@ -1247,6 +1263,8 @@ footer{
       badgeB2B: "B2B",
       productsTitle: "Products",
       productsLead: "Click “Page” for full details and screenshots, “Demo” to download an evaluation version.",
+      languagesTitle: "Supported languages",
+      languagesLead: "The software suite includes ten ready-to-use interface dictionaries, with right-to-left support for Hebrew.",
       addMoreTitle: "We can add more products",
       addMoreText: "When you release another tool, we will add one more card here: name, short description, pricing, demo link, and product page link.",
       btnContactBottom: "vguberniev@gmail.com",
@@ -1281,6 +1299,8 @@ footer{
     ui.catalogBanner.alt = lang === EN ? "PackTuning Software catalog banner" : "Каталог программ PackTuning Software";
     ui.productsTitle.textContent = TEXT[lang].productsTitle;
     ui.productsLead.textContent = TEXT[lang].productsLead;
+    ui.languagesTitle.textContent = TEXT[lang].languagesTitle;
+    ui.languagesLead.textContent = TEXT[lang].languagesLead;
     ui.addMoreTitle.textContent = TEXT[lang].addMoreTitle;
     ui.addMoreText.textContent = TEXT[lang].addMoreText;
     ui.btnContactBottom.textContent = TEXT[lang].btnContactBottom;
