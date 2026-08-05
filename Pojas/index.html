@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ПОЯС — программный комплекс для тары и упаковки</title>
-  <meta name="description" content="ПОЯС: программный комплекс для индустрии тары и упаковки. Раскрой гофролиста, укладка изделий в ящики, паллеты, контейнеры, транспортные пакеты, ГОСТы, сырье, публикации и производственные расчеты.">
+  <meta name="description" content="ПОЯС: программный комплекс для индустрии тары и упаковки с каталогом 31 поддерживаемой конструкции гофроящиков, раскроем, укладкой, паллетами, контейнерами, ГОСТами и производственными расчетами.">
   <meta name="keywords" content="ПОЯС, упаковка, тара, раскрой гофролиста, гофрокартон, укладка изделий в ящики, транспортный пакет, ГОСТ, паллетизация, SQL Server, PackTuning">
   <meta name="author" content="Victor Guberniev">
   <meta name="robots" content="index, follow, max-image-preview:large">
@@ -18,7 +18,7 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="PackTuning Software">
   <meta property="og:title" content="ПОЯС — программный комплекс для тары и упаковки">
-  <meta property="og:description" content="Комплексное решение для расчета упаковки: раскрой, ящики, изделия, ГОСТы, паллеты, контейнеры, сырье, публикации и транспортные пакеты.">
+  <meta property="og:description" content="Комплексное решение для расчета упаковки: 31 конструкция гофроящиков, раскрой, изделия, ГОСТы, паллеты, контейнеры, сырье и транспортные пакеты.">
   <meta property="og:url" content="https://governorv.github.io/Pojas/">
   <meta property="og:image" content="https://governorv.github.io/Pojas/assets/hero-ru.png">
   <meta property="og:locale" content="ru_RU">
@@ -46,7 +46,7 @@
     },
     "url": "https://governorv.github.io/Pojas/",
     "image": "https://governorv.github.io/Pojas/assets/hero-ru.png",
-    "description": "ПОЯС is a Windows software suite for packaging engineering: corrugated board cutting, product packing into boxes, pallet and container loading, transport package calculations, standards and raw material modules."
+    "description": "ПОЯС is a Windows software suite for packaging engineering with 31 supported corrugated box styles, corrugated board cutting, product packing, pallet and container loading, standards and raw material modules."
   }
   </script>
 
@@ -404,6 +404,39 @@
       font-weight: 900;
       margin-bottom: 4px;
     }
+    .construction-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .construction-card {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: linear-gradient(180deg, var(--panel2), var(--panel));
+      box-shadow: var(--shadow);
+    }
+    .construction-card img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 19 / 7;
+      object-fit: contain;
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+    }
+    .construction-card h3 {
+      margin: 0;
+      padding: 14px 16px 16px;
+      color: var(--ink);
+      font-size: 1rem;
+      letter-spacing: .02em;
+    }
+    .construction-note {
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: .92rem;
+    }
     .contact {
       background:
         linear-gradient(135deg, rgba(34, 215, 255, .18), rgba(255, 200, 87, .12)),
@@ -423,6 +456,7 @@
     @media (max-width: 900px) {
       .grid, .shots, .specs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .split, .publication, .wp-block-media-text { grid-template-columns: 1fr; }
+      .construction-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       .hero::before {
         background:
           linear-gradient(180deg, rgba(2, 10, 25, .38) 0%, rgba(2, 10, 25, .88) 100%),
@@ -441,7 +475,11 @@
       section[id] { scroll-margin-top: 180px; }
       .hero { min-height: 760px; }
       .grid, .shots, .module-list, .specs { grid-template-columns: 1fr; }
+      .construction-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .hero-content { padding-top: 48px; }
+    }
+    @media (max-width: 420px) {
+      .construction-grid { grid-template-columns: 1fr; }
     }
   </style>
 
@@ -488,6 +526,8 @@ html[data-theme="day"] .smart-related-card,html.day-theme .smart-related-card{ba
         <a href="../">Каталог</a>
         <a href="#modules" class="lang-ru">Модули</a>
         <a href="#modules" class="lang-en">Modules</a>
+        <a href="#constructions" class="lang-ru">Конструкции</a>
+        <a href="#constructions" class="lang-en">Box styles</a>
         <a href="#screens" class="lang-ru">Материалы</a>
         <a href="#screens" class="lang-en">Materials</a>
         <a href="#publications" class="lang-ru">Публикации</a>
@@ -605,6 +645,52 @@ html[data-theme="day"] .smart-related-card,html.day-theme .smart-related-card{ba
             <p class="lang-en">Transport packages, heights, shipment norms and supporting production parameters.</p>
           </article>
         </div>
+      </div>
+    </section>
+
+    <section id="constructions">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="lang-ru">Поддерживаемые конструкции гофроящиков</h2>
+          <h2 class="lang-en">Supported corrugated box styles</h2>
+          <p class="lang-ru">Актуальный каталог из 31 конструкции. На каждой карточке показаны объёмный вид и развёртка.</p>
+          <p class="lang-en">The current catalog includes 31 box styles. Each card shows a 3D view and dieline.</p>
+        </div>
+        <div class="construction-grid" role="list">
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/003.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 003 — объёмный вид и развёртка"><h3>FEFCO 003</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/004.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 004 — объёмный вид и развёртка"><h3>FEFCO 004</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/n11.webp" width="380" height="140" loading="lazy" decoding="async" alt="N11 — объёмный вид и развёртка"><h3>N11</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/0200.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 0200 — объёмный вид и развёртка"><h3>FEFCO 0200</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/0201.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 0201 — объёмный вид и развёртка"><h3>FEFCO 0201</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/0202.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 0202 — объёмный вид и развёртка"><h3>FEFCO 0202</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/0203.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 0203 — объёмный вид и развёртка"><h3>FEFCO 0203</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/0204.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 0204 — объёмный вид и развёртка"><h3>FEFCO 0204</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/0205.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 0205 — объёмный вид и развёртка"><h3>FEFCO 0205</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/0206.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 0206 — объёмный вид и развёртка"><h3>FEFCO 0206</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/0207.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 0207 — объёмный вид и развёртка"><h3>FEFCO 0207</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/0209.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 0209 — объёмный вид и развёртка"><h3>FEFCO 0209</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/0210.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 0210 — объёмный вид и развёртка"><h3>FEFCO 0210</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/0211.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 0211 — объёмный вид и развёртка"><h3>FEFCO 0211</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/0212.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 0212 — объёмный вид и развёртка"><h3>FEFCO 0212</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/0214.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 0214 — объёмный вид и развёртка"><h3>FEFCO 0214</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/0215.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 0215 — объёмный вид и развёртка"><h3>FEFCO 0215</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/0226.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 0226 — объёмный вид и развёртка"><h3>FEFCO 0226</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/0305.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 0305 — объёмный вид и развёртка"><h3>FEFCO 0305</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/0321a.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 0321A — объёмный вид и развёртка"><h3>FEFCO 0321A</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/0401.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 0401 — объёмный вид и развёртка"><h3>FEFCO 0401</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/0416.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 0416 — объёмный вид и развёртка"><h3>FEFCO 0416</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/0420.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 0420 — объёмный вид и развёртка"><h3>FEFCO 0420</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/0421.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 0421 — объёмный вид и развёртка"><h3>FEFCO 0421</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/0422.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 0422 — объёмный вид и развёртка"><h3>FEFCO 0422</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/0422a.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 0422A — объёмный вид и развёртка"><h3>FEFCO 0422A</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/0427.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 0427 — объёмный вид и развёртка"><h3>FEFCO 0427</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/0431.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 0431 — объёмный вид и развёртка"><h3>FEFCO 0431</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/0434.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 0434 — объёмный вид и развёртка"><h3>FEFCO 0434</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/0770.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 0770 — объёмный вид и развёртка"><h3>FEFCO 0770</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/reperaund.webp" width="380" height="140" loading="lazy" decoding="async" alt="Репераунд — развёртка"><h3 class="lang-ru">Репераунд</h3><h3 class="lang-en">Reperaund</h3></article>
+        </div>
+        <p class="construction-note lang-ru">Каталог отражает перечень конструкций, поддерживаемых в актуальной версии программы на сегодня.</p>
+        <p class="construction-note lang-en">This catalog reflects the box styles supported by the current release today.</p>
       </div>
     </section>
 

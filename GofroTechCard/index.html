@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ГофроТехкарта — программа для проектирования техкарт гофроящиков</title>
-  <meta name="description" content="ГофроТехкарта формирует параметрический чертёж FEFCO 0201, размещает дизайн и манипуляционные знаки и выпускает готовую технологическую карту в PDF.">
+  <meta name="description" content="ГофроТехкарта поддерживает 31 конструкцию гофроящиков, формирует параметрический чертёж, размещает дизайн и выпускает готовую технологическую карту в PDF.">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="author" content="Viktor Guberniev, PackTuning Software">
   <meta name="application-name" content="ГофроТехкарта">
@@ -21,7 +21,7 @@
   <meta property="og:locale" content="ru_RU">
   <meta property="og:locale:alternate" content="en_US">
   <meta property="og:title" content="ГофроТехкарта — технологическая карта гофроящика в PDF">
-  <meta property="og:description" content="Параметрический чертёж FEFCO 0201, дизайн развёртки, спецификация и готовая техкарта в одном мастере.">
+  <meta property="og:description" content="31 поддерживаемая конструкция, параметрический чертёж, дизайн развёртки, спецификация и готовая техкарта в одном мастере.">
   <meta property="og:url" content="https://governorv.github.io/GofroTechCard/">
   <meta property="og:image" content="https://governorv.github.io/GofroTechCard/assets/techcard-hero-ru.png">
   <meta property="og:image:type" content="image/png">
@@ -30,7 +30,7 @@
   <meta property="og:image:height" content="724">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="ГофроТехкарта — технологическая карта гофроящика в PDF">
-  <meta name="twitter:description" content="Параметрический чертёж FEFCO 0201, дизайн развёртки, спецификация и готовая техкарта в одном мастере.">
+  <meta name="twitter:description" content="31 поддерживаемая конструкция, параметрический чертёж, дизайн развёртки, спецификация и готовая техкарта в одном мастере.">
   <meta name="twitter:image" content="https://governorv.github.io/GofroTechCard/assets/techcard-hero-ru.png">
   <meta name="twitter:image:alt" content="ГофроТехкарта — программа для проектирования технологических карт гофроящиков">
   <script type="application/ld+json">
@@ -54,10 +54,10 @@
         "publisher": {
           "@id": "https://governorv.github.io/#organization"
         },
-        "description": "Windows-программа для проектирования и оформления технологических карт гофроящиков с параметрическим чертежом FEFCO 0201, дизайном развёртки, спецификацией и экспортом в PDF.",
+        "description": "Windows-программа для проектирования и оформления технологических карт гофроящиков: 31 поддерживаемая конструкция, параметрический чертёж, дизайн развёртки, спецификация и экспорт в PDF.",
         "featureList": [
           "Пошаговый мастер технологической карты",
-          "Параметрический чертёж FEFCO 0201",
+          "Каталог из 31 поддерживаемой конструкции",
           "Автоматический расчёт размеров развёртки",
           "Размещение изображений, надписей и манипуляционных знаков",
           "Формирование спецификации упаковки",
@@ -101,7 +101,7 @@
             "name": "Какие конструкции доступны?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "В текущей версии доступна параметрическая конструкция FEFCO 0201."
+              "text": "В текущей версии поддерживается 31 конструкция: коды FEFCO, N11 и Репераунд."
             }
           },
           {
@@ -684,6 +684,39 @@
       border: 1px solid var(--line); border-radius: 24px; background: var(--surface);
     }
 
+    .construction-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .construction-card {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--surface-raised);
+      box-shadow: var(--shadow);
+    }
+    .construction-card img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 19 / 7;
+      object-fit: contain;
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+    }
+    .construction-card h3 {
+      margin: 0;
+      padding: 14px 16px 16px;
+      font-size: 1rem;
+      letter-spacing: .02em;
+    }
+    .construction-note {
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
     .faq { display: grid; gap: 12px; }
     .faq-item { border-radius: 18px; overflow: hidden; }
     .faq-item summary {
@@ -714,6 +747,7 @@
       .workflow-grid { grid-template-columns: repeat(2, 1fr); }
       .watch-flow { grid-template-columns: repeat(2, 1fr); }
       .related-grid { grid-template-columns: 1fr 1fr; }
+      .construction-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     }
     @media (max-width: 720px) {
       .container { width: min(100% - 28px, var(--max)); }
@@ -723,6 +757,7 @@
       .hero-banner img { object-position: 50% center; }
       .hero-copy, .hero-side { padding: 25px; border-radius: 24px; }
       .workflow-grid, .edition-grid, .related-grid { grid-template-columns: 1fr; }
+      .construction-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .purchase-steps { grid-template-columns: 1fr; }
       .watch-flow, .watch-details { grid-template-columns: 1fr; }
       .watch-head { flex-direction: column; }
@@ -738,6 +773,7 @@
       .hero-banner { min-height: 172px; }
       .hero-actions .btn { width: 100%; }
       h1 { font-size: 2.35rem; }
+      .construction-grid { grid-template-columns: 1fr; }
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -760,6 +796,7 @@
       <nav class="nav" aria-label="Основная навигация">
         <a href="#workflow" data-ru="Как работает" data-en="Workflow">Как работает</a>
         <a href="#features" data-ru="Возможности" data-en="Features">Возможности</a>
+        <a href="#constructions" data-ru="Конструкции" data-en="Box styles">Конструкции</a>
         <a href="#languages" data-ru="Языки" data-en="Languages">Языки</a>
         <a href="#watch-mode" data-ru="Дежурство" data-en="Watch mode">Дежурство</a>
         <a href="#pricing" data-ru="Цены" data-en="Pricing">Цены</a>
@@ -795,7 +832,7 @@
           </div>
           <div class="chips" aria-label="Характеристики">
             <span class="chip">Windows 10/11</span>
-            <span class="chip" data-ru="FEFCO 0201" data-en="FEFCO 0201">FEFCO 0201</span>
+            <span class="chip" data-ru="31 конструкция" data-en="31 box styles">31 конструкция</span>
             <span class="chip" data-ru="Экспорт PDF" data-en="PDF export">Экспорт PDF</span>
             <span class="chip" data-ru="10 языков + свои словари" data-en="10 languages + custom dictionaries">10 языков + свои словари</span>
           </div>
@@ -806,8 +843,8 @@
             <span data-ru="понятных этапов мастера" data-en="guided wizard stages">понятных этапов мастера</span>
           </div>
           <div class="hero-stat">
-            <strong>0201</strong>
-            <span data-ru="параметрическая конструкция в текущей версии" data-en="parametric box style in the current release">параметрическая конструкция в текущей версии</span>
+            <strong>31</strong>
+            <span data-ru="поддерживаемая конструкция в текущей версии" data-en="supported box styles in the current release">поддерживаемая конструкция в текущей версии</span>
           </div>
           <div class="hero-stat">
             <strong>PDF</strong>
@@ -828,7 +865,7 @@
           <article class="card">
             <span class="step-number">01</span>
             <h3 data-ru="Заказ и конструкция" data-en="Order and structure">Заказ и конструкция</h3>
-            <p data-ru="Покупатель, поставщик, номер заказа и внутренние размеры ящика. Сейчас доступен параметрический шаблон FEFCO 0201." data-en="Customer, supplier, order number and internal box dimensions. The current release includes the FEFCO 0201 parametric template.">Покупатель, поставщик, номер заказа и внутренние размеры ящика. Сейчас доступен параметрический шаблон FEFCO 0201.</p>
+            <p data-ru="Покупатель, поставщик, номер заказа, внутренние размеры и выбор одной из 31 поддерживаемой конструкции." data-en="Customer, supplier, order number, internal dimensions and a choice of 31 supported box styles.">Покупатель, поставщик, номер заказа, внутренние размеры и выбор одной из 31 поддерживаемой конструкции.</p>
           </article>
           <article class="card">
             <span class="step-number">02</span>
@@ -870,6 +907,50 @@
             <div class="feature"><b>A</b><span data-ru="Интерфейс переводится на лету; новые языки подключаются пользовательскими словарями." data-en="The UI switches language live; additional languages are added through custom dictionaries.">Интерфейс переводится на лету; новые языки подключаются пользовательскими словарями.</span></div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section id="constructions">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow" data-ru="Каталог конструкций" data-en="Box style catalog">Каталог конструкций</p>
+          <h2 data-ru="31 конструкция, поддерживаемая сегодня" data-en="31 box styles supported today">31 конструкция, поддерживаемая сегодня</h2>
+          <p data-ru="Каждая конструкция показана отдельной карточкой: объёмный вид и развёртка. Выберите подходящий тип ящика для технологической карты." data-en="Each style has its own card with a 3D view and dieline. Choose the box type that fits your process sheet.">Каждая конструкция показана отдельной карточкой: объёмный вид и развёртка. Выберите подходящий тип ящика для технологической карты.</p>
+        </div>
+        <div class="construction-grid" role="list">
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/003.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 003 — объёмный вид и развёртка"><h3>FEFCO 003</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/004.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 004 — объёмный вид и развёртка"><h3>FEFCO 004</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/n11.webp" width="380" height="140" loading="lazy" decoding="async" alt="N11 — объёмный вид и развёртка"><h3>N11</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/0200.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 0200 — объёмный вид и развёртка"><h3>FEFCO 0200</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/0201.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 0201 — объёмный вид и развёртка"><h3>FEFCO 0201</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/0202.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 0202 — объёмный вид и развёртка"><h3>FEFCO 0202</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/0203.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 0203 — объёмный вид и развёртка"><h3>FEFCO 0203</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/0204.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 0204 — объёмный вид и развёртка"><h3>FEFCO 0204</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/0205.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 0205 — объёмный вид и развёртка"><h3>FEFCO 0205</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/0206.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 0206 — объёмный вид и развёртка"><h3>FEFCO 0206</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/0207.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 0207 — объёмный вид и развёртка"><h3>FEFCO 0207</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/0209.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 0209 — объёмный вид и развёртка"><h3>FEFCO 0209</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/0210.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 0210 — объёмный вид и развёртка"><h3>FEFCO 0210</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/0211.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 0211 — объёмный вид и развёртка"><h3>FEFCO 0211</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/0212.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 0212 — объёмный вид и развёртка"><h3>FEFCO 0212</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/0214.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 0214 — объёмный вид и развёртка"><h3>FEFCO 0214</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/0215.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 0215 — объёмный вид и развёртка"><h3>FEFCO 0215</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/0226.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 0226 — объёмный вид и развёртка"><h3>FEFCO 0226</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/0305.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 0305 — объёмный вид и развёртка"><h3>FEFCO 0305</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/0321a.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 0321A — объёмный вид и развёртка"><h3>FEFCO 0321A</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/0401.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 0401 — объёмный вид и развёртка"><h3>FEFCO 0401</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/0416.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 0416 — объёмный вид и развёртка"><h3>FEFCO 0416</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/0420.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 0420 — объёмный вид и развёртка"><h3>FEFCO 0420</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/0421.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 0421 — объёмный вид и развёртка"><h3>FEFCO 0421</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/0422.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 0422 — объёмный вид и развёртка"><h3>FEFCO 0422</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/0422a.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 0422A — объёмный вид и развёртка"><h3>FEFCO 0422A</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/0427.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 0427 — объёмный вид и развёртка"><h3>FEFCO 0427</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/0431.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 0431 — объёмный вид и развёртка"><h3>FEFCO 0431</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/0434.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 0434 — объёмный вид и развёртка"><h3>FEFCO 0434</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/0770.webp" width="380" height="140" loading="lazy" decoding="async" alt="FEFCO 0770 — объёмный вид и развёртка"><h3>FEFCO 0770</h3></article>
+          <article class="construction-card" role="listitem"><img src="../assets/constructions/reperaund.webp" width="380" height="140" loading="lazy" decoding="async" alt="Репераунд — развёртка"><h3 data-ru="Репераунд" data-en="Reperaund">Репераунд</h3></article>
+        </div>
+        <p class="construction-note" data-ru="Каталог отражает перечень конструкций, поддерживаемых в актуальной версии программы на сегодня." data-en="This catalog reflects the box styles supported by the current release today.">Каталог отражает перечень конструкций, поддерживаемых в актуальной версии программы на сегодня.</p>
       </div>
     </section>
 
@@ -978,7 +1059,7 @@
             </div>
             <ul class="checks">
               <li data-ru="Все восемь этапов мастера" data-en="All eight wizard stages">Все восемь этапов мастера</li>
-              <li data-ru="Параметрический чертёж FEFCO 0201" data-en="FEFCO 0201 parametric drawing">Параметрический чертёж FEFCO 0201</li>
+              <li data-ru="31 поддерживаемая конструкция" data-en="31 supported box styles">31 поддерживаемая конструкция</li>
               <li data-ru="Дизайн развёртки и манипуляционные знаки" data-en="Dieline artwork and handling marks">Дизайн развёртки и манипуляционные знаки</li>
               <li data-ru="Готовая техкарта в PDF" data-en="Finished tech card in PDF">Готовая техкарта в PDF</li>
               <li data-ru="10 языков и подключаемые словари" data-en="10 languages and custom dictionaries">10 языков и подключаемые словари</li>
@@ -1114,7 +1195,7 @@
         <div class="faq">
           <details class="faq-item">
             <summary data-ru="Какие конструкции ящиков доступны?" data-en="Which box styles are available?">Какие конструкции ящиков доступны?</summary>
-            <p data-ru="В текущей версии доступен FEFCO 0201 — четырёхклапанный ящик. Развёртка и все основные размеры пересчитываются параметрически." data-en="The current release supports FEFCO 0201, a regular slotted container. Its dieline and key dimensions are recalculated parametrically.">В текущей версии доступен FEFCO 0201 — четырёхклапанный ящик. Развёртка и все основные размеры пересчитываются параметрически.</p>
+            <p data-ru="В текущей версии поддерживается 31 конструкция: коды FEFCO, N11 и Репераунд. Полный перечень с объёмными видами и развёртками приведён в каталоге выше." data-en="The current release supports 31 box styles: FEFCO codes, N11 and Reperaund. See the catalog above for the complete list with 3D views and dielines.">В текущей версии поддерживается 31 конструкция: коды FEFCO, N11 и Репераунд. Полный перечень с объёмными видами и развёртками приведён в каталоге выше.</p>
           </details>
           <details class="faq-item">
             <summary data-ru="Можно ли разместить собственный дизайн?" data-en="Can I place my own artwork?">Можно ли разместить собственный дизайн?</summary>
@@ -1185,9 +1266,9 @@
     const META = {
       ru: {
         title: "ГофроТехкарта — программа для проектирования техкарт гофроящиков",
-        description: "ГофроТехкарта формирует параметрический чертёж FEFCO 0201, размещает дизайн и манипуляционные знаки и выпускает готовую технологическую карту в PDF.",
+        description: "ГофроТехкарта поддерживает 31 конструкцию гофроящиков, формирует параметрический чертёж, размещает дизайн и выпускает готовую технологическую карту в PDF.",
         shareTitle: "ГофроТехкарта — технологическая карта гофроящика в PDF",
-        shareDescription: "Параметрический чертёж FEFCO 0201, дизайн развёртки, спецификация и готовая техкарта в одном мастере.",
+        shareDescription: "31 поддерживаемая конструкция, параметрический чертёж, дизайн развёртки, спецификация и готовая техкарта в одном мастере.",
         canonical: "https://governorv.github.io/GofroTechCard/",
         locale: "ru_RU",
         applicationName: "ГофроТехкарта",
@@ -1197,9 +1278,9 @@
       },
       en: {
         title: "Corrugated Box Tech Card — process sheet design software",
-        description: "Create a parametric FEFCO 0201 drawing, place artwork and handling marks, complete the specification and export a production-ready PDF tech card.",
+        description: "Choose from 31 supported box styles, create a parametric drawing, place artwork and handling marks, and export a production-ready PDF tech card.",
         shareTitle: "Corrugated Box Tech Card — production-ready process sheets",
-        shareDescription: "Build a FEFCO 0201 dieline, place artwork and handling marks, complete the specification and export a production-ready PDF.",
+        shareDescription: "31 supported box styles, parametric dielines, artwork, specifications and production-ready PDF export.",
         canonical: "https://governorv.github.io/GofroTechCard/?lang=en",
         locale: "en_US",
         applicationName: "Corrugated Box Tech Card",
