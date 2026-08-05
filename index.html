@@ -433,6 +433,7 @@ footer{
 </style>
   <style>.social-menu{display:inline-flex;align-items:center;gap:8px;margin-left:auto;margin-right:16px;padding-right:16px;border-right:1px solid rgba(148,163,184,.4);flex:0 0 auto}.instagram-menu-link,.social-menu-link{position:relative;box-sizing:border-box!important;display:inline-grid!important;place-items:center;width:40px!important;height:40px!important;min-width:40px!important;min-height:40px!important;max-width:40px!important;padding:0!important;margin:0!important;border:0!important;border-radius:12px!important;color:#fff!important;text-decoration:none!important;flex:0 0 40px!important;transition:transform .18s ease,box-shadow .18s ease}.instagram-menu-link{background:linear-gradient(135deg,#833ab4,#fd1d1d 55%,#fcb045)!important;box-shadow:0 5px 16px rgba(193,53,132,.28)}.instagram-menu-link:hover,.social-menu-link:hover{transform:translateY(-1px)}.instagram-menu-link:focus-visible,.social-menu-link:focus-visible{outline:3px solid #fff;outline-offset:2px}.instagram-glyph{position:relative;width:21px;height:21px;border:2px solid #fff;border-radius:7px}.instagram-glyph::before{content:"";position:absolute;inset:4px;border:2px solid #fff;border-radius:50%}.instagram-glyph::after{content:"";position:absolute;right:3px;top:3px;width:3px;height:3px;border-radius:50%;background:#fff}.social-menu-link span{font:800 20px/1 Arial,sans-serif;letter-spacing:-.04em}.social-menu-link.facebook{background:#1877f2!important}.social-menu-link.linkedin{background:#0a66c2!important}.social-menu-link.vk{background:#07f!important}.social-menu-link.linkedin span{font-size:16px}.social-menu-link.vk span{font-size:14px;letter-spacing:-.08em}.social-menu-link[hidden]{display:none!important}@media(max-width:640px){.social-menu{gap:6px;margin-right:10px;padding-right:10px}.instagram-menu-link,.social-menu-link{width:36px!important;height:36px!important;min-width:36px!important;min-height:36px!important;max-width:36px!important;flex-basis:36px!important}}</style>
   <style>.social-language-cluster{display:inline-flex;align-items:center;margin-left:auto;flex:0 0 auto}.social-language-cluster .social-menu{margin-left:0!important;margin-right:16px!important;padding-right:16px!important}@media(max-width:640px){.social-language-cluster .social-menu{margin-right:10px!important;padding-right:10px!important}}</style>
+  <link rel="stylesheet" href="assets/unified-language.css">
 </head>
 
 <body>
@@ -516,15 +517,16 @@ footer{
     </div>
   </section>
 
-  <section id="languages">
-    <div class="container">
-      <div class="card">
-        <h2 id="languagesTitle">Поддерживаемые языки</h2>
-        <p id="languagesLead">В комплект программ входят десять готовых словарей, включая поддержку письма справа налево для иврита.</p>
-        <div aria-label="Supported interface languages" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:18px">
-          <span class="badge">Русский</span><span class="badge">English</span><span class="badge">Français</span><span class="badge">Deutsch</span><span class="badge" dir="rtl">עברית</span><span class="badge">Italiano</span><span class="badge">Қазақша</span><span class="badge">Português</span><span class="badge">Српски</span><span class="badge">Español</span>
+  <section class="pt-language-section" id="languages">
+    <div class="pt-language-card">
+      <div class="pt-language-copy">
+        <h2 id="languagesTitle">Мультиязычный интерфейс</h2>
+        <p id="languagesLead">Программы уже поставляются со словарями интерфейса для десяти языков. Переключение языка помогает внедрять программы в смешанных командах и на площадках с разными рабочими языками.</p>
+        <div class="pt-language-chips" aria-label="Supported interface languages">
+          <span class="pt-language-chip">Русский</span><span class="pt-language-chip">English</span><span class="pt-language-chip">Deutsch</span><span class="pt-language-chip">Français</span><span class="pt-language-chip" dir="rtl">עברית</span><span class="pt-language-chip">Italiano</span><span class="pt-language-chip">Қазақша</span><span class="pt-language-chip">Português</span><span class="pt-language-chip">Српски</span><span class="pt-language-chip">Español</span>
         </div>
       </div>
+      <p class="pt-language-note" id="languagesNote">Если нужен другой язык, можно самостоятельно создать словарь перевода для любого языка и подключить его к программе.</p>
     </div>
   </section>
 
@@ -1202,6 +1204,7 @@ footer{
     productsLead: document.getElementById("productsLead"),
     languagesTitle: document.getElementById("languagesTitle"),
     languagesLead: document.getElementById("languagesLead"),
+    languagesNote: document.getElementById("languagesNote"),
     addMoreTitle: document.getElementById("addMoreTitle"),
     addMoreText: document.getElementById("addMoreText"),
     btnContactBottom: document.getElementById("btnContactBottom"),
@@ -1232,8 +1235,9 @@ footer{
       badgeB2B: "B2B",
       productsTitle: "Программы",
       productsLead: "Нажми “Страница” для подробностей и скриншотов, “Демо” — для скачивания пробной версии.",
-      languagesTitle: "Поддерживаемые языки",
-      languagesLead: "В комплект программ входят десять готовых словарей, включая поддержку письма справа налево для иврита.",
+      languagesTitle: "Мультиязычный интерфейс",
+      languagesLead: "Программы уже поставляются со словарями интерфейса для десяти языков. Переключение языка помогает внедрять программы в смешанных командах и на площадках с разными рабочими языками.",
+      languagesNote: "Если нужен другой язык, можно самостоятельно создать словарь перевода для любого языка и подключить его к программе.",
       addMoreTitle: "Другие программы",
       addMoreText: "Также имеются и другие программы для решения задач упаковочной индустрии.",
       btnContactBottom: "vguberniev@gmail.com",
@@ -1263,8 +1267,9 @@ footer{
       badgeB2B: "B2B",
       productsTitle: "Products",
       productsLead: "Click “Page” for full details and screenshots, “Demo” to download an evaluation version.",
-      languagesTitle: "Supported languages",
-      languagesLead: "The software suite includes ten ready-to-use interface dictionaries, with right-to-left support for Hebrew.",
+      languagesTitle: "Multilingual interface",
+      languagesLead: "The programs already ship with interface dictionaries for ten languages. Language switching helps deploy them in mixed teams and production sites with different working languages.",
+      languagesNote: "If another language is needed, you can create your own translation dictionary for any language and connect it to the program.",
       addMoreTitle: "We can add more products",
       addMoreText: "When you release another tool, we will add one more card here: name, short description, pricing, demo link, and product page link.",
       btnContactBottom: "vguberniev@gmail.com",
@@ -1301,6 +1306,7 @@ footer{
     ui.productsLead.textContent = TEXT[lang].productsLead;
     ui.languagesTitle.textContent = TEXT[lang].languagesTitle;
     ui.languagesLead.textContent = TEXT[lang].languagesLead;
+    ui.languagesNote.textContent = TEXT[lang].languagesNote;
     ui.addMoreTitle.textContent = TEXT[lang].addMoreTitle;
     ui.addMoreText.textContent = TEXT[lang].addMoreText;
     ui.btnContactBottom.textContent = TEXT[lang].btnContactBottom;

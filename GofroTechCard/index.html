@@ -790,6 +790,7 @@
       *, *::before, *::after { transition-duration: .01ms !important; }
     }
   </style>
+  <link rel="stylesheet" href="../assets/unified-language.css">
 </head>
 <body>
   <a class="skip-link" href="#content" data-ru="Перейти к содержанию" data-en="Skip to content">Перейти к содержанию</a>
@@ -920,42 +921,8 @@
       </div>
     </section>
 
-    <section id="languages">
-      <div class="container">
-        <div class="section-head">
-          <p class="eyebrow" data-ru="Мультиязычный интерфейс" data-en="Multilingual interface">Мультиязычный интерфейс</p>
-          <h2 data-ru="10 встроенных языков и собственные словари" data-en="10 built-in languages and custom dictionaries">10 встроенных языков и собственные словари</h2>
-          <p data-ru="Язык меняется на лету через меню Language — без закрытия программы и потери введённых данных." data-en="Switch the interface live from the Language menu without restarting the application or losing entered data.">Язык меняется на лету через меню Language — без закрытия программы и потери введённых данных.</p>
-        </div>
-        <div class="language-layout">
-          <article class="capability-panel">
-            <h3 data-ru="Поддерживаемые языки" data-en="Supported languages">Поддерживаемые языки</h3>
-            <p data-ru="В комплект входят десять готовых словарей, включая поддержку письма справа налево для иврита." data-en="The package includes ten ready-to-use dictionaries, including right-to-left layout support for Hebrew.">В комплект входят десять готовых словарей, включая поддержку письма справа налево для иврита.</p>
-            <div class="language-cloud" aria-label="Поддерживаемые языки">
-              <span class="language-chip" data-ru="Русский" data-en="Russian">Русский</span>
-              <span class="language-chip" data-ru="Английский" data-en="English">Английский</span>
-              <span class="language-chip" data-ru="Французский" data-en="French">Французский</span>
-              <span class="language-chip" data-ru="Немецкий" data-en="German">Немецкий</span>
-              <span class="language-chip" data-ru="Иврит" data-en="Hebrew">Иврит</span>
-              <span class="language-chip" data-ru="Итальянский" data-en="Italian">Итальянский</span>
-              <span class="language-chip" data-ru="Казахский" data-en="Kazakh">Казахский</span>
-              <span class="language-chip" data-ru="Португальский" data-en="Portuguese">Португальский</span>
-              <span class="language-chip" data-ru="Сербский" data-en="Serbian">Сербский</span>
-              <span class="language-chip" data-ru="Испанский" data-en="Spanish">Испанский</span>
-            </div>
-          </article>
-          <article class="capability-panel">
-            <h3 data-ru="Добавьте свой язык самостоятельно" data-en="Add another language yourself">Добавьте свой язык самостоятельно</h3>
-            <p data-ru="Словари хранятся рядом с программой в открытом текстовом формате UTF-8. Для нового языка не требуется новая сборка приложения." data-en="Dictionaries are stored beside the application as open UTF-8 text files. Adding a language does not require a new application build.">Словари хранятся рядом с программой в открытом текстовом формате UTF-8. Для нового языка не требуется новая сборка приложения.</p>
-            <ol class="dictionary-steps">
-              <li data-ru="Скопируйте любой файл .lng и задайте ему новое имя." data-en="Copy any .lng file and give it a new name.">Скопируйте любой файл .lng и задайте ему новое имя.</li>
-              <li data-ru="Укажите отображаемое название языка в строке language=." data-en="Set the displayed language name in the language= line.">Укажите отображаемое название языка в строке language=.</li>
-              <li data-ru="Добавьте переводы в формате «исходный русский текст=>перевод»." data-en="Add translations as “source Russian text=>translation” pairs.">Добавьте переводы в формате «исходный русский текст=>перевод».</li>
-              <li data-ru="Выберите «Обновить список словарей» в меню Language — новый язык сразу появится в списке." data-en="Choose “Refresh dictionary list” from Language; the new language appears immediately.">Выберите «Обновить список словарей» в меню Language — новый язык сразу появится в списке.</li>
-            </ol>
-          </article>
-        </div>
-      </div>
+    <section class="pt-language-section" id="languages">
+      <div class="pt-language-card"><div class="pt-language-copy"><h2 data-ru="Мультиязычный интерфейс" data-en="Multilingual interface">Мультиязычный интерфейс</h2><p data-ru="Гофротехкарта уже поставляется со словарями интерфейса для десяти языков. Переключение языка помогает внедрять программу в смешанных командах и на площадках с разными рабочими языками." data-en="GofroTechCard already ships with interface dictionaries for ten languages. Language switching helps deploy the program in mixed teams and production sites with different working languages.">Гофротехкарта уже поставляется со словарями интерфейса для десяти языков. Переключение языка помогает внедрять программу в смешанных командах и на площадках с разными рабочими языками.</p><div class="pt-language-chips" aria-label="Supported interface languages"><span class="pt-language-chip">Русский</span><span class="pt-language-chip">English</span><span class="pt-language-chip">Deutsch</span><span class="pt-language-chip">Français</span><span class="pt-language-chip" dir="rtl">עברית</span><span class="pt-language-chip">Italiano</span><span class="pt-language-chip">Қазақша</span><span class="pt-language-chip">Português</span><span class="pt-language-chip">Српски</span><span class="pt-language-chip">Español</span></div></div><p class="pt-language-note" data-ru="Если нужен другой язык, можно самостоятельно создать словарь перевода для любого языка и подключить его к программе." data-en="If another language is needed, you can create your own translation dictionary for any language and connect it to the program.">Если нужен другой язык, можно самостоятельно создать словарь перевода для любого языка и подключить его к программе.</p></div>
     </section>
 
     <section id="watch-mode">
