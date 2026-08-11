@@ -17,6 +17,8 @@
   font: 700 13px/1.2 system-ui, "Segoe UI", Arial, sans-serif;
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
+  transform: scale(.5);
+  transform-origin: right bottom;
 }
 
 .pt-color-scheme-switcher button {
@@ -30,6 +32,8 @@
   background: transparent;
   color: inherit;
   font: inherit;
+  font-size: 22px;
+  line-height: 1;
   cursor: pointer;
   white-space: nowrap;
 }

@@ -3,6 +3,7 @@
 
   const STORAGE_KEY = "packtuning-color-scheme-mode";
   const MODES = ["day", "night", "auto", "system"];
+  const ICONS = { day: "☀️", night: "🌙", auto: "🕒", system: "⚙️" };
   const root = document.documentElement;
   const systemQuery = window.matchMedia?.("(prefers-color-scheme: dark)");
   let mode = readMode();
@@ -66,9 +67,10 @@
     control.setAttribute("aria-label", text.group);
     control.title = text.group;
     MODES.forEach((item) => {
-      buttons[item].textContent = text[item];
+      buttons[item].textContent = ICONS[item];
+      buttons[item].setAttribute("aria-label", text[item]);
       buttons[item].setAttribute("aria-pressed", String(mode === item));
-      buttons[item].title = `${text.group}: ${text[item]}`;
+      buttons[item].title = text[item];
     });
   }
 
