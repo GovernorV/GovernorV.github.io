@@ -720,6 +720,13 @@ footer{
   const DAY = "day";
   const NIGHT = "night";
 
+  // Keep the product catalog first and place the integration overview after it.
+  const productsSection = document.getElementById("products");
+  const integrationSection = document.getElementById("integration");
+  if (productsSection && integrationSection) {
+    productsSection.insertAdjacentElement("afterend", integrationSection);
+  }
+
   // ---- EDIT HERE to add more programs later ----
   const PRODUCTS = [
     {
