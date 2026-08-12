@@ -271,6 +271,95 @@ html[data-theme="day"] .lang{background:#fff}
   box-shadow:var(--shadow);
 }
 
+/* PackTuning PRO integrations */
+.integrationIntro{
+  max-width:850px;
+  font-size:17px;
+}
+.integrationGraph{
+  margin:24px 0;
+  padding:12px;
+  border:1px solid var(--line);
+  border-radius:24px;
+  background:#06172b;
+  box-shadow:var(--shadow);
+}
+.integrationGraph img{
+  display:block;
+  width:100%;
+  height:auto;
+  border-radius:16px;
+}
+.integrationGraph figcaption{
+  padding:12px 8px 2px;
+  color:#c5d5ec;
+  font-size:13px;
+}
+.integrationSteps{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px;
+  margin:24px 0;
+}
+.integrationStep{
+  position:relative;
+  padding:20px;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:var(--soft);
+}
+.integrationStep b{
+  display:block;
+  margin-bottom:6px;
+  color:var(--text);
+}
+.integrationStepNum{
+  display:inline-grid;
+  place-items:center;
+  width:30px;
+  height:30px;
+  margin-bottom:12px;
+  border-radius:10px;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#071021;
+  font-weight:900;
+}
+.integrationLinks{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;
+  margin-top:18px;
+}
+.integrationLink{
+  padding:20px;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:linear-gradient(180deg,var(--card),var(--cardSoft));
+}
+.integrationLink h3{
+  font-size:17px;
+  margin-bottom:8px;
+}
+.integrationLink p{margin:0}
+.integrationNote{
+  margin-top:18px;
+  padding:18px 20px;
+  border-left:4px solid var(--accent2);
+  border-radius:0 16px 16px 0;
+  background:var(--soft);
+}
+.integrationNote p{margin:0}
+html[lang="ru"] .lang-en{display:none!important}
+html[lang="en"] .lang-ru{display:none!important}
+@media(max-width:900px){
+  .integrationSteps{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:700px){
+  .integrationSteps,.integrationLinks{grid-template-columns:1fr}
+  .integrationGraph{margin-left:-8px;margin-right:-8px;padding:6px;border-radius:18px}
+  .integrationGraph img{border-radius:12px}
+}
+
 /* Product cards */
 .cardsGrid{
   display:grid;
@@ -476,6 +565,7 @@ footer{
           и другие модули, которые мы будем добавлять дальше.
         </p>
 
+        <a class="btn primary" href="#integration" id="btnToIntegration">Интеграция PRO</a>
         <a class="btn secondary" href="#products" id="btnToProducts">Перейти к программам</a>
         <a class="btn secondary" href="mailto:vguberniev@gmail.com" id="btnContactTop">Написать: vguberniev@gmail.com</a>
 
@@ -496,6 +586,72 @@ footer{
           <span class="badge" id="badgeSMB">SMB / manufacturing</span>
           <span class="badge" id="badgeB2B">B2B</span>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRO INTEGRATION -->
+  <section id="integration">
+    <div class="container">
+      <div class="lang-ru">
+        <span class="badge">PACKTUNING PRO</span>
+        <h2>Программы работают как единая система</h2>
+        <p class="integrationIntro">Интеграция убирает повторный ручной ввод между проектированием, расчётом стоимости и транспортной укладкой. Исходная программа собирает данные текущего заказа в JSON-файл и открывает целевой PRO-модуль уже с заполненной формой и выполненным расчётом.</p>
+      </div>
+      <div class="lang-en">
+        <span class="badge">PACKTUNING PRO</span>
+        <h2>The programs work as one system</h2>
+        <p class="integrationIntro">Integration eliminates repeated manual entry between design, costing and transport stacking. The source program collects the current job data into a JSON file and opens the target PRO module with its form prefilled and the calculation completed.</p>
+      </div>
+
+      <figure class="integrationGraph">
+        <img id="integrationGraph" src="assets/integration/packtuning-pro-integration-ru.jpg" alt="Граф интеграций PackTuning PRO: шесть связей между Раскройщиком, Фасовщиком PRO, ГофроТехКартой PRO, Калькулятором PRO и Паллетировщиком PRO" loading="lazy">
+        <figcaption class="lang-ru">Шесть реализованных направлений обмена. Стрелка показывает, какая программа формирует задание и запускает следующий модуль.</figcaption>
+        <figcaption class="lang-en">Six implemented data flows. Each arrow shows which program prepares the job and launches the next module.</figcaption>
+      </figure>
+
+      <div class="lang-ru">
+        <h3>Как проходит интеграция</h3>
+        <div class="integrationSteps">
+          <div class="integrationStep"><span class="integrationStepNum">1</span><b>Проверка установки</b><p>Кнопка интеграции отображается только тогда, когда соответствующая PRO-программа установлена в системе.</p></div>
+          <div class="integrationStep"><span class="integrationStepNum">2</span><b>Формирование задания</b><p>Размеры, количество, профиль гофры, тип изделия и другие доступные параметры заказа записываются во временный JSON-файл.</p></div>
+          <div class="integrationStep"><span class="integrationStepNum">3</span><b>Интерактивный запуск</b><p>JSON передаётся программе как параметр командной строки. Поля заполняются автоматически, программа делает расчёт и остаётся открытой для проверки и изменения условий.</p></div>
+          <div class="integrationStep"><span class="integrationStepNum">4</span><b>Продолжение работы</b><p>Пользователь меняет параметры, пересчитывает и формирует отчёты. В отличие от режима дежурства, исходный файл не удаляется после молчаливой обработки.</p></div>
+        </div>
+
+        <h3>Что передаётся по каждой связи</h3>
+        <div class="integrationLinks">
+          <article class="integrationLink"><h3>Раскройщик → ГофроТехКарта PRO</h3><p>Из свойств заказа передаются тип изделия, размеры ящика и заготовки, количество, тип и марка картона, профиль, цвета и другие заполненные производственные данные. Технологическая карта открывается с готовой исходной записью.</p></article>
+          <article class="integrationLink"><h3>Раскройщик → Калькулятор PRO</h3><p>Для ящика передаются внутренние размеры, количество, профиль и марка картона. Для типа «Гофрозаготовка» Калькулятор автоматически открывается в режиме «Гофролист» и получает длину и ширину самой заготовки — размеры ящика не требуются.</p></article>
+          <article class="integrationLink"><h3>Раскройщик → Паллетировщик PRO</h3><p>Ящики передаются в обычный режим укладки. Гофрозаготовки открываются в режиме расчёта пачек: длина пачки равна половине длины заготовки, ширина — ширине заготовки, в пачке 30 листов, а высота рассчитывается по профилю гофры. Поля размеров ящика при этом остаются пустыми.</p></article>
+          <article class="integrationLink"><h3>Фасовщик PRO → Паллетировщик PRO</h3><p>Команда «Укладка на поддон» передаёт рассчитанные размеры заполненного ящика, количество ящиков и связанные параметры упаковки. Паллетировщик сразу показывает вариант транспортной укладки, не требуя повторно набирать данные.</p></article>
+          <article class="integrationLink"><h3>ГофроТехКарта PRO → Паллетировщик PRO</h3><p>Из текущей техкарты передаются геометрия и тираж ящика, профиль гофры и доступные параметры изделия. Это связывает разработку конструкции с проверкой количества ящиков на поддоне.</p></article>
+          <article class="integrationLink"><h3>Калькулятор PRO ⇄ Паллетировщик PRO</h3><p>Паллетировщик запускается в режиме пачек и получает размеры пачки, количество заготовок в пачке, профиль и тираж. Пользователь может изменить условия укладки; непосредственно перед закрытием Паллетировщик возвращает актуальный результат в поле «Количество пачек на поддоне» Калькулятора.</p></article>
+        </div>
+
+        <div class="integrationNote"><p><b>Без лишних сообщений при старте.</b> Если автоматический первый расчёт невозможен из-за неполных или несовместимых условий, целевая программа просто открывается с подставленными данными без сообщения об ошибке — параметры можно поправить вручную.</p></div>
+      </div>
+
+      <div class="lang-en">
+        <h3>How the integration works</h3>
+        <div class="integrationSteps">
+          <div class="integrationStep"><span class="integrationStepNum">1</span><b>Installation check</b><p>An integration button is shown only when the corresponding PRO application is installed on the computer.</p></div>
+          <div class="integrationStep"><span class="integrationStepNum">2</span><b>Job creation</b><p>Dimensions, quantity, flute profile, product type and other available order fields are written to a temporary JSON file.</p></div>
+          <div class="integrationStep"><span class="integrationStepNum">3</span><b>Interactive launch</b><p>The JSON path is passed as a command-line argument. The target application fills its fields, calculates automatically and stays open for review and adjustments.</p></div>
+          <div class="integrationStep"><span class="integrationStepNum">4</span><b>Continue working</b><p>The user can change parameters, recalculate and create reports. Unlike watch mode, the job is not silently processed and deleted.</p></div>
+        </div>
+
+        <h3>Data flow for each connection</h3>
+        <div class="integrationLinks">
+          <article class="integrationLink"><h3>OptCutting → GofroTechCard PRO</h3><p>The job supplies product type, box and blank dimensions, quantity, board type and grade, flute profile, colors and other populated production data. The tech card opens with the source record ready for work.</p></article>
+          <article class="integrationLink"><h3>OptCutting → Cost Calculator PRO</h3><p>Box jobs supply internal dimensions, quantity, flute profile and board grade. A corrugated blank automatically opens the Calculator in sheet mode and supplies the blank length and width, so box dimensions are not required.</p></article>
+          <article class="integrationLink"><h3>OptCutting → Palletizer PRO</h3><p>Boxes use standard pallet stacking. Corrugated blanks use bundle mode: bundle length is half the blank length, width equals blank width, each bundle contains 30 sheets and bundle height is calculated from the flute profile. Box dimension fields remain empty.</p></article>
+          <article class="integrationLink"><h3>OptPacker PRO → Palletizer PRO</h3><p>The “Pallet stacking” command transfers the calculated filled-box dimensions, box quantity and related packaging parameters. Palletizer immediately displays the transport stacking arrangement without repeated data entry.</p></article>
+          <article class="integrationLink"><h3>GofroTechCard PRO → Palletizer PRO</h3><p>The current tech card supplies box geometry and production quantity, flute profile and available product parameters. This connects structural design with the pallet quantity check.</p></article>
+          <article class="integrationLink"><h3>Cost Calculator PRO ⇄ Palletizer PRO</h3><p>Palletizer opens in bundle mode and receives bundle dimensions, sheets per bundle, flute profile and job quantity. Conditions can be changed; immediately before closing, Palletizer returns the current result to the Calculator’s “Bundles per pallet” field.</p></article>
+        </div>
+
+        <div class="integrationNote"><p><b>No unnecessary startup dialogs.</b> If the first automatic calculation cannot be completed because input conditions are incomplete or incompatible, the target application simply opens with the supplied values and lets the user correct them manually.</p></div>
       </div>
     </div>
   </section>
@@ -1206,6 +1362,7 @@ footer{
     catalogBanner: document.getElementById("catalogBanner"),
     heroTitle: document.getElementById("heroTitle"),
     heroText: document.getElementById("heroText"),
+    btnToIntegration: document.getElementById("btnToIntegration"),
     btnToProducts: document.getElementById("btnToProducts"),
     btnContactTop: document.getElementById("btnContactTop"),
     heroSideTitle: document.getElementById("heroSideTitle"),
@@ -1231,6 +1388,7 @@ footer{
     cards: document.getElementById("cards"),
     btnRu: document.getElementById("btn-ru"),
     btnEn: document.getElementById("btn-en"),
+    integrationGraph: document.getElementById("integrationGraph"),
     theme: document.documentElement
   };
 
@@ -1239,6 +1397,7 @@ footer{
       tagline: "Каталог программ",
       heroTitle: "Программы для упаковки и логистики",
       heroText: "Набор инструментов для производителей и складов: паллетизация, расчёт себестоимости гофроизделий, и другие модули, которые мы будем добавлять дальше.",
+      btnToIntegration: "Интеграция PRO",
       btnToProducts: "Перейти к программам",
       btnContactTop: "Написать: vguberniev@gmail.com",
       heroSideTitle: "Как выбрать",
@@ -1271,6 +1430,7 @@ footer{
       tagline: "Product catalog",
       heroTitle: "Software for packaging and logistics",
       heroText: "A set of tools for manufacturers and warehouses: pallet stacking, corrugated cost estimation, and more modules we will add later.",
+      btnToIntegration: "PRO integration",
       btnToProducts: "View products",
       btnContactTop: "Email: vguberniev@gmail.com",
       heroSideTitle: "How to choose",
@@ -1306,6 +1466,7 @@ footer{
     ui.tagline.textContent = TEXT[lang].tagline;
     ui.heroTitle.textContent = TEXT[lang].heroTitle;
     ui.heroText.textContent = TEXT[lang].heroText;
+    ui.btnToIntegration.textContent = TEXT[lang].btnToIntegration;
     ui.btnToProducts.textContent = TEXT[lang].btnToProducts;
     ui.btnContactTop.textContent = TEXT[lang].btnContactTop;
     ui.heroSideTitle.textContent = TEXT[lang].heroSideTitle;
@@ -1315,6 +1476,10 @@ footer{
     ui.badgeB2B.textContent = TEXT[lang].badgeB2B;
     ui.catalogBanner.src = lang === EN ? "catalog-en.jpg" : "catalog-ru.jpg";
     ui.catalogBanner.alt = lang === EN ? "PackTuning Software catalog banner" : "Каталог программ PackTuning Software";
+    ui.integrationGraph.src = lang === EN ? "assets/integration/packtuning-pro-integration-en.jpg" : "assets/integration/packtuning-pro-integration-ru.jpg";
+    ui.integrationGraph.alt = lang === EN
+      ? "PackTuning PRO integration graph with six data flows between OptCutting, OptPacker PRO, GofroTechCard PRO, Cost Calculator PRO and Palletizer PRO"
+      : "Граф интеграций PackTuning PRO: шесть связей между Раскройщиком, Фасовщиком PRO, ГофроТехКартой PRO, Калькулятором PRO и Паллетировщиком PRO";
     ui.productsTitle.textContent = TEXT[lang].productsTitle;
     ui.productsLead.textContent = TEXT[lang].productsLead;
     ui.languagesTitle.textContent = TEXT[lang].languagesTitle;
