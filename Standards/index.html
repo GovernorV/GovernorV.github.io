@@ -12,6 +12,7 @@
   <link rel="alternate" hreflang="en" href="https://governorv.github.io/Standards/?lang=en">
   <link rel="alternate" hreflang="x-default" href="https://governorv.github.io/Standards/">
   <link rel="icon" type="image/jpeg" href="assets/app-icon.jpg">
+  <link rel="stylesheet" href="../assets/theme-switcher.css?v=20260823-standards">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="PackTuning Software">
   <meta property="og:title" content="Справочник ГОСТов — стандарты упаковки и гофротары">
@@ -73,7 +74,6 @@
     <div class="nav-actions">
       <a class="pill" href="#features"><span data-l="ru">Возможности</span><span data-l="en">Features</span></a>
       <a class="pill" href="#screens"><span data-l="ru">Скриншоты</span><span data-l="en">Screenshots</span></a>
-      <button class="pill" id="theme" type="button" aria-label="Theme">☀︎</button>
       <button class="pill" id="ru" type="button">Русский</button><button class="pill" id="en" type="button">English</button>
     </div>
   </nav></div></header>
@@ -158,8 +158,8 @@
     function setLang(lang){lang=lang==='en'?'en':'ru';root.dataset.lang=lang;root.lang=lang;document.title=title[lang];document.querySelector('meta[name="description"]').content=description[lang];document.getElementById('hero').src='assets/hero-'+lang+'.png';const integrationGraph=document.getElementById('integrationGraphSite');integrationGraph.src=lang==='en'?'../assets/integration/packtuning-pro-integration-en.jpg?v=20260823':'../assets/integration/packtuning-pro-integration-ru.png?v=20260823-2';integrationGraph.alt=lang==='en'?'PackTuning PRO integration graph':'Интеграционный граф программ PackTuning PRO';document.getElementById('ru').classList.toggle('active',lang==='ru');document.getElementById('en').classList.toggle('active',lang==='en');localStorage.setItem('standards-lang',lang)}
     setLang(params.get('lang')||localStorage.getItem('standards-lang')||((navigator.language||'').toLowerCase().startsWith('en')?'en':'ru'));
     document.getElementById('ru').onclick=()=>setLang('ru');document.getElementById('en').onclick=()=>setLang('en');
-    const savedTheme=localStorage.getItem('packtuning-theme')||'night';root.dataset.theme=savedTheme;document.getElementById('theme').onclick=()=>{root.dataset.theme=root.dataset.theme==='night'?'day':'night';localStorage.setItem('packtuning-theme',root.dataset.theme)};
     const viewer=document.getElementById('viewer'),viewImg=viewer.querySelector('img');document.querySelectorAll('.shot img').forEach(img=>{const open=()=>{viewImg.src=img.src;viewImg.alt=img.alt;viewer.showModal()};img.onclick=open;img.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open()}}});viewer.querySelector('.close').onclick=()=>viewer.close();viewer.onclick=e=>{if(e.target===viewer) viewer.close()};addEventListener('keydown',e=>{if(e.key==='Escape'&&viewer.open)viewer.close()});
   </script>
+  <script src="../assets/theme-switcher.js?v=20260823-standards"></script>
 </body>
 </html>
