@@ -1581,8 +1581,10 @@ footer{
     for (const p of PRODUCTS){
       const card = document.createElement("div");
       card.className = "card productCard";
-      if (p.id === "bottleoptimizer") card.style.order = "998";
-      if (p.id === "gost914290") card.style.order = "999";
+      if (p.id === "bottleoptimizer") card.style.order = "996";
+      if (p.id === "gost914290") card.style.order = "997";
+      if (p.id === "standards") card.style.order = "998";
+      if (p.id === "gostbundle") card.style.order = "999";
 
       const head = document.createElement("a");
       head.className = "productHead";
