@@ -508,6 +508,46 @@ html[lang="en"] .lang-ru{display:none!important}
   gap:8px;
   margin-top:2px;
 }
+.newsCard{
+  padding:24px;
+}
+.newsHead{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:16px;
+  margin-bottom:14px;
+}
+.newsHead p{
+  margin:0;
+  max-width:680px;
+}
+.newsList{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px 18px;
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+.newsList li{
+  padding:12px 0;
+  border-top:1px solid var(--line);
+  color:var(--muted);
+}
+.newsList b{
+  color:var(--text);
+}
+.newsSources{
+  margin-top:18px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+@media(max-width:760px){
+  .newsHead{display:block}
+  .newsList{grid-template-columns:1fr}
+}
 
 footer{
   border-top:1px solid var(--line);
@@ -713,6 +753,63 @@ footer{
           <li>Вышлите название программы "название программы", код и дату транзакции, а также код программы pc-settings по адресу <a href="mailto:vguberniev@gmail.com">vguberniev@gmail.com</a>.</li>
           <li>После проверки платежа в ответном письме вам придет ссылка на ваш дистрибутив (для того компьютера, код которого вы выслали).</li>
         </ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="catalogNews">
+    <div class="container">
+      <div class="card newsCard">
+        <div class="lang-ru">
+          <div class="newsHead">
+            <div>
+              <span class="badge">Новости PackTuning</span>
+              <h2>Коротко об обновлениях</h2>
+            </div>
+            <p>Сводка по публикациям в соцсетях и обновлениям программ каталога. Здесь будут аккумулироваться новости всех продуктов.</p>
+          </div>
+          <ul class="newsList">
+            <li><b>Раскройщик 1.40.</b> Добавлены справочники сырья и сортов, контроль остатков, отчет по сырью и новые параметры качества раскроя.</li>
+            <li><b>ГофроТехкарта.</b> Добавлены вырубные отверстия с автоматической простановкой размеров относительно граней ящика.</li>
+            <li><b>Калькулятор гофроящика.</b> Обновлена программа расчета стоимости гофроящиков и гофрозаготовок.</li>
+            <li><b>Паллетировщик 3.2.</b> Добавлено редактирование профилей гофрокартона и отчет для укладки пачек гофроящиков.</li>
+            <li><b>Фасовщик.</b> Из ПОЯС выделен отдельный модуль оптимальной укладки изделий в ящик.</li>
+            <li><b>TruckLoader.</b> Опубликована программа для расчета загрузки поддонов в автофургон или контейнер.</li>
+            <li><b>Проектировщик бутылок.</b> Добавлена отдельная страница программы оптимизации бутылки, ящика, решетки и паллетной укладки.</li>
+            <li><b>Соцсети.</b> PackTuning появился в Instagram; новости также публикуются в VK, Facebook и LinkedIn.</li>
+          </ul>
+          <div class="newsSources" aria-label="Источники новостей PackTuning">
+            <a class="btn secondary" href="https://www.instagram.com/packtuning/" target="_blank" rel="noopener">Instagram</a>
+            <a class="btn secondary" href="https://vk.ru/club79622771" target="_blank" rel="noopener">VK</a>
+            <a class="btn secondary" href="https://www.facebook.com/groups/1561529331198175" target="_blank" rel="noopener">Facebook</a>
+            <a class="btn secondary" href="https://www.linkedin.com/groups/10072044/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+        <div class="lang-en">
+          <div class="newsHead">
+            <div>
+              <span class="badge">PackTuning news</span>
+              <h2>Short update log</h2>
+            </div>
+            <p>A compact digest from social posts and product updates. This block will collect news for all catalog programs.</p>
+          </div>
+          <ul class="newsList">
+            <li><b>OptCutting 1.40.</b> Raw-material and board-sort directories, stock checks, material demand report and new cut-quality settings.</li>
+            <li><b>GofroTechCard.</b> Die-cut openings now get automatic dimensions relative to the box panels.</li>
+            <li><b>Box Price Calculator.</b> The corrugated box and blank costing tool has been updated.</li>
+            <li><b>Palletizer 3.2.</b> Corrugated-board profiles can be edited; bundle-pallet reports were added.</li>
+            <li><b>OptPacker.</b> The optimal in-box product arrangement module was released as a separate program from POJAS.</li>
+            <li><b>TruckLoader.</b> Truck and container pallet-loading calculation was published.</li>
+            <li><b>Bottle Optimizer.</b> A separate page presents optimization of bottle, box, divider and pallet layout.</li>
+            <li><b>Social channels.</b> PackTuning is now on Instagram; updates are also published on VK, Facebook and LinkedIn.</li>
+          </ul>
+          <div class="newsSources" aria-label="PackTuning news sources">
+            <a class="btn secondary" href="https://www.instagram.com/packtuning/" target="_blank" rel="noopener">Instagram</a>
+            <a class="btn secondary" href="https://vk.ru/club79622771" target="_blank" rel="noopener">VK</a>
+            <a class="btn secondary" href="https://www.facebook.com/groups/1561529331198175" target="_blank" rel="noopener">Facebook</a>
+            <a class="btn secondary" href="https://www.linkedin.com/groups/10072044/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
