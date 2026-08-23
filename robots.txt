@@ -11,3 +11,4 @@ Sitemap: https://governorv.github.io/GofroTechCard/sitemap.xml
 Sitemap: https://governorv.github.io/OptCutting/sitemap.xml
 Sitemap: https://governorv.github.io/palletizer-site/sitemap.xml
 Sitemap: https://governorv.github.io/truckloader-site/sitemap.xml
+Sitemap: https://governorv.github.io/Standards/sitemap.xml

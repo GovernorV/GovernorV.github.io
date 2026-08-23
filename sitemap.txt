@@ -11,3 +11,4 @@ https://governorv.github.io/GofroTechCard/
 https://governorv.github.io/palletizer-site/
 https://governorv.github.io/gost/
 https://governorv.github.io/truckloader-site/
+https://governorv.github.io/Standards/

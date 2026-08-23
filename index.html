@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <title>PackTuning Software — каталог программ для упаковки, логистики и SQL</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="PackTuning Software: каталог программ для паллетизации, загрузки поддонов в автофургоны, расчета стоимости гофроупаковки, ПОЯС, ГОСТ 9142-2014, учета лицензий и поиска по базам данных SQL Server.">
-<meta name="keywords" content="PackTuning Software, ПОЯС, программы для упаковки, паллетизация, загрузка поддонов в автофургоны, расчет загрузки фуры, TruckLoader, расчет стоимости гофроящика, ГОСТ 9142-2014, расчет нагрузки на гофроящик, учет лицензий, поиск по базе данных, SQL Server, Box Palletizer, Box Price Calculator, LicMan, DBSearch">
+<meta name="description" content="PackTuning Software: каталог программ для паллетизации, стандартов и размеров упаковки, расчета стоимости и нагрузки гофроящиков, проектирования техкарт и производственной логистики.">
+<meta name="keywords" content="PackTuning Software, Справочник ГОСТов, комплект ГОСТы, программы для упаковки, паллетизация, размеры ящиков, FEFCO 0201, TruckLoader, расчет стоимости гофроящика, ГОСТ 9142-2014, расчет нагрузки на гофроящик, SQL Server">
 <meta name="author" content="Viktor Guberniev">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://governorv.github.io/">
@@ -29,7 +29,7 @@
   "@context": "https://schema.org",
   "@type": "ItemList",
   "name": "PackTuning Software Product Catalog",
-  "description": "Catalog of desktop software tools for packaging, palletizing, truck loading, corrugated packaging costing, GOST 9142-2014 box load calculation, license management and database search.",
+  "description": "Catalog of desktop software tools for packaging standards, box dimensions, palletizing, truck loading, corrugated packaging costing and GOST 9142-2014 box load calculation.",
   "url": "https://governorv.github.io/",
   "itemListElement": [
     {
@@ -97,6 +97,18 @@
       "position": 11,
       "url": "https://governorv.github.io/GofroTechCard/",
       "name": "ГофроТехкарта / Corrugated Box Tech Card"
+    },
+    {
+      "@type": "ListItem",
+      "position": 12,
+      "url": "https://governorv.github.io/Standards/",
+      "name": "Справочник ГОСТов / GOST Standards Guide"
+    },
+    {
+      "@type": "ListItem",
+      "position": 13,
+      "url": "https://governorv.github.io/Standards/#bundle",
+      "name": "Комплект ГОСТы / GOST Bundle"
     }
   ]
 }
@@ -605,9 +617,9 @@ footer{
       </div>
 
       <figure class="integrationGraph">
-        <img id="integrationGraph" src="assets/integration/packtuning-pro-integration-ru.jpg" alt="Граф интеграций PackTuning PRO: шесть связей между Раскройщиком, Фасовщиком PRO, ГофроТехКартой PRO, Калькулятором PRO и Паллетировщиком PRO" loading="lazy">
-        <figcaption class="lang-ru">Шесть реализованных направлений обмена. Стрелка показывает, какая программа формирует задание и запускает следующий модуль.</figcaption>
-        <figcaption class="lang-en">Six implemented data flows. Each arrow shows which program prepares the job and launches the next module.</figcaption>
+        <img id="integrationGraph" src="assets/integration/packtuning-pro-integration-ru.jpg?v=20260823" alt="Граф интеграций PackTuning PRO: семь связей, включая Справочник ГОСТов" loading="lazy">
+        <figcaption class="lang-ru">Семь реализованных связей между программами. Двусторонняя стрелка означает обмен данными в обоих направлениях.</figcaption>
+        <figcaption class="lang-en">Seven implemented connections between applications. A two-way arrow means data can be transferred in both directions.</figcaption>
       </figure>
 
       <div class="lang-ru">
@@ -621,6 +633,7 @@ footer{
 
         <h3>Что передаётся по каждой связи</h3>
         <div class="integrationLinks">
+          <article class="integrationLink"><h3>Справочник ГОСТов ⇄ расчётные модули</h3><p>Справочник передаёт номер ящика, ГОСТ и внутренние размеры в Раскройщик, Фасовщик PRO, Паллетировщик PRO, Калькулятор PRO, ГофроТехКарту PRO и расчёт предельной нагрузки. В каждой из этих программ команда «Выбрать из ГОСТа» открывает справочник в режиме выбора и возвращает размеры обратно.</p></article>
           <article class="integrationLink"><h3>Раскройщик → ГофроТехКарта PRO</h3><p>Из свойств заказа передаются тип изделия, размеры ящика и заготовки, количество, тип и марка картона, профиль, цвета и другие заполненные производственные данные. Технологическая карта открывается с готовой исходной записью.</p></article>
           <article class="integrationLink"><h3>Раскройщик → Калькулятор PRO</h3><p>Для ящика передаются внутренние размеры, количество, профиль и марка картона. Для типа «Гофрозаготовка» Калькулятор автоматически открывается в режиме «Гофролист» и получает длину и ширину самой заготовки — размеры ящика не требуются.</p></article>
           <article class="integrationLink"><h3>Раскройщик → Паллетировщик PRO</h3><p>Ящики передаются в обычный режим укладки. Гофрозаготовки открываются в режиме расчёта пачек: длина пачки равна половине длины заготовки, ширина — ширине заготовки, в пачке 30 листов, а высота рассчитывается по профилю гофры. Поля размеров ящика при этом остаются пустыми.</p></article>
@@ -643,6 +656,7 @@ footer{
 
         <h3>Data flow for each connection</h3>
         <div class="integrationLinks">
+          <article class="integrationLink"><h3>GOST Standards Guide ⇄ calculation modules</h3><p>The guide sends the box number, GOST and internal dimensions to OptCutting, OptPacker PRO, Palletizer PRO, Cost Calculator PRO, GofroTechCard PRO and Box Strength Calculator. In each application, “Select from GOST” opens the guide as a picker and returns the dimensions.</p></article>
           <article class="integrationLink"><h3>OptCutting → GofroTechCard PRO</h3><p>The job supplies product type, box and blank dimensions, quantity, board type and grade, flute profile, colors and other populated production data. The tech card opens with the source record ready for work.</p></article>
           <article class="integrationLink"><h3>OptCutting → Cost Calculator PRO</h3><p>Box jobs supply internal dimensions, quantity, flute profile and board grade. A corrugated blank automatically opens the Calculator in sheet mode and supplies the blank length and width, so box dimensions are not required.</p></article>
           <article class="integrationLink"><h3>OptCutting → Palletizer PRO</h3><p>Boxes use standard pallet stacking. Corrugated blanks use bundle mode: bundle length is half the blank length, width equals blank width, each bundle contains 30 sheets and bundle height is calculated from the flute profile. Box dimension fields remain empty.</p></article>
@@ -776,6 +790,42 @@ footer{
       }
     },
     {
+      id: "standards",
+      glyph: "ГОСТ",
+      icon: "assets/icons/standards.jpg",
+      cover: { ru: "standards_banner.png", en: "standards_banner_en.png" },
+      gradient: ["#0a59d1", "#25c8ff"],
+      titles: { ru: "Справочник ГОСТов", en: "GOST Standards Guide" },
+      subtitles: { ru: "Стандарты, размеры ящиков и PDF-документы", en: "Standards, box dimensions and PDF documents" },
+      descriptions: {
+        ru: "Объединяет размерные ряды настоящих ГОСТов и нормативные PDF-документы, рассчитывает заготовку FEFCO 0201, импортирует Excel и передаёт выбранный ящик в программы PackTuning.",
+        en: "Combines dimensional GOST series and regulatory PDF documents, calculates the FEFCO 0201 blank, imports Excel and transfers the selected box to PackTuning applications."
+      },
+      pricing: {
+        ru: { main: "9 900 ₽ (покупка)", lines: ["Бессрочная лицензия для Windows", "В подарок при покупке Раскройщика, Фасовщика, Паллетировщика, Калькулятора или ГофроТехкарты", "MSSQL Server, Excel, PDF и JSON API"] },
+        en: { main: "₽9,900 (one-time purchase)", lines: ["Perpetual Windows license", "Included free with OptCutting, OptPacker, Palletizer, Cost Calculator or GofroTechCard", "MSSQL Server, Excel, PDF and JSON API"] }
+      },
+      links: { page: { ru: "https://governorv.github.io/Standards/?lang=ru", en: "https://governorv.github.io/Standards/?lang=en" } }
+    },
+    {
+      id: "gostbundle",
+      glyph: "2×ГОСТ",
+      icon: "assets/icons/standards.jpg",
+      cover: { ru: "standards_banner.png", en: "standards_banner_en.png" },
+      gradient: ["#123a8f", "#37d8ff"],
+      titles: { ru: "Комплект «ГОСТы»", en: "GOST Bundle" },
+      subtitles: { ru: "Справочник и расчёт нагрузки в одном комплекте", en: "Standards guide and load calculation in one bundle" },
+      descriptions: {
+        ru: "Две взаимно интегрированные программы: выбор стандартного ящика и расчёт предельной нагрузки и марки гофрокартона по ГОСТ 9142-2014.",
+        en: "Two integrated applications: standard box selection plus box load and corrugated board grade calculation under GOST 9142-2014."
+      },
+      pricing: {
+        ru: { main: "15 900 ₽ (комплект)", lines: ["Справочник ГОСТов — 9 900 ₽ отдельно", "Расчёт нагрузки — 9 900 ₽ отдельно", "Экономия при покупке комплекта: 3 900 ₽"] },
+        en: { main: "₽15,900 (bundle)", lines: ["GOST Standards Guide — ₽9,900 separately", "Load Calculator — ₽9,900 separately", "Bundle saving: ₽3,900"] }
+      },
+      links: { page: { ru: "https://governorv.github.io/Standards/?lang=ru#bundle", en: "https://governorv.github.io/Standards/?lang=en#bundle" } }
+    },
+    {
       id: "optpacker",
       glyph: "FP",
       icon: "assets/icons/fasovshik.png",
@@ -803,7 +853,8 @@ footer{
             "Обычная версия: 69 000 ₽",
             "PRO: 99 000 ₽",
             "Аренда: от 2 900 ₽/мес или 19 900 ₽/год",
-            "PRO: дежурство, запуск по JSON и передача ящика в Паллетировщик PRO"
+            "PRO: дежурство, запуск по JSON и передача ящика в Паллетировщик PRO",
+            "В комплекте бесплатно: Справочник ГОСТов и Расчёт нагрузки по ГОСТ 9142-2014"
           ]
         },
         en: {
@@ -812,7 +863,8 @@ footer{
             "Standard: €690",
             "PRO: €990",
             "Rental: from €29/month or €199/year",
-            "PRO: Watch mode, JSON launch and box transfer to Box Palletizer PRO"
+            "PRO: Watch mode, JSON launch and box transfer to Box Palletizer PRO",
+            "Free bundle: GOST Standards Guide and GOST 9142-2014 Load Calculator"
           ]
         }
       },
@@ -900,7 +952,8 @@ footer{
           lines: [
             "Аренда 1 месяц: 2 490 ₽",
             "Аренда 1 год: 24 900 ₽",
-            "Доработки и спецотчеты отдельно"
+            "Доработки и спецотчеты отдельно",
+            "В комплекте бесплатно: Справочник ГОСТов и Расчёт нагрузки по ГОСТ 9142-2014"
           ]
         },
         en: {
@@ -908,7 +961,8 @@ footer{
           lines: [
             "Monthly rental: €24.90",
             "Annual rental: €249",
-            "Custom reports and integrations separately"
+            "Custom reports and integrations separately",
+            "Free bundle: GOST Standards Guide and GOST 9142-2014 Load Calculator"
           ]
         }
       },
@@ -1045,7 +1099,8 @@ footer{
             "Обычная версия: 49 990 ₽",
             "PRO: 69 900 ₽",
             "Аренда: от 1 000 ₽/мес или 10 000 ₽/год",
-            "PRO: запуск по JSON, приём заданий из Фасовщика PRO и Раскройщика"
+            "PRO: запуск по JSON, приём заданий из Фасовщика PRO и Раскройщика",
+            "В комплекте бесплатно: Справочник ГОСТов и Расчёт нагрузки по ГОСТ 9142-2014"
           ]
         },
         en: {
@@ -1054,7 +1109,8 @@ footer{
             "Standard: €499.90",
             "PRO: €699",
             "Rental: from €10/month or €100/year",
-            "PRO: JSON launch, job intake from Box Packing Optimizer PRO and OptCutting"
+            "PRO: JSON launch, job intake from Box Packing Optimizer PRO and OptCutting",
+            "Free bundle: GOST Standards Guide and GOST 9142-2014 Load Calculator"
           ]
         }
       },
@@ -1193,7 +1249,8 @@ footer{
             "Standard: 99 000 ₽; PRO: 119 000 ₽",
             "Аренда: от 3 490 ₽/мес",
             "Годовая аренда: от 24 900 ₽",
-            "PRO: запуск по JSON и приём заказа из Раскройщика"
+            "PRO: запуск по JSON и приём заказа из Раскройщика",
+            "В комплекте бесплатно: Справочник ГОСТов и Расчёт нагрузки по ГОСТ 9142-2014"
           ]
         },
         en: {
@@ -1202,7 +1259,8 @@ footer{
             "Standard: €990; PRO: €1,190",
             "Rental: from €34.90/month",
             "Annual rental: from €249",
-            "PRO: JSON launch and order intake from OptCutting"
+            "PRO: JSON launch and order intake from OptCutting",
+            "Free bundle: GOST Standards Guide and GOST 9142-2014 Load Calculator"
           ]
         }
       },
@@ -1242,7 +1300,8 @@ footer{
             "Аренда 1 месяц: 1500 ₽",
             "Аренда 1 год: 15 000 ₽",
             "+10% за каждое дополнительное рабочее место",
-            "PRO: запуск по JSON и приём расчёта из Раскройщика"
+            "PRO: запуск по JSON и приём расчёта из Раскройщика",
+            "В комплекте бесплатно: Справочник ГОСТов и Расчёт нагрузки по ГОСТ 9142-2014"
           ]
         },
         en: {
@@ -1251,7 +1310,8 @@ footer{
             "Monthly rental: €15",
             "Annual rental: €150",
             "+10% per additional workstation",
-            "PRO: JSON launch and calculation intake from OptCutting"
+            "PRO: JSON launch and calculation intake from OptCutting",
+            "Free bundle: GOST Standards Guide and GOST 9142-2014 Load Calculator"
           ]
         }
       },
@@ -1286,19 +1346,21 @@ footer{
       },
       pricing: {
         ru: {
-          main: "10 000 ₽ (покупка)",
+          main: "9 900 ₽ (покупка)",
           lines: [
             "Аренда на 1 год: 2 000 ₽",
             "Расчет по ГОСТ 9142-2014",
-            "PDF-отчет с исходными данными и результатами"
+            "PDF-отчет с исходными данными и результатами",
+            "В подарок при покупке Раскройщика, Фасовщика, Паллетировщика, Калькулятора или ГофроТехкарты"
           ]
         },
         en: {
-          main: "€100 (one-time purchase)",
+          main: "€99 (one-time purchase)",
           lines: [
             "Annual rental: €20",
             "GOST 9142-2014 calculation",
-            "PDF report with inputs and calculated results"
+            "PDF report with inputs and calculated results",
+            "Included free with OptCutting, OptPacker, Palletizer, Cost Calculator or GofroTechCard"
           ]
         }
       },
@@ -1483,10 +1545,10 @@ footer{
     ui.badgeB2B.textContent = TEXT[lang].badgeB2B;
     ui.catalogBanner.src = lang === EN ? "catalog-en.jpg" : "catalog-ru.jpg";
     ui.catalogBanner.alt = lang === EN ? "PackTuning Software catalog banner" : "Каталог программ PackTuning Software";
-    ui.integrationGraph.src = lang === EN ? "assets/integration/packtuning-pro-integration-en.jpg" : "assets/integration/packtuning-pro-integration-ru.jpg";
+    ui.integrationGraph.src = lang === EN ? "assets/integration/packtuning-pro-integration-en.jpg?v=20260823" : "assets/integration/packtuning-pro-integration-ru.jpg?v=20260823";
     ui.integrationGraph.alt = lang === EN
-      ? "PackTuning PRO integration graph with six data flows between OptCutting, OptPacker PRO, GofroTechCard PRO, Cost Calculator PRO and Palletizer PRO"
-      : "Граф интеграций PackTuning PRO: шесть связей между Раскройщиком, Фасовщиком PRO, ГофроТехКартой PRO, Калькулятором PRO и Паллетировщиком PRO";
+      ? "PackTuning PRO integration graph with seven connections centered on the GOST Standards Guide"
+      : "Граф интеграций PackTuning PRO: семь связей с центральным Справочником ГОСТов";
     ui.productsTitle.textContent = TEXT[lang].productsTitle;
     ui.productsLead.textContent = TEXT[lang].productsLead;
     ui.languagesTitle.textContent = TEXT[lang].languagesTitle;

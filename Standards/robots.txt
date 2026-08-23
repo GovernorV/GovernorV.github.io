@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://governorv.github.io/Standards/sitemap.xml
