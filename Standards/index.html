@@ -142,7 +142,7 @@
     </section>
 
     <section class="card integration">
-      <img src="../assets/integration/packtuning-pro-integration-en.jpg?v=20260823" alt="PackTuning PRO integration graph">
+      <img id="integrationGraphSite" src="../assets/integration/packtuning-pro-integration-ru.png?v=20260823-2" alt="Интеграционный граф программ PackTuning PRO">
       <div><div data-l="ru"><h2>Центр обмена размерами</h2><p class="lead">Справочник работает самостоятельно и как окно выбора ящика, вызванное из другой программы.</p></div><div data-l="en"><h2>Dimension exchange hub</h2><p class="lead">The guide works independently or as a box picker opened by another application.</p></div>
         <div class="integration-list"><div>⇄ OptCutting</div><div>⇄ OptPacker PRO</div><div>⇄ GofroTechCard PRO</div><div>⇄ Cost Calculator PRO</div><div>⇄ Palletizer PRO</div><div>⇄ Box Strength Calculator PRO</div></div>
       </div>
@@ -155,7 +155,7 @@
     const root=document.documentElement,params=new URLSearchParams(location.search);
     const title={ru:'Справочник ГОСТов — стандарты и размеры упаковки',en:'GOST Standards Guide — packaging standards and box dimensions'};
     const description={ru:'Справочник ГОСТов для упаковки и гофротары: размерные ряды, PDF, Excel, JSON API и PackTuning PRO.',en:'GOST Standards Guide for packaging: dimensional series, PDF, Excel, JSON API and PackTuning PRO.'};
-    function setLang(lang){lang=lang==='en'?'en':'ru';root.dataset.lang=lang;root.lang=lang;document.title=title[lang];document.querySelector('meta[name="description"]').content=description[lang];document.getElementById('hero').src='assets/hero-'+lang+'.png';document.getElementById('ru').classList.toggle('active',lang==='ru');document.getElementById('en').classList.toggle('active',lang==='en');localStorage.setItem('standards-lang',lang)}
+    function setLang(lang){lang=lang==='en'?'en':'ru';root.dataset.lang=lang;root.lang=lang;document.title=title[lang];document.querySelector('meta[name="description"]').content=description[lang];document.getElementById('hero').src='assets/hero-'+lang+'.png';const integrationGraph=document.getElementById('integrationGraphSite');integrationGraph.src=lang==='en'?'../assets/integration/packtuning-pro-integration-en.jpg?v=20260823':'../assets/integration/packtuning-pro-integration-ru.png?v=20260823-2';integrationGraph.alt=lang==='en'?'PackTuning PRO integration graph':'Интеграционный граф программ PackTuning PRO';document.getElementById('ru').classList.toggle('active',lang==='ru');document.getElementById('en').classList.toggle('active',lang==='en');localStorage.setItem('standards-lang',lang)}
     setLang(params.get('lang')||localStorage.getItem('standards-lang')||((navigator.language||'').toLowerCase().startsWith('en')?'en':'ru'));
     document.getElementById('ru').onclick=()=>setLang('ru');document.getElementById('en').onclick=()=>setLang('en');
     const savedTheme=localStorage.getItem('packtuning-theme')||'night';root.dataset.theme=savedTheme;document.getElementById('theme').onclick=()=>{root.dataset.theme=root.dataset.theme==='night'?'day':'night';localStorage.setItem('packtuning-theme',root.dataset.theme)};
