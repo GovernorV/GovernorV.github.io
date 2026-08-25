@@ -62,10 +62,11 @@
     .flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;counter-reset:flow}.flow article{position:relative;border:1px solid var(--line);border-radius:18px;padding:19px;background:rgba(255,255,255,.05)}.flow article:before{counter-increment:flow;content:counter(flow);display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--accent2),var(--accent));font-weight:900;color:#fff;margin-bottom:11px}
     .gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.shot{margin:0;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:rgba(255,255,255,.06)}.shot img{display:block;width:100%;aspect-ratio:16/10;object-fit:contain;object-position:top;background:#eef2f7;cursor:zoom-in}.shot figcaption{padding:14px}.shot figcaption p{color:var(--muted);margin:0}
     .integration{display:grid;grid-template-columns:.9fr 1.1fr;gap:20px;align-items:center}.integration img{width:100%;border-radius:20px;border:1px solid var(--line)}.integration-list{display:grid;gap:10px}.integration-list div{padding:12px 14px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.05)}
+    .related-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px;margin-top:20px}.related-card{display:flex;flex-direction:column;min-width:0;overflow:hidden;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.05)}.related-card>a:first-child{display:block}.related-card img{display:block;width:100%;aspect-ratio:3/2;object-fit:contain;background:#fff;border-bottom:1px solid var(--line)}.related-body{display:flex;flex:1;flex-direction:column;padding:17px}.related-body p{flex:1;color:var(--muted)}.related-body .btn{align-self:flex-start}
     footer{border-top:1px solid var(--line);padding:25px 0 35px;color:var(--muted)}[data-l]{display:none!important}html[data-lang="ru"] [data-l="ru"],html[data-lang="en"] [data-l="en"]{display:revert!important}
     dialog{padding:0;border:0;background:transparent;max-width:min(94vw,1450px)}dialog::backdrop{background:rgba(0,4,12,.88);backdrop-filter:blur(6px)}dialog img{display:block;max-width:94vw;max-height:88vh;border-radius:14px}.close{position:fixed;right:20px;top:16px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.35);background:#081a32;color:#fff;font-size:25px;cursor:pointer}
-    @media(max-width:850px){.hero-grid,.integration{grid-template-columns:1fr}.features,.flow{grid-template-columns:1fr 1fr}.gallery{grid-template-columns:1fr}}
-    @media(max-width:560px){.wrap{width:min(100% - 20px,1180px)}nav{align-items:flex-start;padding:10px 0}.brand span{display:none}.features,.flow{grid-template-columns:1fr}.card{padding:19px}.hero{padding-top:18px}}
+    @media(max-width:850px){.hero-grid,.integration{grid-template-columns:1fr}.features,.flow,.related-grid{grid-template-columns:1fr 1fr}.gallery{grid-template-columns:1fr}}
+    @media(max-width:560px){.wrap{width:min(100% - 20px,1180px)}nav{align-items:flex-start;padding:10px 0}.brand span{display:none}.features,.flow,.related-grid{grid-template-columns:1fr}.card{padding:19px}.hero{padding-top:18px}}
   </style>
 </head>
 <body>
@@ -74,6 +75,7 @@
     <div class="nav-actions">
       <a class="pill" href="#features"><span data-l="ru">Возможности</span><span data-l="en">Features</span></a>
       <a class="pill" href="#screens"><span data-l="ru">Скриншоты</span><span data-l="en">Screenshots</span></a>
+      <a class="pill" href="#related"><span data-l="ru">Другие программы</span><span data-l="en">Other software</span></a>
       <button class="pill" id="ru" type="button">Русский</button><button class="pill" id="en" type="button">English</button>
     </div>
   </nav></div></header>
@@ -90,7 +92,7 @@
       <div class="card stats">
         <div class="stat"><b>2</b><span data-l="ru">режима: размеры и PDF</span><span data-l="en">views: dimensions and PDF</span></div>
         <div class="stat"><b>FEFCO 0201</b><span data-l="ru">автоматический расчёт заготовки</span><span data-l="en">automatic blank calculation</span></div>
-        <div class="stat"><b>9 900 ₽</b><span data-l="ru">бессрочная покупка</span><span data-l="en">one-time purchase</span></div>
+        <div class="stat"><b><span data-l="ru">9 900 ₽</span><span data-l="en">€99</span></b><span data-l="ru">бессрочная покупка</span><span data-l="en">one-time purchase</span></div>
       </div>
     </div>
   </div></section>
@@ -145,6 +147,29 @@
       <img id="integrationGraphSite" src="../assets/integration/packtuning-pro-integration-ru.png?v=20260823-2" alt="Интеграционный граф программ PackTuning PRO">
       <div><div data-l="ru"><h2>Центр обмена размерами</h2><p class="lead">Справочник работает самостоятельно и как окно выбора ящика, вызванное из другой программы.</p></div><div data-l="en"><h2>Dimension exchange hub</h2><p class="lead">The guide works independently or as a box picker opened by another application.</p></div>
         <div class="integration-list"><div>⇄ OptCutting</div><div>⇄ OptPacker PRO</div><div>⇄ GofroTechCard PRO</div><div>⇄ Cost Calculator PRO</div><div>⇄ Palletizer PRO</div><div>⇄ Box Strength Calculator PRO</div></div>
+      </div>
+    </section>
+
+    <section class="card" id="related">
+      <div data-l="ru">
+        <h2>Вам также могут пригодиться</h2>
+        <p class="lead">Программы, которые продолжают работу с выбранным ГОСТом и размерами ящика.</p>
+        <div class="related-grid">
+          <article class="related-card"><a href="https://governorv.github.io/gost/?lang=ru" target="_blank" rel="noopener"><img src="../gost914290_banner.png" alt="Расчёт нагрузки по ГОСТ 9142-2014" loading="lazy"></a><div class="related-body"><h3>Расчёт нагрузки</h3><p>Предельная нагрузка на гофроящик и подбор марки картона по ГОСТ 9142-2014.</p><a class="btn secondary" href="https://governorv.github.io/gost/?lang=ru" target="_blank" rel="noopener">Открыть страницу</a></div></article>
+          <article class="related-card"><a href="https://governorv.github.io/GofroTechCard/?lang=ru" target="_blank" rel="noopener"><img src="../techcard_banner.png" alt="ГофроТехкарта PRO" loading="lazy"></a><div class="related-body"><h3>ГофроТехкарта PRO</h3><p>Параметрическая развёртка, спецификация и готовая технологическая карта гофроящика.</p><a class="btn secondary" href="https://governorv.github.io/GofroTechCard/?lang=ru" target="_blank" rel="noopener">Открыть страницу</a></div></article>
+          <article class="related-card"><a href="https://governorv.github.io/BoxPriceCalculator/?lang=ru" target="_blank" rel="noopener"><img src="../boxprice_banner.png" alt="Калькулятор гофроящиков" loading="lazy"></a><div class="related-body"><h3>Калькулятор гофроящиков</h3><p>Расчёт развёртки, материалов и стоимости производства выбранного ящика.</p><a class="btn secondary" href="https://governorv.github.io/BoxPriceCalculator/?lang=ru" target="_blank" rel="noopener">Открыть страницу</a></div></article>
+          <article class="related-card"><a href="https://governorv.github.io/#ru" target="_blank" rel="noopener"><img src="../catalog_banner.png" alt="Каталог программ PackTuning" loading="lazy"></a><div class="related-body"><h3>Каталог программ</h3><p>Все решения PackTuning Software для упаковки, производства и логистики.</p><a class="btn secondary" href="https://governorv.github.io/#ru" target="_blank" rel="noopener">Открыть весь каталог</a></div></article>
+        </div>
+      </div>
+      <div data-l="en">
+        <h2>You may also find these useful</h2>
+        <p class="lead">Applications that continue the workflow with the selected GOST standard and box dimensions.</p>
+        <div class="related-grid">
+          <article class="related-card"><a href="https://governorv.github.io/gost/?lang=en" target="_blank" rel="noopener"><img src="../gost914290_banner_en.png" alt="GOST 9142-2014 Load Calculator" loading="lazy"></a><div class="related-body"><h3>Box Strength Calculator</h3><p>Corrugated box load limits and board grade selection according to GOST 9142-2014.</p><a class="btn secondary" href="https://governorv.github.io/gost/?lang=en" target="_blank" rel="noopener">Open page</a></div></article>
+          <article class="related-card"><a href="https://governorv.github.io/GofroTechCard/?lang=en" target="_blank" rel="noopener"><img src="../techcard_banner_en.png" alt="GofroTechCard PRO" loading="lazy"></a><div class="related-body"><h3>GofroTechCard PRO</h3><p>Parametric dieline, specification and production-ready corrugated box tech card.</p><a class="btn secondary" href="https://governorv.github.io/GofroTechCard/?lang=en" target="_blank" rel="noopener">Open page</a></div></article>
+          <article class="related-card"><a href="https://governorv.github.io/BoxPriceCalculator/?lang=en" target="_blank" rel="noopener"><img src="../boxprice_banner_en.png" alt="Box Price Calculator" loading="lazy"></a><div class="related-body"><h3>Box Price Calculator</h3><p>Blank geometry, material consumption and production cost calculation for the selected box.</p><a class="btn secondary" href="https://governorv.github.io/BoxPriceCalculator/?lang=en" target="_blank" rel="noopener">Open page</a></div></article>
+          <article class="related-card"><a href="https://governorv.github.io/#en" target="_blank" rel="noopener"><img src="../catalog_banner_en.png" alt="PackTuning Software Catalog" loading="lazy"></a><div class="related-body"><h3>Software Catalog</h3><p>All PackTuning Software solutions for packaging, production and logistics.</p><a class="btn secondary" href="https://governorv.github.io/#en" target="_blank" rel="noopener">Open full catalog</a></div></article>
+        </div>
       </div>
     </section>
   </main>
