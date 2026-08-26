@@ -12,6 +12,24 @@
   <link rel="alternate" hreflang="en" href="https://governorv.github.io/Standards/?lang=en">
   <link rel="alternate" hreflang="x-default" href="https://governorv.github.io/Standards/">
   <link rel="icon" type="image/jpeg" href="assets/app-icon.jpg">
+  <meta name="theme-color" content="#eef5ff">
+  <script>
+    (() => {
+      let mode = "auto";
+      try { mode = localStorage.getItem("packtuning-color-scheme-mode") || "auto"; } catch (_) {}
+      const hour = new Date().getHours();
+      const theme = mode === "day" || mode === "night"
+        ? mode
+        : mode === "system"
+          ? (window.matchMedia?.("(prefers-color-scheme: dark)")?.matches ? "night" : "day")
+          : (hour >= 6 && hour < 18 ? "day" : "night");
+      document.documentElement.dataset.theme = theme;
+      document.documentElement.classList.toggle("day-theme", theme === "day");
+      document.documentElement.classList.toggle("night-theme", theme === "night");
+      document.documentElement.style.colorScheme = theme === "night" ? "dark" : "light";
+      document.querySelector('meta[name="theme-color"]').content = theme === "day" ? "#eef5ff" : "#030a16";
+    })();
+  </script>
   <link rel="stylesheet" href="../assets/theme-switcher.css?v=20260823-standards">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="PackTuning Software">
