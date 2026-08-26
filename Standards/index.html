@@ -19,7 +19,11 @@
   <meta property="og:description" content="Размеры ящиков, PDF-документы, Excel, JSON API и двусторонняя интеграция с PackTuning PRO.">
   <meta property="og:url" content="https://governorv.github.io/Standards/">
   <meta property="og:image" content="https://governorv.github.io/Standards/assets/hero-ru.png">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:locale:alternate" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="GOST Standards Guide — packaging standards and box dimensions">
+  <meta name="twitter:description" content="Dimensional GOST series, regulatory PDFs, Excel import, JSON API and PackTuning integrations.">
   <meta name="twitter:image" content="https://governorv.github.io/Standards/assets/hero-en.png">
   <script type="application/ld+json">
   {
@@ -31,7 +35,29 @@
     "url": "https://governorv.github.io/Standards/",
     "image": "https://governorv.github.io/Standards/assets/hero-ru.png",
     "description": "Packaging standards reference with dimensional box series, PDF documents, Excel import, JSON API and PackTuning integration.",
+    "softwareVersion": "1.1.0",
+    "inLanguage": ["ru", "en"],
+    "featureList": ["Dimensional GOST series", "Embedded PDF documents", "FEFCO 0201 blank calculation", "Excel import", "JSON API", "PackTuning integration"],
+    "downloadUrl": [
+      "https://disk.yandex.ru/d/SSPlj7iPB9Y7Kg",
+      "https://mega.nz/file/v0gRQDQI#8C2Ig-5OytP7VvP-BZ7EMz6HxmSSLjMNRcKyMaWm4Xc"
+    ],
+    "offers": [
+      {"@type": "Offer", "price": "9900", "priceCurrency": "RUB", "availability": "https://schema.org/InStock"},
+      {"@type": "Offer", "price": "99", "priceCurrency": "EUR", "availability": "https://schema.org/InStock"}
+    ],
     "author": {"@type": "Person", "name": "Viktor Guberniev"}
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "Что доступно в демоверсии Справочника ГОСТов?", "acceptedAnswer": {"@type": "Answer", "text": "В демоверсии виден весь каталог. Для просмотра доступны первые два размерных и первые два неразмерных ГОСТа; импорт Excel, добавление данных и привязка PDF отключены."}},
+      {"@type": "Question", "name": "Какие данные хранит Справочник ГОСТов?", "acceptedAnswer": {"@type": "Answer", "text": "Программа хранит размерные ряды ящиков, нормативные PDF-документы, объём, массу и марку картона, а также рассчитывает заготовку FEFCO 0201."}},
+      {"@type": "Question", "name": "Можно ли передавать размеры в другие программы?", "acceptedAnswer": {"@type": "Answer", "text": "Да. Справочник передаёт номер ящика, ГОСТ и внутренние размеры через JSON в совместимые программы PackTuning и может работать как окно выбора ящика."}}
+    ]
   }
   </script>
   <style>
@@ -87,7 +113,12 @@
         <div data-l="ru"><h1>Справочник ГОСТов</h1><p class="lead">Единая рабочая база стандартов, типоразмеров ящиков и PDF-документов для упаковки и гофротары.</p></div>
         <div data-l="en"><h1>GOST Standards Guide</h1><p class="lead">A single working database of standards, dimensional box series and PDF documents for packaging and corrugated board.</p></div>
         <div class="chips"><span class="chip">MSSQL Server</span><span class="chip">FEFCO 0201</span><span class="chip">Excel</span><span class="chip">JSON API</span><span class="chip">PDF</span></div>
-        <div class="actions"><a class="btn primary" href="mailto:vguberniev@gmail.com?subject=Справочник ГОСТов"><span data-l="ru">Запросить программу</span><span data-l="en">Request the software</span></a><a class="btn secondary" href="../"><span data-l="ru">Каталог PackTuning</span><span data-l="en">PackTuning catalog</span></a></div>
+        <div class="actions">
+          <a class="btn primary" href="https://disk.yandex.ru/d/SSPlj7iPB9Y7Kg" target="_blank" rel="noopener" data-l="ru">Скачать демоверсию</a>
+          <a class="btn primary" href="https://mega.nz/file/v0gRQDQI#8C2Ig-5OytP7VvP-BZ7EMz6HxmSSLjMNRcKyMaWm4Xc" target="_blank" rel="noopener" data-l="en">Download demo</a>
+          <a class="btn secondary" href="mailto:vguberniev@gmail.com?subject=Справочник ГОСТов"><span data-l="ru">Запросить программу</span><span data-l="en">Request the software</span></a>
+          <a class="btn secondary" href="../"><span data-l="ru">Каталог PackTuning</span><span data-l="en">PackTuning catalog</span></a>
+        </div>
       </div>
       <div class="card stats">
         <div class="stat"><b>2</b><span data-l="ru">режима: размеры и PDF</span><span data-l="en">views: dimensions and PDF</span></div>
@@ -119,6 +150,16 @@
         <article class="feature"><strong data-l="ru">Комплект «ГОСТы»</strong><strong data-l="en">GOST Bundle</strong><h3><span data-l="ru">15 900 ₽</span><span data-l="en">€159</span></h3><p data-l="ru">«Справочник ГОСТов» + «Расчёт нагрузки по ГОСТ 9142-2014». Экономия 3 900 ₽.</p><p data-l="en">GOST Standards Guide + GOST 9142-2014 Load Calculator. Save €39.</p></article>
       </div>
       <div class="actions"><a class="btn primary" href="mailto:vguberniev@gmail.com?subject=Комплект ГОСТы"><span data-l="ru">Купить комплект «ГОСТы»</span><span data-l="en">Buy the GOST Bundle</span></a></div>
+    </section>
+
+    <section class="card" id="faq">
+      <div data-l="ru"><h2>Частые вопросы</h2><p class="lead">Коротко о демоверсии, данных и интеграции.</p></div>
+      <div data-l="en"><h2>Frequently asked questions</h2><p class="lead">A quick overview of the demo, data and integrations.</p></div>
+      <div class="features">
+        <article class="feature"><strong data-l="ru">Что доступно в демоверсии?</strong><strong data-l="en">What is available in the demo?</strong><p data-l="ru">Виден весь каталог. Открываются первые два размерных и первые два неразмерных ГОСТа; изменение данных отключено.</p><p data-l="en">The complete catalog is visible. The first two dimensional and first two document standards can be opened; data editing is disabled.</p></article>
+        <article class="feature"><strong data-l="ru">Какие данные содержит справочник?</strong><strong data-l="en">What data does the guide contain?</strong><p data-l="ru">Размерные ряды ящиков, PDF-документы, объём, массу, марку картона и расчёт заготовки FEFCO 0201.</p><p data-l="en">Box size series, PDF documents, volume, mass, board grade and FEFCO 0201 blank calculations.</p></article>
+        <article class="feature"><strong data-l="ru">Есть ли интеграция?</strong><strong data-l="en">Does it support integration?</strong><p data-l="ru">Да. Номер, ГОСТ и размеры выбранного ящика передаются через JSON в совместимые программы PackTuning.</p><p data-l="en">Yes. The selected box number, GOST and dimensions are transferred through JSON to compatible PackTuning applications.</p></article>
+      </div>
     </section>
 
     <section class="card">
@@ -180,7 +221,7 @@
     const root=document.documentElement,params=new URLSearchParams(location.search);
     const title={ru:'Справочник ГОСТов — стандарты и размеры упаковки',en:'GOST Standards Guide — packaging standards and box dimensions'};
     const description={ru:'Справочник ГОСТов для упаковки и гофротары: размерные ряды, PDF, Excel, JSON API и PackTuning PRO.',en:'GOST Standards Guide for packaging: dimensional series, PDF, Excel, JSON API and PackTuning PRO.'};
-    function setLang(lang){lang=lang==='en'?'en':'ru';root.dataset.lang=lang;root.lang=lang;document.title=title[lang];document.querySelector('meta[name="description"]').content=description[lang];document.getElementById('hero').src='assets/hero-'+lang+'.png';const integrationGraph=document.getElementById('integrationGraphSite');integrationGraph.src=lang==='en'?'../assets/integration/packtuning-pro-integration-en.jpg?v=20260823':'../assets/integration/packtuning-pro-integration-ru.png?v=20260823-2';integrationGraph.alt=lang==='en'?'PackTuning PRO integration graph':'Интеграционный граф программ PackTuning PRO';document.getElementById('ru').classList.toggle('active',lang==='ru');document.getElementById('en').classList.toggle('active',lang==='en');localStorage.setItem('standards-lang',lang)}
+    function setLang(lang){lang=lang==='en'?'en':'ru';root.dataset.lang=lang;root.lang=lang;document.title=title[lang];document.querySelector('meta[name="description"]').content=description[lang];const localizedUrl='https://governorv.github.io/Standards/?lang='+lang;document.querySelector('link[rel="canonical"]').href=localizedUrl;document.querySelector('meta[property="og:url"]').content=localizedUrl;document.querySelector('meta[property="og:title"]').content=title[lang];document.querySelector('meta[property="og:description"]').content=description[lang];document.querySelector('meta[property="og:locale"]').content=lang==='en'?'en_US':'ru_RU';document.getElementById('hero').src='assets/hero-'+lang+'.png';const integrationGraph=document.getElementById('integrationGraphSite');integrationGraph.src=lang==='en'?'../assets/integration/packtuning-pro-integration-en.jpg?v=20260823':'../assets/integration/packtuning-pro-integration-ru.png?v=20260823-2';integrationGraph.alt=lang==='en'?'PackTuning PRO integration graph':'Интеграционный граф программ PackTuning PRO';document.getElementById('ru').classList.toggle('active',lang==='ru');document.getElementById('en').classList.toggle('active',lang==='en');localStorage.setItem('standards-lang',lang)}
     setLang(params.get('lang')||localStorage.getItem('standards-lang')||((navigator.language||'').toLowerCase().startsWith('en')?'en':'ru'));
     document.getElementById('ru').onclick=()=>setLang('ru');document.getElementById('en').onclick=()=>setLang('en');
     const viewer=document.getElementById('viewer'),viewImg=viewer.querySelector('img');document.querySelectorAll('.shot img').forEach(img=>{const open=()=>{viewImg.src=img.src;viewImg.alt=img.alt;viewer.showModal()};img.onclick=open;img.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open()}}});viewer.querySelector('.close').onclick=()=>viewer.close();viewer.onclick=e=>{if(e.target===viewer) viewer.close()};addEventListener('keydown',e=>{if(e.key==='Escape'&&viewer.open)viewer.close()});

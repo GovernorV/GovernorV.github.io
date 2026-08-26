@@ -9,6 +9,9 @@
 <meta name="author" content="Viktor Guberniev">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://governorv.github.io/">
+<link rel="alternate" hreflang="ru" href="https://governorv.github.io/?lang=ru">
+<link rel="alternate" hreflang="en" href="https://governorv.github.io/?lang=en">
+<link rel="alternate" hreflang="x-default" href="https://governorv.github.io/">
 <link rel="icon" type="image/png" href="catalog-icon.png">
 <link rel="apple-touch-icon" href="catalog-icon.png">
 <meta property="og:type" content="website">
@@ -746,7 +749,7 @@ footer{
       <div class="card">
         <h2>Как купить</h2>
         <ol>
-          <li>Скачайте программу: <a href="https://mega.nz/file/j0JyjaYA#1It6_lUaPj6cNP6vodtz6XPoXAkzUjzKVQY-PyzcAt8" target="_blank" rel="noopener">pc-settings-detector.zip</a>.</li>
+          <li>Скачайте программу: <a href="https://disk.yandex.ru/d/rmziVsloasOaug" target="_blank" rel="noopener">pc-settings-detector.zip</a>.</li>
           <li>Распакуйте её и запустите на своём компьютере. При возникновении экрана "Windows защитила ваш компьютер" нажмите "Подробнее" и затем "выполнить в любом случае".</li>
           <li>Сохраните код, который она выдаст.</li>
           <li>Оплатите стоимость выбранного вами варианта лицензии на карту <b>5536914068135833</b> с пометкой "Оплата программы название программы", укажите также свой ИНН для получения чека.</li>
@@ -1449,7 +1452,13 @@ footer{
         ru: { main: "9 900 ₽ (покупка)", lines: ["Бессрочная лицензия для Windows", "В подарок при покупке Раскройщика, Фасовщика, Паллетировщика, Калькулятора или ГофроТехкарты", "MSSQL Server, Excel, PDF и JSON API"] },
         en: { main: "€99 (one-time purchase)", lines: ["Perpetual Windows license", "Included free with OptCutting, OptPacker, Palletizer, Cost Calculator or GofroTechCard", "MSSQL Server, Excel, PDF and JSON API"] }
       },
-      links: { page: { ru: "https://governorv.github.io/Standards/?lang=ru", en: "https://governorv.github.io/Standards/?lang=en" } }
+      links: {
+        demo: {
+          ru: "https://disk.yandex.ru/d/SSPlj7iPB9Y7Kg",
+          en: "https://mega.nz/file/v0gRQDQI#8C2Ig-5OytP7VvP-BZ7EMz6HxmSSLjMNRcKyMaWm4Xc"
+        },
+        page: { ru: "https://governorv.github.io/Standards/?lang=ru", en: "https://governorv.github.io/Standards/?lang=en" }
+      }
     },
     {
       id: "gostbundle",
@@ -1849,10 +1858,13 @@ if (p.cover) {
 
     try { localStorage.setItem("lang", lang); } catch(e) {}
 
-    const h = (window.location.hash || "").toLowerCase();
-    if (h === "#ru" || h === "#en" || h === "") {
-      history.replaceState(null, "", "#" + lang);
-    }
+    const localizedUrl = new URL(window.location.href);
+    localizedUrl.searchParams.set("lang", lang);
+    localizedUrl.hash = "";
+    history.replaceState(null, "", localizedUrl.pathname + localizedUrl.search);
+    const canonicalUrl = "https://governorv.github.io/?lang=" + lang;
+    document.querySelector('link[rel="canonical"]').href = canonicalUrl;
+    document.querySelector('meta[property="og:url"]').content = canonicalUrl;
   }
 
   function applyTheme(theme, persist = false){
@@ -1866,6 +1878,8 @@ if (p.cover) {
   }
 
   function detectInitialLang(){
+    const queryLang = new URLSearchParams(window.location.search).get("lang");
+    if (queryLang === EN || queryLang === RU) return queryLang;
     const h = (window.location.hash || "").toLowerCase();
     if (h === "#en") return EN;
     if (h === "#ru") return RU;
