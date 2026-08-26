@@ -285,6 +285,52 @@ html[data-theme="day"] .lang{background:#fff}
   padding:26px;
   box-shadow:var(--shadow);
 }
+.heroNews{
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+}
+.heroNewsHead{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:10px;
+}
+.heroNewsHead h2{
+  margin:0;
+  font-size:25px;
+}
+.heroNewsDate{
+  color:var(--muted);
+  font-size:12px;
+  white-space:nowrap;
+}
+.heroNewsList{
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+.heroNewsList li{
+  padding:11px 0;
+  border-top:1px solid var(--line);
+}
+.heroNewsList a{
+  color:var(--text);
+  text-decoration:none;
+  font-weight:850;
+}
+.heroNewsList a:hover{color:var(--accent2)}
+.heroNewsList p{
+  margin:4px 0 0;
+  font-size:13px;
+  line-height:1.45;
+}
+.heroNewsMore{
+  align-self:flex-start;
+  margin-top:auto;
+  padding-top:12px;
+}
 
 /* PackTuning PRO integrations */
 .integrationIntro{
@@ -541,6 +587,19 @@ html[lang="en"] .lang-ru{display:none!important}
 .newsList b{
   color:var(--text);
 }
+.newsMeta{
+  display:block;
+  margin-bottom:4px;
+  color:var(--accent2);
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.02em;
+}
+.newsList a{
+  color:inherit;
+  text-decoration:none;
+}
+.newsList a:hover b{color:var(--accent2)}
 .newsSources{
   margin-top:18px;
   display:flex;
@@ -631,15 +690,32 @@ footer{
         </div>
       </div>
 
-      <div class="card">
-        <h3 id="heroSideTitle">Как выбрать</h3>
-        <p id="heroSideText">
-          Открой карточку → скачай демо → оцени интерфейс → напиши мне, если нужно внедрение или лицензирование.
-        </p>
-        <div>
-          <span class="badge" id="badgeWin">Windows</span>
-          <span class="badge" id="badgeSMB">SMB / manufacturing</span>
-          <span class="badge" id="badgeB2B">B2B</span>
+      <div class="card heroNews">
+        <div class="lang-ru">
+          <div class="heroNewsHead">
+            <h2>Новости</h2>
+            <span class="heroNewsDate">обновлено 26.08.2026</span>
+          </div>
+          <ul class="heroNewsList">
+            <li><a href="Standards/?lang=ru">Справочник ГОСТов</a><p>Выпущена демоверсия, добавлены PDF-документы и двусторонний выбор ящика для программ PackTuning.</p></li>
+            <li><a href="gost/?lang=ru">Расчёт нагрузки</a><p>Добавлена взаимная интеграция со Справочником и новый комплект «ГОСТы».</p></li>
+            <li><a href="OptCutting/#ru">Раскройщик</a><p>Выбор размеров из ГОСТа и передача заказа в расчётные PRO-модули.</p></li>
+            <li><a href="GofroTechCard/?lang=ru">ГофроТехКарта PRO</a><p>Получение стандартного ящика из справочника прямо в форме конструкции.</p></li>
+          </ul>
+          <a class="btn secondary heroNewsMore" href="#catalogNews">Все новости</a>
+        </div>
+        <div class="lang-en">
+          <div class="heroNewsHead">
+            <h2>News</h2>
+            <span class="heroNewsDate">updated 26 Aug 2026</span>
+          </div>
+          <ul class="heroNewsList">
+            <li><a href="Standards/?lang=en">GOST Standards Guide</a><p>The demo edition, PDF library and two-way box selection for PackTuning applications are now available.</p></li>
+            <li><a href="gost/?lang=en">Load Calculator</a><p>Two-way Standards Guide integration and the new GOST Bundle have been added.</p></li>
+            <li><a href="OptCutting/#en">OptCutting</a><p>Select dimensions from GOST and transfer jobs to calculation PRO modules.</p></li>
+            <li><a href="GofroTechCard/?lang=en">GofroTechCard PRO</a><p>Pick a standard box directly from the construction form.</p></li>
+          </ul>
+          <a class="btn secondary heroNewsMore" href="#catalogNews">All news</a>
         </div>
       </div>
     </div>
@@ -767,50 +843,66 @@ footer{
           <div class="newsHead">
             <div>
               <span class="badge">Новости PackTuning</span>
-              <h2>Коротко об обновлениях</h2>
+              <h2>Последнее по каждой программе</h2>
             </div>
-            <p>Сводка по публикациям в соцсетях и обновлениям программ каталога. Здесь будут аккумулироваться новости всех продуктов.</p>
+            <p>Единая лента обновлений программ и общих новостей проекта. Сводка обновлена 26 августа 2026 года.</p>
           </div>
+          <div class="integrationNote"><p><b>Общее обновление PackTuning PRO.</b> Реализовано семь связей между программами: размеры и параметры заказа передаются без повторного ручного ввода, а Справочник ГОСТов работает как общий источник стандартных ящиков.</p></div>
           <ul class="newsList">
-            <li><b>Раскройщик 1.40.</b> Добавлены справочники сырья и сортов, контроль остатков, отчет по сырью и новые параметры качества раскроя.</li>
-            <li><b>ГофроТехкарта.</b> Добавлены вырубные отверстия с автоматической простановкой размеров относительно граней ящика.</li>
-            <li><b>Калькулятор гофроящика.</b> Обновлена программа расчета стоимости гофроящиков и гофрозаготовок.</li>
-            <li><b>Паллетировщик 3.2.</b> Добавлено редактирование профилей гофрокартона и отчет для укладки пачек гофроящиков.</li>
-            <li><b>Фасовщик.</b> Из ПОЯС выделен отдельный модуль оптимальной укладки изделий в ящик.</li>
-            <li><b>TruckLoader.</b> Опубликована программа для расчета загрузки поддонов в автофургон или контейнер.</li>
-            <li><b>Проектировщик бутылок.</b> Добавлена отдельная страница программы оптимизации бутылки, ящика, решетки и паллетной укладки.</li>
-            <li><b>Соцсети.</b> PackTuning появился в Instagram; новости также публикуются в VK, Facebook и LinkedIn.</li>
+            <li><span class="newsMeta">24.04.2026 · PackTalks</span><a href="Pojas/?lang=ru"><b>ПОЯС.</b></a> Комплекс и его модули для раскроя, упаковки и паллетизации получили отдельные страницы и демоверсии.</li>
+            <li><span class="newsMeta">30.06.2026 · PackTalks</span><a href="OptPacker/?lang=ru"><b>Фасовщик.</b></a> Модуль оптимальной укладки изделий выделен из ПОЯС в самостоятельную программу; теперь он также выбирает ящики из ГОСТа.</li>
+            <li><span class="newsMeta">20.07.2026 · PackTalks</span><a href="BottleOptimizer/?lang=ru&amp;v=2"><b>Проектировщик бутылок.</b></a> Представлена оптимизация диаметра бутылки с учётом стоимости ящика, решётки и паллетной укладки.</li>
+            <li><span class="newsMeta">23.06.2026 · PackTalks</span><a href="OptCutting/#ru"><b>Раскройщик.</b></a> Новая версия учитывает комплектность заказов, время готовности комплекта и просрочки; добавлена передача заказов в PRO-модули.</li>
+            <li><span class="newsMeta">Страница программы</span><a href="DBSearch/#ru"><b>Поисковик по базам данных.</b></a> Поиск охватывает объекты и код MS SQL Server, а также данные связанных серверов MySQL и PostgreSQL.</li>
+            <li><span class="newsMeta">Страница программы</span><a href="Licman/#ru"><b>Менеджер лицензий.</b></a> Централизованный реестр контролирует сроки, ответственных и готовит уведомления о продлении.</li>
+            <li><span class="newsMeta">01.07.2026 · PackTalks</span><a href="BoxPalletizer/#ru"><b>Паллетировщик.</b></a> Выпущена PRO-версия с режимом дежурства: JSON-задания рассчитываются автоматически с сохранением отчёта и схемы укладки.</li>
+            <li><span class="newsMeta">10.06.2026 · PackTalks</span><a href="truckloader-site/?lang=ru"><b>TruckLoader.</b></a> Представлен расчёт загрузки поддонов в автофургон или контейнер с подбором ориентации и наглядными схемами.</li>
+            <li><span class="newsMeta">Страница программы</span><a href="palletizer-site/#ru"><b>Паллетировщик плит.</b></a> Доступны импорт заявок из Excel, контроль веса и высоты, прогресс расчёта и печатные раскладки.</li>
+            <li><span class="newsMeta">16.08.2026 · PackTalks</span><a href="GofroTechCard/?lang=ru"><b>ГофроТехКарта PRO.</b></a> Добавлено подключение Паллетировщика и расширен набор параметрических конструкций гофроящиков.</li>
+            <li><span class="newsMeta">10.06.2026 · PackTalks</span><a href="BoxPriceCalculator/#ru"><b>Калькулятор гофроящиков.</b></a> Опубликованы обновлённые презентация и демоверсия; в текущей версии работает обратный выбор размеров из ГОСТа.</li>
+            <li><span class="newsMeta">02.06.2026 · PackTalks</span><a href="gost/?lang=ru"><b>Расчёт нагрузки по ГОСТ 9142-2014.</b></a> Выпущена версия по более свежему ГОСТ 9142-2014 с PDF-отчётом; затем добавлена интеграция со Справочником.</li>
+            <li><span class="newsMeta">25.08.2026 · PackTalks</span><a href="Standards/?lang=ru"><b>Справочник ГОСТов.</b></a> Опубликована демоверсия; программа объединяет размерные ряды, PDF-документы и выбор ящиков для PackTuning.</li>
+            <li><span class="newsMeta">Август 2026 · новости проекта</span><a href="Standards/?lang=ru#bundle"><b>Комплект «ГОСТы».</b></a> Справочник и расчёт предельной нагрузки объединены в комплект стоимостью 15 900 ₽.</li>
           </ul>
           <div class="newsSources" aria-label="Источники новостей PackTuning">
             <a class="btn secondary" href="https://www.instagram.com/packtuning/" target="_blank" rel="noopener">Instagram</a>
             <a class="btn secondary" href="https://vk.ru/club79622771" target="_blank" rel="noopener">VK</a>
             <a class="btn secondary" href="https://www.facebook.com/groups/1561529331198175" target="_blank" rel="noopener">Facebook</a>
             <a class="btn secondary" href="https://www.linkedin.com/groups/10072044/" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn secondary" href="http://packtalks.ru/search.php?keywords=&amp;terms=any&amp;author=*%D0%93%D1%83%D0%B1%D0%B5%D1%80%D0%BD%D0%B8%D0%B5%D0%B2&amp;sc=1&amp;sf=all&amp;sr=posts&amp;sk=t&amp;sd=d&amp;st=0&amp;ch=300&amp;t=0" target="_blank" rel="noopener">PackTalks</a>
           </div>
         </div>
         <div class="lang-en">
           <div class="newsHead">
             <div>
               <span class="badge">PackTuning news</span>
-              <h2>Short update log</h2>
+              <h2>Latest update for every application</h2>
             </div>
-            <p>A compact digest from social posts and product updates. This block will collect news for all catalog programs.</p>
+            <p>One feed for product updates and project-wide news. Digest updated on 26 August 2026.</p>
           </div>
+          <div class="integrationNote"><p><b>PackTuning PRO project update.</b> Seven application links are now implemented. Job dimensions and parameters move without repeated manual entry, while the GOST Standards Guide serves as the shared source of standard boxes.</p></div>
           <ul class="newsList">
-            <li><b>OptCutting 1.40.</b> Raw-material and board-sort directories, stock checks, material demand report and new cut-quality settings.</li>
-            <li><b>GofroTechCard.</b> Die-cut openings now get automatic dimensions relative to the box panels.</li>
-            <li><b>Box Price Calculator.</b> The corrugated box and blank costing tool has been updated.</li>
-            <li><b>Palletizer 3.2.</b> Corrugated-board profiles can be edited; bundle-pallet reports were added.</li>
-            <li><b>OptPacker.</b> The optimal in-box product arrangement module was released as a separate program from POJAS.</li>
-            <li><b>TruckLoader.</b> Truck and container pallet-loading calculation was published.</li>
-            <li><b>Bottle Optimizer.</b> A separate page presents optimization of bottle, box, divider and pallet layout.</li>
-            <li><b>Social channels.</b> PackTuning is now on Instagram; updates are also published on VK, Facebook and LinkedIn.</li>
+            <li><span class="newsMeta">24 Apr 2026 · PackTalks</span><a href="Pojas/?lang=en"><b>POJAS.</b></a> The suite and its cutting, packing and palletizing modules received dedicated pages and demos.</li>
+            <li><span class="newsMeta">30 Jun 2026 · PackTalks</span><a href="OptPacker/?lang=en"><b>OptPacker.</b></a> The optimal in-box arrangement module became a standalone POJAS application and now also selects boxes from GOST.</li>
+            <li><span class="newsMeta">20 Jul 2026 · PackTalks</span><a href="BottleOptimizer/?lang=en&amp;v=2"><b>Bottle Optimizer.</b></a> Bottle-diameter optimization now accounts for box, divider and pallet-layout costs.</li>
+            <li><span class="newsMeta">23 Jun 2026 · PackTalks</span><a href="OptCutting/#en"><b>OptCutting.</b></a> The new version tracks order sets, set readiness and delays, and transfers jobs to calculation PRO modules.</li>
+            <li><span class="newsMeta">Product page</span><a href="DBSearch/#en"><b>Database Search.</b></a> Search covers MS SQL Server objects and code plus data on linked MySQL and PostgreSQL servers.</li>
+            <li><span class="newsMeta">Product page</span><a href="Licman/#en"><b>License Manager.</b></a> The centralized register tracks expiry dates and owners and prepares renewal reminders.</li>
+            <li><span class="newsMeta">1 Jul 2026 · PackTalks</span><a href="BoxPalletizer/#en"><b>Palletizer.</b></a> The PRO edition adds watch mode for automatic JSON jobs with saved reports and stacking diagrams.</li>
+            <li><span class="newsMeta">10 Jun 2026 · PackTalks</span><a href="truckloader-site/?lang=en"><b>TruckLoader.</b></a> Truck and container pallet loading was introduced with orientation selection and clear layouts.</li>
+            <li><span class="newsMeta">Product page</span><a href="palletizer-site/#en"><b>Sheet Palletizer.</b></a> Excel order import, weight and height checks, calculation progress and printable layouts are available.</li>
+            <li><span class="newsMeta">16 Aug 2026 · PackTalks</span><a href="GofroTechCard/?lang=en"><b>GofroTechCard PRO.</b></a> Palletizer connectivity and a larger collection of parametric corrugated-box structures were added.</li>
+            <li><span class="newsMeta">10 Jun 2026 · PackTalks</span><a href="BoxPriceCalculator/#en"><b>Box Price Calculator.</b></a> An updated presentation and demo were published; the current version also selects GOST dimensions.</li>
+            <li><span class="newsMeta">2 Jun 2026 · PackTalks</span><a href="gost/?lang=en"><b>GOST 9142-2014 Load Calculator.</b></a> A newer GOST 9142-2014 version with PDF reporting was released and later connected to the Standards Guide.</li>
+            <li><span class="newsMeta">25 Aug 2026 · PackTalks</span><a href="Standards/?lang=en"><b>GOST Standards Guide.</b></a> The demo is now available; the application combines dimensional series, PDFs and PackTuning box selection.</li>
+            <li><span class="newsMeta">August 2026 · project news</span><a href="Standards/?lang=en#bundle"><b>GOST Bundle.</b></a> The Standards Guide and maximum load calculation are now offered together for €159.</li>
           </ul>
           <div class="newsSources" aria-label="PackTuning news sources">
             <a class="btn secondary" href="https://www.instagram.com/packtuning/" target="_blank" rel="noopener">Instagram</a>
             <a class="btn secondary" href="https://vk.ru/club79622771" target="_blank" rel="noopener">VK</a>
             <a class="btn secondary" href="https://www.facebook.com/groups/1561529331198175" target="_blank" rel="noopener">Facebook</a>
             <a class="btn secondary" href="https://www.linkedin.com/groups/10072044/" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn secondary" href="http://packtalks.ru/search.php?keywords=&amp;terms=any&amp;author=*%D0%93%D1%83%D0%B1%D0%B5%D1%80%D0%BD%D0%B8%D0%B5%D0%B2&amp;sc=1&amp;sf=all&amp;sr=posts&amp;sk=t&amp;sd=d&amp;st=0&amp;ch=300&amp;t=0" target="_blank" rel="noopener">PackTalks</a>
           </div>
         </div>
       </div>
@@ -1540,11 +1632,6 @@ footer{
     btnToIntegration: document.getElementById("btnToIntegration"),
     btnToProducts: document.getElementById("btnToProducts"),
     btnContactTop: document.getElementById("btnContactTop"),
-    heroSideTitle: document.getElementById("heroSideTitle"),
-    heroSideText: document.getElementById("heroSideText"),
-    badgeWin: document.getElementById("badgeWin"),
-    badgeSMB: document.getElementById("badgeSMB"),
-    badgeB2B: document.getElementById("badgeB2B"),
     productsTitle: document.getElementById("productsTitle"),
     productsLead: document.getElementById("productsLead"),
     languagesTitle: document.getElementById("languagesTitle"),
@@ -1575,11 +1662,6 @@ footer{
       btnToIntegration: "Интеграция PRO",
       btnToProducts: "Перейти к программам",
       btnContactTop: "Написать: vguberniev@gmail.com",
-      heroSideTitle: "Как выбрать",
-      heroSideText: "Открой карточку → скачай демо → оцени интерфейс → напиши мне, если нужно внедрение или лицензирование.",
-      badgeWin: "Windows",
-      badgeSMB: "SMB / производство",
-      badgeB2B: "B2B",
       productsTitle: "Программы",
       productsLead: "Нажми “Страница” для подробностей и скриншотов, “Демо” — для скачивания пробной версии.",
       languagesTitle: "Мультиязычный интерфейс",
@@ -1608,11 +1690,6 @@ footer{
       btnToIntegration: "PRO integration",
       btnToProducts: "View products",
       btnContactTop: "Email: vguberniev@gmail.com",
-      heroSideTitle: "How to choose",
-      heroSideText: "Open a card → download the demo → check the workflow → email me for licensing or implementation details.",
-      badgeWin: "Windows",
-      badgeSMB: "SMB / manufacturing",
-      badgeB2B: "B2B",
       productsTitle: "Products",
       productsLead: "Click “Page” for full details and screenshots, “Demo” to download an evaluation version.",
       languagesTitle: "Multilingual interface",
@@ -1644,11 +1721,6 @@ footer{
     ui.btnToIntegration.textContent = TEXT[lang].btnToIntegration;
     ui.btnToProducts.textContent = TEXT[lang].btnToProducts;
     ui.btnContactTop.textContent = TEXT[lang].btnContactTop;
-    ui.heroSideTitle.textContent = TEXT[lang].heroSideTitle;
-    ui.heroSideText.textContent = TEXT[lang].heroSideText;
-    ui.badgeWin.textContent = TEXT[lang].badgeWin;
-    ui.badgeSMB.textContent = TEXT[lang].badgeSMB;
-    ui.badgeB2B.textContent = TEXT[lang].badgeB2B;
     ui.catalogBanner.src = lang === EN ? "catalog-en.jpg" : "catalog-ru.jpg";
     ui.catalogBanner.alt = lang === EN ? "PackTuning Software catalog banner" : "Каталог программ PackTuning Software";
     ui.integrationGraph.src = lang === EN ? "assets/integration/packtuning-pro-integration-en.jpg?v=20260823" : "assets/integration/packtuning-pro-integration-ru.png?v=20260823-2";
