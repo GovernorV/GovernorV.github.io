@@ -948,52 +948,6 @@ footer{
   // ---- EDIT HERE to add more programs later ----
   const PRODUCTS = [
     {
-      id: "boxtypes",
-      glyph: "BT",
-      icon: "assets/icons/boxtypes.png",
-      cover: {
-        ru: "boxtypes_banner.png",
-        en: "boxtypes_banner_en.png"
-      },
-      gradient: ["#1559f5", "#24c6ff"],
-      titles: {
-        ru: "Конструктор типов ящиков",
-        en: "Corrugated Box Type Designer"
-      },
-      subtitles: {
-        ru: "Выбор, настройка и проектирование конструкций гофроящиков",
-        en: "Selection, configuration and design of corrugated box structures"
-      },
-      descriptions: {
-        ru: "Объединяет библиотеку из 64 типов FEFCO и специальных конструкций, параметрические формулы размеров, редактор команд построения и наглядный просмотр развёртки.",
-        en: "Combines a library of 64 FEFCO and special designs, parametric dimension formulas, a drawing-command editor and clear die-line previews."
-      },
-      pricing: {
-        ru: {
-          main: "по запросу",
-          lines: [
-            "64 типа конструкций в библиотеке",
-            "Собственные шаблоны и формулы",
-            "Переносимый справочник без базы данных"
-          ]
-        },
-        en: {
-          main: "on request",
-          lines: [
-            "64 library design styles",
-            "Custom templates and formulas",
-            "Portable library with no database required"
-          ]
-        }
-      },
-      links: {
-        page: {
-          ru: "https://governorv.github.io/BoxTypes/",
-          en: "https://governorv.github.io/BoxTypes/?lang=en"
-        }
-      }
-    },
-    {
       id: "pojas",
       glyph: "P",
       icon: "assets/icons/pojas.png",
@@ -1611,6 +1565,52 @@ footer{
       }
     },
     {
+      id: "boxtypes",
+      glyph: "BT",
+      icon: "assets/icons/boxtypes.png",
+      cover: {
+        ru: "boxtypes_banner.png",
+        en: "boxtypes_banner_en.png"
+      },
+      gradient: ["#1559f5", "#24c6ff"],
+      titles: {
+        ru: "Конструктор типов ящиков",
+        en: "Corrugated Box Type Designer"
+      },
+      subtitles: {
+        ru: "Выбор, настройка и проектирование конструкций гофроящиков",
+        en: "Selection, configuration and design of corrugated box structures"
+      },
+      descriptions: {
+        ru: "Объединяет библиотеку из 64 типов FEFCO и специальных конструкций, параметрические формулы размеров, редактор команд построения и наглядный просмотр развёртки.",
+        en: "Combines a library of 64 FEFCO and special designs, parametric dimension formulas, a drawing-command editor and clear die-line previews."
+      },
+      pricing: {
+        ru: {
+          main: "по запросу",
+          lines: [
+            "64 типа конструкций в библиотеке",
+            "Собственные шаблоны и формулы",
+            "Переносимый справочник без базы данных"
+          ]
+        },
+        en: {
+          main: "on request",
+          lines: [
+            "64 library design styles",
+            "Custom templates and formulas",
+            "Portable library with no database required"
+          ]
+        }
+      },
+      links: {
+        page: {
+          ru: "https://governorv.github.io/BoxTypes/",
+          en: "https://governorv.github.io/BoxTypes/?lang=en"
+        }
+      }
+    },
+    {
       id: "gostbundle",
       glyph: "2×ГОСТ",
       icon: "assets/icons/standards.jpg",
@@ -1820,7 +1820,8 @@ footer{
       if (p.id === "bottleoptimizer") card.style.order = "996";
       if (p.id === "gost914290") card.style.order = "997";
       if (p.id === "standards") card.style.order = "998";
-      if (p.id === "gostbundle") card.style.order = "999";
+      if (p.id === "boxtypes") card.style.order = "999";
+      if (p.id === "gostbundle") card.style.order = "1000";
 
       const head = document.createElement("a");
       head.className = "productHead";
