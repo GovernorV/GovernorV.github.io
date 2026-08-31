@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <title>PackTuning Software — каталог программ для упаковки, логистики и SQL</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="PackTuning Software: каталог программ для паллетизации, стандартов и размеров упаковки, расчета стоимости и нагрузки гофроящиков, проектирования техкарт и производственной логистики.">
-<meta name="keywords" content="PackTuning Software, Справочник ГОСТов, комплект ГОСТы, программы для упаковки, паллетизация, размеры ящиков, FEFCO 0201, TruckLoader, расчет стоимости гофроящика, ГОСТ 9142-2014, расчет нагрузки на гофроящик, SQL Server">
+<meta name="description" content="PackTuning Software: каталог программ для проектирования типов гофроящиков, паллетизации, стандартов и размеров упаковки, расчета стоимости и нагрузки, техкарт и производственной логистики.">
+<meta name="keywords" content="PackTuning Software, Конструктор типов ящиков, Corrugated Box Type Designer, FEFCO, Справочник ГОСТов, программы для упаковки, паллетизация, размеры ящиков, TruckLoader, расчет стоимости гофроящика, ГОСТ 9142-2014, SQL Server">
 <meta name="author" content="Viktor Guberniev">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://governorv.github.io/">
@@ -32,7 +32,7 @@
   "@context": "https://schema.org",
   "@type": "ItemList",
   "name": "PackTuning Software Product Catalog",
-  "description": "Catalog of desktop software tools for packaging standards, box dimensions, palletizing, truck loading, corrugated packaging costing and GOST 9142-2014 box load calculation.",
+  "description": "Catalog of desktop software tools for corrugated box type design, packaging standards, box dimensions, palletizing, truck loading, corrugated packaging costing and GOST 9142-2014 box load calculation.",
   "url": "https://governorv.github.io/",
   "itemListElement": [
     {
@@ -112,6 +112,12 @@
       "position": 13,
       "url": "https://governorv.github.io/Standards/#bundle",
       "name": "Комплект ГОСТы / GOST Bundle"
+    },
+    {
+      "@type": "ListItem",
+      "position": 14,
+      "url": "https://governorv.github.io/BoxTypes/",
+      "name": "Конструктор типов ящиков / Corrugated Box Type Designer"
     }
   ]
 }
@@ -675,8 +681,10 @@ footer{
       <div class="card">
         <h1 id="heroTitle">Программы для упаковки и логистики</h1>
         <p id="heroText">
-          Набор инструментов для производителей и складов: паллетизация, расчёт себестоимости гофроизделий,
-          и другие модули, которые мы будем добавлять дальше.
+          В каталоге представлены: Конструктор типов ящиков, ПОЯС, Фасовщик, Проектировщик бутылок,
+          Раскройщик, Поисковик по базам данных, Менеджер лицензий, Паллетировщик, TruckLoader,
+          Паллетировщик плит, ГофроТехКарта, Калькулятор гофроящиков, Расчёт нагрузки по ГОСТ 9142-2014,
+          Справочник ГОСТов и комплект «ГОСТы».
         </p>
 
         <a class="btn primary" href="#integration" id="btnToIntegration">Интеграция PRO</a>
@@ -694,9 +702,10 @@ footer{
         <div class="lang-ru">
           <div class="heroNewsHead">
             <h2>Новости</h2>
-            <span class="heroNewsDate">обновлено 26.08.2026</span>
+            <span class="heroNewsDate">обновлено 31.08.2026</span>
           </div>
           <ul class="heroNewsList">
+            <li><a href="BoxTypes/">Конструктор типов ящиков</a><p>Новая программа: библиотека FEFCO, параметрические формулы, редактор конструкций и развёрток.</p></li>
             <li><a href="Standards/?lang=ru">Справочник ГОСТов</a><p>Выпущена демоверсия, добавлены PDF-документы и двусторонний выбор ящика для программ PackTuning.</p></li>
             <li><a href="gost/?lang=ru">Расчёт нагрузки</a><p>Добавлена взаимная интеграция со Справочником и новый комплект «ГОСТы».</p></li>
             <li><a href="OptCutting/#ru">Раскройщик</a><p>Выбор размеров из ГОСТа и передача заказа в расчётные PRO-модули.</p></li>
@@ -707,9 +716,10 @@ footer{
         <div class="lang-en">
           <div class="heroNewsHead">
             <h2>News</h2>
-            <span class="heroNewsDate">updated 26 Aug 2026</span>
+            <span class="heroNewsDate">updated 31 Aug 2026</span>
           </div>
           <ul class="heroNewsList">
+            <li><a href="BoxTypes/?lang=en">Corrugated Box Type Designer</a><p>New application: FEFCO library, parametric formulas, structure editor and die-line preview.</p></li>
             <li><a href="Standards/?lang=en">GOST Standards Guide</a><p>The demo edition, PDF library and two-way box selection for PackTuning applications are now available.</p></li>
             <li><a href="gost/?lang=en">Load Calculator</a><p>Two-way Standards Guide integration and the new GOST Bundle have been added.</p></li>
             <li><a href="OptCutting/#en">OptCutting</a><p>Select dimensions from GOST and transfer jobs to calculation PRO modules.</p></li>
@@ -845,10 +855,11 @@ footer{
               <span class="badge">Новости PackTuning</span>
               <h2>Последнее по каждой программе</h2>
             </div>
-            <p>Единая лента обновлений программ и общих новостей проекта. Сводка обновлена 26 августа 2026 года.</p>
+            <p>Единая лента обновлений программ и общих новостей проекта. Сводка обновлена 31 августа 2026 года.</p>
           </div>
           <div class="integrationNote"><p><b>Общее обновление PackTuning PRO.</b> Реализовано семь связей между программами: размеры и параметры заказа передаются без повторного ручного ввода, а Справочник ГОСТов работает как общий источник стандартных ящиков.</p></div>
           <ul class="newsList">
+            <li><span class="newsMeta">31.08.2026 · новая программа</span><a href="BoxTypes/"><b>Конструктор типов ящиков.</b></a> Опубликован новый инструмент для выбора, настройки и проектирования конструкций гофроящиков: 64 типа в библиотеке, параметрические формулы, редактор команд и интерактивная галерея развёрток.</li>
             <li><span class="newsMeta">24.04.2026 · PackTalks</span><a href="Pojas/?lang=ru"><b>ПОЯС.</b></a> Комплекс и его модули для раскроя, упаковки и паллетизации получили отдельные страницы и демоверсии.</li>
             <li><span class="newsMeta">30.06.2026 · PackTalks</span><a href="OptPacker/?lang=ru"><b>Фасовщик.</b></a> Модуль оптимальной укладки изделий выделен из ПОЯС в самостоятельную программу; теперь он также выбирает ящики из ГОСТа.</li>
             <li><span class="newsMeta">20.07.2026 · PackTalks</span><a href="BottleOptimizer/?lang=ru&amp;v=2"><b>Проектировщик бутылок.</b></a> Представлена оптимизация диаметра бутылки с учётом стоимости ящика, решётки и паллетной укладки.</li>
@@ -878,10 +889,11 @@ footer{
               <span class="badge">PackTuning news</span>
               <h2>Latest update for every application</h2>
             </div>
-            <p>One feed for product updates and project-wide news. Digest updated on 26 August 2026.</p>
+            <p>One feed for product updates and project-wide news. Digest updated on 31 August 2026.</p>
           </div>
           <div class="integrationNote"><p><b>PackTuning PRO project update.</b> Seven application links are now implemented. Job dimensions and parameters move without repeated manual entry, while the GOST Standards Guide serves as the shared source of standard boxes.</p></div>
           <ul class="newsList">
+            <li><span class="newsMeta">31 Aug 2026 · new application</span><a href="BoxTypes/?lang=en"><b>Corrugated Box Type Designer.</b></a> A new tool for selecting, configuring and designing corrugated box structures: 64 library styles, parametric formulas, a command editor and an interactive die-line gallery.</li>
             <li><span class="newsMeta">24 Apr 2026 · PackTalks</span><a href="Pojas/?lang=en"><b>POJAS.</b></a> The suite and its cutting, packing and palletizing modules received dedicated pages and demos.</li>
             <li><span class="newsMeta">30 Jun 2026 · PackTalks</span><a href="OptPacker/?lang=en"><b>OptPacker.</b></a> The optimal in-box arrangement module became a standalone POJAS application and now also selects boxes from GOST.</li>
             <li><span class="newsMeta">20 Jul 2026 · PackTalks</span><a href="BottleOptimizer/?lang=en&amp;v=2"><b>Bottle Optimizer.</b></a> Bottle-diameter optimization now accounts for box, divider and pallet-layout costs.</li>
@@ -935,6 +947,52 @@ footer{
 
   // ---- EDIT HERE to add more programs later ----
   const PRODUCTS = [
+    {
+      id: "boxtypes",
+      glyph: "BT",
+      icon: "assets/icons/boxtypes.png",
+      cover: {
+        ru: "boxtypes_banner.png",
+        en: "boxtypes_banner_en.png"
+      },
+      gradient: ["#1559f5", "#24c6ff"],
+      titles: {
+        ru: "Конструктор типов ящиков",
+        en: "Corrugated Box Type Designer"
+      },
+      subtitles: {
+        ru: "Выбор, настройка и проектирование конструкций гофроящиков",
+        en: "Selection, configuration and design of corrugated box structures"
+      },
+      descriptions: {
+        ru: "Объединяет библиотеку из 64 типов FEFCO и специальных конструкций, параметрические формулы размеров, редактор команд построения и наглядный просмотр развёртки.",
+        en: "Combines a library of 64 FEFCO and special designs, parametric dimension formulas, a drawing-command editor and clear die-line previews."
+      },
+      pricing: {
+        ru: {
+          main: "по запросу",
+          lines: [
+            "64 типа конструкций в библиотеке",
+            "Собственные шаблоны и формулы",
+            "Переносимый справочник без базы данных"
+          ]
+        },
+        en: {
+          main: "on request",
+          lines: [
+            "64 library design styles",
+            "Custom templates and formulas",
+            "Portable library with no database required"
+          ]
+        }
+      },
+      links: {
+        page: {
+          ru: "https://governorv.github.io/BoxTypes/",
+          en: "https://governorv.github.io/BoxTypes/?lang=en"
+        }
+      }
+    },
     {
       id: "pojas",
       glyph: "P",
@@ -1658,7 +1716,7 @@ footer{
     ru: {
       tagline: "Каталог программ",
       heroTitle: "Программы для упаковки и логистики",
-      heroText: "Набор инструментов для производителей и складов: паллетизация, расчёт себестоимости гофроизделий, и другие модули, которые мы будем добавлять дальше.",
+      heroText: "В каталоге представлены: Конструктор типов ящиков, ПОЯС, Фасовщик, Проектировщик бутылок, Раскройщик, Поисковик по базам данных, Менеджер лицензий, Паллетировщик, TruckLoader, Паллетировщик плит, ГофроТехКарта, Калькулятор гофроящиков, Расчёт нагрузки по ГОСТ 9142-2014, Справочник ГОСТов и комплект «ГОСТы».",
       btnToIntegration: "Интеграция PRO",
       btnToProducts: "Перейти к программам",
       btnContactTop: "Написать: vguberniev@gmail.com",
@@ -1686,7 +1744,7 @@ footer{
     en: {
       tagline: "Product catalog",
       heroTitle: "Software for packaging and logistics",
-      heroText: "A set of tools for manufacturers and warehouses: pallet stacking, corrugated cost estimation, and more modules we will add later.",
+      heroText: "The catalog includes: Corrugated Box Type Designer, POJAS, Box Packing Optimizer, Bottle Optimizer, OptCutting, Database Search, License Manager, Box Palletizer, TruckLoader, Sheet Palletizer, Corrugated Box Tech Card, Box Price Calculator, GOST 9142-2014 Load Calculator, GOST Standards Guide and the GOST Bundle.",
       btnToIntegration: "PRO integration",
       btnToProducts: "View products",
       btnContactTop: "Email: vguberniev@gmail.com",
