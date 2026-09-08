@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Унификатор гофроящиков — один ящик для группы изделий</title>
+  <meta name="description" content="PackTuning Унификатор: Windows-программа для подбора общего типа и размеров гофроящика для группы изделий с учётом ограничений, ГОСТов, стоимости материала и транспортной укладки.">
+  <meta name="keywords" content="унификатор гофроящиков, унификация упаковки, оптимизация размеров ящика, гофроящик, ГОСТ, FEFCO, PackTuning">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://governorv.github.io/Unificator/">
+  <link rel="alternate" hreflang="ru" href="https://governorv.github.io/Unificator/">
+  <link rel="alternate" hreflang="en" href="https://governorv.github.io/Unificator/?lang=en">
+  <link rel="alternate" hreflang="x-default" href="https://governorv.github.io/Unificator/">
+  <meta property="og:title" content="Унификатор гофроящиков — один ящик для группы изделий">
+  <meta property="og:description" content="Подбор общего стандартного или улучшенного гофроящика для нескольких изделий с учётом ГОСТов, ограничений и стоимости.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://governorv.github.io/Unificator/">
+  <meta property="og:image" content="https://governorv.github.io/Unificator/assets/catalog-banner-ru.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Corrugated Box Unifier">
+  <meta name="twitter:description" content="One optimized corrugated box for a group of products, with standards, constraints and material cost taken into account.">
+  <meta name="twitter:image" content="https://governorv.github.io/Unificator/assets/hero-en.png">
+  <link rel="stylesheet" href="/assets/theme-switcher.css?v=20260811-2">
+  <style>
+    :root {
+      --bg:#061326; --bg2:#0a1d3a; --card:rgba(255,255,255,.08); --card2:rgba(255,255,255,.12);
+      --text:#edf7ff; --muted:#b8d0eb; --line:rgba(116,204,255,.3); --accent:#37d8ff;
+      --accent2:#72ffcf; --gold:#ffd36a; --darkText:#0b1b35; --headerBg:rgba(3,12,26,.78);
+      --footerBg:rgba(0,0,0,.18); --softButtonBg:rgba(255,255,255,.06); --softButtonText:var(--text);
+      --chipBg:rgba(55,216,255,.08); --chipText:#dff8ff; --chipBorder:var(--line);
+      --pageBg:radial-gradient(circle at 20% 0%,rgba(55,216,255,.22),transparent 32rem),radial-gradient(circle at 80% 10%,rgba(114,255,207,.16),transparent 34rem),linear-gradient(135deg,var(--bg),#020814 70%);
+      --shadow:0 24px 90px rgba(0,0,0,.45);
+    }
+    html[data-theme="day"] {
+      --bg:#f4f8ff; --bg2:#eaf2ff; --card:rgba(255,255,255,.86); --card2:rgba(255,255,255,.94);
+      --text:#10213d; --muted:#52627a; --line:rgba(18,93,170,.18); --accent:#1679e8;
+      --accent2:#0aa879; --gold:#9c6800; --headerBg:rgba(244,248,255,.88); --footerBg:rgba(255,255,255,.62);
+      --softButtonBg:#fff; --softButtonText:#10213d; --chipBg:#eef8ff; --chipText:#12345d;
+      --chipBorder:rgba(22,121,232,.26); --pageBg:radial-gradient(circle at 20% 0%,rgba(22,121,232,.13),transparent 32rem),radial-gradient(circle at 80% 10%,rgba(10,168,121,.10),transparent 34rem),linear-gradient(135deg,#f7fbff,#edf4ff 70%);
+      --shadow:0 24px 70px rgba(26,52,92,.16);
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:"Segoe UI",Arial,sans-serif;color:var(--text);background:var(--pageBg);line-height:1.55} a{color:inherit}
+    .container{width:min(1180px,calc(100% - 32px));margin:0 auto}
+    header{position:sticky;top:0;z-index:20;backdrop-filter:blur(18px);background:var(--headerBg);border-bottom:1px solid var(--line)}
+    nav{display:flex;align-items:center;justify-content:space-between;min-height:68px;gap:18px}.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-weight:900;letter-spacing:.02em;white-space:nowrap}.brand-mark{display:grid;place-items:center;width:36px;height:36px;border-radius:11px;background:linear-gradient(135deg,var(--accent),#1d7dff);color:#fff;box-shadow:0 8px 24px rgba(55,216,255,.25)}
+    .nav-links{display:flex;align-items:center;justify-content:flex-end;gap:10px;flex-wrap:wrap}.nav-links>a:not(.social-link),.lang button{border:1px solid var(--line);background:var(--softButtonBg);color:var(--softButtonText);border-radius:999px;padding:8px 12px;text-decoration:none;cursor:pointer}.lang{display:inline-flex;gap:6px}.lang button.active{background:linear-gradient(135deg,var(--accent),#1d7dff);color:#fff;border-color:transparent}
+    .socials{display:inline-flex;align-items:center;gap:7px;margin-left:4px;padding-left:12px;border-left:1px solid var(--line)}.social-link{display:grid;place-items:center;width:36px;height:36px;border-radius:11px;color:#fff!important;text-decoration:none;font:900 16px/1 Arial,sans-serif;box-shadow:0 6px 16px rgba(0,0,0,.18);transition:transform .18s ease}.social-link:hover{transform:translateY(-2px)}.social-link:focus-visible{outline:3px solid var(--accent);outline-offset:2px}.social-link.instagram{background:linear-gradient(135deg,#833ab4,#fd1d1d 55%,#fcb045)}.social-link.facebook{background:#1877f2}.social-link.linkedin{background:#0a66c2;font-size:13px}.social-link.vk{background:#07f;font-size:12px}.instagram-glyph{position:relative;width:19px;height:19px;border:2px solid #fff;border-radius:6px}.instagram-glyph::before{content:"";position:absolute;inset:4px;border:2px solid #fff;border-radius:50%}.instagram-glyph::after{content:"";position:absolute;right:2px;top:2px;width:3px;height:3px;border-radius:50%;background:#fff}
+    .hero{padding:36px 0 34px}.hero-banner{width:100%;display:block;border-radius:24px;border:1px solid var(--line);box-shadow:var(--shadow)}
+    .hero-grid{display:grid;grid-template-columns:1.35fr .65fr;gap:24px;align-items:stretch;margin-top:24px}.hero-card,.card{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:24px;padding:26px;box-shadow:0 18px 70px rgba(0,0,0,.2)}
+    h1{margin:0 0 14px;font-size:clamp(38px,6vw,72px);line-height:.98;letter-spacing:-.04em} h2{margin:0 0 16px;font-size:clamp(28px,3.2vw,44px);line-height:1.08} h3{margin:0 0 10px;font-size:21px} p{margin:0 0 14px}.lead{font-size:20px;color:var(--muted);max-width:850px}
+    .chips,.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}.chip{padding:9px 12px;border:1px solid var(--chipBorder);border-radius:999px;background:var(--chipBg);color:var(--chipText);font-weight:700}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:11px 18px;border-radius:12px;border:1px solid transparent;text-decoration:none;font-weight:800}.btn.primary{background:linear-gradient(135deg,var(--accent),#1a7dff);color:#fff;box-shadow:0 10px 28px rgba(55,216,255,.25)}.btn.secondary{border-color:var(--line);background:var(--softButtonBg);color:var(--softButtonText)}
+    .kpi{display:grid;gap:12px}.kpi div{background:rgba(255,255,255,.07);border:1px solid var(--line);border-radius:18px;padding:16px}.kpi b{display:block;font-size:28px;color:var(--accent2)}
+    main{display:grid;gap:24px;padding-bottom:48px}.section-lead{color:var(--muted);font-size:18px}.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.feature{padding:20px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.06)}.feature-icon{display:grid;place-items:center;width:44px;height:44px;margin-bottom:14px;border-radius:14px;background:linear-gradient(135deg,rgba(55,216,255,.28),rgba(29,125,255,.28));font-size:23px}.feature p{color:var(--muted);margin:0}
+    .workflow{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;counter-reset:step}.step{position:relative;padding:60px 18px 18px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.06);counter-increment:step}.step::before{content:counter(step);position:absolute;left:18px;top:16px;display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--accent);color:#00162d;font-weight:900}.step p{color:var(--muted);margin:0}
+    .screenshots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.screenshot{margin:0;overflow:hidden;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.06)}.screenshot img{width:100%;aspect-ratio:1107/713;object-fit:contain;object-position:top center;display:block;background:#fff;cursor:zoom-in}.screenshot img:focus-visible{outline:3px solid var(--accent);outline-offset:-3px}.screenshot figcaption{padding:16px}.screenshot figcaption p{color:var(--muted);margin:0}
+    .language-card{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,.9fr);gap:22px;align-items:start}.language-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}.language-list span{padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.88);color:var(--darkText);border:1px solid rgba(55,216,255,.26);font-weight:800}.note,.contact-panel{background:rgba(255,255,255,.9);color:var(--darkText);border:1px solid rgba(55,216,255,.28);border-radius:18px;padding:20px}.contact-panel{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center}.contact-panel p{margin:0;color:#52627a}
+    .related{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.related article{overflow:hidden;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.06)}.related img{width:100%;aspect-ratio:3/2;object-fit:contain;display:block;background:#fff}.related-body{padding:18px}.related-body p{color:var(--muted)}
+    footer{border-top:1px solid var(--line);padding:28px 0 58px;color:var(--muted);background:var(--footerBg)}
+    .viewer{position:fixed;inset:0;z-index:1000;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(2,8,20,.88);backdrop-filter:blur(6px)}.viewer.open{display:flex}.viewer-inner{position:relative;width:min(96vw,1500px);display:grid;gap:12px}.viewer img{width:100%;max-height:86vh;object-fit:contain;border-radius:12px;background:#fff;box-shadow:0 30px 90px rgba(0,0,0,.5)}.viewer p{color:#fff;font-weight:800;text-align:center}.viewer-close{position:absolute;right:-16px;top:-16px;width:42px;height:42px;border:1px solid rgba(255,255,255,.3);border-radius:50%;background:#07182e;color:#fff;font-size:28px;cursor:pointer}body.viewer-open{overflow:hidden}
+    [data-lang]{display:none}html[lang="ru"] [data-lang="ru"],html[lang="en"] [data-lang="en"]{display:revert}html[lang="ru"] img[data-lang="ru"],html[lang="en"] img[data-lang="en"]{display:block}html[lang="ru"] .social-link[data-lang="ru"],html[lang="en"] .social-link[data-lang="en"]{display:grid}
+    @media(max-width:960px){.hero-grid,.language-card{grid-template-columns:1fr}.feature-grid{grid-template-columns:repeat(2,1fr)}.workflow{grid-template-columns:repeat(2,1fr)}nav{align-items:flex-start;flex-direction:column;padding:12px 0}.nav-links{justify-content:flex-start}}
+    @media(max-width:680px){.container{width:min(100% - 20px,1180px)}.hero{padding-top:18px}.hero-banner{border-radius:15px}.hero-card,.card{padding:20px;border-radius:18px}.feature-grid,.workflow,.screenshots,.related{grid-template-columns:1fr}.contact-panel{grid-template-columns:1fr}.nav-links{gap:6px}.nav-links>a:not(.social-link),.lang button{font-size:13px;padding:7px 10px}.socials{width:100%;padding:8px 0 0;margin:2px 0 0;border-left:0;border-top:1px solid var(--line)}.viewer{padding:8px}.viewer-close{right:4px;top:4px}}
+  </style>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Унификатор гофроящиков","alternateName":"Corrugated Box Unifier","applicationCategory":"BusinessApplication","operatingSystem":"Windows","url":"https://governorv.github.io/Unificator/","author":{"@type":"Person","name":"Viktor Guberniev"}}
+  </script>
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <a class="brand" href="#top"><span class="brand-mark">U</span><span data-lang="ru">Унификатор</span><span data-lang="en">Box Unifier</span></a>
+      <div class="nav-links">
+        <a href="#features" data-lang="ru">Возможности</a><a href="#features" data-lang="en">Features</a>
+        <a href="#workflow" data-lang="ru">Как работает</a><a href="#workflow" data-lang="en">Workflow</a>
+        <a href="#screenshots" data-lang="ru">Скриншоты</a><a href="#screenshots" data-lang="en">Screenshots</a>
+        <a href="#contact" data-lang="ru">Получить программу</a><a href="#contact" data-lang="en">Get the software</a>
+        <a href="../" data-lang="ru">Каталог</a><a href="../" data-lang="en">Catalog</a>
+        <span class="socials" aria-label="PackTuning social media">
+          <a class="social-link instagram" href="https://www.instagram.com/packtuning/" target="_blank" rel="noopener noreferrer" aria-label="Instagram PackTuning"><span class="instagram-glyph" aria-hidden="true"></span></a>
+          <a class="social-link facebook" data-lang="ru" href="https://www.facebook.com/groups/1561529331198175" target="_blank" rel="noopener noreferrer" aria-label="Группа PackTuning в Facebook">f</a>
+          <a class="social-link linkedin" data-lang="ru" href="https://www.linkedin.com/groups/10072044/" target="_blank" rel="noopener noreferrer" aria-label="Группа PackTuning в LinkedIn">in</a>
+          <a class="social-link vk" data-lang="ru" href="https://vk.ru/club79622771" target="_blank" rel="noopener noreferrer" aria-label="Группа PackTuning ВКонтакте">VK</a>
+        </span>
+        <span class="lang"><button type="button" data-set-lang="ru">RU</button><button type="button" data-set-lang="en">EN</button></span>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero container" id="top">
+    <img class="hero-banner" data-lang="ru" src="assets/hero-ru.png" alt="Унификатор гофроящиков — один ящик для множества изделий">
+    <img class="hero-banner" data-lang="en" src="assets/hero-en.png" alt="Corrugated Box Unifier — one box for multiple products">
+    <div class="hero-grid">
+      <div class="hero-card">
+        <h1 data-lang="ru">Унификатор гофроящиков</h1><h1 data-lang="en">Corrugated Box Unifier</h1>
+        <p class="lead" data-lang="ru">Программа подбирает общий тип и размеры гофроящика для группы разных изделий — с учётом ограничений, ГОСТов, стоимости материала и параметров транспортной укладки.</p>
+        <p class="lead" data-lang="en">Windows software that selects one shared corrugated-box type and size for a group of different products, taking constraints, standards, material cost and transport layout into account.</p>
+        <div class="chips">
+          <span class="chip" data-lang="ru">Стандартный и улучшенный ящик</span><span class="chip" data-lang="en">Standard and improved box</span>
+          <span class="chip" data-lang="ru">ГОСТ и FEFCO</span><span class="chip" data-lang="en">GOST and FEFCO</span>
+          <span class="chip" data-lang="ru">Excel · PDF · Word</span><span class="chip" data-lang="en">Excel · PDF · Word</span>
+          <span class="chip" data-lang="ru">Поддоны и контейнеры</span><span class="chip" data-lang="en">Pallets and containers</span>
+          <span class="chip" data-lang="ru">Русский и English</span><span class="chip" data-lang="en">English and Russian</span>
+        </div>
+        <div class="actions">
+          <a class="btn primary" href="mailto:vguberniev@gmail.com?subject=Унификатор — запрос программы" data-lang="ru">Запросить программу</a>
+          <a class="btn primary" href="mailto:vguberniev@gmail.com?subject=Corrugated Box Unifier — software request" data-lang="en">Request the software</a>
+          <a class="btn secondary" href="#screenshots" data-lang="ru">Посмотреть интерфейс</a><a class="btn secondary" href="#screenshots" data-lang="en">View interface</a>
+        </div>
+      </div>
+      <div class="hero-card kpi">
+        <div><b>12</b><span data-lang="ru">последовательных этапов расчёта</span><span data-lang="en">guided calculation steps</span></div>
+        <div><b>2</b><span data-lang="ru">режима поиска: стандартный и случайный</span><span data-lang="en">search modes: standard and random</span></div>
+        <div><b>1</b><span data-lang="ru">унифицированный ящик для группы изделий</span><span data-lang="en">unified box for a product group</span></div>
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+    <section class="card" id="features">
+      <h2 data-lang="ru">Что решает Унификатор</h2><h2 data-lang="en">What the Unifier solves</h2>
+      <p class="section-lead" data-lang="ru">Программа проводит технолога по всему расчёту: от списка изделий до сравнения двух готовых вариантов упаковки.</p>
+      <p class="section-lead" data-lang="en">The software guides a packaging engineer from the product list to a side-by-side comparison of two finished packaging options.</p>
+      <div class="feature-grid">
+        <article class="feature"><span class="feature-icon">◎</span><h3 data-lang="ru">Группа изделий</h3><h3 data-lang="en">Product group</h3><p data-lang="ru">Объединяйте изделия разных форм и размеров; исходные данные можно импортировать из Excel.</p><p data-lang="en">Combine products of different shapes and sizes, with source data imported from Excel when needed.</p></article>
+        <article class="feature"><span class="feature-icon">▤</span><h3 data-lang="ru">ГОСТы и типоразмеры</h3><h3 data-lang="en">Standards and sizes</h3><p data-lang="ru">Выбирайте нормативы и стандартные ряды через встроенный справочник.</p><p data-lang="en">Select applicable standards and dimensional series through the built-in directory.</p></article>
+        <article class="feature"><span class="feature-icon">◇</span><h3 data-lang="ru">Конструкция ящика</h3><h3 data-lang="en">Box construction</h3><p data-lang="ru">Задавайте тип FEFCO, картон, профиль гофры, число слоёв и доступные форматы.</p><p data-lang="en">Set the FEFCO type, board, flute profile, number of layers and available formats.</p></article>
+        <article class="feature"><span class="feature-icon">⌁</span><h3 data-lang="ru">Поиск общего решения</h3><h3 data-lang="en">Shared solution search</h3><p data-lang="ru">Стандартный поиск распределяет все изделия по совместимым группам и находит общий ящик.</p><p data-lang="en">Standard search groups compatible products and finds a shared box for every group.</p></article>
+        <article class="feature"><span class="feature-icon">↗</span><h3 data-lang="ru">Улучшение результата</h3><h3 data-lang="en">Result improvement</h3><p data-lang="ru">Случайный поиск исследует нестандартные размеры и показывает улучшение выбранного критерия.</p><p data-lang="en">Random search explores custom dimensions and reports the improvement in the selected criterion.</p></article>
+        <article class="feature"><span class="feature-icon">✓</span><h3 data-lang="ru">Готовые документы</h3><h3 data-lang="en">Ready documents</h3><p data-lang="ru">Сравнивайте варианты, просматривайте укладку и сохраняйте отчёты PDF или Word.</p><p data-lang="en">Compare alternatives, inspect layouts and save reports in PDF or Word format.</p></article>
+      </div>
+    </section>
+
+    <section class="card" id="workflow">
+      <h2 data-lang="ru">От номенклатуры к одному ящику</h2><h2 data-lang="en">From product range to one box</h2>
+      <div class="workflow">
+        <article class="step"><h3 data-lang="ru">Подготовка данных</h3><h3 data-lang="en">Prepare data</h3><p data-lang="ru">Выберите организацию, изделия и нормативные документы.</p><p data-lang="en">Select the organization, products and applicable standards.</p></article>
+        <article class="step"><h3 data-lang="ru">Ограничения</h3><h3 data-lang="en">Set constraints</h3><p data-lang="ru">Задайте конструкцию, материал, критерий и транспортные параметры.</p><p data-lang="en">Define construction, material, criterion and transport parameters.</p></article>
+        <article class="step"><h3 data-lang="ru">Два поиска</h3><h3 data-lang="en">Run two searches</h3><p data-lang="ru">Найдите стандартный вариант и при необходимости улучшите его нестандартным поиском.</p><p data-lang="en">Find a standard option and improve it with a custom-size search when useful.</p></article>
+        <article class="step"><h3 data-lang="ru">Выбор результата</h3><h3 data-lang="en">Choose the result</h3><p data-lang="ru">Сравните размеры, вместимость, площадь заготовки, стоимость и выгрузите отчёт.</p><p data-lang="en">Compare dimensions, capacity, blank area and cost, then export the report.</p></article>
+      </div>
+    </section>
+
+    <section class="card language-card" id="languages">
+      <div><h2 data-lang="ru">Два языка интерфейса</h2><h2 data-lang="en">Two interface languages</h2><p data-lang="ru">Русская и английская версии используют один и тот же двенадцатишаговый процесс. Переключение языка доступно из меню программы.</p><p data-lang="en">The Russian and English interfaces follow the same twelve-step workflow. Language switching is available from the application menu.</p><div class="language-list"><span>Русский</span><span>English</span></div></div>
+      <p class="note" data-lang="ru">Все ключевые этапы ниже показаны в обеих локализациях. Переключите RU / EN в шапке сайта, чтобы увидеть соответствующие скриншоты.</p>
+      <p class="note" data-lang="en">Every key stage below is shown in both localizations. Use RU / EN in the site header to switch the screenshot set.</p>
+    </section>
+
+    <section class="card" id="screenshots">
+      <h2 data-lang="ru">Интерфейс программы</h2><h2 data-lang="en">Application interface</h2>
+      <p class="section-lead" data-lang="ru">Нажмите на любой скриншот, чтобы открыть его в полном размере.</p><p class="section-lead" data-lang="en">Select any screenshot to open it at full size.</p>
+      <div class="screenshots">
+        <figure class="screenshot" data-lang="ru"><img src="assets/standards-ru.png" alt="Выбор ГОСТов для расчёта"><figcaption><h3>ГОСТы</h3><p>Выбор одного или нескольких стандартов и типоразмеров через справочник.</p></figcaption></figure>
+        <figure class="screenshot" data-lang="ru"><img src="assets/optimization-ru.png" alt="Параметры оптимизации Унификатора"><figcaption><h3>Параметры оптимизации</h3><p>Ограничения стандартного поиска, группировки, поддонов и контейнеров.</p></figcaption></figure>
+        <figure class="screenshot" data-lang="ru"><img src="assets/box-type-ru.png" alt="Выбор типа ящика FEFCO"><figcaption><h3>Тип ящика</h3><p>Выбор конструкции FEFCO с развёрткой и параметрическими формулами.</p></figcaption></figure>
+        <figure class="screenshot" data-lang="ru"><img src="assets/board-ru.png" alt="Настройка картона и гофроагрегата"><figcaption><h3>Картон и гофроагрегат</h3><p>Стоимость материала, профиль гофры, слои, ширина полотна и форматы.</p></figcaption></figure>
+        <figure class="screenshot" data-lang="ru"><img src="assets/standard-search-ru.png" alt="Стандартный поиск общего ящика"><figcaption><h3>Стандартный поиск</h3><p>Подбор стандартного ящика и распределение выбранных изделий.</p></figcaption></figure>
+        <figure class="screenshot" data-lang="ru"><img src="assets/standard-result-ru.png" alt="Стандартный результат Унификатора"><figcaption><h3>Стандартный результат</h3><p>Группы изделий, вместимость, размеры и наглядная схема укладки.</p></figcaption></figure>
+        <figure class="screenshot" data-lang="ru"><img src="assets/random-params-ru.png" alt="Параметры случайного поиска"><figcaption><h3>Параметры случайного поиска</h3><p>Радиусы, число точек, соотношение сторон и транспортная оптимизация.</p></figcaption></figure>
+        <figure class="screenshot" data-lang="ru"><img src="assets/random-search-ru.png" alt="Поиск улучшенного нестандартного ящика"><figcaption><h3>Случайный поиск</h3><p>Поиск улучшенного ящика с отображением критерия и процента улучшения.</p></figcaption></figure>
+        <figure class="screenshot" data-lang="ru"><img src="assets/final-result-ru.png" alt="Финальный результат и сравнение ящиков"><figcaption><h3>Финальный результат</h3><p>Сравнение стандартного и улучшенного вариантов и выбор итогового решения.</p></figcaption></figure>
+
+        <figure class="screenshot" data-lang="en"><img src="assets/standards-en.png" alt="Selecting standards for the calculation"><figcaption><h3>Standards</h3><p>Select one or more standards and dimensional series through the directory.</p></figcaption></figure>
+        <figure class="screenshot" data-lang="en"><img src="assets/optimization-en.png" alt="Corrugated Box Unifier optimization parameters"><figcaption><h3>Optimization parameters</h3><p>Constraints for standard search, grouping, pallets and containers.</p></figcaption></figure>
+        <figure class="screenshot" data-lang="en"><img src="assets/box-type-en.png" alt="Selecting a FEFCO box type"><figcaption><h3>Box type</h3><p>Select a FEFCO construction with a dieline preview and parametric formulas.</p></figcaption></figure>
+        <figure class="screenshot" data-lang="en"><img src="assets/board-en.png" alt="Board and corrugator settings"><figcaption><h3>Board and corrugator</h3><p>Material cost, flute profile, board layers, working width and available formats.</p></figcaption></figure>
+        <figure class="screenshot" data-lang="en"><img src="assets/standard-search-en.png" alt="Searching for a shared standard box"><figcaption><h3>Standard search</h3><p>Find a standard box and assign all selected products to compatible groups.</p></figcaption></figure>
+        <figure class="screenshot" data-lang="en"><img src="assets/standard-result-en.png" alt="Standard result in Corrugated Box Unifier"><figcaption><h3>Standard result</h3><p>Product groups, capacity, dimensions and a clear packing layout.</p></figcaption></figure>
+        <figure class="screenshot" data-lang="en"><img src="assets/random-params-en.png" alt="Random-search parameters"><figcaption><h3>Random-search parameters</h3><p>Radii, number of points, aspect ratio and transport-layout optimization.</p></figcaption></figure>
+        <figure class="screenshot" data-lang="en"><img src="assets/random-search-en.png" alt="Searching for an improved custom box"><figcaption><h3>Random search</h3><p>Explore improved custom dimensions with the criterion and percentage gain visible.</p></figcaption></figure>
+        <figure class="screenshot" data-lang="en"><img src="assets/final-result-en.png" alt="Final box comparison"><figcaption><h3>Final result</h3><p>Compare standard and improved alternatives and select the final solution.</p></figcaption></figure>
+      </div>
+    </section>
+
+    <section class="card" id="contact">
+      <div class="contact-panel">
+        <div><h2 data-lang="ru">Получить Унификатор</h2><h2 data-lang="en">Get Corrugated Box Unifier</h2><p data-lang="ru">Напишите автору, чтобы получить актуальную демоверсию, уточнить стоимость и подобрать вариант лицензии для вашей задачи.</p><p data-lang="en">Contact the author for the current demo, pricing and the license option that fits your workflow.</p></div>
+        <div class="actions"><a class="btn primary" href="mailto:vguberniev@gmail.com?subject=Унификатор гофроящиков">vguberniev@gmail.com</a></div>
+      </div>
+    </section>
+
+    <section class="card" id="other-programs">
+      <h2 data-lang="ru">Связанные программы</h2><h2 data-lang="en">Related software</h2>
+      <div class="related">
+        <article><a href="../Standards/?lang=ru"><img data-lang="ru" src="../standards_banner.png" alt="Справочник ГОСТов"><img data-lang="en" src="../standards_banner_en.png" alt="GOST Standards Guide"></a><div class="related-body"><h3 data-lang="ru">Справочник ГОСТов</h3><h3 data-lang="en">GOST Standards Guide</h3><p data-lang="ru">Стандарты, размеры ящиков и нормативные PDF-документы.</p><p data-lang="en">Standards, box dimensions and regulatory PDF documents.</p><a class="btn secondary" href="../Standards/" data-lang="ru">Открыть</a><a class="btn secondary" href="../Standards/?lang=en" data-lang="en">Open</a></div></article>
+        <article><a href="../OptPacker/?lang=ru"><img data-lang="ru" src="../fasovshik_banner.png" alt="Фасовщик"><img data-lang="en" src="../fasovshik_banner_en.png" alt="Box Packing Optimizer"></a><div class="related-body"><h3 data-lang="ru">Фасовщик</h3><h3 data-lang="en">Box Packing Optimizer</h3><p data-lang="ru">Подбор оптимальной схемы размещения изделий в ящике.</p><p data-lang="en">Optimal placement of products inside a selected box.</p><a class="btn secondary" href="../OptPacker/" data-lang="ru">Открыть</a><a class="btn secondary" href="../OptPacker/?lang=en" data-lang="en">Open</a></div></article>
+        <article><a href="../"><img data-lang="ru" src="../catalog_banner.png" alt="Каталог PackTuning"><img data-lang="en" src="../catalog_banner_en.png" alt="PackTuning catalog"></a><div class="related-body"><h3 data-lang="ru">Каталог программ</h3><h3 data-lang="en">Software catalog</h3><p data-lang="ru">Все решения PackTuning для упаковки, производства и логистики.</p><p data-lang="en">All PackTuning solutions for packaging, production and logistics.</p><a class="btn secondary" href="../" data-lang="ru">В каталог</a><a class="btn secondary" href="../?lang=en" data-lang="en">Open catalog</a></div></article>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="container">© PackTuning Software — Viktor Guberniev · <a href="mailto:vguberniev@gmail.com">vguberniev@gmail.com</a> · <a href="https://www.instagram.com/packtuning/" target="_blank" rel="noopener noreferrer">Instagram: @packtuning</a></div></footer>
+
+  <div class="viewer" id="viewer" aria-hidden="true"><div class="viewer-inner" role="dialog" aria-modal="true" aria-labelledby="viewerCaption"><button class="viewer-close" id="viewerClose" type="button" aria-label="Close full-size image">&times;</button><img id="viewerImage" src="" alt=""><p id="viewerCaption"></p></div></div>
+  <script>
+    (() => {
+      const root=document.documentElement, viewer=document.getElementById('viewer'), viewerImage=document.getElementById('viewerImage'), viewerCaption=document.getElementById('viewerCaption'), viewerClose=document.getElementById('viewerClose'); let trigger=null;
+      function automaticTheme(){const hour=new Date().getHours();root.dataset.theme=hour>=6&&hour<18?'day':'night'}
+      function setLang(lang){const selected=lang==='en'?'en':'ru';root.lang=selected;document.title=selected==='en'?'Corrugated Box Unifier — one box for multiple products':'Унификатор гофроящиков — один ящик для группы изделий';document.querySelectorAll('[data-set-lang]').forEach(button=>button.classList.toggle('active',button.dataset.setLang===selected));const url=new URL(location.href);if(selected==='en')url.searchParams.set('lang','en');else url.searchParams.delete('lang');history.replaceState(null,'',url);}
+      function openViewer(image){trigger=image;viewerImage.src=image.currentSrc||image.src;viewerImage.alt=image.alt||'';viewerCaption.textContent=image.closest('figure')?.querySelector('h3')?.textContent||image.alt||'';viewer.classList.add('open');viewer.setAttribute('aria-hidden','false');document.body.classList.add('viewer-open');viewerClose.focus()}
+      function closeViewer(){viewer.classList.remove('open');viewer.setAttribute('aria-hidden','true');document.body.classList.remove('viewer-open');viewerImage.removeAttribute('src');trigger?.focus()}
+      document.querySelectorAll('[data-set-lang]').forEach(button=>button.addEventListener('click',()=>setLang(button.dataset.setLang)));
+      document.querySelectorAll('.screenshot img').forEach(image=>{image.tabIndex=0;image.addEventListener('click',()=>openViewer(image));image.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();openViewer(image)}})});
+      viewerClose.addEventListener('click',closeViewer);viewer.addEventListener('click',event=>{if(event.target===viewer)closeViewer()});document.addEventListener('keydown',event=>{if(event.key==='Escape'&&viewer.classList.contains('open'))closeViewer()});
+      automaticTheme();setInterval(automaticTheme,60000);setLang(new URLSearchParams(location.search).get('lang')==='en'||location.hash==='#en'?'en':'ru');
+    })();
+  </script>
+  <script src="/assets/theme-switcher.js?v=20260811-2"></script>
+</body>
+</html>
