@@ -273,6 +273,69 @@ html[data-theme="day"] .lang{background:#fff}
   height:clamp(150px, 21vw, 330px);
   object-fit:cover;
 }
+.programGarland{
+  border-bottom:1px solid var(--line);
+  background:linear-gradient(180deg,var(--card),var(--cardSoft));
+  box-shadow:0 10px 28px rgba(26,52,92,.06);
+}
+.programGarlandTrack{
+  display:flex;
+  align-items:stretch;
+  gap:6px;
+  width:100%;
+  padding:12px clamp(12px,2vw,32px) 14px;
+  overflow-x:auto;
+  overscroll-behavior-inline:contain;
+  scroll-snap-type:inline proximity;
+  scrollbar-width:thin;
+  scrollbar-color:var(--accent) transparent;
+}
+.programGarlandItem{
+  flex:1 0 86px;
+  min-width:86px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+  gap:8px;
+  min-height:108px;
+  padding:9px 6px;
+  border:1px solid transparent;
+  border-radius:14px;
+  color:var(--text);
+  text-align:center;
+  text-decoration:none;
+  scroll-snap-align:start;
+  transition:transform .18s ease,border-color .18s ease,background-color .18s ease,box-shadow .18s ease;
+}
+.programGarlandItem:hover{
+  transform:translateY(-2px);
+  border-color:var(--line);
+  background:var(--card);
+  box-shadow:0 10px 24px rgba(26,52,92,.1);
+}
+.programGarlandItem:focus-visible{
+  outline:3px solid var(--accent);
+  outline-offset:2px;
+}
+.programGarlandItem img{
+  display:block;
+  width:52px;
+  height:52px;
+  border-radius:12px;
+  object-fit:cover;
+  box-shadow:0 7px 16px rgba(8,36,78,.22);
+}
+.programGarlandItem span{
+  font-size:13px;
+  font-weight:800;
+  line-height:1.18;
+  text-wrap:balance;
+}
+@media(max-width:640px){
+  .programGarlandTrack{padding:10px 10px 12px}
+  .programGarlandItem{flex-basis:94px;min-height:106px}
+}
 .hero{
   padding:38px 0 20px;
 }
@@ -673,6 +736,10 @@ footer{
   <img id="catalogBanner" src="catalog-ru.jpg" alt="Каталог программ PackTuning Software">
 </div>
 
+<nav class="programGarland" id="programGarland" aria-label="Страницы программ PackTuning">
+  <div class="programGarlandTrack" id="programGarlandItems"></div>
+</nav>
+
 <main id="top">
 
   <!-- HERO -->
@@ -935,8 +1002,7 @@ footer{
 <footer>
   <div class="container">
     © PackTuning Software — Viktor Guberniev<br>
-    Contact: <a href="mailto:vguberniev@gmail.com">vguberniev@gmail.com</a> ·
-<a href="https://www.instagram.com/packtuning/" target="_blank" rel="noopener noreferrer" aria-label="Открыть Instagram PackTuning" style="position:fixed;right:16px;bottom:16px;z-index:9999;display:inline-flex;align-items:center;padding:10px 16px;border-radius:999px;background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);color:#fff;text-decoration:none;font-weight:700;box-shadow:0 8px 24px rgba(0,0,0,.28)">Instagram @packtuning</a>
+    Contact: <a href="mailto:vguberniev@gmail.com">vguberniev@gmail.com</a>
   </div>
 </footer>
 
@@ -1742,6 +1808,8 @@ footer{
   const ui = {
     tagline: document.getElementById("tagline"),
     catalogBanner: document.getElementById("catalogBanner"),
+    programGarland: document.getElementById("programGarland"),
+    programGarlandItems: document.getElementById("programGarlandItems"),
     heroTitle: document.getElementById("heroTitle"),
     heroText: document.getElementById("heroText"),
     btnToIntegration: document.getElementById("btnToIntegration"),
@@ -1866,6 +1934,60 @@ footer{
   function localizedLink(value, lang){
     if (!value || typeof value === "string") return value || "#";
     return value[lang] || value.ru || value.en || "#";
+  }
+
+  const GARLAND_PRODUCT_IDS = [
+    "optcutting",
+    "optpacker",
+    "gost914290",
+    "boxpalletizer",
+    "truckloader",
+    "boxpricecalculator",
+    "standards",
+    "platepalletizer",
+    "dbsearch",
+    "licman",
+    "pojas",
+    "bottleoptimizer",
+    "gofrotechcard",
+    "boxtypes",
+    "unificator"
+  ];
+
+  const GARLAND_ICON_OVERRIDES = {
+    bottleoptimizer: "assets/icons/bottleoptimizer.ico"
+  };
+
+  function renderProgramGarland(lang){
+    ui.programGarland.setAttribute(
+      "aria-label",
+      lang === EN ? "PackTuning product pages" : "Страницы программ PackTuning"
+    );
+    ui.programGarlandItems.replaceChildren();
+
+    for (const id of GARLAND_PRODUCT_IDS){
+      const product = PRODUCTS.find((item) => item.id === id);
+      if (!product) continue;
+
+      const link = document.createElement("a");
+      link.className = "programGarlandItem";
+      link.href = localizedLink(product.links.page, lang);
+      link.target = "_blank";
+      link.rel = "noopener";
+      link.title = product.titles[lang];
+
+      const icon = document.createElement("img");
+      icon.src = GARLAND_ICON_OVERRIDES[id] || product.icon;
+      icon.alt = "";
+      icon.width = 52;
+      icon.height = 52;
+
+      const label = document.createElement("span");
+      label.textContent = product.titles[lang];
+
+      link.append(icon, label);
+      ui.programGarlandItems.append(link);
+    }
   }
 
   function renderCards(lang){
@@ -2042,6 +2164,7 @@ if (p.cover) {
 
   function showLang(lang){
     setMetaForLang(lang);
+    renderProgramGarland(lang);
     renderCards(lang);
 
     try { localStorage.setItem("lang", lang); } catch(e) {}
