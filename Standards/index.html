@@ -251,6 +251,7 @@
     document.getElementById('ru').onclick=()=>setLang('ru');document.getElementById('en').onclick=()=>setLang('en');
     const viewer=document.getElementById('viewer'),viewImg=viewer.querySelector('img');document.querySelectorAll('.shot img').forEach(img=>{const open=()=>{viewImg.src=img.src;viewImg.alt=img.alt;viewer.showModal()};img.onclick=open;img.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open()}}});viewer.querySelector('.close').onclick=()=>viewer.close();viewer.onclick=e=>{if(e.target===viewer) viewer.close()};addEventListener('keydown',e=>{if(e.key==='Escape'&&viewer.open)viewer.close()});
   </script>
+  <script src="https://governorv.github.io/assets/program-garland.js?v=20260913-1"></script>
   <script src="../assets/theme-switcher.js?v=20260823-standards"></script>
 </body>
 </html>
