@@ -291,6 +291,7 @@ html[data-theme="day"] .lang{background:#fff}
   scrollbar-color:var(--accent) transparent;
 }
 .programGarlandItem{
+  position:relative;
   flex:1 0 86px;
   min-width:86px;
   display:flex;
@@ -306,13 +307,8 @@ html[data-theme="day"] .lang{background:#fff}
   text-align:center;
   text-decoration:none;
   scroll-snap-align:start;
+  transform-origin:center;
   transition:transform .18s ease,border-color .18s ease,background-color .18s ease,box-shadow .18s ease;
-}
-.programGarlandItem:hover{
-  transform:translateY(-2px);
-  border-color:var(--line);
-  background:var(--card);
-  box-shadow:0 10px 24px rgba(26,52,92,.1);
 }
 .programGarlandItem:focus-visible{
   outline:3px solid var(--accent);
@@ -325,6 +321,7 @@ html[data-theme="day"] .lang{background:#fff}
   border-radius:12px;
   object-fit:cover;
   box-shadow:0 7px 16px rgba(8,36,78,.22);
+  transition:transform .18s ease,box-shadow .18s ease;
 }
 .programGarlandItem span{
   max-width:100%;
@@ -333,6 +330,23 @@ html[data-theme="day"] .lang{background:#fff}
   line-height:1.24;
   overflow-wrap:anywhere;
   text-wrap:balance;
+}
+@media(hover:hover) and (pointer:fine){
+  .programGarlandItem:hover{
+    z-index:2;
+    transform:translateY(-4px) scale(1.06);
+    border-color:var(--line);
+    background:var(--card);
+    box-shadow:0 18px 38px rgba(8,36,78,.22),0 4px 12px rgba(47,208,161,.16);
+  }
+  .programGarlandItem:hover img{
+    transform:scale(1.08);
+    box-shadow:0 12px 26px rgba(8,36,78,.32);
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .programGarlandItem,
+  .programGarlandItem img{transition:none}
 }
 @media(max-width:640px){
   .programGarlandTrack{padding:10px 10px 12px}
