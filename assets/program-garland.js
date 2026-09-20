@@ -204,6 +204,10 @@
     track.replaceChildren();
 
     const order = [currentId, ...RELEVANCE[currentId]];
+    if (currentId !== "packsizer") {
+      order.splice(order.indexOf("packsizer"), 1);
+      order.splice(order.indexOf("bottleoptimizer"), 0, "packsizer");
+    }
     for (const id of order) {
       const product = PRODUCTS[id];
       if (!product) continue;
