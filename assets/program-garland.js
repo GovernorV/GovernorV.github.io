@@ -6,6 +6,11 @@
   const GARLAND_ID = "pt-program-garland";
 
   const PRODUCTS = {
+    packsizer: {
+      title: { ru: "Развесчик", en: "PackSizer" },
+      icon: "/assets/icons/packsize.png",
+      url: { ru: "/PackSizer/", en: "/PackSizer/en.html" }
+    },
     optcutting: {
       title: { ru: "Раскройщик", en: "OptCutting" },
       icon: "/assets/icons/optcutting.png",
@@ -101,7 +106,13 @@
     unificator: ["standards", "gost914290", "boxtypes", "optpacker", "boxpricecalculator", "boxpalletizer", "truckloader", "optcutting", "gofrotechcard", "bottleoptimizer", "pojas", "platepalletizer", "dbsearch", "licman"]
   };
 
+  // Include every registered program once, preserving the relevance order.
+  for (const id of Object.keys(PRODUCTS)) {
+    RELEVANCE[id] = [...new Set([...(RELEVANCE[id] || []), ...Object.keys(PRODUCTS)])].filter(other => other !== id);
+  }
+
   const ROUTES = {
+    packsizer: "packsizer",
     optcutting: "optcutting",
     optpacker: "optpacker",
     gost: "gost914290",
@@ -120,6 +131,7 @@
   };
 
   const PLACEMENT = {
+    packsizer: { selector: ".hero-banner", last: false },
     optcutting: { selector: "section.hero", last: false },
     optpacker: { selector: ".hero-banner", last: true },
     gost914290: { selector: ".top-banner", last: false },

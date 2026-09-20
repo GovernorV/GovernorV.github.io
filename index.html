@@ -1039,6 +1039,58 @@ footer{
   // ---- EDIT HERE to add more programs later ----
   const PRODUCTS = [
     {
+      "id": "packsizer",
+      "glyph": "PS",
+      "icon": "assets/icons/packsize.png",
+      "cover": {
+        "ru": "packsizer_banner.png",
+        "en": "packsizer_banner_en.png"
+      },
+      "gradient": [
+        "#0755e9",
+        "#26baff"
+      ],
+      "titles": {
+        "ru": "Развесчик",
+        "en": "PackSizer"
+      },
+      "subtitles": {
+        "ru": "Оптимизация упаковки сыпучих продуктов",
+        "en": "Bulk-product packaging optimization"
+      },
+      "descriptions": {
+        "ru": "Подбирает оптимальные размеры мягких пачек, унифицирует гофроящики для ассортимента, рассчитывает раскладку пачек, размещение на паллете и стоимость упаковки. Сравнивает варианты и формирует PDF-отчёты.",
+        "en": "Selects optimal soft-pack dimensions, unifies box sizes across a product range, calculates pack arrangements, pallet loading and packaging costs. Compares alternatives and generates PDF reports."
+      },
+      "pricing": {
+        "ru": {
+          "main": "39 000 ₽ (покупка)",
+          "lines": [
+            "Бессрочная лицензия",
+            "Аренда на 1 год: 14 900 ₽",
+            "Аренда на 1 месяц: 1 490 ₽",
+            "10 языков интерфейса"
+          ]
+        },
+        "en": {
+          "main": "€390 (one-time purchase)",
+          "lines": [
+            "Perpetual license",
+            "Annual rental: €149",
+            "Monthly rental: €14.90",
+            "10 interface languages"
+          ]
+        }
+      },
+      "links": {
+        "demo": "https://governorv.github.io/PackSizer/downloads/packsize-demo.zip",
+        "page": {
+          "ru": "https://governorv.github.io/PackSizer/",
+          "en": "https://governorv.github.io/PackSizer/en.html"
+        }
+      }
+    },
+    {
       id: "pojas",
       glyph: "P",
       icon: "assets/icons/pojas.png",
@@ -1953,6 +2005,7 @@ footer{
   }
 
   const GARLAND_PRODUCT_IDS = [
+    "packsizer",
     "optcutting",
     "optpacker",
     "gost914290",
