@@ -376,6 +376,10 @@
       background: linear-gradient(180deg, var(--panel2), var(--panel));
       box-shadow: var(--shadow);
     }
+    .deployment-list { list-style: none; margin: 14px 0 24px; padding: 0; display: grid; gap: 12px; }
+    .deployment-item { display: flex; align-items: center; gap: 14px; min-height: 48px; }
+    .deployment-logo { width: 72px; height: 42px; flex: 0 0 72px; object-fit: contain; border-radius: 8px; background: #fff; border: 1px solid var(--line); padding: 4px; }
+    .deployment-item span { line-height: 1.45; }
     .publication-card a { color: var(--cyan); font-weight: 900; }
     .publication-list {
       margin: 0;
@@ -916,10 +920,10 @@ html[data-theme="day"] .smart-related-card,html.day-theme .smart-related-card{ba
         <article class="publication-card">
           <div class="lang-ru">
             <p>Программа «ПОЯС» установлена на таких предприятиях, как:</p>
-            <ul class="publication-list">
+            <ul class="publication-list deployment-list">
               <li>ГОТЭК (г. Железногорск, Курской обл.)</li>
-              <li>ККТК (г. Киев)</li>
-              <li>Фабрика «СОЮЗ» (г. Москва)</li>
+              <li class="deployment-item"><img class="deployment-logo" src="assets/deployment/kktk.png" alt="Логотип Киевского картонно-паперового комбината"><span>ККТК (г. Киев)</span></li>
+              <li class="deployment-item"><img class="deployment-logo" src="assets/deployment/soyuz-factory.png" alt="Логотип Фабрики «СОЮЗ»"><span>Фабрика «СОЮЗ» (г. Москва)</span></li>
               <li>Картонатара (г. Майкоп, Респ. Адыгея)</li>
               <li>И ряде других предприятий России и СНГ.</li>
             </ul>
@@ -928,10 +932,10 @@ html[data-theme="day"] .smart-related-card,html.day-theme .smart-related-card{ba
           </div>
           <div class="lang-en">
             <p>POJAS has been deployed at companies including:</p>
-            <ul class="publication-list">
+            <ul class="publication-list deployment-list">
               <li>GOTEK (Zheleznogorsk, Kursk Region)</li>
-              <li>KKTK (Kyiv)</li>
-              <li>SOYUZ Factory (Moscow)</li>
+              <li class="deployment-item"><img class="deployment-logo" src="assets/deployment/kktk.png" alt="Kyiv Cardboard and Paper Mill logo"><span>KKTK (Kyiv)</span></li>
+              <li class="deployment-item"><img class="deployment-logo" src="assets/deployment/soyuz-factory.png" alt="SOYUZ Factory logo"><span>SOYUZ Factory (Moscow)</span></li>
               <li>Kartonatara (Maykop, Republic of Adygea)</li>
               <li>And other companies in Russia and the CIS.</li>
             </ul>
