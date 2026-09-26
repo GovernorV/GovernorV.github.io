@@ -170,6 +170,17 @@ body{
 a{color:inherit}
 .container{max-width:1200px;margin:auto;padding:0 20px}
 section{padding:44px 0}
+.deployment-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.deployment-card{min-width:0;padding:14px;border:1px solid var(--line);border-radius:16px;background:var(--card);box-shadow:var(--shadow)}
+.deployment-flow{display:grid;grid-template-columns:minmax(0,1fr) 22px minmax(0,1fr);align-items:center;gap:6px;text-align:center}
+.deployment-company,.deployment-program{min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px}
+.deployment-company img{width:100%;max-width:132px;height:54px;object-fit:contain;border-radius:8px;background:#fff;padding:3px}
+.deployment-program img{width:50px;height:50px;object-fit:contain;border-radius:12px;background:#fff;padding:3px}
+.deployment-arrow{color:var(--accent);font-size:22px;font-weight:900;line-height:1}
+.deployment-name{font-size:13px;font-weight:700;line-height:1.25;overflow-wrap:anywhere;color:var(--text)}
+.deployment-program-name{font-size:12px;font-weight:600;line-height:1.25;color:var(--muted)}
+@media(max-width:860px){.deployment-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.deployment-grid{grid-template-columns:1fr}.deployment-card{padding:16px}.deployment-company img{max-width:160px}}
 h1,h2,h3{margin:0 0 12px}
 p{margin:0 0 12px;color:var(--muted)}
 .small{font-size:13px;color:var(--muted)}
@@ -773,6 +784,7 @@ footer{
 
         <a class="btn primary" href="#integration" id="btnToIntegration">Интеграция PRO</a>
         <a class="btn secondary" href="#products" id="btnToProducts">Перейти к программам</a>
+        <a class="btn secondary" href="#deployments" id="btnToDeployments">Внедрение</a>
         <a class="btn secondary" href="mailto:vguberniev@gmail.com" id="btnContactTop">Написать: vguberniev@gmail.com</a>
 
         <div class="kpi">
@@ -903,6 +915,35 @@ footer{
 
         </p>
         <a class="btn secondary" href="mailto:vguberniev@gmail.com" id="btnContactBottom">vguberniev@gmail.com</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="deployments">
+    <div class="container">
+      <div class="lang-ru">
+        <h2>Внедрение</h2>
+        <p>Компании, где используются программы PackTuning.</p>
+      </div>
+      <div class="lang-en">
+        <h2>Deployments</h2>
+        <p>Companies using PackTuning software.</p>
+      </div>
+      <div class="deployment-grid">
+        <article class="deployment-card"><div class="deployment-flow"><div class="deployment-company"><img src="assets/deployment/ab-inbev-efes.png" alt="Логотип «Напитки Вместе»" loading="lazy"><span class="deployment-name">АБ ИнБев Эфес (Напитки Вместе)</span></div><span class="deployment-arrow" aria-hidden="true">←</span><div class="deployment-program"><img src="assets/icons/palletizer.png" alt="" loading="lazy"><span class="deployment-program-name">Паллетировщик</span></div></div></article>
+        <article class="deployment-card"><div class="deployment-flow"><div class="deployment-company"><img src="assets/deployment/paksistem.png" alt="Логотип Паксистем" loading="lazy"><span class="deployment-name">Паксистем</span></div><span class="deployment-arrow" aria-hidden="true">←</span><div class="deployment-program"><img src="assets/icons/palletizer.png" alt="" loading="lazy"><span class="deployment-program-name">Паллетировщик</span></div></div></article>
+        <article class="deployment-card"><div class="deployment-flow"><div class="deployment-company"><img src="assets/deployment/stellar-group.png" alt="Логотип STELLAR GROUP" loading="lazy"><span class="deployment-name">STELLAR GROUP</span></div><span class="deployment-arrow" aria-hidden="true">←</span><div class="deployment-program"><img src="assets/icons/palletizer.png" alt="" loading="lazy"><span class="deployment-program-name">Паллетировщик</span></div></div></article>
+        <article class="deployment-card"><div class="deployment-flow"><div class="deployment-company"><img src="assets/deployment/glazovpack.png" alt="Логотип GLAZOVPACK" loading="lazy"><span class="deployment-name">GLAZOVPACK</span></div><span class="deployment-arrow" aria-hidden="true">←</span><div class="deployment-program"><img src="assets/icons/palletizer.png" alt="" loading="lazy"><span class="deployment-program-name">Паллетировщик</span></div></div></article>
+        <article class="deployment-card"><div class="deployment-flow"><div class="deployment-company"><img src="assets/deployment/brands-43.png" alt="Логотип BRANDS 43" loading="lazy"><span class="deployment-name">BRANDS 43</span></div><span class="deployment-arrow" aria-hidden="true">←</span><div class="deployment-program"><img src="assets/icons/palletizer.png" alt="" loading="lazy"><span class="deployment-program-name">Паллетировщик</span></div></div></article>
+        <article class="deployment-card"><div class="deployment-flow"><div class="deployment-company"><img src="assets/deployment/chelyabinskiy-karton.png" alt="Логотип «Челябинский картон»" loading="lazy"><span class="deployment-name">Челябинский картон</span></div><span class="deployment-arrow" aria-hidden="true">←</span><div class="deployment-program"><img src="assets/icons/boxprice.png" alt="" loading="lazy"><span class="deployment-program-name">Калькулятор гофроящиков</span></div></div></article>
+        <article class="deployment-card"><div class="deployment-flow"><div class="deployment-company"><img src="assets/deployment/gotek.png" alt="Логотип группы предприятий «Готэк»" loading="lazy"><span class="deployment-name">ГОТЭК</span></div><span class="deployment-arrow" aria-hidden="true">←</span><div class="deployment-program"><img src="assets/icons/pojas-app.png" alt="" loading="lazy"><span class="deployment-program-name">ПОЯС</span></div></div></article>
+        <article class="deployment-card"><div class="deployment-flow"><div class="deployment-company"><img src="assets/deployment/kktk.png" alt="Логотип ККТК" loading="lazy"><span class="deployment-name">ККТК</span></div><span class="deployment-arrow" aria-hidden="true">←</span><div class="deployment-program"><img src="assets/icons/pojas-app.png" alt="" loading="lazy"><span class="deployment-program-name">ПОЯС</span></div></div></article>
+        <article class="deployment-card"><div class="deployment-flow"><div class="deployment-company"><img src="assets/deployment/soyuz-factory.png" alt="Логотип Фабрики «СОЮЗ»" loading="lazy"><span class="deployment-name">Фабрика «СОЮЗ»</span></div><span class="deployment-arrow" aria-hidden="true">←</span><div class="deployment-program"><img src="assets/icons/pojas-app.png" alt="" loading="lazy"><span class="deployment-program-name">ПОЯС</span></div></div></article>
+        <article class="deployment-card"><div class="deployment-flow"><div class="deployment-company"><img src="assets/deployment/kartontara.jpg" alt="Логотип SFT Group — Картонтара" loading="lazy"><span class="deployment-name">Картонтара</span></div><span class="deployment-arrow" aria-hidden="true">←</span><div class="deployment-program"><img src="assets/icons/pojas-app.png" alt="" loading="lazy"><span class="deployment-program-name">ПОЯС</span></div></div></article>
+        <article class="deployment-card"><div class="deployment-flow"><div class="deployment-company"><img src="assets/deployment/svoboda.png" alt="Логотип АО «Свобода»" loading="lazy"><span class="deployment-name">Фабрика «Свобода»</span></div><span class="deployment-arrow" aria-hidden="true">←</span><div class="deployment-program"><img src="assets/icons/pojas-app.png" alt="" loading="lazy"><span class="deployment-program-name">ПОЯС</span></div></div></article>
+        <article class="deployment-card"><div class="deployment-flow"><div class="deployment-company"><img src="assets/deployment/nevskaya-kosmetika.png" alt="Логотип «Невская косметика»" loading="lazy"><span class="deployment-name">Невская косметика</span></div><span class="deployment-arrow" aria-hidden="true">←</span><div class="deployment-program"><img src="assets/icons/pojas-app.png" alt="" loading="lazy"><span class="deployment-program-name">ПОЯС</span></div></div></article>
+        <article class="deployment-card"><div class="deployment-flow"><div class="deployment-company"><img src="assets/deployment/ostankino.png" alt="Логотип Останкинского молочного комбината" loading="lazy"><span class="deployment-name">Останкинский молочный комбинат</span></div><span class="deployment-arrow" aria-hidden="true">←</span><div class="deployment-program"><img src="assets/icons/pojas-app.png" alt="" loading="lazy"><span class="deployment-program-name">ПОЯС</span></div></div></article>
+        <article class="deployment-card"><div class="deployment-flow"><div class="deployment-company"><img src="assets/deployment/unilever.png" alt="Логотип Unilever" loading="lazy"><span class="deployment-name">Unilever</span></div><span class="deployment-arrow" aria-hidden="true">←</span><div class="deployment-program"><img src="assets/icons/pojas-app.png" alt="" loading="lazy"><span class="deployment-program-name">ПОЯС</span></div></div></article>
       </div>
     </div>
   </section>
@@ -1886,6 +1927,7 @@ footer{
     heroText: document.getElementById("heroText"),
     btnToIntegration: document.getElementById("btnToIntegration"),
     btnToProducts: document.getElementById("btnToProducts"),
+    btnToDeployments: document.getElementById("btnToDeployments"),
     btnContactTop: document.getElementById("btnContactTop"),
     productsTitle: document.getElementById("productsTitle"),
     productsLead: document.getElementById("productsLead"),
@@ -1916,6 +1958,7 @@ footer{
       heroText: "Программы для проектирования конструкций гофроящиков, комплексных расчётов упаковки, оптимизации укладки изделий в ящики, проектирования бутылок, раскроя гофрокартона, поиска по базам данных, учёта лицензий, оптимизации укладки ящиков на поддоны, загрузки поддонов в транспорт, паллетизации листовых материалов, создания техкарт, расчёта себестоимости и прочности гофроящиков, работы со стандартами и размерами упаковки.",
       btnToIntegration: "Интеграция PRO",
       btnToProducts: "Перейти к программам",
+      btnToDeployments: "Внедрение",
       btnContactTop: "Написать: vguberniev@gmail.com",
       productsTitle: "Программы",
       productsLead: "Нажми “Страница” для подробностей и скриншотов, “Демо” — для скачивания пробной версии.",
@@ -1944,6 +1987,7 @@ footer{
       heroText: "Software for designing corrugated box structures, integrated packaging calculations, optimizing product placement in boxes, bottle design, corrugated board cutting, database search, license tracking, optimizing box stacking on pallets, loading pallets into vehicles, palletizing sheet materials, creating technical cards, calculating box cost and strength, and working with packaging standards and dimensions.",
       btnToIntegration: "PRO integration",
       btnToProducts: "View products",
+      btnToDeployments: "Deployments",
       btnContactTop: "Email: vguberniev@gmail.com",
       productsTitle: "Products",
       productsLead: "Click “Page” for full details and screenshots, “Demo” to download an evaluation version.",
@@ -1975,6 +2019,7 @@ footer{
     ui.heroText.textContent = TEXT[lang].heroText;
     ui.btnToIntegration.textContent = TEXT[lang].btnToIntegration;
     ui.btnToProducts.textContent = TEXT[lang].btnToProducts;
+    ui.btnToDeployments.textContent = TEXT[lang].btnToDeployments;
     ui.btnContactTop.textContent = TEXT[lang].btnContactTop;
     ui.catalogBanner.src = lang === EN ? "catalog-en.jpg" : "catalog-ru.jpg";
     ui.catalogBanner.alt = lang === EN ? "PackTuning Software catalog banner" : "Каталог программ PackTuning Software";
