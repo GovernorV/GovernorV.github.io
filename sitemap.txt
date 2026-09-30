@@ -14,3 +14,5 @@ https://governorv.github.io/gost/
 https://governorv.github.io/truckloader-site/
 https://governorv.github.io/Standards/
 https://governorv.github.io/BoxTypes/
+
+https://governorv.github.io/limitload/

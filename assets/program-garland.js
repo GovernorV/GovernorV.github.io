@@ -6,6 +6,7 @@
   const GARLAND_ID = "pt-program-garland";
 
   const PRODUCTS = {
+    limitload: { title: {ru: "Предельная нагрузка", en: "Ultimate Load"}, icon: "/limitload/assets/app-icon.png", url: {ru: "/limitload/", en: "/limitload/?lang=en"} },
     packsizer: {
       title: { ru: "Развесчик", en: "PackSizer" },
       icon: "/assets/icons/packsize.png",
@@ -89,6 +90,7 @@
   };
 
   const RELEVANCE = {
+    limitload: ["gost914290", "boxpalletizer", "standards", "gofrotechcard", "boxpricecalculator"],
     optcutting: ["gofrotechcard", "boxpricecalculator", "standards", "gost914290", "boxtypes", "optpacker", "boxpalletizer", "pojas", "unificator", "truckloader", "platepalletizer", "bottleoptimizer", "dbsearch", "licman"],
     optpacker: ["unificator", "boxpalletizer", "standards", "gost914290", "boxpricecalculator", "optcutting", "gofrotechcard", "bottleoptimizer", "truckloader", "pojas", "boxtypes", "platepalletizer", "dbsearch", "licman"],
     gost914290: ["standards", "boxpricecalculator", "unificator", "optcutting", "gofrotechcard", "boxtypes", "optpacker", "boxpalletizer", "pojas", "bottleoptimizer", "truckloader", "platepalletizer", "dbsearch", "licman"],
@@ -112,6 +114,7 @@
   }
 
   const ROUTES = {
+    limitload: "limitload",
     packsizer: "packsizer",
     optcutting: "optcutting",
     optpacker: "optpacker",
@@ -131,6 +134,7 @@
   };
 
   const PLACEMENT = {
+    limitload: { selector: ".hero-banner", last: true },
     packsizer: { selector: ".hero-banner", last: false },
     optcutting: { selector: "section.hero", last: false },
     optpacker: { selector: ".hero-banner", last: true },
