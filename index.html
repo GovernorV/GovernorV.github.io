@@ -367,6 +367,7 @@ html[data-theme="day"] .lang{background:#fff}
   padding:38px 0 20px;
 }
 .heroGrid{
+  align-items:start;
   display:grid;
   grid-template-columns: 1.3fr .7fr;
   gap:18px;
@@ -382,6 +383,9 @@ html[data-theme="day"] .lang{background:#fff}
   box-shadow:var(--shadow);
 }
 .heroNews{
+  overflow-y:auto;
+  scrollbar-gutter:stable;
+  overscroll-behavior-y:contain;
   display:flex;
   flex-direction:column;
   min-width:0;
@@ -2524,6 +2528,17 @@ if (p.cover) {
   })();
   </script>
 <script src="/assets/theme-switcher.js?v=20260811-2"></script>
+<script>
+(() => {
+  const summary = document.querySelector(".heroGrid > .card:first-child");
+  const news = document.querySelector(".heroNews");
+  if (!summary || !news) return;
+  const syncHeight = () => { news.style.height = summary.getBoundingClientRect().height + "px"; };
+  new ResizeObserver(syncHeight).observe(summary);
+  window.addEventListener("load", syncHeight);
+  syncHeight();
+})();
+</script>
 </body>
 </html>
 
