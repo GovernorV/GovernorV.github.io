@@ -6,7 +6,7 @@
   const GARLAND_ID = "pt-program-garland";
 
   const PRODUCTS = {
-    composer: { title: {ru: "Композитор", en: "Composer"}, icon: "/composer/assets/app-icon.png", url: {ru: "/composer/", en: "/composer/?lang=en"} },
+    composer: { title: {ru: "Оптимальная композиция гофры", en: "Optimal Corrugated Board Composition"}, icon: "/composer/assets/app-icon.png", url: {ru: "/composer/", en: "/composer/?lang=en"} },
     limitload: { title: {ru: "Предельная нагрузка", en: "Ultimate Load"}, icon: "/limitload/assets/app-icon.png", url: {ru: "/limitload/", en: "/limitload/?lang=en"} },
     packsizer: {
       title: { ru: "Развесчик", en: "PackSizer" },
@@ -215,6 +215,8 @@
       order.splice(order.indexOf("packsizer"), 1);
       order.splice(order.indexOf("bottleoptimizer"), 0, "packsizer");
     }
+    order.splice(order.indexOf("composer"), 1);
+    order.splice(order.indexOf("optpacker") + 1, 0, "composer");
     for (const id of order) {
       const product = PRODUCTS[id];
       if (!product) continue;
