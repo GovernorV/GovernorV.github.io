@@ -2211,7 +2211,7 @@ footer{
       link.href = localizedLink(product.links.page, lang);
       link.target = "_blank";
       link.rel = "noopener";
-      link.title = product.titles[lang];
+      link.title = product.id === "composer" ? (lang === "ru" ? "Композитор" : "Composer") : product.titles[lang];
 
       const icon = document.createElement("img");
       icon.src = GARLAND_ICON_OVERRIDES[id] || product.icon;
@@ -2220,7 +2220,7 @@ footer{
       icon.height = 52;
 
       const label = document.createElement("span");
-      label.textContent = product.titles[lang];
+      label.textContent = product.id === "composer" ? (lang === "ru" ? "Композитор" : "Composer") : product.titles[lang];
 
       link.append(icon, label);
       ui.programGarlandItems.append(link);

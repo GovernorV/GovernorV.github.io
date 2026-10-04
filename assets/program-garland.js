@@ -6,7 +6,7 @@
   const GARLAND_ID = "pt-program-garland";
 
   const PRODUCTS = {
-    composer: { title: {ru: "Оптимальная композиция гофры", en: "Optimal Corrugated Board Composition"}, icon: "/composer/assets/app-icon.png", url: {ru: "/composer/", en: "/composer/?lang=en"} },
+    composer: { title: {ru: "Композитор", en: "Composer"}, icon: "/composer/assets/app-icon.png", url: {ru: "/composer/", en: "/composer/?lang=en"} },
     limitload: { title: {ru: "Предельная нагрузка", en: "Ultimate Load"}, icon: "/limitload/assets/app-icon.png", url: {ru: "/limitload/", en: "/limitload/?lang=en"} },
     packsizer: {
       title: { ru: "Развесчик", en: "PackSizer" },
