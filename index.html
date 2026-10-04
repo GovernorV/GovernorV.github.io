@@ -2230,7 +2230,10 @@ footer{
   function renderCards(lang){
     ui.cards.innerHTML = "";
 
-    for (const p of PRODUCTS){
+    const cardOrder = PRODUCTS.filter(p => p.id !== "composer" && p.id !== "limitload");
+    cardOrder.splice(cardOrder.findIndex(p => p.id === "optpacker") + 1, 0,
+      PRODUCTS.find(p => p.id === "composer"), PRODUCTS.find(p => p.id === "limitload"));
+    for (const p of cardOrder){
       const card = document.createElement("div");
       card.className = "card productCard";
       if (p.id === "packsizer") card.style.order = "995";
