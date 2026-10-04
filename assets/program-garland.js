@@ -6,6 +6,7 @@
   const GARLAND_ID = "pt-program-garland";
 
   const PRODUCTS = {
+    composer: { title: {ru: "Композитор", en: "Composer"}, icon: "/composer/assets/app-icon.png", url: {ru: "/composer/", en: "/composer/?lang=en"} },
     limitload: { title: {ru: "Предельная нагрузка", en: "Ultimate Load"}, icon: "/limitload/assets/app-icon.png", url: {ru: "/limitload/", en: "/limitload/?lang=en"} },
     packsizer: {
       title: { ru: "Развесчик", en: "PackSizer" },
@@ -114,6 +115,7 @@
   }
 
   const ROUTES = {
+    composer: "composer",
     limitload: "limitload",
     packsizer: "packsizer",
     optcutting: "optcutting",
@@ -134,6 +136,7 @@
   };
 
   const PLACEMENT = {
+    composer: { selector: ".hero-banner", last: true },
     limitload: { selector: ".hero-banner", last: true },
     packsizer: { selector: ".hero-banner", last: false },
     optcutting: { selector: "section.hero", last: false },
@@ -227,7 +230,7 @@
 
       const icon = document.createElement("img");
       icon.className = "pt-program-garland-icon";
-      icon.src = BASE + product.icon;
+      icon.src = (id === "composer" ? window.location.origin : BASE) + product.icon;
       icon.alt = "";
       icon.width = id === currentId ? 72 : 48;
       icon.height = id === currentId ? 72 : 48;

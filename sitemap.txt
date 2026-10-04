@@ -16,3 +16,6 @@ https://governorv.github.io/Standards/
 https://governorv.github.io/BoxTypes/
 
 https://governorv.github.io/limitload/
+
+https://governorv.github.io/composer/
+https://governorv.github.io/composer/?lang=en

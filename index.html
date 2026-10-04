@@ -801,6 +801,7 @@ footer{
             <span class="heroNewsDate">обновлено 01.10.2026</span>
           </div>
           <ul class="heroNewsList">
+            <li><a href="composer/">Композитор</a><p>Новая программа подбирает оптимальную композицию гофрокартона по стоимости, массе и расчётной прочности. Сравнение вариантов, PDF и Excel.</p></li>
             <li><a href="limitload/?lang=ru">Предельная нагрузка</a><p>Создана программа расчёта прочности гофроящиков: ВСТ, несущая способность и число ящиков в штабеле с учётом влажности и условий хранения.</p></li>
             <li><a href="PackSizer/">Развесчик</a><p>Новая программа подбирает размеры мягких пачек и гофроящиков, рассчитывает укладку, паллетизацию и стоимость упаковки, формирует PDF-отчёты.</p></li>
             <li><a href="Unificator/">Унификатор гофроящиков</a><p>Новая программа подбирает один стандартный или улучшенный ящик для группы разных изделий с учётом ГОСТов, ограничений и стоимости материала.</p></li>
@@ -819,6 +820,7 @@ footer{
             <span class="heroNewsDate">updated 1 Oct 2026</span>
           </div>
           <ul class="heroNewsList">
+            <li><a href="composer/?lang=en">Composer</a><p>New application optimizes corrugated board composition by cost, weight and calculated strength, with comparison, PDF and Excel.</p></li>
             <li><a href="limitload/?lang=en">Ultimate Load</a><p>New software calculates box compression strength, load capacity and the number of boxes in a stack, accounting for humidity and storage conditions.</p></li>
             <li><a href="PackSizer/en.html">PackSizer</a><p>New software selects soft-pack and box dimensions, calculates pack arrangements, pallet loading and packaging costs, and generates PDF reports.</p></li>
             <li><a href="Unificator/?lang=en">Corrugated Box Unifier</a><p>New software selects one standard or improved box for a group of different products, accounting for standards, constraints and material cost.</p></li>
@@ -1090,6 +1092,57 @@ footer{
 
   // ---- EDIT HERE to add more programs later ----
   const PRODUCTS = [
+{
+  "id": "composer",
+  "glyph": "CMP",
+  "icon": "composer/assets/app-icon.png",
+  "cover": {
+    "ru": "composer/assets/hero-ru.png",
+    "en": "composer/assets/hero-ru.png"
+  },
+  "gradient": [
+    "#0755e9",
+    "#26baff"
+  ],
+  "titles": {
+    "ru": "Композитор",
+    "en": "Composer"
+  },
+  "subtitles": {
+    "ru": "Оптимальная композиция гофрокартона",
+    "en": "Optimal corrugated board composition"
+  },
+  "descriptions": {
+    "ru": "Подбор лайнеров и флютинга для трёхслойного картона по стоимости, массе и расчётной прочности. Ручной расчёт 2, 3, 5 и 7 слоёв, график Парето, сравнение, PDF и Excel.",
+    "en": "Optimize three-layer board materials by cost, weight and calculated strength. Manual calculation for 2, 3, 5 and 7 layers, Pareto chart, comparison, PDF and Excel."
+  },
+  "pricing": {
+    "ru": {
+      "main": "39 900 ₽",
+      "lines": [
+        "Бессрочная лицензия",
+        "Годовая лицензия: 9 900 ₽/год",
+        "Месячная лицензия: 990 ₽/мес.",
+        "10 языков интерфейса"
+      ]
+    },
+    "en": {
+      "main": "€399",
+      "lines": [
+        "Perpetual license",
+        "Annual license: €99/year",
+        "Monthly license: €9.90/month",
+        "10 interface languages"
+      ]
+    }
+  },
+  "links": {
+    "page": {
+      "ru": "https://governorv.github.io/composer/",
+      "en": "https://governorv.github.io/composer/?lang=en"
+    }
+  }
+},
 {
   "id": "limitload",
   "glyph": "BCT",
@@ -2116,6 +2169,7 @@ footer{
   }
 
   const GARLAND_PRODUCT_IDS = [
+    "composer",
     "limitload",
     "optcutting",
     "optpacker",
