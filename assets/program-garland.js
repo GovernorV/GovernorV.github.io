@@ -221,6 +221,8 @@
     }
     order.splice(order.indexOf("composer"), 1);
     order.splice(order.indexOf("optpacker") + 1, 0, "composer");
+    order.splice(order.indexOf("rollslitter"), 1);
+    order.splice(order.indexOf("optpacker") + 1, 0, "rollslitter");
     for (const id of order) {
       const product = PRODUCTS[id];
       if (!product) continue;

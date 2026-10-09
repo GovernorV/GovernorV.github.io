@@ -2231,9 +2231,9 @@ footer{
 
   const GARLAND_PRODUCT_IDS = [
     "limitload",
-    "rollslitter",
     "optcutting",
     "optpacker",
+    "rollslitter",
     "composer",
     "gost914290",
     "boxpalletizer",
@@ -2290,9 +2290,9 @@ footer{
   function renderCards(lang){
     ui.cards.innerHTML = "";
 
-    const cardOrder = PRODUCTS.filter(p => p.id !== "composer" && p.id !== "limitload");
+    const cardOrder = PRODUCTS.filter(p => p.id !== "rollslitter" && p.id !== "composer" && p.id !== "limitload");
     cardOrder.splice(cardOrder.findIndex(p => p.id === "optpacker") + 1, 0,
-      PRODUCTS.find(p => p.id === "composer"), PRODUCTS.find(p => p.id === "limitload"));
+      PRODUCTS.find(p => p.id === "rollslitter"), PRODUCTS.find(p => p.id === "composer"), PRODUCTS.find(p => p.id === "limitload"));
     for (const p of cardOrder){
       const card = document.createElement("div");
       card.className = "card productCard";
