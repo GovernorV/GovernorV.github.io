@@ -802,9 +802,9 @@ footer{
         <div class="lang-ru">
           <div class="heroNewsHead">
             <h2>Новости</h2>
-            <span class="heroNewsDate">обновлено 04.10.2026</span>
+            <span class="heroNewsDate">обновлено 09.10.2026</span>
           </div>
-          <ul class="heroNewsList">
+          <ul class="heroNewsList"><li><a href="rollslitter/">Раскройщик рулонов</a><p>Новая программа: оптимальный раскрой на бобинорезке, учёт отходов, времени, себестоимости и прибыли.</p></li>
             <li><a href="composer/">Оптимальная композиция гофры</a><p>Новая программа подбирает оптимальную композицию гофрокартона по стоимости, массе и расчётной прочности. Сравнение вариантов, PDF и Excel.</p></li>
             <li><a href="limitload/?lang=ru">Предельная нагрузка</a><p>Создана программа расчёта прочности гофроящиков: ВСТ, несущая способность и число ящиков в штабеле с учётом влажности и условий хранения.</p></li>
             <li><a href="PackSizer/">Развесчик</a><p>Новая программа подбирает размеры мягких пачек и гофроящиков, рассчитывает укладку, паллетизацию и стоимость упаковки, формирует PDF-отчёты.</p></li>
@@ -821,9 +821,9 @@ footer{
         <div class="lang-en">
           <div class="heroNewsHead">
             <h2>News</h2>
-            <span class="heroNewsDate">updated 4 Oct 2026</span>
+            <span class="heroNewsDate">updated 9 Oct 2026</span>
           </div>
-          <ul class="heroNewsList">
+          <ul class="heroNewsList"><li><a href="rollslitter/?lang=en">Roll Slitter</a><p>New software for roll slitting optimization, waste and time tracking, cost and profit calculation.</p></li>
             <li><a href="composer/?lang=en">Optimal Corrugated Board Composition</a><p>New application optimizes corrugated board composition by cost, weight and calculated strength, with comparison, PDF and Excel.</p></li>
             <li><a href="limitload/?lang=en">Ultimate Load</a><p>New software calculates box compression strength, load capacity and the number of boxes in a stack, accounting for humidity and storage conditions.</p></li>
             <li><a href="PackSizer/en.html">PackSizer</a><p>New software selects soft-pack and box dimensions, calculates pack arrangements, pallet loading and packaging costs, and generates PDF reports.</p></li>
@@ -1098,6 +1098,60 @@ footer{
 
   // ---- EDIT HERE to add more programs later ----
   const PRODUCTS = [
+{
+  "id": "rollslitter",
+  "glyph": "ROLL",
+  "icon": "rollslitter/assets/app-icon.png",
+  "cover": {
+    "ru": "rollslitter/assets/catalog-ru.png",
+    "en": "rollslitter/assets/catalog-en.png"
+  },
+  "gradient": [
+    "#0755e9",
+    "#26baff"
+  ],
+  "titles": {
+    "ru": "Раскройщик рулонов",
+    "en": "Roll Slitter"
+  },
+  "subtitles": {
+    "ru": "Оптимальный раскрой на бобинорезке",
+    "en": "Optimal roll slitting"
+  },
+  "descriptions": {
+    "ru": "Подбор схем раскроя рулонов с учётом сырья и ограничений оборудования. Отходы, время, себестоимость и прибыль. Импорт Excel, карты и XLSX-отчёты.",
+    "en": "Plan roll slitting within stock and machine constraints. Track waste, time, costs and profit. Excel import, visual layouts and XLSX reports."
+  },
+  "pricing": {
+    "ru": {
+      "main": "69 000 ₽",
+      "lines": [
+        "Бессрочная лицензия",
+        "Годовая подписка: 19 900 ₽/год",
+        "Месячная подписка: 2 900 ₽/мес.",
+        "Международная лицензия: €690; годовая: €199"
+      ]
+    },
+    "en": {
+      "main": "€690",
+      "lines": [
+        "International perpetual license",
+        "Annual subscription: €199/year",
+        "10 interface languages"
+      ]
+    }
+  },
+  "links": {
+    "page": {
+      "ru": "https://governorv.github.io/rollslitter/",
+      "en": "https://governorv.github.io/rollslitter/?lang=en"
+    },
+    "demo": {
+      "ru": "https://disk.yandex.ru/d/Q0yqI7zaBtZUcw",
+      "en": "https://mega.nz/file/WlwDERAQ#t8zL8FgGVZsuRrXlu0s8eGGc77gnx9O7xveg3GU1M6o"
+    }
+  }
+},
 {
   "id": "composer",
   "glyph": "CMP",
@@ -1452,6 +1506,7 @@ footer{
     },
     {
       id: "optcutting",
+    "rollslitter",
       glyph: "OC",
       icon: "assets/icons/optcutting.png",
       cover: {

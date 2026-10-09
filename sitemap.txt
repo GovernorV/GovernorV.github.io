@@ -19,3 +19,5 @@ https://governorv.github.io/limitload/
 
 https://governorv.github.io/composer/
 https://governorv.github.io/composer/?lang=en
+https://governorv.github.io/rollslitter/
+https://governorv.github.io/rollslitter/?lang=en
