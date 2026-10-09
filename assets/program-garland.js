@@ -223,6 +223,8 @@
     order.splice(order.indexOf("optpacker") + 1, 0, "composer");
     order.splice(order.indexOf("rollslitter"), 1);
     order.splice(order.indexOf("optpacker") + 1, 0, "rollslitter");
+    order.splice(order.indexOf(currentId), 1);
+    order.unshift(currentId);
     for (const id of order) {
       const product = PRODUCTS[id];
       if (!product) continue;
