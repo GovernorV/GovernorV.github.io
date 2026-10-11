@@ -9,6 +9,7 @@
     rollslitter: { title: {ru: "Раскройщик рулонов", en: "Roll Slitter"}, icon: "/rollslitter/assets/app-icon.png", url: {ru: "/rollslitter/", en: "/rollslitter/?lang=en"} },
     composer: { title: {ru: "Композитор", en: "Composer"}, icon: "/composer/assets/app-icon.png", url: {ru: "/composer/", en: "/composer/?lang=en"} },
     limitload: { title: {ru: "Предельная нагрузка", en: "Ultimate Load"}, icon: "/limitload/assets/app-icon.png", url: {ru: "/limitload/", en: "/limitload/?lang=en"} },
+    knifemeter: { title: {ru: "Ножемер", en: "KnifeMeter"}, icon: "/knifemeter/assets/app-icon.png", url: {ru: "/knifemeter/", en: "/knifemeter/?lang=en"} },
     packsizer: {
       title: { ru: "Развесчик", en: "PackSizer" },
       icon: "/assets/icons/packsize.png",
@@ -92,6 +93,7 @@
   };
 
   const RELEVANCE = {
+    knifemeter: ["boxpricecalculator", "gofrotechcard", "boxtypes", "limitload"],
     rollslitter: ["optcutting", "composer", "gofrotechcard", "boxpricecalculator"],
     limitload: ["gost914290", "boxpalletizer", "standards", "gofrotechcard", "boxpricecalculator"],
     optcutting: ["gofrotechcard", "boxpricecalculator", "standards", "gost914290", "boxtypes", "optpacker", "boxpalletizer", "pojas", "unificator", "truckloader", "platepalletizer", "bottleoptimizer", "dbsearch", "licman"],
@@ -117,6 +119,7 @@
   }
 
   const ROUTES = {
+    knifemeter: "knifemeter",
     rollslitter: "rollslitter",
     composer: "composer",
     limitload: "limitload",
@@ -139,6 +142,7 @@
   };
 
   const PLACEMENT = {
+    knifemeter: { selector: ".hero-banner", last: true },
     rollslitter: { selector: ".hero-banner", last: true },
     composer: { selector: ".hero-banner", last: true },
     limitload: { selector: ".hero-banner", last: true },
@@ -223,6 +227,8 @@
     order.splice(order.indexOf("optpacker") + 1, 0, "composer");
     order.splice(order.indexOf("rollslitter"), 1);
     order.splice(order.indexOf("optpacker") + 1, 0, "rollslitter");
+    order.splice(order.indexOf("knifemeter"), 1);
+    order.splice(order.indexOf("limitload") + 1, 0, "knifemeter");
     order.splice(order.indexOf(currentId), 1);
     order.unshift(currentId);
     for (const id of order) {
@@ -240,7 +246,7 @@
 
       const icon = document.createElement("img");
       icon.className = "pt-program-garland-icon";
-      icon.src = (["composer", "rollslitter"].includes(id) ? window.location.origin : BASE) + product.icon;
+      icon.src = (["composer", "rollslitter", "knifemeter"].includes(id) ? window.location.origin : BASE) + product.icon;
       icon.alt = "";
       icon.width = id === currentId ? 72 : 48;
       icon.height = id === currentId ? 72 : 48;
