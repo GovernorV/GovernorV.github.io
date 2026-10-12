@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "requestId": "example-0201-001",
+  "source": "parametric",
+  "boxType": "0201",
+  "dimensionsMm": {
+    "length": 300,
+    "width": 200,
+    "height": 100,
+    "slotWidth": 3
+  },
+  "itemsOnDie": 2,
+  "layout": "shared0201",
+  "pricing": {
+    "cutPerMeter": 30,
+    "creasePerMeter": 25,
+    "perforationPerMeter": 130,
+    "baseCost": 1000,
+    "markupPercent": 10,
+    "currency": "RUB"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "requestId": "example-dwg-0427-001",
+  "source": "drawing",
+  "boxType": "0427",
+  "dimensionsMm": {
+    "length": 300,
+    "width": 200,
+    "height": 100,
+    "slotWidth": 3
+  },
+  "itemsOnDie": 1,
+  "layout": "separate",
+  "drawing": {
+    "path": "C:/Jobs/drawings/box-0427.dwg",
+    "scope": "wholeDie",
+    "unitScaleMm": 1,
+    "cutLayers": [
+      "CUT"
+    ],
+    "creaseLayers": [
+      "CREASE"
+    ],
+    "perforationLayers": []
+  },
+  "pricing": {
+    "cutPerMeter": 30,
+    "creasePerMeter": 25,
+    "perforationPerMeter": 130,
+    "baseCost": 1000,
+    "markupPercent": 10,
+    "currency": "RUB"
+  }
+}
