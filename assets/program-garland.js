@@ -223,7 +223,6 @@
     track.replaceChildren();
 
     const order = [currentId, ...RELEVANCE[currentId]];
-    if(currentId !== "prs"){order.splice(order.indexOf("prs"),1);order.splice(order.indexOf("rollslitter")+1,0,"prs");}
     if (currentId !== "packsizer") {
       order.splice(order.indexOf("packsizer"), 1);
       order.splice(order.indexOf("bottleoptimizer"), 0, "packsizer");
@@ -236,6 +235,7 @@
     order.splice(order.indexOf("limitload") + 1, 0, "knifemeter");
     order.splice(order.indexOf(currentId), 1);
     order.unshift(currentId);
+    if(currentId !== "prs"){order.splice(order.indexOf("prs"),1);order.splice(order.indexOf("rollslitter")+1,0,"prs");}
     for (const id of order) {
       const product = PRODUCTS[id];
       if (!product) continue;

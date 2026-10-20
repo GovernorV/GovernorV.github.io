@@ -2349,12 +2349,12 @@ footer{
     return value[lang] || value.ru || value.en || "#";
   }
 
-  const GARLAND_PRODUCT_IDS = ["prs",
+  const GARLAND_PRODUCT_IDS = [
     "limitload",
     "knifemeter",
     "optcutting",
     "optpacker",
-    "rollslitter",
+    "rollslitter", "prs",
     "composer",
     "gost914290",
     "boxpalletizer",
@@ -2413,7 +2413,7 @@ footer{
 
     const cardOrder = PRODUCTS.filter(p => !["prs", "rollslitter", "composer", "limitload", "knifemeter"].includes(p.id));
     cardOrder.splice(cardOrder.findIndex(p => p.id === "optpacker") + 1, 0,
-      PRODUCTS.find(p => p.id === "prs"), PRODUCTS.find(p => p.id === "rollslitter"), PRODUCTS.find(p => p.id === "composer"), PRODUCTS.find(p => p.id === "limitload"), PRODUCTS.find(p => p.id === "knifemeter"));
+      PRODUCTS.find(p => p.id === "rollslitter"), PRODUCTS.find(p => p.id === "prs"), PRODUCTS.find(p => p.id === "composer"), PRODUCTS.find(p => p.id === "limitload"), PRODUCTS.find(p => p.id === "knifemeter"));
     for (const p of cardOrder){
       const card = document.createElement("div");
       card.className = "card productCard";
@@ -2718,8 +2718,3 @@ if (p.cover) {
 </script>
 </body>
 </html>
-
-
-
-
-
