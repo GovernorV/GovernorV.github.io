@@ -6,6 +6,7 @@
   const GARLAND_ID = "pt-program-garland";
 
   const PRODUCTS = {
+    prs: {title:{ru:"Раскройщик ПРС",en:"PRS Cutter"},icon:"/prs/assets/app-icon.png",url:{ru:"/prs/",en:"/prs/?lang=en"}},
     rollslitter: { title: {ru: "Раскройщик рулонов", en: "Roll Slitter"}, icon: "/rollslitter/assets/app-icon.png", url: {ru: "/rollslitter/", en: "/rollslitter/?lang=en"} },
     composer: { title: {ru: "Композитор", en: "Composer"}, icon: "/composer/assets/app-icon.png", url: {ru: "/composer/", en: "/composer/?lang=en"} },
     limitload: { title: {ru: "Предельная нагрузка", en: "Ultimate Load"}, icon: "/limitload/assets/app-icon.png", url: {ru: "/limitload/", en: "/limitload/?lang=en"} },
@@ -93,6 +94,7 @@
   };
 
   const RELEVANCE = {
+    prs: ["rollslitter","optcutting","pojas","gofrotechcard","boxpricecalculator"],
     knifemeter: ["boxpricecalculator", "gofrotechcard", "boxtypes", "limitload"],
     rollslitter: ["optcutting", "composer", "gofrotechcard", "boxpricecalculator"],
     limitload: ["gost914290", "boxpalletizer", "standards", "gofrotechcard", "boxpricecalculator"],
@@ -119,6 +121,7 @@
   }
 
   const ROUTES = {
+    prs: "prs",
     knifemeter: "knifemeter",
     rollslitter: "rollslitter",
     composer: "composer",
@@ -142,6 +145,7 @@
   };
 
   const PLACEMENT = {
+    prs: {selector:".hero-banner",last:true},
     knifemeter: { selector: ".hero-banner", last: true },
     rollslitter: { selector: ".hero-banner", last: true },
     composer: { selector: ".hero-banner", last: true },
@@ -219,6 +223,7 @@
     track.replaceChildren();
 
     const order = [currentId, ...RELEVANCE[currentId]];
+    if(currentId !== "prs"){order.splice(order.indexOf("prs"),1);order.splice(order.indexOf("rollslitter")+1,0,"prs");}
     if (currentId !== "packsizer") {
       order.splice(order.indexOf("packsizer"), 1);
       order.splice(order.indexOf("bottleoptimizer"), 0, "packsizer");
