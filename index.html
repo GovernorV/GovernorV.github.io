@@ -2465,9 +2465,9 @@ footer{
   function renderCards(lang){
     ui.cards.innerHTML = "";
 
-    const cardOrder = PRODUCTS.filter(p => !["prs", "rollslitter", "composer", "limitload", "knifemeter"].includes(p.id));
+    const cardOrder = PRODUCTS.filter(p => !["prs", "rollslitter", "composer", "limitload", "knifemeter", "gratings"].includes(p.id));
     cardOrder.splice(cardOrder.findIndex(p => p.id === "optpacker") + 1, 0,
-      PRODUCTS.find(p => p.id === "rollslitter"), PRODUCTS.find(p => p.id === "prs"), PRODUCTS.find(p => p.id === "composer"), PRODUCTS.find(p => p.id === "limitload"), PRODUCTS.find(p => p.id === "knifemeter"));
+      PRODUCTS.find(p => p.id === "rollslitter"), PRODUCTS.find(p => p.id === "prs"), PRODUCTS.find(p => p.id === "composer"), PRODUCTS.find(p => p.id === "limitload"), PRODUCTS.find(p => p.id === "knifemeter"), PRODUCTS.find(p => p.id === "gratings"));
     for (const p of cardOrder){
       const card = document.createElement("div");
       card.className = "card productCard";
