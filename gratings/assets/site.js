@@ -2,8 +2,8 @@
   'use strict';
   const root = document.documentElement;
   const descriptions = {
-    ru: 'Расчёт самосборных перегородок: размерные чертежи, параметры пачки, укладка на поддон и PDF-отчёт. JSON, 10 языков, демоверсия и лицензии Standard.',
-    en: 'Design self-assembly cardboard dividers with dimensioned drawings, bundle sizes, pallet layouts and PDF reports. JSON input, 10 interface languages, demo and Standard licenses.'
+    ru: 'Расчёт самосборных перегородок: размерные чертежи, параметры пачки, укладка на поддон и PDF-отчёт. JSON, 10 языков, демоверсия, Standard и PRO с дежурством и JSON-интеграцией.',
+    en: 'Design self-assembly cardboard dividers with dimensioned drawings, bundle sizes, pallet layouts and PDF reports. JSON input, 10 interface languages, demo, Standard and PRO licenses with watch mode and JSON integration.'
   };
   function setLang(value) {
     const lang = value === 'en' ? 'en' : 'ru';
@@ -20,7 +20,7 @@
     });
     document.querySelectorAll('.catalog-link').forEach(link => link.href = '/?lang=' + lang);
     document.querySelectorAll('.order-link').forEach(link => {
-      const names = { purchase: {ru:'покупка Standard',en:'Standard purchase'}, annual:{ru:'годовая аренда',en:'annual rental'}, monthly:{ru:'месячная аренда',en:'monthly rental'}, standard:{ru:'Standard',en:'Standard'} };
+      const names = { purchase: {ru:'покупка Standard',en:'Standard purchase'}, annual:{ru:'годовая аренда Standard',en:'Standard annual rental'}, monthly:{ru:'месячная аренда Standard',en:'Standard monthly rental'}, standard:{ru:'Standard',en:'Standard'}, pro_purchase:{ru:'покупка PRO',en:'PRO purchase'}, pro_annual:{ru:'годовая аренда PRO',en:'PRO annual rental'}, pro_monthly:{ru:'месячная аренда PRO',en:'PRO monthly rental'} };
       const name = names[link.dataset.license][lang];
       const title = lang === 'ru' ? 'Самосборные решётки' : 'Self-assembly Dividers';
       const body = lang === 'ru' ? 'Здравствуйте! Меня интересует программа «Самосборные решётки», ' + name + '.\n\nРеквизиты для счёта:\n' : 'Hello! I am interested in Self-assembly Dividers, ' + name + '.\n\nBilling details:\n';
