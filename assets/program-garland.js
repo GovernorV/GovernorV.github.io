@@ -6,6 +6,7 @@
   const GARLAND_ID = "pt-program-garland";
 
   const PRODUCTS = {
+    gratings: {title:{ru:"Самосборные решётки",en:"Self-assembly Dividers"},icon:"/gratings/assets/app-icon.png",url:{ru:"/gratings/",en:"/gratings/?lang=en"}},
     prs: {title:{ru:"Раскройщик ПРС",en:"PRS Cutter"},icon:"/prs/assets/app-icon.png",url:{ru:"/prs/",en:"/prs/?lang=en"}},
     rollslitter: { title: {ru: "Раскройщик рулонов", en: "Roll Slitter"}, icon: "/rollslitter/assets/app-icon.png", url: {ru: "/rollslitter/", en: "/rollslitter/?lang=en"} },
     composer: { title: {ru: "Композитор", en: "Composer"}, icon: "/composer/assets/app-icon.png", url: {ru: "/composer/", en: "/composer/?lang=en"} },
@@ -94,6 +95,7 @@
   };
 
   const RELEVANCE = {
+    gratings: ["knifemeter","gofrotechcard","boxpalletizer","optpacker"],
     prs: ["rollslitter","optcutting","pojas","gofrotechcard","boxpricecalculator"],
     knifemeter: ["boxpricecalculator", "gofrotechcard", "boxtypes", "limitload"],
     rollslitter: ["optcutting", "composer", "gofrotechcard", "boxpricecalculator"],
@@ -121,6 +123,7 @@
   }
 
   const ROUTES = {
+    gratings: "gratings",
     prs: "prs",
     knifemeter: "knifemeter",
     rollslitter: "rollslitter",
@@ -145,6 +148,7 @@
   };
 
   const PLACEMENT = {
+    gratings: {selector:".hero-banner",last:true},
     prs: {selector:".hero-banner",last:true},
     knifemeter: { selector: ".hero-banner", last: true },
     rollslitter: { selector: ".hero-banner", last: true },
@@ -236,6 +240,8 @@
     order.splice(order.indexOf(currentId), 1);
     order.unshift(currentId);
     if(currentId !== "prs"){order.splice(order.indexOf("prs"),1);order.splice(order.indexOf("rollslitter")+1,0,"prs");}
+    order.splice(order.indexOf("gratings"), 1);
+    order.splice(order.indexOf("knifemeter") + 1, 0, "gratings");
     for (const id of order) {
       const product = PRODUCTS[id];
       if (!product) continue;
@@ -251,7 +257,7 @@
 
       const icon = document.createElement("img");
       icon.className = "pt-program-garland-icon";
-      icon.src = (["composer", "rollslitter", "knifemeter"].includes(id) ? window.location.origin : BASE) + product.icon;
+      icon.src = (["gratings", "composer", "rollslitter", "knifemeter"].includes(id) ? window.location.origin : BASE) + product.icon;
       icon.alt = "";
       icon.width = id === currentId ? 72 : 48;
       icon.height = id === currentId ? 72 : 48;

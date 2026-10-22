@@ -1,0 +1,17 @@
+{
+  "length": 582,
+  "width": 182,
+  "height": 190,
+  "longitudinalCount": 2,
+  "transverseCount": 3,
+  "setsPerBundle": 50,
+  "longitudinalThickness": 0.7,
+  "transverseThickness": 0.7,
+  "palletLength": 1200,
+  "palletWidth": 800,
+  "palletHeight": 1000,
+  "autoBundle": true,
+  "overlap": false,
+  "skew": true,
+  "language": "ru"
+}
