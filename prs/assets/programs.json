@@ -1,1 +1,267 @@
-[{"title":{"ru":"Раскройщик ПРС","en":"PRS Cutter"},"icon":"assets/app-icon.png","url":{"ru":"#top","en":"#top"},"current":true},{"title":{"ru":"Раскройщик рулонов","en":"Roll Slitter"},"icon":"assets/icon-rollslitter.png","url":{"ru":"https://governorv.github.io/rollslitter/","en":"https://governorv.github.io/rollslitter/?lang=en"}},{"title":{"ru":"Композитор","en":"Composer"},"icon":"assets/icon-composer.png","url":{"ru":"https://governorv.github.io/composer/","en":"https://governorv.github.io/composer/?lang=en"}},{"title":{"ru":"Предельная нагрузка","en":"Ultimate Load"},"icon":"assets/icon-limitload.png","url":{"ru":"https://governorv.github.io/limitload/","en":"https://governorv.github.io/limitload/?lang=en"}},{"title":{"ru":"Ножемер","en":"KnifeMeter"},"icon":"assets/icon-knifemeter.png","url":{"ru":"https://governorv.github.io/knifemeter/","en":"https://governorv.github.io/knifemeter/?lang=en"}},{"title":{"ru":"Развесчик","en":"PackSizer"},"icon":"assets/icon-packsizer.png","url":{"ru":"https://governorv.github.io/PackSizer/","en":"https://governorv.github.io/PackSizer/en.html"}},{"title":{"ru":"Раскройщик","en":"OptCutting"},"icon":"assets/icon-optcutting.png","url":{"ru":"https://governorv.github.io/OptCutting/?lang=ru","en":"https://governorv.github.io/OptCutting/?lang=en"}},{"title":{"ru":"Фасовщик","en":"Box Packing Optimizer"},"icon":"assets/icon-optpacker.png","url":{"ru":"https://governorv.github.io/OptPacker/?lang=ru","en":"https://governorv.github.io/OptPacker/?lang=en"}},{"title":{"ru":"Расчёт нагрузки","en":"GOST Load Calculator"},"icon":"assets/icon-gost914290.png","url":{"ru":"https://governorv.github.io/gost/?lang=ru","en":"https://governorv.github.io/gost/?lang=en"}},{"title":{"ru":"Паллетировщик","en":"Box Palletizer"},"icon":"assets/icon-boxpalletizer.png","url":{"ru":"https://governorv.github.io/BoxPalletizer/#ru","en":"https://governorv.github.io/BoxPalletizer/#en"}},{"title":{"ru":"TruckLoader","en":"TruckLoader"},"icon":"assets/icon-truckloader.png","url":{"ru":"https://governorv.github.io/truckloader-site/?lang=ru","en":"https://governorv.github.io/truckloader-site/?lang=en"}},{"title":{"ru":"Калькулятор гофроящиков","en":"Box Price Calculator"},"icon":"assets/icon-boxpricecalculator.png","url":{"ru":"https://governorv.github.io/BoxPriceCalculator/#ru","en":"https://governorv.github.io/BoxPriceCalculator/#en"}},{"title":{"ru":"Справочник ГОСТов","en":"GOST Standards Guide"},"icon":"assets/icon-standards.jpg","url":{"ru":"https://governorv.github.io/Standards/?lang=ru","en":"https://governorv.github.io/Standards/?lang=en"}},{"title":{"ru":"Паллетировщик плит","en":"Sheet Palletizer"},"icon":"assets/icon-platepalletizer.png","url":{"ru":"https://governorv.github.io/palletizer-site/#ru","en":"https://governorv.github.io/palletizer-site/#en"}},{"title":{"ru":"Поисковик по базам","en":"Database Search Tool"},"icon":"assets/icon-dbsearch.png","url":{"ru":"https://governorv.github.io/DBSearch/#ru","en":"https://governorv.github.io/DBSearch/#en"}},{"title":{"ru":"Менеджер лицензий","en":"License Manager"},"icon":"assets/icon-licman.png","url":{"ru":"https://governorv.github.io/Licman/#ru","en":"https://governorv.github.io/Licman/#en"}},{"title":{"ru":"ПОЯС","en":"POJAS"},"icon":"assets/icon-pojas.png","url":{"ru":"https://governorv.github.io/Pojas/?lang=ru","en":"https://governorv.github.io/Pojas/?lang=en"}},{"title":{"ru":"Проектировщик бутылок","en":"Bottle Optimizer"},"icon":"assets/icon-bottleoptimizer.png","url":{"ru":"https://governorv.github.io/BottleOptimizer/?lang=ru","en":"https://governorv.github.io/BottleOptimizer/?lang=en"}},{"title":{"ru":"ГофроТехкарта","en":"Corrugated Box Tech Card"},"icon":"assets/icon-gofrotechcard.png","url":{"ru":"https://governorv.github.io/GofroTechCard/?lang=ru","en":"https://governorv.github.io/GofroTechCard/?lang=en"}},{"title":{"ru":"Конструктор типов ящиков","en":"Corrugated Box Type Designer"},"icon":"assets/icon-boxtypes.png","url":{"ru":"https://governorv.github.io/BoxTypes/?lang=ru","en":"https://governorv.github.io/BoxTypes/?lang=en"}},{"title":{"ru":"Унификатор гофроящиков","en":"Corrugated Box Unifier"},"icon":"assets/icon-unificator.png","url":{"ru":"https://governorv.github.io/Unificator/?lang=ru","en":"https://governorv.github.io/Unificator/?lang=en"}}]
+[
+  {
+    "title": {
+      "ru": "Раскройщик ПРС",
+      "en": "PRS Cutter"
+    },
+    "icon": "assets/app-icon.png",
+    "url": {
+      "ru": "#top",
+      "en": "#top"
+    },
+    "current": true,
+    "id": "prs"
+  },
+  {
+    "title": {
+      "ru": "Паллетировщик",
+      "en": "Box Palletizer"
+    },
+    "icon": "assets/icon-boxpalletizer.png",
+    "url": {
+      "ru": "https://governorv.github.io/BoxPalletizer/#ru",
+      "en": "https://governorv.github.io/BoxPalletizer/#en"
+    },
+    "id": "boxpalletizer"
+  },
+  {
+    "title": {
+      "ru": "Калькулятор гофроящиков",
+      "en": "Box Price Calculator"
+    },
+    "icon": "assets/icon-boxpricecalculator.png",
+    "url": {
+      "ru": "https://governorv.github.io/BoxPriceCalculator/#ru",
+      "en": "https://governorv.github.io/BoxPriceCalculator/#en"
+    },
+    "id": "boxpricecalculator"
+  },
+  {
+    "title": {
+      "ru": "Раскройщик",
+      "en": "OptCutting"
+    },
+    "icon": "assets/icon-optcutting.png",
+    "url": {
+      "ru": "https://governorv.github.io/OptCutting/?lang=ru",
+      "en": "https://governorv.github.io/OptCutting/?lang=en"
+    },
+    "id": "optcutting"
+  },
+  {
+    "title": {
+      "ru": "TruckLoader",
+      "en": "TruckLoader"
+    },
+    "icon": "assets/icon-truckloader.png",
+    "url": {
+      "ru": "https://governorv.github.io/truckloader-site/?lang=ru",
+      "en": "https://governorv.github.io/truckloader-site/?lang=en"
+    },
+    "id": "truckloader"
+  },
+  {
+    "title": {
+      "ru": "ГофроТехкарта",
+      "en": "Corrugated Box Tech Card"
+    },
+    "icon": "assets/icon-gofrotechcard.png",
+    "url": {
+      "ru": "https://governorv.github.io/GofroTechCard/?lang=ru",
+      "en": "https://governorv.github.io/GofroTechCard/?lang=en"
+    },
+    "id": "gofrotechcard"
+  },
+  {
+    "title": {
+      "ru": "Фасовщик",
+      "en": "Box Packing Optimizer"
+    },
+    "icon": "assets/icon-optpacker.png",
+    "url": {
+      "ru": "https://governorv.github.io/OptPacker/?lang=ru",
+      "en": "https://governorv.github.io/OptPacker/?lang=en"
+    },
+    "id": "optpacker"
+  },
+  {
+    "title": {
+      "ru": "Конструктор типов ящиков",
+      "en": "Corrugated Box Type Designer"
+    },
+    "icon": "assets/icon-boxtypes.png",
+    "url": {
+      "ru": "https://governorv.github.io/BoxTypes/?lang=ru",
+      "en": "https://governorv.github.io/BoxTypes/?lang=en"
+    },
+    "id": "boxtypes"
+  },
+  {
+    "title": {
+      "ru": "ПОЯС",
+      "en": "POJAS"
+    },
+    "icon": "assets/icon-pojas.png",
+    "url": {
+      "ru": "https://governorv.github.io/Pojas/?lang=ru",
+      "en": "https://governorv.github.io/Pojas/?lang=en"
+    },
+    "id": "pojas"
+  },
+  {
+    "title": {
+      "ru": "Унификатор гофроящиков",
+      "en": "Corrugated Box Unifier"
+    },
+    "icon": "assets/icon-unificator.png",
+    "url": {
+      "ru": "https://governorv.github.io/Unificator/?lang=ru",
+      "en": "https://governorv.github.io/Unificator/?lang=en"
+    },
+    "id": "unificator"
+  },
+  {
+    "title": {
+      "ru": "Предельная нагрузка",
+      "en": "Ultimate Load"
+    },
+    "icon": "assets/icon-limitload.png",
+    "url": {
+      "ru": "https://governorv.github.io/limitload/",
+      "en": "https://governorv.github.io/limitload/?lang=en"
+    },
+    "id": "limitload"
+  },
+  {
+    "title": {
+      "ru": "Композитор",
+      "en": "Composer"
+    },
+    "icon": "assets/icon-composer.png",
+    "url": {
+      "ru": "https://governorv.github.io/composer/",
+      "en": "https://governorv.github.io/composer/?lang=en"
+    },
+    "id": "composer"
+  },
+  {
+    "title": {
+      "ru": "Раскройщик рулонов",
+      "en": "Roll Slitter"
+    },
+    "icon": "assets/icon-rollslitter.png",
+    "url": {
+      "ru": "https://governorv.github.io/rollslitter/",
+      "en": "https://governorv.github.io/rollslitter/?lang=en"
+    },
+    "id": "rollslitter"
+  },
+  {
+    "title": {
+      "ru": "Ножемер",
+      "en": "KnifeMeter"
+    },
+    "icon": "assets/icon-knifemeter.png",
+    "url": {
+      "ru": "https://governorv.github.io/knifemeter/",
+      "en": "https://governorv.github.io/knifemeter/?lang=en"
+    },
+    "id": "knifemeter"
+  },
+  {
+    "title": {
+      "ru": "Самосборные решётки",
+      "en": "Self-assembly Dividers"
+    },
+    "icon": "/gratings/assets/app-icon.png",
+    "url": {
+      "ru": "/gratings/",
+      "en": "/gratings/?lang=en"
+    },
+    "id": "gratings"
+  },
+  {
+    "title": {
+      "ru": "Развесчик",
+      "en": "PackSizer"
+    },
+    "icon": "assets/icon-packsizer.png",
+    "url": {
+      "ru": "https://governorv.github.io/PackSizer/",
+      "en": "https://governorv.github.io/PackSizer/en.html"
+    },
+    "id": "packsizer"
+  },
+  {
+    "title": {
+      "ru": "Проектировщик бутылок",
+      "en": "Bottle Optimizer"
+    },
+    "icon": "assets/icon-bottleoptimizer.png",
+    "url": {
+      "ru": "https://governorv.github.io/BottleOptimizer/?lang=ru",
+      "en": "https://governorv.github.io/BottleOptimizer/?lang=en"
+    },
+    "id": "bottleoptimizer"
+  },
+  {
+    "title": {
+      "ru": "Паллетировщик плит",
+      "en": "Sheet Palletizer"
+    },
+    "icon": "assets/icon-platepalletizer.png",
+    "url": {
+      "ru": "https://governorv.github.io/palletizer-site/#ru",
+      "en": "https://governorv.github.io/palletizer-site/#en"
+    },
+    "id": "platepalletizer"
+  },
+  {
+    "title": {
+      "ru": "Расчёт нагрузки",
+      "en": "GOST Load Calculator"
+    },
+    "icon": "assets/icon-gost914290.png",
+    "url": {
+      "ru": "https://governorv.github.io/gost/?lang=ru",
+      "en": "https://governorv.github.io/gost/?lang=en"
+    },
+    "id": "gost914290"
+  },
+  {
+    "title": {
+      "ru": "Справочник ГОСТов",
+      "en": "GOST Standards Guide"
+    },
+    "icon": "assets/icon-standards.jpg",
+    "url": {
+      "ru": "https://governorv.github.io/Standards/?lang=ru",
+      "en": "https://governorv.github.io/Standards/?lang=en"
+    },
+    "id": "standards"
+  },
+  {
+    "title": {
+      "ru": "Поисковик по базам",
+      "en": "Database Search Tool"
+    },
+    "icon": "assets/icon-dbsearch.png",
+    "url": {
+      "ru": "https://governorv.github.io/DBSearch/#ru",
+      "en": "https://governorv.github.io/DBSearch/#en"
+    },
+    "id": "dbsearch"
+  },
+  {
+    "title": {
+      "ru": "Менеджер лицензий",
+      "en": "License Manager"
+    },
+    "icon": "assets/icon-licman.png",
+    "url": {
+      "ru": "https://governorv.github.io/Licman/#ru",
+      "en": "https://governorv.github.io/Licman/#en"
+    },
+    "id": "licman"
+  }
+]

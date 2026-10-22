@@ -94,33 +94,32 @@
     }
   };
 
-  const RELEVANCE = {
-    gratings: ["knifemeter","gofrotechcard","boxpalletizer","optpacker"],
-    prs: ["rollslitter","optcutting","pojas","gofrotechcard","boxpricecalculator"],
-    knifemeter: ["boxpricecalculator", "gofrotechcard", "boxtypes", "limitload"],
-    rollslitter: ["optcutting", "composer", "gofrotechcard", "boxpricecalculator"],
-    limitload: ["gost914290", "boxpalletizer", "standards", "gofrotechcard", "boxpricecalculator"],
-    optcutting: ["gofrotechcard", "boxpricecalculator", "standards", "gost914290", "boxtypes", "optpacker", "boxpalletizer", "pojas", "unificator", "truckloader", "platepalletizer", "bottleoptimizer", "dbsearch", "licman"],
-    optpacker: ["unificator", "boxpalletizer", "standards", "gost914290", "boxpricecalculator", "optcutting", "gofrotechcard", "bottleoptimizer", "truckloader", "pojas", "boxtypes", "platepalletizer", "dbsearch", "licman"],
-    gost914290: ["standards", "boxpricecalculator", "unificator", "optcutting", "gofrotechcard", "boxtypes", "optpacker", "boxpalletizer", "pojas", "bottleoptimizer", "truckloader", "platepalletizer", "dbsearch", "licman"],
-    boxpalletizer: ["truckloader", "optpacker", "boxpricecalculator", "standards", "gost914290", "unificator", "pojas", "optcutting", "gofrotechcard", "platepalletizer", "bottleoptimizer", "boxtypes", "dbsearch", "licman"],
-    truckloader: ["boxpalletizer", "platepalletizer", "optpacker", "unificator", "pojas", "boxpricecalculator", "standards", "gost914290", "optcutting", "gofrotechcard", "bottleoptimizer", "boxtypes", "dbsearch", "licman"],
-    boxpricecalculator: ["optcutting", "gofrotechcard", "standards", "gost914290", "boxpalletizer", "unificator", "optpacker", "boxtypes", "pojas", "truckloader", "platepalletizer", "bottleoptimizer", "dbsearch", "licman"],
-    standards: ["gost914290", "unificator", "optcutting", "optpacker", "boxpricecalculator", "gofrotechcard", "boxtypes", "boxpalletizer", "bottleoptimizer", "pojas", "truckloader", "platepalletizer", "dbsearch", "licman"],
-    platepalletizer: ["optcutting", "truckloader", "boxpalletizer", "pojas", "boxpricecalculator", "gofrotechcard", "standards", "gost914290", "optpacker", "unificator", "bottleoptimizer", "boxtypes", "dbsearch", "licman"],
-    dbsearch: ["licman", "pojas", "standards", "gofrotechcard", "boxpricecalculator", "optcutting", "optpacker", "boxpalletizer", "truckloader", "platepalletizer", "unificator", "boxtypes", "gost914290", "bottleoptimizer"],
-    licman: ["dbsearch", "pojas", "standards", "gofrotechcard", "boxpricecalculator", "optcutting", "optpacker", "boxpalletizer", "truckloader", "platepalletizer", "unificator", "boxtypes", "gost914290", "bottleoptimizer"],
-    pojas: ["optcutting", "optpacker", "boxpalletizer", "truckloader", "standards", "gost914290", "boxpricecalculator", "gofrotechcard", "boxtypes", "unificator", "bottleoptimizer", "platepalletizer", "dbsearch", "licman"],
-    bottleoptimizer: ["optpacker", "unificator", "boxpalletizer", "standards", "boxpricecalculator", "gost914290", "boxtypes", "truckloader", "optcutting", "gofrotechcard", "pojas", "platepalletizer", "dbsearch", "licman"],
-    gofrotechcard: ["optcutting", "boxpricecalculator", "standards", "boxtypes", "gost914290", "boxpalletizer", "optpacker", "unificator", "pojas", "truckloader", "platepalletizer", "bottleoptimizer", "dbsearch", "licman"],
-    boxtypes: ["gofrotechcard", "standards", "unificator", "optcutting", "boxpricecalculator", "gost914290", "optpacker", "boxpalletizer", "pojas", "bottleoptimizer", "truckloader", "platepalletizer", "dbsearch", "licman"],
-    unificator: ["standards", "gost914290", "boxtypes", "optpacker", "boxpricecalculator", "boxpalletizer", "truckloader", "optcutting", "gofrotechcard", "bottleoptimizer", "pojas", "platepalletizer", "dbsearch", "licman"]
-  };
-
-  // Include every registered program once, preserving the relevance order.
-  for (const id of Object.keys(PRODUCTS)) {
-    RELEVANCE[id] = [...new Set([...(RELEVANCE[id] || []), ...Object.keys(PRODUCTS)])].filter(other => other !== id);
-  }
+  // BEGIN GENERATED PROGRAM ORDER
+  const GLOBAL_PROGRAM_ORDER = [
+    "boxpalletizer",
+    "boxpricecalculator",
+    "optcutting",
+    "truckloader",
+    "gofrotechcard",
+    "optpacker",
+    "boxtypes",
+    "pojas",
+    "unificator",
+    "limitload",
+    "prs",
+    "composer",
+    "rollslitter",
+    "knifemeter",
+    "gratings",
+    "packsizer",
+    "bottleoptimizer",
+    "platepalletizer",
+    "gost914290",
+    "standards",
+    "dbsearch",
+    "licman"
+  ];
+  // END GENERATED PROGRAM ORDER
 
   const ROUTES = {
     gratings: "gratings",
@@ -189,6 +188,8 @@
   const anchor = placement.last ? anchors[anchors.length - 1] : anchors[0];
   if (!anchor) return;
 
+  if (document.getElementById(GARLAND_ID)) return;
+
   const nav = document.createElement("nav");
   nav.id = GARLAND_ID;
   nav.className = "pt-program-garland";
@@ -226,24 +227,8 @@
     nav.setAttribute("aria-label", language === "en" ? "Other PackTuning programs" : "Другие программы PackTuning");
     track.replaceChildren();
 
-    const order = [currentId, ...RELEVANCE[currentId]];
-    if (currentId !== "packsizer") {
-      order.splice(order.indexOf("packsizer"), 1);
-      order.splice(order.indexOf("bottleoptimizer"), 0, "packsizer");
-    }
-    order.splice(order.indexOf("composer"), 1);
-    order.splice(order.indexOf("optpacker") + 1, 0, "composer");
-    order.splice(order.indexOf("rollslitter"), 1);
-    order.splice(order.indexOf("optpacker") + 1, 0, "rollslitter");
-    order.splice(order.indexOf("knifemeter"), 1);
-    order.splice(order.indexOf("limitload") + 1, 0, "knifemeter");
-    order.splice(order.indexOf(currentId), 1);
-    order.unshift(currentId);
-    if(currentId !== "prs"){order.splice(order.indexOf("prs"),1);order.splice(order.indexOf("rollslitter")+1,0,"prs");}
-    if (currentId !== "gratings") {
-      order.splice(order.indexOf("gratings"), 1);
-      order.splice(order.indexOf("knifemeter") + 1, 0, "gratings");
-    }
+    const order = [currentId, ...GLOBAL_PROGRAM_ORDER.filter(id => id !== currentId)]
+      .filter(id => PRODUCTS[id]);
     for (const id of order) {
       const product = PRODUCTS[id];
       if (!product) continue;
