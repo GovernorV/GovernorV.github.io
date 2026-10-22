@@ -240,8 +240,10 @@
     order.splice(order.indexOf(currentId), 1);
     order.unshift(currentId);
     if(currentId !== "prs"){order.splice(order.indexOf("prs"),1);order.splice(order.indexOf("rollslitter")+1,0,"prs");}
-    order.splice(order.indexOf("gratings"), 1);
-    order.splice(order.indexOf("knifemeter") + 1, 0, "gratings");
+    if (currentId !== "gratings") {
+      order.splice(order.indexOf("gratings"), 1);
+      order.splice(order.indexOf("knifemeter") + 1, 0, "gratings");
+    }
     for (const id of order) {
       const product = PRODUCTS[id];
       if (!product) continue;
