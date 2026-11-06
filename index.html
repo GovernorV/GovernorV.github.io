@@ -2513,6 +2513,55 @@ footer{
     }
   }
 },
+{
+  "id": "bundle-consumer-pro",
+  "glyph": "PRO",
+  "icon": "assets/icons/catalog.png",
+  "cover": {
+    "ru": "assets/bundles/consumer-pro-ru.png",
+    "en": "assets/bundles/consumer-pro-en.png"
+  },
+  "gradient": [
+    "#123a8f",
+    "#37d8ff"
+  ],
+  "titles": {
+    "ru": "Комплект «Потребитель — PRO»",
+    "en": "Consumer — PRO Bundle"
+  },
+  "subtitles": {
+    "ru": "Для потребителей упаковки",
+    "en": "For packaging consumers"
+  },
+  "descriptions": {
+    "ru": "Состав: Унификатор гофроящиков (полная версия), Паллетировщик PRO, Фасовщик PRO, TruckLoader (полная версия), Предельная нагрузка (полная версия), Самосборные решётки PRO, Развесчик (полная версия), Проектировщик бутылок PRO, Калькулятор гофроящиков PRO.",
+    "en": "Includes: Box Size Unifier (full version), Box Palletizer PRO, OptPacker PRO, TruckLoader (full version), Ultimate Load (full version), Self-assembly Dividers PRO, Bulk Goods Packer (full version), Bottle Designer PRO and Box Cost Calculator PRO."
+  },
+  "pricing": {
+    "ru": {
+      "main": "449 000 ₽ (комплект)",
+      "lines": [
+        "Бессрочные лицензии на одно рабочее место",
+        "9 программ",
+        "PRO-редакции там, где доступны; для остальных — полные версии"
+      ]
+    },
+    "en": {
+      "main": "449 000 ₽ (bundle)",
+      "lines": [
+        "Perpetual licenses for one workstation",
+        "9 applications",
+        "PRO editions where available; full versions for other applications"
+      ]
+    }
+  },
+  "links": {
+    "page": {
+      "ru": "assets/bundles/consumer-pro-ru.png",
+      "en": "assets/bundles/consumer-pro-en.png"
+    }
+  }
+},
     {
       id: "gostbundle",
       glyph: "2×ГОСТ",
@@ -2787,7 +2836,7 @@ footer{
   function renderCards(lang){
     ui.cards.innerHTML = "";
 
-    const cardOrder = [...GLOBAL_PROGRAM_ORDER, 'gostbundle', 'bundle-producer-start', 'bundle-producer-business', 'bundle-producer-pro', 'bundle-consumer-start', 'bundle-consumer-business']
+    const cardOrder = [...GLOBAL_PROGRAM_ORDER, 'gostbundle', 'bundle-producer-start', 'bundle-producer-business', 'bundle-producer-pro', 'bundle-consumer-start', 'bundle-consumer-business', 'bundle-consumer-pro']
       .map(id => PRODUCTS.find(product => product.id === id)).filter(Boolean);
     for (const p of cardOrder){
       const card = document.createElement("div");
