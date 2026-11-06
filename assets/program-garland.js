@@ -172,7 +172,9 @@
   };
 
   const route = window.location.pathname.split("/").filter(Boolean)[0]?.toLowerCase();
-  const currentId = ROUTES[route];
+  const isStartBundle = route === "start";
+  const featuredIds = isStartBundle ? ["optcutting", "boxpricecalculator", "gofrotechcard"] : [];
+  const currentId = isStartBundle ? "optcutting" : ROUTES[route];
   if (!currentId || !PRODUCTS[currentId]) return;
 
   if (!document.getElementById(STYLE_ID)) {
@@ -183,7 +185,7 @@
     document.head.appendChild(stylesheet);
   }
 
-  const placement = PLACEMENT[currentId];
+  const placement = isStartBundle ? { selector: "#start-banner", last: false } : PLACEMENT[currentId];
   const anchors = document.querySelectorAll(placement.selector);
   const anchor = placement.last ? anchors[anchors.length - 1] : anchors[0];
   if (!anchor) return;
@@ -227,7 +229,8 @@
     nav.setAttribute("aria-label", language === "en" ? "Other PackTuning programs" : "Другие программы PackTuning");
     track.replaceChildren();
 
-    const order = [currentId, ...GLOBAL_PROGRAM_ORDER.filter(id => id !== currentId)]
+    const firstIds = isStartBundle ? featuredIds : [currentId];
+    const order = [...firstIds, ...GLOBAL_PROGRAM_ORDER.filter(id => !firstIds.includes(id))]
       .filter(id => PRODUCTS[id]);
     for (const id of order) {
       const product = PRODUCTS[id];
@@ -240,15 +243,16 @@
       link.target = "_blank";
       link.rel = "noopener";
       link.title = product.title[language];
-      if (id === currentId) link.setAttribute("aria-current", "page");
+      if (!isStartBundle && id === currentId) link.setAttribute("aria-current", "page");
+      if (featuredIds.includes(id)) link.classList.add("pt-bundle-featured");
 
       const icon = document.createElement("img");
       icon.className = "pt-program-garland-icon";
       icon.src = (["gratings", "composer", "rollslitter", "knifemeter"].includes(id) ? window.location.origin : BASE) + product.icon;
       icon.alt = "";
-      icon.width = id === currentId ? 72 : 48;
-      icon.height = id === currentId ? 72 : 48;
-      icon.loading = id === currentId ? "eager" : "lazy";
+      icon.width = (featuredIds.includes(id) || id === currentId) ? 72 : 48;
+      icon.height = (featuredIds.includes(id) || id === currentId) ? 72 : 48;
+      icon.loading = (featuredIds.includes(id) || id === currentId) ? "eager" : "lazy";
 
       const label = document.createElement("span");
       label.className = "pt-program-garland-label";
