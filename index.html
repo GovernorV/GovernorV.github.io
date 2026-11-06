@@ -787,6 +787,22 @@ footer{
   padding:14px 16px;
 }
 .kpi .mini b{color:var(--text)}
+
++/* Software bundles */
+.bundleGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin:20px 0 36px}
+.bundleCard{min-width:0;padding:0;overflow:hidden}
+.bundleCard>div{padding:20px}
+.bundleBanner{display:block;margin:-20px -20px 20px}
+.bundleBanner img{display:block;width:100%;height:auto;aspect-ratio:1672/941;object-fit:contain;background:#eef4ff}
+.bundleCard h4{font-size:24px;margin:0 0 8px}
+.bundlePrice{font-size:30px;font-weight:800;margin:8px 0;color:var(--accent)}
+.bundleContents{list-style:none;padding:0;margin:20px 0}
+.bundleContents li{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px}
+.bundleContents span{color:var(--muted);font-size:12px;text-align:right}
+.bundleIconStrip{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;aspect-ratio:1672/941;align-items:center;justify-items:center;background:#eef4ff;margin:-20px -20px 20px;padding:16px}
+.bundleIconStrip img{width:58px;height:58px;object-fit:contain}
+@media(max-width:1000px){.bundleGrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.bundleGrid{grid-template-columns:1fr}}
 </style>
   <style>.social-menu{display:inline-flex;align-items:center;gap:8px;margin-left:auto;margin-right:16px;padding-right:16px;border-right:1px solid rgba(148,163,184,.4);flex:0 0 auto}.instagram-menu-link,.social-menu-link{position:relative;box-sizing:border-box!important;display:inline-grid!important;place-items:center;width:40px!important;height:40px!important;min-width:40px!important;min-height:40px!important;max-width:40px!important;padding:0!important;margin:0!important;border:0!important;border-radius:12px!important;color:#fff!important;text-decoration:none!important;flex:0 0 40px!important;transition:transform .18s ease,box-shadow .18s ease}.instagram-menu-link{background:linear-gradient(135deg,#833ab4,#fd1d1d 55%,#fcb045)!important;box-shadow:0 5px 16px rgba(193,53,132,.28)}.instagram-menu-link:hover,.social-menu-link:hover{transform:translateY(-1px)}.instagram-menu-link:focus-visible,.social-menu-link:focus-visible{outline:3px solid #fff;outline-offset:2px}.instagram-glyph{position:relative;width:21px;height:21px;border:2px solid #fff;border-radius:7px}.instagram-glyph::before{content:"";position:absolute;inset:4px;border:2px solid #fff;border-radius:50%}.instagram-glyph::after{content:"";position:absolute;right:3px;top:3px;width:3px;height:3px;border-radius:50%;background:#fff}.social-menu-link span{font:800 20px/1 Arial,sans-serif;letter-spacing:-.04em}.social-menu-link.facebook{background:#1877f2!important}.social-menu-link.linkedin{background:#0a66c2!important}.social-menu-link.vk{background:#07f!important}.social-menu-link.linkedin span{font-size:16px}.social-menu-link.vk span{font-size:14px;letter-spacing:-.08em}.social-menu-link[hidden]{display:none!important}@media(max-width:640px){.social-menu{gap:6px;margin-right:10px;padding-right:10px}.instagram-menu-link,.social-menu-link{width:36px!important;height:36px!important;min-width:36px!important;min-height:36px!important;max-width:36px!important;flex-basis:36px!important}}</style>
   <style>.social-language-cluster{display:inline-flex;align-items:center;margin-left:auto;flex:0 0 auto}.social-language-cluster .social-menu{margin-left:0!important;margin-right:16px!important;padding-right:16px!important}@media(max-width:640px){.social-language-cluster .social-menu{margin-right:10px!important;padding-right:10px!important}}</style>
@@ -841,6 +857,7 @@ footer{
         </p>
 
         <a class="btn primary" href="#integration" id="btnToIntegration">Интеграция PRO</a>
+        <a class="btn secondary lang-ru" href="#bundles">Комплекты</a><a class="btn secondary lang-en" href="#bundles">Bundles</a>
         <a class="btn secondary" href="#products" id="btnToProducts">Перейти к программам</a>
         <a class="btn secondary" href="#deployments" id="btnToDeployments">Внедрение</a>
         <a class="btn secondary" href="mailto:vguberniev@gmail.com" id="btnContactTop">Написать: vguberniev@gmail.com</a>
@@ -1005,6 +1022,159 @@ footer{
       </div>
     </div>
   </section>
+
+  <section id="bundles"><div class="container">
+<h2 class="lang-ru">Комплекты программ</h2><h2 class="lang-en">Software bundles</h2>
+<p class="lang-ru">Выберите комплект для производства упаковки или для её подбора, укладки и логистики. Бессрочные лицензии на одно рабочее место.</p><p class="lang-en">Choose a bundle for packaging production or for packaging selection, stacking and logistics. Perpetual licenses for one workstation. Prices are in Russian rubles.</p>
+<h3 class="lang-ru">Для производителей упаковки</h3><h3 class="lang-en">For packaging manufacturers</h3><div class="bundleGrid">
+<article class="card bundleCard" id="bundle-producer-start">
+<div class="lang-ru">
+<a class="bundleBanner" href="assets/bundles/producer-start-ru.png" target="_blank" rel="noopener"><img src="assets/bundles/producer-start-ru.png" alt="Для производителей упаковки — Старт" width="1672" height="941" loading="lazy"></a>
+<h4>Старт</h4><p class="bundlePrice">199 000 ₽</p>
+<p>3 программы</p>
+<ul class="bundleContents">
+<li><a href="OptCutting/?lang=ru">Раскройщик</a><span>Полная версия</span></li>
+<li><a href="BoxPriceCalculator/?lang=ru">Калькулятор гофроящиков</a><span>Standard</span></li>
+<li><a href="GofroTechCard/?lang=ru">ГофроТехкарта</a><span>Standard</span></li>
+</ul>
+<a class="btn primary" href="mailto:vguberniev@gmail.com?subject=PackTuning%3A%20%D0%94%D0%BB%D1%8F%20%D0%BF%D1%80%D0%BE%D0%B8%D0%B7%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D0%B5%D0%B9%20%D1%83%D0%BF%D0%B0%D0%BA%D0%BE%D0%B2%D0%BA%D0%B8%20%E2%80%94%20%D0%A1%D1%82%D0%B0%D1%80%D1%82">Заказать комплект</a></div>
+<div class="lang-en">
+<a class="bundleBanner" href="assets/bundles/producer-start-en.png" target="_blank" rel="noopener"><img src="assets/bundles/producer-start-en.png" alt="For packaging manufacturers — Start" width="1672" height="941" loading="lazy"></a>
+<h4>Start</h4><p class="bundlePrice">199 000 ₽</p>
+<p>3 applications</p>
+<ul class="bundleContents">
+<li><a href="OptCutting/?lang=en">OptCutting</a><span>Full version</span></li>
+<li><a href="BoxPriceCalculator/?lang=en">Box Cost Calculator</a><span>Standard</span></li>
+<li><a href="GofroTechCard/?lang=en">GofroTechCard</a><span>Standard</span></li>
+</ul>
+<a class="btn primary" href="mailto:vguberniev@gmail.com?subject=PackTuning%3A%20For%20packaging%20manufacturers%20%E2%80%94%20Start">Order bundle</a></div>
+</article>
+<article class="card bundleCard" id="bundle-producer-business">
+<div class="lang-ru">
+<a class="bundleBanner" href="assets/bundles/producer-business-ru.png" target="_blank" rel="noopener"><img src="assets/bundles/producer-business-ru.png" alt="Для производителей упаковки — Бизнес" width="1672" height="941" loading="lazy"></a>
+<h4>Бизнес</h4><p class="bundlePrice">319 000 ₽</p>
+<p>6 программ</p>
+<ul class="bundleContents">
+<li><a href="OptCutting/?lang=ru">Раскройщик</a><span>Полная версия</span></li>
+<li><a href="BoxPriceCalculator/?lang=ru">Калькулятор гофроящиков</a><span>PRO</span></li>
+<li><a href="GofroTechCard/?lang=ru">ГофроТехкарта</a><span>PRO</span></li>
+<li><a href="BoxPalletizer/?lang=ru">Паллетировщик</a><span>Standard</span></li>
+<li><a href="knifemeter/?lang=ru">Ножемер</a><span>Standard</span></li>
+<li><a href="composer/?lang=ru">Композитор</a><span>Полная версия</span></li>
+</ul>
+<a class="btn primary" href="mailto:vguberniev@gmail.com?subject=PackTuning%3A%20%D0%94%D0%BB%D1%8F%20%D0%BF%D1%80%D0%BE%D0%B8%D0%B7%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D0%B5%D0%B9%20%D1%83%D0%BF%D0%B0%D0%BA%D0%BE%D0%B2%D0%BA%D0%B8%20%E2%80%94%20%D0%91%D0%B8%D0%B7%D0%BD%D0%B5%D1%81">Заказать комплект</a></div>
+<div class="lang-en">
+<a class="bundleBanner" href="assets/bundles/producer-business-en.png" target="_blank" rel="noopener"><img src="assets/bundles/producer-business-en.png" alt="For packaging manufacturers — Business" width="1672" height="941" loading="lazy"></a>
+<h4>Business</h4><p class="bundlePrice">319 000 ₽</p>
+<p>6 applications</p>
+<ul class="bundleContents">
+<li><a href="OptCutting/?lang=en">OptCutting</a><span>Full version</span></li>
+<li><a href="BoxPriceCalculator/?lang=en">Box Cost Calculator</a><span>PRO</span></li>
+<li><a href="GofroTechCard/?lang=en">GofroTechCard</a><span>PRO</span></li>
+<li><a href="BoxPalletizer/?lang=en">Box Palletizer</a><span>Standard</span></li>
+<li><a href="knifemeter/?lang=en">KnifeMeter</a><span>Standard</span></li>
+<li><a href="composer/?lang=en">Composer</a><span>Full version</span></li>
+</ul>
+<a class="btn primary" href="mailto:vguberniev@gmail.com?subject=PackTuning%3A%20For%20packaging%20manufacturers%20%E2%80%94%20Business">Order bundle</a></div>
+</article>
+<article class="card bundleCard" id="bundle-producer-pro">
+<div class="lang-ru">
+<a class="bundleBanner" href="assets/bundles/producer-pro-ru.png" target="_blank" rel="noopener"><img src="assets/bundles/producer-pro-ru.png" alt="Для производителей упаковки — Про" width="1672" height="941" loading="lazy"></a>
+<h4>Про</h4><p class="bundlePrice">649 000 ₽</p>
+<p>13 программ</p>
+<ul class="bundleContents">
+<li><a href="OptCutting/?lang=ru">Раскройщик</a><span>Полная версия</span></li>
+<li><a href="BoxPriceCalculator/?lang=ru">Калькулятор гофроящиков</a><span>PRO</span></li>
+<li><a href="GofroTechCard/?lang=ru">ГофроТехкарта</a><span>PRO</span></li>
+<li><a href="BoxPalletizer/?lang=ru">Паллетировщик</a><span>PRO</span></li>
+<li><a href="knifemeter/?lang=ru">Ножемер</a><span>PRO</span></li>
+<li><a href="composer/?lang=ru">Композитор</a><span>Полная версия</span></li>
+<li><a href="prs/?lang=ru">Раскройщик ПРС</a><span>Полная версия</span></li>
+<li><a href="rollslitter/?lang=ru">Раскройщик рулонов</a><span>Полная версия</span></li>
+<li><a href="BoxTypes/?lang=ru">Конструктор типов ящиков</a><span>Полная версия</span></li>
+<li><a href="Unificator/?lang=ru">Унификатор гофроящиков</a><span>Полная версия</span></li>
+<li><a href="gratings/?lang=ru">Самосборные решётки</a><span>PRO</span></li>
+<li><a href="limitload/?lang=ru">Предельная нагрузка</a><span>Полная версия</span></li>
+<li><a href="truckloader-site/?lang=ru">TruckLoader</a><span>Полная версия</span></li>
+</ul>
+<p class="small">Полный состав — 13 программ, включая Раскройщик рулонов и Самосборные решётки, не показанные на баннере.</p>
+<a class="btn primary" href="mailto:vguberniev@gmail.com?subject=PackTuning%3A%20%D0%94%D0%BB%D1%8F%20%D0%BF%D1%80%D0%BE%D0%B8%D0%B7%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D0%B5%D0%B9%20%D1%83%D0%BF%D0%B0%D0%BA%D0%BE%D0%B2%D0%BA%D0%B8%20%E2%80%94%20%D0%9F%D1%80%D0%BE">Заказать комплект</a></div>
+<div class="lang-en">
+<a class="bundleBanner" href="assets/bundles/producer-pro-en.png" target="_blank" rel="noopener"><img src="assets/bundles/producer-pro-en.png" alt="For packaging manufacturers — Pro" width="1672" height="941" loading="lazy"></a>
+<h4>Pro</h4><p class="bundlePrice">649 000 ₽</p>
+<p>13 applications</p>
+<ul class="bundleContents">
+<li><a href="OptCutting/?lang=en">OptCutting</a><span>Full version</span></li>
+<li><a href="BoxPriceCalculator/?lang=en">Box Cost Calculator</a><span>PRO</span></li>
+<li><a href="GofroTechCard/?lang=en">GofroTechCard</a><span>PRO</span></li>
+<li><a href="BoxPalletizer/?lang=en">Box Palletizer</a><span>PRO</span></li>
+<li><a href="knifemeter/?lang=en">KnifeMeter</a><span>PRO</span></li>
+<li><a href="composer/?lang=en">Composer</a><span>Full version</span></li>
+<li><a href="prs/?lang=en">Roll Slitting Optimizer</a><span>Full version</span></li>
+<li><a href="rollslitter/?lang=en">Roll Slitter</a><span>Full version</span></li>
+<li><a href="BoxTypes/?lang=en">Box Type Designer</a><span>Full version</span></li>
+<li><a href="Unificator/?lang=en">Box Size Unifier</a><span>Full version</span></li>
+<li><a href="gratings/?lang=en">Self-assembly Dividers</a><span>PRO</span></li>
+<li><a href="limitload/?lang=en">Ultimate Load</a><span>Full version</span></li>
+<li><a href="truckloader-site/?lang=en">TruckLoader</a><span>Full version</span></li>
+</ul>
+<p class="small">All 13 applications are included, including Roll Slitter and Self-assembly Dividers, which are not shown in the banner.</p>
+<a class="btn primary" href="mailto:vguberniev@gmail.com?subject=PackTuning%3A%20For%20packaging%20manufacturers%20%E2%80%94%20Pro">Order bundle</a></div>
+</article>
+</div>
+<h3 class="lang-ru">Для потребителей упаковки</h3><h3 class="lang-en">For packaging consumers</h3><div class="bundleGrid">
+<article class="card bundleCard" id="bundle-consumer-start">
+<div class="lang-ru">
+<a class="bundleBanner" href="assets/bundles/consumer-start-ru.png" target="_blank" rel="noopener"><img src="assets/bundles/consumer-start-ru.png" alt="Для потребителей упаковки — Старт" width="1672" height="941" loading="lazy"></a>
+<h4>Старт</h4><p class="bundlePrice">149 000 ₽</p>
+<p>3 программы</p>
+<ul class="bundleContents">
+<li><a href="Unificator/?lang=ru">Унификатор гофроящиков</a><span>Полная версия</span></li>
+<li><a href="BoxPalletizer/?lang=ru">Паллетировщик</a><span>Standard</span></li>
+<li><a href="OptPacker/?lang=ru">Фасовщик</a><span>Standard</span></li>
+</ul>
+<a class="btn primary" href="mailto:vguberniev@gmail.com?subject=PackTuning%3A%20%D0%94%D0%BB%D1%8F%20%D0%BF%D0%BE%D1%82%D1%80%D0%B5%D0%B1%D0%B8%D1%82%D0%B5%D0%BB%D0%B5%D0%B9%20%D1%83%D0%BF%D0%B0%D0%BA%D0%BE%D0%B2%D0%BA%D0%B8%20%E2%80%94%20%D0%A1%D1%82%D0%B0%D1%80%D1%82">Заказать комплект</a></div>
+<div class="lang-en">
+<a class="bundleBanner" href="assets/bundles/consumer-start-en.png" target="_blank" rel="noopener"><img src="assets/bundles/consumer-start-en.png" alt="For packaging consumers — Start" width="1672" height="941" loading="lazy"></a>
+<h4>Start</h4><p class="bundlePrice">149 000 ₽</p>
+<p>3 applications</p>
+<ul class="bundleContents">
+<li><a href="Unificator/?lang=en">Box Size Unifier</a><span>Full version</span></li>
+<li><a href="BoxPalletizer/?lang=en">Box Palletizer</a><span>Standard</span></li>
+<li><a href="OptPacker/?lang=en">OptPacker</a><span>Standard</span></li>
+</ul>
+<a class="btn primary" href="mailto:vguberniev@gmail.com?subject=PackTuning%3A%20For%20packaging%20consumers%20%E2%80%94%20Start">Order bundle</a></div>
+</article>
+<article class="card bundleCard" id="bundle-consumer-business">
+<div class="lang-ru">
+<a class="bundleBanner" href="assets/bundles/consumer-business-ru.png" target="_blank" rel="noopener"><img src="assets/bundles/consumer-business-ru.png" alt="Для потребителей упаковки — Бизнес" width="1672" height="941" loading="lazy"></a>
+<h4>Бизнес</h4><p class="bundlePrice">279 000 ₽</p>
+<p>6 программ</p>
+<ul class="bundleContents">
+<li><a href="Unificator/?lang=ru">Унификатор гофроящиков</a><span>Полная версия</span></li>
+<li><a href="BoxPalletizer/?lang=ru">Паллетировщик</a><span>PRO</span></li>
+<li><a href="OptPacker/?lang=ru">Фасовщик</a><span>PRO</span></li>
+<li><a href="truckloader-site/?lang=ru">TruckLoader</a><span>Полная версия</span></li>
+<li><a href="limitload/?lang=ru">Предельная нагрузка</a><span>Полная версия</span></li>
+<li><a href="gratings/?lang=ru">Самосборные решётки</a><span>Standard</span></li>
+</ul>
+<a class="btn primary" href="mailto:vguberniev@gmail.com?subject=PackTuning%3A%20%D0%94%D0%BB%D1%8F%20%D0%BF%D0%BE%D1%82%D1%80%D0%B5%D0%B1%D0%B8%D1%82%D0%B5%D0%BB%D0%B5%D0%B9%20%D1%83%D0%BF%D0%B0%D0%BA%D0%BE%D0%B2%D0%BA%D0%B8%20%E2%80%94%20%D0%91%D0%B8%D0%B7%D0%BD%D0%B5%D1%81">Заказать комплект</a></div>
+<div class="lang-en">
+<div class="bundleIconStrip" aria-hidden="true"><img src="assets/icons/unificator.png" alt="" loading="lazy"><img src="assets/icons/palletizer-pro.png" alt="" loading="lazy"><img src="assets/icons/fasovshik-pro.png" alt="" loading="lazy"><img src="assets/icons/truckloader.png" alt="" loading="lazy"><img src="limitload/assets/app-icon.png" alt="" loading="lazy"><img src="gratings/assets/app-icon.png" alt="" loading="lazy"></div>
+<h4>Business</h4><p class="bundlePrice">279 000 ₽</p>
+<p>6 applications</p>
+<ul class="bundleContents">
+<li><a href="Unificator/?lang=en">Box Size Unifier</a><span>Full version</span></li>
+<li><a href="BoxPalletizer/?lang=en">Box Palletizer</a><span>PRO</span></li>
+<li><a href="OptPacker/?lang=en">OptPacker</a><span>PRO</span></li>
+<li><a href="truckloader-site/?lang=en">TruckLoader</a><span>Full version</span></li>
+<li><a href="limitload/?lang=en">Ultimate Load</a><span>Full version</span></li>
+<li><a href="gratings/?lang=en">Self-assembly Dividers</a><span>Standard</span></li>
+</ul>
+<a class="btn primary" href="mailto:vguberniev@gmail.com?subject=PackTuning%3A%20For%20packaging%20consumers%20%E2%80%94%20Business">Order bundle</a></div>
+</article>
+</div>
+<p class="small lang-ru">Для программ без отдельной PRO-редакции включается полная доступная версия.</p><p class="small lang-en">Applications without a separate PRO edition are included in their full available version.</p></div></section>
 
   <section id="deployments">
     <div class="container">
