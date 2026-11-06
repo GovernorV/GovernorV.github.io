@@ -1,7 +1,7 @@
 const suite = [
  {id:'optcutting',icon:'optcutting',ru:'Раскройщик',en:'Sheet Optimizer',banner:'optcutting_banner',url:'/OptCutting/',edition:'Полная версия',editionEn:'Full version',description:'Карты раскроя, заказы, оборудование, сырьё и производственные отчёты.',descriptionEn:'Cutting layouts, orders, equipment, materials and production reports.'},
  {id:'boxprice',icon:'boxprice',ru:'Калькулятор гофроящиков',en:'Corrugated Box Calculator',banner:'boxprice_banner',url:'/BoxPriceCalculator/',edition:'Standard',editionEn:'Standard',description:'Себестоимость ящиков, листов и рулонов: материалы, печать, упаковка и доставка.',descriptionEn:'Box, sheet and roll costs: materials, printing, packaging and delivery.'},
- {id:'techcard',icon:'techcard',ru:'ГофроТехкарта',en:'Corrugated Process Card',banner:'techcard_banner',url:'/GofroTechCard/',edition:'Standard',editionEn:'Standard',description:'Конструкция, размерный чертёж, оформление и технологическая карта PDF.',descriptionEn:'Box styles, dimensioned drawings, artwork and PDF process cards.'}
+ {id:'techcard',icon:'techcard',ru:'ГофроТехкарта',en:'Corrugated Process Card',banner:'Start/assets/techcard-ad',url:'/GofroTechCard/',edition:'Standard',editionEn:'Standard',description:'Конструкция, размерный чертёж, оформление и технологическая карта PDF.',descriptionEn:'Box styles, dimensioned drawings, artwork and PDF process cards.'}
 ];
 const related = [
  {icon:'palletizer',ru:'Паллетировщик',en:'Box Palletizer',banner:'palletizer_banner',url:'/BoxPalletizer/',description:'Схемы укладки гофроящиков на поддоны и расчёт транспортного пакета.',descriptionEn:'Box stacking layouts on pallets and transport package calculations.'},
