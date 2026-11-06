@@ -172,8 +172,9 @@
   };
 
   const route = window.location.pathname.split("/").filter(Boolean)[0]?.toLowerCase();
-  const isStartBundle = route === "start";
-  const featuredIds = isStartBundle ? ["optcutting", "boxpricecalculator", "gofrotechcard"] : [];
+  const isBusinessBundle = route === "business";
+  const isStartBundle = route === "start" || isBusinessBundle;
+  const featuredIds = isBusinessBundle ? ["optcutting", "boxpricecalculator", "gofrotechcard", "boxpalletizer", "knifemeter", "composer"] : isStartBundle ? ["optcutting", "boxpricecalculator", "gofrotechcard"] : [];
   const currentId = isStartBundle ? "optcutting" : ROUTES[route];
   if (!currentId || !PRODUCTS[currentId]) return;
 
@@ -185,7 +186,7 @@
     document.head.appendChild(stylesheet);
   }
 
-  const placement = isStartBundle ? { selector: "#start-banner", last: false } : PLACEMENT[currentId];
+  const placement = isStartBundle ? { selector: isBusinessBundle ? "#business-banner" : "#start-banner", last: false } : PLACEMENT[currentId];
   const anchors = document.querySelectorAll(placement.selector);
   const anchor = placement.last ? anchors[anchors.length - 1] : anchors[0];
   if (!anchor) return;
@@ -248,7 +249,8 @@
 
       const icon = document.createElement("img");
       icon.className = "pt-program-garland-icon";
-      icon.src = (["gratings", "composer", "rollslitter", "knifemeter"].includes(id) ? window.location.origin : BASE) + product.icon;
+      const iconPath = isBusinessBundle && id === "boxpricecalculator" ? "/assets/icons/boxprice-pro.png" : isBusinessBundle && id === "gofrotechcard" ? "/assets/icons/techcard-pro.png" : product.icon;
+      icon.src = (["gratings", "composer", "rollslitter", "knifemeter"].includes(id) ? window.location.origin : BASE) + iconPath;
       icon.alt = "";
       icon.width = (featuredIds.includes(id) || id === currentId) ? 72 : 48;
       icon.height = (featuredIds.includes(id) || id === currentId) ? 72 : 48;
