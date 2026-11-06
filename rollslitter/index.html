@@ -54,7 +54,24 @@ html[lang="ru"] [data-lang="en"],html[lang="en"] [data-lang="ru"]{display:none!i
 <article><a href="/BoxPriceCalculator/#ru" data-lang="ru"><img src="/boxprice_banner.png" alt="Калькулятор гофроящиков" loading="lazy"></a><a href="/BoxPriceCalculator/#en" data-lang="en"><img src="/boxprice_banner_en.png" alt="Box Price Calculator" loading="lazy"></a><div class="related-body"><h3 data-lang="ru">Калькулятор гофроящиков</h3><p data-lang="ru">Расчёт себестоимости гофроупаковки.</p><a class="btn secondary" href="/BoxPriceCalculator/#ru" data-lang="ru">Открыть</a><h3 data-lang="en">Box Price Calculator</h3><p data-lang="en">Corrugated packaging cost calculation.</p><a class="btn secondary" href="/BoxPriceCalculator/#en" data-lang="en">Open</a></div></article>
 <article><a href="/?lang=ru" data-lang="ru"><img src="/catalog_banner.png" alt="Каталог программ" loading="lazy"></a><a href="/?lang=en" data-lang="en"><img src="/catalog_banner_en.png" alt="Software catalog" loading="lazy"></a><div class="related-body"><h3 data-lang="ru">Каталог программ</h3><p data-lang="ru">Все программы PackTuning для упаковки и логистики.</p><a class="btn secondary" href="/?lang=ru" data-lang="ru">Открыть</a><h3 data-lang="en">Software catalog</h3><p data-lang="en">All PackTuning applications for packaging and logistics.</p><a class="btn secondary" href="/?lang=en" data-lang="en">Open</a></div></article>
 </div></section>
-</main><footer><div class="container">© PackTuning Software · Viktor Guberniev · <a href="mailto:vguberniev@gmail.com">vguberniev@gmail.com</a> · <a href="/" data-lang="ru">Каталог программ</a><a href="/?lang=en" data-lang="en">Software catalog</a></div></footer>  <div class="viewer" id="viewer" aria-hidden="true"><div class="viewer-inner" role="dialog" aria-modal="true" aria-labelledby="viewerCaption"><button class="viewer-close" id="viewerClose" type="button" aria-label="Close full-size image">&times;</button><img id="viewerImage" src="" alt=""><p id="viewerCaption"></p></div></div>
+</main><style>
+.pt-bundles{box-sizing:border-box;max-width:1200px;margin:40px auto;padding:28px;border:1px solid #9bb4d4;border-radius:18px;background:var(--card,#f3f7fc);color:var(--text,#10243e)}
+.pt-bundles h2{margin:0 0 12px;font-size:26px}.pt-bundles p{line-height:1.6}
+.pt-bundle-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;list-style:none;padding:0;margin:20px 0 0}
+.pt-bundle-list li{padding:18px;border:1px solid #9bb4d4;border-radius:12px;line-height:1.6}
+.pt-bundle-list a{color:inherit;text-decoration:underline;font-weight:700}.pt-bundle-list span{display:block;font-size:14px;margin-top:6px}
+.pt-bundles .pt-bundle-en{display:none!important}html[lang^="en"] .pt-bundles .pt-bundle-ru{display:none!important}html[lang^="en"] .pt-bundles .pt-bundle-en{display:block!important}
+@media(max-width:640px){.pt-bundles{margin:28px 12px;padding:20px}.pt-bundle-list{grid-template-columns:1fr}}
+</style>
+<section class="pt-bundles" id="included-bundles">
+<div class="pt-bundle-ru" lang="ru"><h2>Входит в комплекты</h2><p>Эту программу можно приобрести в составе следующих комплектов PackTuning. В каждом комплекте указана включённая редакция программы.</p><ul class="pt-bundle-list">
+<li><a href="https://governorv.github.io/?lang=ru#bundle-producer-pro">Производитель — PRO</a><span>Включена редакция: Полная версия</span></li>
+</ul></div>
+<div class="pt-bundle-en" lang="en"><h2>Included in software bundles</h2><p>This application is available in the following PackTuning bundles. The included application edition is shown for each bundle.</p><ul class="pt-bundle-list">
+<li><a href="https://governorv.github.io/?lang=en#bundle-producer-pro">Manufacturer — PRO</a><span>Included edition: Full version</span></li>
+</ul></div>
+</section>
+<footer><div class="container">© PackTuning Software · Viktor Guberniev · <a href="mailto:vguberniev@gmail.com">vguberniev@gmail.com</a> · <a href="/" data-lang="ru">Каталог программ</a><a href="/?lang=en" data-lang="en">Software catalog</a></div></footer>  <div class="viewer" id="viewer" aria-hidden="true"><div class="viewer-inner" role="dialog" aria-modal="true" aria-labelledby="viewerCaption"><button class="viewer-close" id="viewerClose" type="button" aria-label="Close full-size image">&times;</button><img id="viewerImage" src="" alt=""><p id="viewerCaption"></p></div></div>
   <script>
     (() => {
       const root=document.documentElement, viewer=document.getElementById('viewer'), viewerImage=document.getElementById('viewerImage'), viewerCaption=document.getElementById('viewerCaption'), viewerClose=document.getElementById('viewerClose'); let trigger=null;
