@@ -15,4 +15,4 @@ footer{padding-bottom:85px}@media(max-width:1200px){header .section-nav{display:
 
 @media(min-width:601px){.brand-cluster .suite-title-icons{display:grid;grid-template-columns:repeat(3,32px);gap:3px}.brand-cluster .suite-title-icons img{width:30px;height:30px}}@media(max-width:600px){.brand-cluster .suite-title-icons{display:grid;grid-template-columns:repeat(3,26px);gap:3px}.brand-cluster .suite-title-icons img{width:25px;height:25px}.brand-cluster .brand{font-size:11px}}
 
-html[data-theme="day"] .catalog-cover{background:#fff}html[data-theme="night"] .catalog-cover{background:#071221}
+html[data-theme="day"] .catalog-cover,html[data-theme="day"] #related-cards .catalog-cover{background:#fff}html[data-theme="night"] .catalog-cover,html[data-theme="night"] #related-cards .catalog-cover{background:#071221}
