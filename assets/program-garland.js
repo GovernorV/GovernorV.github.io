@@ -172,11 +172,12 @@
   };
 
   const route = window.location.pathname.split("/").filter(Boolean)[0]?.toLowerCase();
-  const isConsumerStart = route === "consumerstart";
+  const isConsumerBusiness = route === "consumerbusiness";
+  const isConsumerStart = route === "consumerstart" || isConsumerBusiness;
   const isProBundle = route === "pro";
   const isBusinessBundle = route === "business" || isProBundle;
   const isStartBundle = route === "start" || isBusinessBundle || isConsumerStart;
-  const featuredIds = isConsumerStart ? ["unificator","boxpalletizer","optpacker"] : isProBundle ? ["optcutting","boxpricecalculator","gofrotechcard","boxpalletizer","knifemeter","composer","prs","rollslitter","boxtypes","unificator","gratings","limitload","truckloader"] : isBusinessBundle ? ["optcutting", "boxpricecalculator", "gofrotechcard", "boxpalletizer", "knifemeter", "composer"] : isStartBundle ? ["optcutting", "boxpricecalculator", "gofrotechcard"] : [];
+  const featuredIds = isConsumerBusiness ? ["unificator","boxpalletizer","optpacker","truckloader","limitload","gratings"] : isConsumerStart ? ["unificator","boxpalletizer","optpacker"] : isProBundle ? ["optcutting","boxpricecalculator","gofrotechcard","boxpalletizer","knifemeter","composer","prs","rollslitter","boxtypes","unificator","gratings","limitload","truckloader"] : isBusinessBundle ? ["optcutting", "boxpricecalculator", "gofrotechcard", "boxpalletizer", "knifemeter", "composer"] : isStartBundle ? ["optcutting", "boxpricecalculator", "gofrotechcard"] : [];
   const currentId = isStartBundle ? "optcutting" : ROUTES[route];
   if (!currentId || !PRODUCTS[currentId]) return;
 
@@ -188,7 +189,7 @@
     document.head.appendChild(stylesheet);
   }
 
-  const placement = isStartBundle ? { selector: isConsumerStart ? "#consumer-start-banner" : isProBundle ? "#pro-banner" : isBusinessBundle ? "#business-banner" : "#start-banner", last: false } : PLACEMENT[currentId];
+  const placement = isStartBundle ? { selector: isConsumerBusiness ? "#consumer-business-banner" : isConsumerStart ? "#consumer-start-banner" : isProBundle ? "#pro-banner" : isBusinessBundle ? "#business-banner" : "#start-banner", last: false } : PLACEMENT[currentId];
   const anchors = document.querySelectorAll(placement.selector);
   const anchor = placement.last ? anchors[anchors.length - 1] : anchors[0];
   if (!anchor) return;
@@ -251,7 +252,7 @@
 
       const icon = document.createElement("img");
       icon.className = "pt-program-garland-icon";
-      const iconPath = isProBundle && id === "boxpalletizer" ? "/assets/icons/palletizer-pro.png" : isProBundle && id === "knifemeter" ? "/knifemeter/assets/app-icon-pro.png" : isProBundle && id === "gratings" ? "/gratings/assets/pro-icon.png" : isBusinessBundle && id === "boxpricecalculator" ? "/assets/icons/boxprice-pro.png" : isBusinessBundle && id === "gofrotechcard" ? "/assets/icons/techcard-pro.png" : product.icon;
+      const iconPath = isConsumerBusiness && id === "boxpalletizer" ? "/assets/icons/palletizer-pro.png" : isConsumerBusiness && id === "optpacker" ? "/assets/icons/fasovshik-pro.png" : isProBundle && id === "boxpalletizer" ? "/assets/icons/palletizer-pro.png" : isProBundle && id === "knifemeter" ? "/knifemeter/assets/app-icon-pro.png" : isProBundle && id === "gratings" ? "/gratings/assets/pro-icon.png" : isBusinessBundle && id === "boxpricecalculator" ? "/assets/icons/boxprice-pro.png" : isBusinessBundle && id === "gofrotechcard" ? "/assets/icons/techcard-pro.png" : product.icon;
       icon.src = (["gratings", "composer", "rollslitter", "knifemeter"].includes(id) ? window.location.origin : BASE) + iconPath;
       icon.alt = "";
       icon.width = (featuredIds.includes(id) || id === currentId) ? 72 : 48;
