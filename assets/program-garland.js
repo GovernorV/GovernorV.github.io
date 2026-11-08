@@ -172,10 +172,11 @@
   };
 
   const route = window.location.pathname.split("/").filter(Boolean)[0]?.toLowerCase();
+  const isConsumerStart = route === "consumerstart";
   const isProBundle = route === "pro";
   const isBusinessBundle = route === "business" || isProBundle;
-  const isStartBundle = route === "start" || isBusinessBundle;
-  const featuredIds = isProBundle ? ["optcutting","boxpricecalculator","gofrotechcard","boxpalletizer","knifemeter","composer","prs","rollslitter","boxtypes","unificator","gratings","limitload","truckloader"] : isBusinessBundle ? ["optcutting", "boxpricecalculator", "gofrotechcard", "boxpalletizer", "knifemeter", "composer"] : isStartBundle ? ["optcutting", "boxpricecalculator", "gofrotechcard"] : [];
+  const isStartBundle = route === "start" || isBusinessBundle || isConsumerStart;
+  const featuredIds = isConsumerStart ? ["unificator","boxpalletizer","optpacker"] : isProBundle ? ["optcutting","boxpricecalculator","gofrotechcard","boxpalletizer","knifemeter","composer","prs","rollslitter","boxtypes","unificator","gratings","limitload","truckloader"] : isBusinessBundle ? ["optcutting", "boxpricecalculator", "gofrotechcard", "boxpalletizer", "knifemeter", "composer"] : isStartBundle ? ["optcutting", "boxpricecalculator", "gofrotechcard"] : [];
   const currentId = isStartBundle ? "optcutting" : ROUTES[route];
   if (!currentId || !PRODUCTS[currentId]) return;
 
@@ -187,7 +188,7 @@
     document.head.appendChild(stylesheet);
   }
 
-  const placement = isStartBundle ? { selector: isProBundle ? "#pro-banner" : isBusinessBundle ? "#business-banner" : "#start-banner", last: false } : PLACEMENT[currentId];
+  const placement = isStartBundle ? { selector: isConsumerStart ? "#consumer-start-banner" : isProBundle ? "#pro-banner" : isBusinessBundle ? "#business-banner" : "#start-banner", last: false } : PLACEMENT[currentId];
   const anchors = document.querySelectorAll(placement.selector);
   const anchor = placement.last ? anchors[anchors.length - 1] : anchors[0];
   if (!anchor) return;
