@@ -342,6 +342,19 @@ html[data-theme="day"] .smart-related-card,html.day-theme .smart-related-card{ba
 </style>
 <link rel="stylesheet" href="../assets/unified-language.css">
 <link rel="stylesheet" href="/assets/theme-switcher.css?v=20260811-2">
+<!-- bundle-membership-card-styles --><style>
+/* Bundle membership cards: the same compact advertising format as the catalog. */
+.pt-bundles .pt-bundle-list{grid-template-columns:repeat(4,minmax(0,1fr));align-items:stretch}
+.pt-bundles .pt-bundle-list li.pt-bundle-card{padding:0;min-width:0;overflow:hidden;display:flex;flex-direction:column}
+.pt-bundles .pt-bundle-cover{display:block;background:#fff;text-decoration:none}
+.pt-bundles .pt-bundle-cover img{display:block;width:100%;aspect-ratio:16/9;object-fit:contain}
+.pt-bundles .pt-bundle-card-body{padding:16px;display:flex;flex-direction:column;gap:10px;flex:1}
+.pt-bundles .pt-bundle-card-body>a{font-size:17px;line-height:1.35;text-decoration:none}
+.pt-bundles .pt-bundle-card-body>span{margin:0;font-size:14px;line-height:1.5}
+html[data-theme=night] .pt-bundles .pt-bundle-cover{background:#071221}
+@media(max-width:1000px){.pt-bundles .pt-bundle-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.pt-bundles .pt-bundle-list{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
   <header class="top">
@@ -459,8 +472,8 @@ html[data-theme="day"] .smart-related-card,html.day-theme .smart-related-card{ba
 </section>
 
 <section class="pt-bundles" id="included-bundles">
-<div class="pt-bundle-ru" lang="ru"><h2>Входит в комплекты</h2><p>Программу можно получить в составе следующих комплектов PackTuning. Для каждого указана включённая редакция.</p><ul class="pt-bundle-list"><li><a href="https://governorv.github.io/Pro/?lang=ru">Производитель — PRO</a><span>Включена редакция: Полная версия</span></li><li><a href="https://governorv.github.io/ConsumerBusiness/?lang=ru">Потребитель — Бизнес</a><span>Включена редакция: Полная версия</span></li><li><a href="https://governorv.github.io/ConsumerPro/?lang=ru">Потребитель — PRO</a><span>Включена редакция: Полная версия</span></li></ul></div>
-<div class="pt-bundle-en" lang="en"><h2>Included in software bundles</h2><p>Choose a PackTuning bundle below. The included edition of this application is shown for each bundle.</p><ul class="pt-bundle-list"><li><a href="https://governorv.github.io/Pro/?lang=en">Manufacturer — PRO</a><span>Included edition: Full version</span></li><li><a href="https://governorv.github.io/ConsumerBusiness/?lang=en">Consumer — Business</a><span>Included edition: Full version</span></li><li><a href="https://governorv.github.io/ConsumerPro/?lang=en">Consumer — PRO</a><span>Included edition: Full version</span></li></ul></div>
+<div class="pt-bundle-ru" lang="ru"><h2>Входит в комплекты</h2><p>Программу можно получить в составе следующих комплектов PackTuning. Для каждого указана включённая редакция.</p><ul class="pt-bundle-list"><li class="pt-bundle-card"><a class="pt-bundle-cover" href="https://governorv.github.io/Pro/?lang=ru"><img src="https://governorv.github.io/assets/bundles/producer-pro-ru.png" alt="Производитель — PRO" loading="lazy"></a><div class="pt-bundle-card-body"><a href="https://governorv.github.io/Pro/?lang=ru">Производитель — PRO</a><span>Включена редакция: Полная версия</span></div></li><li class="pt-bundle-card"><a class="pt-bundle-cover" href="https://governorv.github.io/ConsumerBusiness/?lang=ru"><img src="https://governorv.github.io/assets/bundles/consumer-business-ru.png" alt="Потребитель — Бизнес" loading="lazy"></a><div class="pt-bundle-card-body"><a href="https://governorv.github.io/ConsumerBusiness/?lang=ru">Потребитель — Бизнес</a><span>Включена редакция: Полная версия</span></div></li><li class="pt-bundle-card"><a class="pt-bundle-cover" href="https://governorv.github.io/ConsumerPro/?lang=ru"><img src="https://governorv.github.io/assets/bundles/consumer-pro-ru.png" alt="Потребитель — PRO" loading="lazy"></a><div class="pt-bundle-card-body"><a href="https://governorv.github.io/ConsumerPro/?lang=ru">Потребитель — PRO</a><span>Включена редакция: Полная версия</span></div></li></ul></div>
+<div class="pt-bundle-en" lang="en"><h2>Included in software bundles</h2><p>Choose a PackTuning bundle below. The included edition of this application is shown for each bundle.</p><ul class="pt-bundle-list"><li class="pt-bundle-card"><a class="pt-bundle-cover" href="https://governorv.github.io/Pro/?lang=en"><img src="https://governorv.github.io/assets/bundles/producer-pro-en.png" alt="Manufacturer — PRO" loading="lazy"></a><div class="pt-bundle-card-body"><a href="https://governorv.github.io/Pro/?lang=en">Manufacturer — PRO</a><span>Included edition: Full version</span></div></li><li class="pt-bundle-card"><a class="pt-bundle-cover" href="https://governorv.github.io/ConsumerBusiness/?lang=en"><img src="https://governorv.github.io/assets/bundles/consumer-business-en.png" alt="Consumer — Business" loading="lazy"></a><div class="pt-bundle-card-body"><a href="https://governorv.github.io/ConsumerBusiness/?lang=en">Consumer — Business</a><span>Included edition: Full version</span></div></li><li class="pt-bundle-card"><a class="pt-bundle-cover" href="https://governorv.github.io/ConsumerPro/?lang=en"><img src="https://governorv.github.io/assets/bundles/consumer-pro-en.png" alt="Consumer — PRO" loading="lazy"></a><div class="pt-bundle-card-body"><a href="https://governorv.github.io/ConsumerPro/?lang=en">Consumer — PRO</a><span>Included edition: Full version</span></div></li></ul></div>
 </section>
 
 <section class="smart-related" id="sites" data-smart-related>
