@@ -12,14 +12,14 @@ function setLanguage(value){
  document.documentElement.lang=lang;document.documentElement.dataset.lang=lang;
  document.querySelectorAll('[data-ru][data-en]').forEach(el=>el.textContent=el.dataset[lang]);
  document.querySelectorAll('[data-lang]').forEach(el=>el.setAttribute('aria-pressed',String(el.dataset.lang===lang)));
- document.querySelector('#hero').src='/Standards/assets/hero-'+lang+'.png';
- document.querySelector('#hero').alt=en?'GOST Standards Guide — GOST Bundle banner':'Справочник ГОСТов — баннер комплекта ГОСТы';
+ document.querySelector('#hero').src='/GOSTBundle/assets/gost-bundle-'+lang+'.png';document.querySelector('#hero-source').srcset='/GOSTBundle/assets/gost-bundle-'+lang+'.webp';
+ document.querySelector('#hero').alt=en?'GOST Bundle — Standards Guide and Load Calculator':'Комплект ГОСТы — Справочник и расчёт по ГОСТ 9142-2014';
  document.title=en?'GOST Bundle — Standards Guide and Load Calculator | PackTuning':'Комплект «ГОСТы» — справочник и расчёт нагрузки | PackTuning';
  const description=en?'GOST Standards Guide and GOST 9142-2014 Load Calculator. Two integrated full versions, perpetual licenses for one workstation. €159.':'Справочник ГОСТов и расчёт нагрузки по ГОСТ 9142-2014. Две полные версии с взаимной интеграцией. Бессрочные лицензии на одно рабочее место — 15 900 ₽.';
  document.querySelector('meta[name="description"]').content=description;
  document.querySelector('meta[property="og:title"]').content=document.title;
  document.querySelector('meta[property="og:description"]').content=description;
- document.querySelector('meta[property="og:image"]').content='https://governorv.github.io/Standards/assets/hero-'+lang+'.png';
+ document.querySelector('meta[property="og:image"]').content='https://governorv.github.io/GOSTBundle/assets/gost-bundle-'+lang+'.png';
  const schema=document.querySelector('#bundle-schema');const data=JSON.parse(schema.textContent);
  data.offers.price=en?'159':'15900';data.offers.priceCurrency=en?'EUR':'RUB';schema.textContent=JSON.stringify(data);
  document.querySelector('#suite-cards').innerHTML='<div class="catalog-cards">'+suite.map(p=>card(p,lang,true)).join('')+'</div>';
