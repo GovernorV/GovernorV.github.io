@@ -32,3 +32,4 @@ https://governorv.github.io/Pro/
 https://governorv.github.io/ConsumerStart/
 https://governorv.github.io/ConsumerBusiness/
 https://governorv.github.io/ConsumerPro/
+https://governorv.github.io/GOSTBundle/
