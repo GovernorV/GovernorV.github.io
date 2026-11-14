@@ -1190,6 +1190,55 @@ footer{
   // ---- EDIT HERE to add more programs later ----
   const PRODUCTS = [
 {
+  "id": "rotary-machine",
+  "glyph": "RM",
+  "icon": "RotaryMachine/assets/icon.png",
+  "cover": {
+    "ru": "RotaryMachine/assets/hero-ru.webp",
+    "en": "RotaryMachine/assets/hero-en.webp"
+  },
+  "gradient": [
+    "#1268f3",
+    "#22d7ff"
+  ],
+  "titles": {
+    "ru": "Ротационный станок",
+    "en": "Rotary Machine"
+  },
+  "subtitles": {
+    "ru": "Планирование высечки, переналадок и сборки перегородок",
+    "en": "Partition cutting, changeover and assembly planning"
+  },
+  "descriptions": {
+    "ru": "Планирует работу ротационных станков и сборку перегородок с учётом штампов, календарей, выработки и сроков. Таблицы с фильтрами и цветная диаграмма Ганта.",
+    "en": "Schedules rotary die cutters and partition assembly with dies, calendars, output and due dates. Filterable tables and a colour-coded Gantt chart."
+  },
+  "pricing": {
+    "ru": {
+      "main": "79 000 ₽ (бессрочная)",
+      "lines": [
+        "1 рабочее место",
+        "Аренда на год: 19 900 ₽",
+        "Аренда на месяц: 1 990 ₽"
+      ]
+    },
+    "en": {
+      "main": "RUB 79,000 (perpetual)",
+      "lines": [
+        "1 workstation",
+        "1-year rental: RUB 19,900",
+        "1-month rental: RUB 1,990"
+      ]
+    }
+  },
+  "links": {
+    "page": {
+      "ru": "https://governorv.github.io/RotaryMachine/?lang=ru",
+      "en": "https://governorv.github.io/RotaryMachine/?lang=en"
+    }
+  }
+},
+{
   "id": "gratings",
   "glyph": "SG",
   "icon": "gratings/assets/app-icon.png",
@@ -2771,6 +2820,7 @@ footer{
 
   // BEGIN GENERATED PROGRAM ORDER
   const GLOBAL_PROGRAM_ORDER = [
+    "rotary-machine",
     "boxpalletizer",
     "boxpricecalculator",
     "optcutting",
