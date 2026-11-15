@@ -1,6 +1,6 @@
 (()=>{"use strict";
 const root=document.documentElement, buttons=[...document.querySelectorAll('[data-lang-button]')];
-const metadata={ru:{title:'Ротационный станок — планирование высечки и сборки перегородок | PackTuning',description:'Планирование ротационных станков, штампов и сборки перегородок. Таблица операций, диаграмма Ганта и контроль сроков. От 1 990 ₽ в месяц.',alt:'Ротационный станок — планирование работы и переналадок'},en:{title:'Rotary Machine — partition cutting and assembly planning | PackTuning',description:'Schedule rotary die cutters, dies and partition assembly. Operation tables, Gantt charts and due-date tracking. From RUB 1,990 per month.',alt:'Rotary Machine — work and changeover planning'}};
+const metadata={ru:{title:'Ротационный станок — планирование высечки и сборки перегородок | PackTuning',description:'Планирование ротационных станков, штампов и сборки перегородок. Таблица операций, диаграмма Ганта и контроль сроков. От 1 990 ₽ в месяц.',alt:'Ротационный станок — планирование работы и переналадок'},en:{title:'Rotary Machine — partition cutting and assembly planning | PackTuning',description:'Schedule rotary die cutters, dies and partition assembly. Operation tables, Gantt charts and due-date tracking. From €19.90 per month.',alt:'Rotary Machine — work and changeover planning'}};
 let lang='ru';try{lang=new URLSearchParams(location.search).get('lang')||localStorage.getItem('rotary-machine-lang')||((navigator.language||'').startsWith('ru')?'ru':'en')}catch(e){}
 function apply(next){lang=next==='en'?'en':'ru';root.lang=lang;
  document.querySelectorAll('[data-ru][data-en]').forEach(n=>n.textContent=n.dataset[lang]);
@@ -8,6 +8,7 @@ function apply(next){lang=next==='en'?'en':'ru';root.lang=lang;
  document.getElementById('hero-source').srcset=`assets/hero-${lang}.webp`;
  const hero=document.getElementById('hero-image');hero.src=`assets/hero-${lang}.png`;hero.alt=metadata[lang].alt;
  document.querySelectorAll('[data-alt-ru]').forEach(n=>n.alt=n.dataset[lang==='ru'?'altRu':'altEn']);
+ document.querySelectorAll('[data-image-ru]').forEach(n=>n.src=n.dataset[lang==='ru'?'imageRu':'imageEn']);
  document.querySelectorAll('[data-related]').forEach(n=>n.href=`https://governorv.github.io/${n.dataset.related}/?lang=${lang}`);
  document.querySelectorAll('[data-catalog]').forEach(n=>n.href=`https://governorv.github.io/?lang=${lang}`);
  document.title=metadata[lang].title;document.querySelector('meta[name="description"]').content=metadata[lang].description;
@@ -17,6 +18,7 @@ function apply(next){lang=next==='en'?'en':'ru';root.lang=lang;
  document.getElementById('close-dialog').setAttribute('aria-label',lang==='ru'?'Закрыть':'Close');
  document.querySelectorAll('.zoom-image').forEach(n=>n.setAttribute('aria-label',lang==='ru'?'Увеличить изображение':'Enlarge image'));
  try{localStorage.setItem('rotary-machine-lang',lang)}catch(e){}
+ const schemaNode=document.querySelector('script[type="application/ld+json"]');if(schemaNode){const schema=JSON.parse(schemaNode.textContent);const prices=lang==='en'?['790','199','19.90']:['79000','19900','1990'];schema.offers.forEach((offer,i)=>{offer.priceCurrency=lang==='en'?'EUR':'RUB';offer.price=prices[i]});schemaNode.textContent=JSON.stringify(schema);}
  const url=new URL(location.href);url.searchParams.set('lang',lang);history.replaceState(null,'',url);
 }
 buttons.forEach(b=>b.addEventListener('click',()=>apply(b.dataset.langButton)));apply(lang);

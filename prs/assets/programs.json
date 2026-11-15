@@ -50,6 +50,18 @@
   },
   {
     "title": {
+      "ru": "Ротационный станок",
+      "en": "Rotary Machine"
+    },
+    "icon": "/RotaryMachine/assets/icon.png",
+    "url": {
+      "ru": "/RotaryMachine/?lang=ru",
+      "en": "/RotaryMachine/?lang=en"
+    },
+    "id": "rotary-machine"
+  },
+  {
+    "title": {
       "ru": "TruckLoader",
       "en": "TruckLoader"
     },

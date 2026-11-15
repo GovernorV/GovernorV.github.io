@@ -54,11 +54,11 @@ const productText = catalog.split('const PRODUCTS = ')[1].split('const VERSION_I
 const products = vm.runInNewContext('(' + productText.slice(0, productText.lastIndexOf(';')) + ')');
 const catalogContext = vm.createContext({PRODUCTS: products, GLOBAL_PROGRAM_ORDER: expected});
 const sort = catalog.slice(catalog.indexOf('    const cardOrder ='), catalog.indexOf('    for (const p of cardOrder)'));
-assert.deepEqual(Array.from(vm.runInContext(sort + 'cardOrder.map(p => p.id)', catalogContext)), [...expected, 'gostbundle']);
+assert.deepEqual(Array.from(vm.runInContext(sort + 'cardOrder.map(p => p.id)', catalogContext)), [...expected, 'gostbundle', 'bundle-producer-start', 'bundle-producer-business', 'bundle-producer-pro', 'bundle-consumer-start', 'bundle-consumer-business', 'bundle-consumer-pro']);
 assert.ok(!catalog.includes('card.style.order'));
 const schema = JSON.parse(catalog.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
-assert.equal(schema.itemListElement.length, 23);
-assert.deepEqual(schema.itemListElement.map(item => item.position), Array.from({length:23}, (_, i) => i + 1));
+assert.equal(schema.itemListElement.length, expected.length + 1);
+assert.deepEqual(schema.itemListElement.map(item => item.position), Array.from({length:expected.length + 1}, (_, i) => i + 1));
 for (let i = 0; i < expected.length; i++) {
   assert.equal(schema.itemListElement[i].url, products.find(product => product.id === expected[i]).links.page.ru);
 }

@@ -6,6 +6,7 @@
   const GARLAND_ID = "pt-program-garland";
 
   const PRODUCTS = {
+    "rotary-machine": {title:{ru:"Ротационный станок",en:"Rotary Machine"},icon:"/RotaryMachine/assets/icon.png",url:{ru:"/RotaryMachine/?lang=ru",en:"/RotaryMachine/?lang=en"}},
     gratings: {title:{ru:"Самосборные решётки",en:"Self-assembly Dividers"},icon:"/gratings/assets/app-icon.png",url:{ru:"/gratings/",en:"/gratings/?lang=en"}},
     prs: {title:{ru:"Раскройщик ПРС",en:"PRS Cutter"},icon:"/prs/assets/app-icon.png",url:{ru:"/prs/",en:"/prs/?lang=en"}},
     rollslitter: { title: {ru: "Раскройщик рулонов", en: "Roll Slitter"}, icon: "/rollslitter/assets/app-icon.png", url: {ru: "/rollslitter/", en: "/rollslitter/?lang=en"} },
@@ -99,6 +100,7 @@
     "boxpalletizer",
     "boxpricecalculator",
     "optcutting",
+    "rotary-machine",
     "truckloader",
     "gofrotechcard",
     "optpacker",
@@ -122,6 +124,7 @@
   // END GENERATED PROGRAM ORDER
 
   const ROUTES = {
+    rotarymachine: "rotary-machine",
     gratings: "gratings",
     prs: "prs",
     knifemeter: "knifemeter",
@@ -147,6 +150,7 @@
   };
 
   const PLACEMENT = {
+    "rotary-machine": {selector:"#top.hero-banner",last:false},
     gratings: {selector:".hero-banner",last:true},
     prs: {selector:".hero-banner",last:true},
     knifemeter: { selector: ".hero-banner", last: true },
