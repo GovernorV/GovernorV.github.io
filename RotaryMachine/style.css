@@ -678,3 +678,12 @@ dialog button{position:absolute;right:12px;top:8px;font:24px system-ui;backgroun
 #related .related-body .btn{align-self:flex-start}
 @media(max-width:1100px){#related .related-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:650px){#related .related-grid{grid-template-columns:minmax(0,1fr)}}
+
+/* Bundle membership uses compact advertising cards, separate from recommendations. */
+.membership-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
+.membership-card{overflow:hidden;border:1px solid var(--line);border-radius:20px;background:var(--surface)}
+.membership-card>a,.membership-card img{display:block;width:100%}
+.membership-card img{aspect-ratio:16/9;object-fit:contain;background:#fff}
+.membership-card-body{padding:20px}.membership-card-body h3{margin:0 0 14px}.membership-card-body p{margin:12px 0}.membership-price{font-weight:800}
+@media(max-width:1100px){.membership-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){.membership-grid{grid-template-columns:1fr}}
