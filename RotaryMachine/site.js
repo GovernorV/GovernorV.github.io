@@ -9,6 +9,7 @@ function apply(next){lang=next==='en'?'en':'ru';root.lang=lang;
  const hero=document.getElementById('hero-image');hero.src=`assets/hero-${lang}.png`;hero.alt=metadata[lang].alt;
  document.querySelectorAll('[data-alt-ru]').forEach(n=>n.alt=n.dataset[lang==='ru'?'altRu':'altEn']);
  document.querySelectorAll('[data-image-ru]').forEach(n=>n.src=n.dataset[lang==='ru'?'imageRu':'imageEn']);
+ document.querySelectorAll('[data-download-ru]').forEach(n=>n.href=n.dataset[lang==='ru'?'downloadRu':'downloadEn']);
  document.querySelectorAll('[data-related]').forEach(n=>n.href=`https://governorv.github.io/${n.dataset.related}/?lang=${lang}`);
  document.querySelectorAll('[data-catalog]').forEach(n=>n.href=`https://governorv.github.io/?lang=${lang}`);
  document.title=metadata[lang].title;document.querySelector('meta[name="description"]').content=metadata[lang].description;
