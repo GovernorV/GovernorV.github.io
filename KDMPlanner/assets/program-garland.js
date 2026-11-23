@@ -1,0 +1,305 @@
+(() => {
+  "use strict";
+
+  const BASE = "https://governorv.github.io";
+  const STYLE_ID = "pt-program-garland-style";
+  const GARLAND_ID = "pt-program-garland";
+
+  const PRODUCTS = {
+    "kdm-planner": {title:{ru:"Планировщик КДМ",en:"Board Machine Planner"},icon:"/KDMPlanner/assets/app-icon.png",url:{ru:"/KDMPlanner/?lang=ru",en:"/KDMPlanner/?lang=en"}},
+    "rotary-machine": {title:{ru:"Ротационный станок",en:"Rotary Machine"},icon:"/RotaryMachine/assets/icon.png",url:{ru:"/RotaryMachine/?lang=ru",en:"/RotaryMachine/?lang=en"}},
+    gratings: {title:{ru:"Самосборные решётки",en:"Self-assembly Dividers"},icon:"/gratings/assets/app-icon.png",url:{ru:"/gratings/",en:"/gratings/?lang=en"}},
+    prs: {title:{ru:"Раскройщик ПРС",en:"PRS Cutter"},icon:"/prs/assets/app-icon.png",url:{ru:"/prs/",en:"/prs/?lang=en"}},
+    rollslitter: { title: {ru: "Раскройщик рулонов", en: "Roll Slitter"}, icon: "/rollslitter/assets/app-icon.png", url: {ru: "/rollslitter/", en: "/rollslitter/?lang=en"} },
+    composer: { title: {ru: "Композитор", en: "Composer"}, icon: "/composer/assets/app-icon.png", url: {ru: "/composer/", en: "/composer/?lang=en"} },
+    limitload: { title: {ru: "Предельная нагрузка", en: "Ultimate Load"}, icon: "/limitload/assets/app-icon.png", url: {ru: "/limitload/", en: "/limitload/?lang=en"} },
+    knifemeter: { title: {ru: "Ножемер", en: "KnifeMeter"}, icon: "/knifemeter/assets/app-icon.png", url: {ru: "/knifemeter/", en: "/knifemeter/?lang=en"} },
+    packsizer: {
+      title: { ru: "Развесчик", en: "PackSizer" },
+      icon: "/assets/icons/packsize.png",
+      url: { ru: "/PackSizer/", en: "/PackSizer/en.html" }
+    },
+    optcutting: {
+      title: { ru: "Раскройщик", en: "OptCutting" },
+      icon: "/assets/icons/optcutting.png",
+      url: { ru: "/OptCutting/?lang=ru", en: "/OptCutting/?lang=en" }
+    },
+    optpacker: {
+      title: { ru: "Фасовщик", en: "Box Packing Optimizer" },
+      icon: "/assets/icons/fasovshik.png",
+      url: { ru: "/OptPacker/?lang=ru", en: "/OptPacker/?lang=en" }
+    },
+    gost914290: {
+      title: { ru: "Расчёт нагрузки", en: "GOST Load Calculator" },
+      icon: "/assets/icons/gost.png",
+      url: { ru: "/gost/?lang=ru", en: "/gost/?lang=en" }
+    },
+    boxpalletizer: {
+      title: { ru: "Паллетировщик", en: "Box Palletizer" },
+      icon: "/assets/icons/palletizer.png",
+      url: { ru: "/BoxPalletizer/#ru", en: "/BoxPalletizer/#en" }
+    },
+    truckloader: {
+      title: { ru: "TruckLoader", en: "TruckLoader" },
+      icon: "/assets/icons/truckloader.png",
+      url: { ru: "/truckloader-site/?lang=ru", en: "/truckloader-site/?lang=en" }
+    },
+    boxpricecalculator: {
+      title: { ru: "Калькулятор гофроящиков", en: "Box Price Calculator" },
+      icon: "/assets/icons/boxprice.png",
+      url: { ru: "/BoxPriceCalculator/#ru", en: "/BoxPriceCalculator/#en" }
+    },
+    standards: {
+      title: { ru: "Справочник ГОСТов", en: "GOST Standards Guide" },
+      icon: "/assets/icons/standards.jpg",
+      url: { ru: "/Standards/?lang=ru", en: "/Standards/?lang=en" }
+    },
+    platepalletizer: {
+      title: { ru: "Паллетировщик плит", en: "Sheet Palletizer" },
+      icon: "/assets/icons/platepalletizer.png",
+      url: { ru: "/palletizer-site/#ru", en: "/palletizer-site/#en" }
+    },
+    dbsearch: {
+      title: { ru: "Поисковик по базам", en: "Database Search Tool" },
+      icon: "/assets/icons/dbsearch.png",
+      url: { ru: "/DBSearch/#ru", en: "/DBSearch/#en" }
+    },
+    licman: {
+      title: { ru: "Менеджер лицензий", en: "License Manager" },
+      icon: "/assets/icons/licman.png",
+      url: { ru: "/Licman/#ru", en: "/Licman/#en" }
+    },
+    pojas: {
+      title: { ru: "ПОЯС", en: "POJAS" },
+      icon: "/assets/icons/pojas.png",
+      url: { ru: "/Pojas/?lang=ru", en: "/Pojas/?lang=en" }
+    },
+    bottleoptimizer: {
+      title: { ru: "Проектировщик бутылок", en: "Bottle Optimizer" },
+      icon: "/assets/icons/bottleoptimizer.png",
+      url: { ru: "/BottleOptimizer/?lang=ru", en: "/BottleOptimizer/?lang=en" }
+    },
+    gofrotechcard: {
+      title: { ru: "ГофроТехкарта", en: "Corrugated Box Tech Card" },
+      icon: "/assets/icons/techcard.png",
+      url: { ru: "/GofroTechCard/?lang=ru", en: "/GofroTechCard/?lang=en" }
+    },
+    boxtypes: {
+      title: { ru: "Конструктор типов ящиков", en: "Corrugated Box Type Designer" },
+      icon: "/assets/icons/boxtypes.png",
+      url: { ru: "/BoxTypes/?lang=ru", en: "/BoxTypes/?lang=en" }
+    },
+    unificator: {
+      title: { ru: "Унификатор гофроящиков", en: "Corrugated Box Unifier" },
+      icon: "/assets/icons/unificator.png",
+      url: { ru: "/Unificator/?lang=ru", en: "/Unificator/?lang=en" }
+    }
+  };
+
+  // BEGIN GENERATED PROGRAM ORDER
+  const GLOBAL_PROGRAM_ORDER = [
+    "boxpalletizer",
+    "boxpricecalculator",
+    "optcutting",
+    "rotary-machine",
+    "truckloader",
+    "gofrotechcard",
+    "optpacker",
+    "boxtypes",
+    "pojas",
+    "unificator",
+    "limitload",
+    "kdm-planner",
+    "prs",
+    "composer",
+    "rollslitter",
+    "knifemeter",
+    "gratings",
+    "packsizer",
+    "bottleoptimizer",
+    "platepalletizer",
+    "gost914290",
+    "standards",
+    "dbsearch",
+    "licman"
+  ];
+  // END GENERATED PROGRAM ORDER
+
+  const ROUTES = {
+    kdmplanner: "kdm-planner",
+    rotarymachine: "rotary-machine",
+    gratings: "gratings",
+    prs: "prs",
+    knifemeter: "knifemeter",
+    rollslitter: "rollslitter",
+    composer: "composer",
+    limitload: "limitload",
+    packsizer: "packsizer",
+    optcutting: "optcutting",
+    optpacker: "optpacker",
+    gost: "gost914290",
+    boxpalletizer: "boxpalletizer",
+    "truckloader-site": "truckloader",
+    boxpricecalculator: "boxpricecalculator",
+    standards: "standards",
+    "palletizer-site": "platepalletizer",
+    dbsearch: "dbsearch",
+    licman: "licman",
+    pojas: "pojas",
+    bottleoptimizer: "bottleoptimizer",
+    gofrotechcard: "gofrotechcard",
+    boxtypes: "boxtypes",
+    unificator: "unificator"
+  };
+
+  const PLACEMENT = {
+    "kdm-planner": {selector:"#top.hero-banner",last:false},
+    "rotary-machine": {selector:"#top.hero-banner",last:false},
+    gratings: {selector:".hero-banner",last:true},
+    prs: {selector:".hero-banner",last:true},
+    knifemeter: { selector: ".hero-banner", last: true },
+    rollslitter: { selector: ".hero-banner", last: true },
+    composer: { selector: ".hero-banner", last: true },
+    limitload: { selector: ".hero-banner", last: true },
+    packsizer: { selector: ".hero-banner", last: false },
+    optcutting: { selector: "section.hero", last: false },
+    optpacker: { selector: ".hero-banner", last: true },
+    gost914290: { selector: ".top-banner", last: false },
+    boxpalletizer: { selector: ".site-banner", last: false },
+    truckloader: { selector: ".banner", last: false },
+    boxpricecalculator: { selector: ".top-banner", last: false },
+    standards: { selector: "#hero", last: false },
+    platepalletizer: { selector: ".top-banner", last: false },
+    dbsearch: { selector: ".site-banner", last: false },
+    licman: { selector: "section.hero", last: false },
+    pojas: { selector: "section.hero", last: false },
+    bottleoptimizer: { selector: ".hero-image", last: true },
+    gofrotechcard: { selector: "#top.hero-banner", last: false },
+    boxtypes: { selector: "picture.top-banner", last: false },
+    unificator: { selector: ".hero-banner", last: true }
+  };
+
+  const route = window.location.pathname.split("/").filter(Boolean)[0]?.toLowerCase();
+  const isGostBundle = route === "gostbundle";
+  const isConsumerPro = route === "consumerpro";
+  const isConsumerBusiness = route === "consumerbusiness" || isConsumerPro;
+  const isConsumerStart = route === "consumerstart" || isConsumerBusiness;
+  const isProBundle = route === "pro";
+  const isBusinessBundle = route === "business" || isProBundle;
+  const isStartBundle = route === "start" || isBusinessBundle || isConsumerStart || isGostBundle;
+  const featuredIds = isGostBundle ? ["standards","gost914290"] : isConsumerPro ? ["unificator","boxpalletizer","optpacker","truckloader","limitload","gratings","packsizer","bottleoptimizer","boxpricecalculator"] : isConsumerBusiness ? ["unificator","boxpalletizer","optpacker","truckloader","limitload","gratings"] : isConsumerStart ? ["unificator","boxpalletizer","optpacker"] : isProBundle ? ["optcutting","boxpricecalculator","gofrotechcard","boxpalletizer","knifemeter","composer","prs","rollslitter","boxtypes","unificator","gratings","limitload","truckloader","rotary-machine"] : isBusinessBundle ? ["optcutting", "boxpricecalculator", "gofrotechcard", "boxpalletizer", "knifemeter", "composer"] : isStartBundle ? ["optcutting", "boxpricecalculator", "gofrotechcard"] : [];
+  const currentId = isStartBundle ? "optcutting" : (ROUTES[route] || document.documentElement.dataset.programId);
+  if (!currentId || !PRODUCTS[currentId]) return;
+
+  if (!document.getElementById(STYLE_ID)) {
+    const stylesheet = document.createElement("link");
+    stylesheet.id = STYLE_ID;
+    stylesheet.rel = "stylesheet";
+    stylesheet.href = BASE + "/assets/program-garland.css?v=20260913-1";
+    document.head.appendChild(stylesheet);
+  }
+
+  const placement = isStartBundle ? { selector: isGostBundle ? "#gost-bundle-banner" : isConsumerPro ? "#consumer-pro-banner" : isConsumerBusiness ? "#consumer-business-banner" : isConsumerStart ? "#consumer-start-banner" : isProBundle ? "#pro-banner" : isBusinessBundle ? "#business-banner" : "#start-banner", last: false } : PLACEMENT[currentId];
+  const anchors = document.querySelectorAll(placement.selector);
+  const anchor = placement.last ? anchors[anchors.length - 1] : anchors[0];
+  if (!anchor) return;
+
+  if (document.getElementById(GARLAND_ID)) return;
+
+  const nav = document.createElement("nav");
+  nav.id = GARLAND_ID;
+  nav.className = "pt-program-garland";
+  const track = document.createElement("div");
+  track.className = "pt-program-garland-track";
+  nav.appendChild(track);
+  anchor.insertAdjacentElement("afterend", nav);
+
+  let renderedLanguage = "";
+
+  function detectLanguage() {
+    const rootLanguage = document.documentElement.dataset.lang;
+    if (rootLanguage === "ru" || rootLanguage === "en") return rootLanguage;
+
+    const visibleMain = [...document.querySelectorAll("main[data-lang]")].find((main) => {
+      if (main.hidden || main.classList.contains("hidden")) return false;
+      return window.getComputedStyle(main).display !== "none";
+    });
+    const mainLanguage = visibleMain?.dataset.lang;
+    if (mainLanguage === "ru" || mainLanguage === "en") return mainLanguage;
+
+    const queryLanguage = new URLSearchParams(window.location.search).get("lang");
+    if (queryLanguage === "ru" || queryLanguage === "en") return queryLanguage;
+
+    const hashLanguage = window.location.hash.slice(1).toLowerCase();
+    if (hashLanguage === "ru" || hashLanguage === "en") return hashLanguage;
+
+    return (document.documentElement.lang || navigator.language || "ru").toLowerCase().startsWith("en") ? "en" : "ru";
+  }
+
+  function render() {
+    const language = detectLanguage();
+    if (language === renderedLanguage) return;
+    renderedLanguage = language;
+    nav.setAttribute("aria-label", language === "en" ? "Other PackTuning programs" : "Другие программы PackTuning");
+    track.replaceChildren();
+
+    const firstIds = isStartBundle ? featuredIds : [currentId];
+    const order = [...firstIds, ...GLOBAL_PROGRAM_ORDER.filter(id => !firstIds.includes(id))]
+      .filter(id => PRODUCTS[id]);
+    // Keep the requested KDM/PRS pair together, including the PRS and bundle pages.
+    if (order.includes("prs") && order.includes("kdm-planner")) {
+      order.splice(order.indexOf("kdm-planner"),1);order.splice(order.indexOf("prs"),0,"kdm-planner");
+    }
+    for (const id of order) {
+      const product = PRODUCTS[id];
+      if (!product) continue;
+
+      const link = document.createElement("a");
+      link.className = "pt-program-garland-item";
+      link.dataset.program = id;
+      link.href = BASE + product.url[language];
+      link.target = "_blank";
+      link.rel = "noopener";
+      link.title = product.title[language];
+      if (!isStartBundle && id === currentId) link.setAttribute("aria-current", "page");
+      if (featuredIds.includes(id)) link.classList.add("pt-bundle-featured");
+
+      const icon = document.createElement("img");
+      icon.className = "pt-program-garland-icon";
+      const iconPath = isConsumerPro && id === "gratings" ? "/gratings/assets/pro-icon.png" : isConsumerPro && id === "boxpricecalculator" ? "/assets/icons/boxprice-pro.png" : isConsumerBusiness && id === "boxpalletizer" ? "/assets/icons/palletizer-pro.png" : isConsumerBusiness && id === "optpacker" ? "/assets/icons/fasovshik-pro.png" : isProBundle && id === "boxpalletizer" ? "/assets/icons/palletizer-pro.png" : isProBundle && id === "knifemeter" ? "/knifemeter/assets/app-icon-pro.png" : isProBundle && id === "gratings" ? "/gratings/assets/pro-icon.png" : isBusinessBundle && id === "boxpricecalculator" ? "/assets/icons/boxprice-pro.png" : isBusinessBundle && id === "gofrotechcard" ? "/assets/icons/techcard-pro.png" : product.icon;
+      icon.src = (document.documentElement.dataset.programId === "kdm-planner" ? BASE : (["gratings", "composer", "rollslitter", "knifemeter"].includes(id) ? window.location.origin : BASE)) + iconPath;
+      icon.alt = "";
+      icon.width = (featuredIds.includes(id) || id === currentId) ? 72 : 48;
+      icon.height = (featuredIds.includes(id) || id === currentId) ? 72 : 48;
+      icon.loading = (featuredIds.includes(id) || id === currentId) ? "eager" : "lazy";
+
+      const label = document.createElement("span");
+      label.className = "pt-program-garland-label";
+      label.textContent = product.title[language];
+
+      link.append(icon, label);
+      track.appendChild(link);
+    }
+    track.scrollLeft = 0;
+  }
+
+  let renderQueued = false;
+  function queueRender() {
+    if (renderQueued) return;
+    renderQueued = true;
+    window.setTimeout(() => {
+      renderQueued = false;
+      render();
+    }, 0);
+  }
+
+  render();
+  window.addEventListener("hashchange", queueRender);
+  window.addEventListener("popstate", queueRender);
+  document.addEventListener("click", queueRender, true);
+  new MutationObserver(queueRender).observe(document.documentElement, {
+    subtree: true,
+    attributes: true,
+    attributeFilter: ["lang", "data-lang", "class", "hidden"]
+  });
+})();

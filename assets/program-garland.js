@@ -6,6 +6,7 @@
   const GARLAND_ID = "pt-program-garland";
 
   const PRODUCTS = {
+    "kdm-planner": {title:{ru:"Планировщик КДМ",en:"Board Machine Planner"},icon:"/KDMPlanner/assets/app-icon.png",url:{ru:"/KDMPlanner/?lang=ru",en:"/KDMPlanner/?lang=en"}},
     "rotary-machine": {title:{ru:"Ротационный станок",en:"Rotary Machine"},icon:"/RotaryMachine/assets/icon.png",url:{ru:"/RotaryMachine/?lang=ru",en:"/RotaryMachine/?lang=en"}},
     gratings: {title:{ru:"Самосборные решётки",en:"Self-assembly Dividers"},icon:"/gratings/assets/app-icon.png",url:{ru:"/gratings/",en:"/gratings/?lang=en"}},
     prs: {title:{ru:"Раскройщик ПРС",en:"PRS Cutter"},icon:"/prs/assets/app-icon.png",url:{ru:"/prs/",en:"/prs/?lang=en"}},
@@ -108,6 +109,7 @@
     "pojas",
     "unificator",
     "limitload",
+    "kdm-planner",
     "prs",
     "composer",
     "rollslitter",
@@ -124,6 +126,7 @@
   // END GENERATED PROGRAM ORDER
 
   const ROUTES = {
+    kdmplanner: "kdm-planner",
     rotarymachine: "rotary-machine",
     gratings: "gratings",
     prs: "prs",
@@ -150,6 +153,7 @@
   };
 
   const PLACEMENT = {
+    "kdm-planner": {selector:"#top.hero-banner",last:false},
     "rotary-machine": {selector:"#top.hero-banner",last:false},
     gratings: {selector:".hero-banner",last:true},
     prs: {selector:".hero-banner",last:true},
@@ -184,7 +188,7 @@
   const isBusinessBundle = route === "business" || isProBundle;
   const isStartBundle = route === "start" || isBusinessBundle || isConsumerStart || isGostBundle;
   const featuredIds = isGostBundle ? ["standards","gost914290"] : isConsumerPro ? ["unificator","boxpalletizer","optpacker","truckloader","limitload","gratings","packsizer","bottleoptimizer","boxpricecalculator"] : isConsumerBusiness ? ["unificator","boxpalletizer","optpacker","truckloader","limitload","gratings"] : isConsumerStart ? ["unificator","boxpalletizer","optpacker"] : isProBundle ? ["optcutting","boxpricecalculator","gofrotechcard","boxpalletizer","knifemeter","composer","prs","rollslitter","boxtypes","unificator","gratings","limitload","truckloader","rotary-machine"] : isBusinessBundle ? ["optcutting", "boxpricecalculator", "gofrotechcard", "boxpalletizer", "knifemeter", "composer"] : isStartBundle ? ["optcutting", "boxpricecalculator", "gofrotechcard"] : [];
-  const currentId = isStartBundle ? "optcutting" : ROUTES[route];
+  const currentId = isStartBundle ? "optcutting" : (ROUTES[route] || document.documentElement.dataset.programId);
   if (!currentId || !PRODUCTS[currentId]) return;
 
   if (!document.getElementById(STYLE_ID)) {
@@ -242,6 +246,10 @@
     const firstIds = isStartBundle ? featuredIds : [currentId];
     const order = [...firstIds, ...GLOBAL_PROGRAM_ORDER.filter(id => !firstIds.includes(id))]
       .filter(id => PRODUCTS[id]);
+    // Keep the requested KDM/PRS pair together, including the PRS and bundle pages.
+    if (order.includes("prs") && order.includes("kdm-planner")) {
+      order.splice(order.indexOf("kdm-planner"),1);order.splice(order.indexOf("prs"),0,"kdm-planner");
+    }
     for (const id of order) {
       const product = PRODUCTS[id];
       if (!product) continue;
@@ -259,7 +267,7 @@
       const icon = document.createElement("img");
       icon.className = "pt-program-garland-icon";
       const iconPath = isConsumerPro && id === "gratings" ? "/gratings/assets/pro-icon.png" : isConsumerPro && id === "boxpricecalculator" ? "/assets/icons/boxprice-pro.png" : isConsumerBusiness && id === "boxpalletizer" ? "/assets/icons/palletizer-pro.png" : isConsumerBusiness && id === "optpacker" ? "/assets/icons/fasovshik-pro.png" : isProBundle && id === "boxpalletizer" ? "/assets/icons/palletizer-pro.png" : isProBundle && id === "knifemeter" ? "/knifemeter/assets/app-icon-pro.png" : isProBundle && id === "gratings" ? "/gratings/assets/pro-icon.png" : isBusinessBundle && id === "boxpricecalculator" ? "/assets/icons/boxprice-pro.png" : isBusinessBundle && id === "gofrotechcard" ? "/assets/icons/techcard-pro.png" : product.icon;
-      icon.src = (["gratings", "composer", "rollslitter", "knifemeter"].includes(id) ? window.location.origin : BASE) + iconPath;
+      icon.src = (document.documentElement.dataset.programId === "kdm-planner" ? BASE : (["gratings", "composer", "rollslitter", "knifemeter"].includes(id) ? window.location.origin : BASE)) + iconPath;
       icon.alt = "";
       icon.width = (featuredIds.includes(id) || id === currentId) ? 72 : 48;
       icon.height = (featuredIds.includes(id) || id === currentId) ? 72 : 48;

@@ -146,6 +146,18 @@
   },
   {
     "title": {
+      "ru": "Планировщик КДМ",
+      "en": "Board Machine Planner"
+    },
+    "icon": "/KDMPlanner/assets/app-icon.png",
+    "url": {
+      "ru": "/KDMPlanner/?lang=ru",
+      "en": "/KDMPlanner/?lang=en"
+    },
+    "id": "kdm-planner"
+  },
+  {
+    "title": {
       "ru": "Композитор",
       "en": "Composer"
     },

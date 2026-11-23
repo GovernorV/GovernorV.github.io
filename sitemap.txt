@@ -34,3 +34,6 @@ https://governorv.github.io/ConsumerBusiness/
 https://governorv.github.io/ConsumerPro/
 https://governorv.github.io/GOSTBundle/
 https://governorv.github.io/RotaryMachine/
+
+https://governorv.github.io/KDMPlanner/
+https://governorv.github.io/KDMPlanner/?lang=en
