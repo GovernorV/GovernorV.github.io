@@ -52,7 +52,10 @@ write('prs/assets/programs.json', JSON.stringify(prsOrder.map(id => {
   const product = legacyById.get(id) || registry[id];
   return { ...product, id, ...(id === 'prs' ? {current: true} : {}) };
 }), null, 2) + '\n');
-const version = '20261022-global-' + crypto.createHash('sha256').update(JSON.stringify(order)).digest('hex').slice(0, 8);
+const version = '20261022-global-' + crypto.createHash('sha256')
+  .update(JSON.stringify(order))
+  .update(read('assets/program-garland.js').replace(/\r\n/g, '\n'))
+  .digest('hex').slice(0, 8);
 let pages = 0;
 function walk(dir) {
   for (const entry of fs.readdirSync(path.join(root, dir), {withFileTypes: true})) {

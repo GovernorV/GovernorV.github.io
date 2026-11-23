@@ -246,9 +246,10 @@
     const firstIds = isStartBundle ? featuredIds : [currentId];
     const order = [...firstIds, ...GLOBAL_PROGRAM_ORDER.filter(id => !firstIds.includes(id))]
       .filter(id => PRODUCTS[id]);
-    // Keep the requested KDM/PRS pair together, including the PRS and bundle pages.
-    if (order.includes("prs") && order.includes("kdm-planner")) {
-      order.splice(order.indexOf("kdm-planner"),1);order.splice(order.indexOf("prs"),0,"kdm-planner");
+    // On its own page KDM comes first. Elsewhere it stays immediately before PRS.
+    if ((isStartBundle || currentId !== "kdm-planner") && order.includes("prs") && order.includes("kdm-planner")) {
+      order.splice(order.indexOf("kdm-planner"), 1);
+      order.splice(order.indexOf("prs"), 0, "kdm-planner");
     }
     for (const id of order) {
       const product = PRODUCTS[id];

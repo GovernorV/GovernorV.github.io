@@ -32,10 +32,15 @@ for (const [route, current] of Object.entries(routes)) {
     vm.runInContext(source, context);
     const track = elements.get('pt-program-garland').children[0];
     const ids = () => track.children.map(link => link.dataset.program);
-    const order = [current, ...expected.filter(id => id !== current)];order.splice(order.indexOf('kdm-planner'),1);order.splice(order.indexOf('prs'),0,'kdm-planner');
+    const order = [current, ...expected.filter(id => id !== current)];
+    if (current === 'prs') {
+      order.splice(order.indexOf('kdm-planner'), 1);
+      order.unshift('kdm-planner');
+    }
     assert.deepEqual(ids(), order, route + ':' + lang);
-    assert.equal(track.children.find(link=>link.dataset.program===current).attributes['aria-current'], 'page');
-    assert.equal(track.children.find(link=>link.dataset.program===current).children[0].width, 72);
+    const activeLink = track.children[current === 'prs' ? 1 : 0];
+    assert.equal(activeLink.attributes['aria-current'], 'page');
+    assert.equal(activeLink.children[0].width, 72);
     for (const link of track.children) {
       assert.ok(link.href.startsWith('https://governorv.github.io/'));
       assert.equal(link.target, '_blank');
